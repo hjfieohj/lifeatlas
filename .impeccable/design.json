@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T19:11:02.078Z",
+  "title": "Design System: LifeAtlas Reimagined",
+  "extensions": {
+    "colorMeta": {
+      "forest": {
+        "role": "primary",
+        "displayName": "Forest",
+        "tonalRamp": [
+          "oklch(15.00% 0.04717 175.82)",
+          "oklch(26.43% 0.04717 175.82)",
+          "oklch(37.86% 0.04717 175.82)",
+          "oklch(49.29% 0.04717 175.82)",
+          "oklch(60.71% 0.04717 175.82)",
+          "oklch(72.14% 0.04717 175.82)",
+          "oklch(83.57% 0.04717 175.82)",
+          "oklch(95.00% 0.04717 175.82)"
+        ]
+      },
+      "forest-deep": {
+        "role": "primary",
+        "displayName": "Forest deep",
+        "tonalRamp": [
+          "oklch(15.00% 0.04249 178.08)",
+          "oklch(26.43% 0.04249 178.08)",
+          "oklch(37.86% 0.04249 178.08)",
+          "oklch(49.29% 0.04249 178.08)",
+          "oklch(60.71% 0.04249 178.08)",
+          "oklch(72.14% 0.04249 178.08)",
+          "oklch(83.57% 0.04249 178.08)",
+          "oklch(95.00% 0.04249 178.08)"
+        ]
+      },
+      "green": {
+        "role": "primary",
+        "displayName": "Green",
+        "tonalRamp": [
+          "oklch(15.00% 0.06377 170.02)",
+          "oklch(26.43% 0.06377 170.02)",
+          "oklch(37.86% 0.06377 170.02)",
+          "oklch(49.29% 0.06377 170.02)",
+          "oklch(60.71% 0.06377 170.02)",
+          "oklch(72.14% 0.06377 170.02)",
+          "oklch(83.57% 0.06377 170.02)",
+          "oklch(95.00% 0.06377 170.02)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.03409 168.69)",
+          "oklch(26.43% 0.03409 168.69)",
+          "oklch(37.86% 0.03409 168.69)",
+          "oklch(49.29% 0.03409 168.69)",
+          "oklch(60.71% 0.03409 168.69)",
+          "oklch(72.14% 0.03409 168.69)",
+          "oklch(83.57% 0.03409 168.69)",
+          "oklch(95.00% 0.03409 168.69)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.02461 158.04)",
+          "oklch(26.43% 0.02461 158.04)",
+          "oklch(37.86% 0.02461 158.04)",
+          "oklch(49.29% 0.02461 158.04)",
+          "oklch(60.71% 0.02461 158.04)",
+          "oklch(72.14% 0.02461 158.04)",
+          "oklch(83.57% 0.02461 158.04)",
+          "oklch(95.00% 0.02461 158.04)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.00801 98.88)",
+          "oklch(26.43% 0.00801 98.88)",
+          "oklch(37.86% 0.00801 98.88)",
+          "oklch(49.29% 0.00801 98.88)",
+          "oklch(60.71% 0.00801 98.88)",
+          "oklch(72.14% 0.00801 98.88)",
+          "oklch(83.57% 0.00801 98.88)",
+          "oklch(95.00% 0.00801 98.88)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "tonalRamp": [
+          "oklch(15.00% 0.00409 91.45)",
+          "oklch(26.43% 0.00409 91.45)",
+          "oklch(37.86% 0.00409 91.45)",
+          "oklch(49.29% 0.00409 91.45)",
+          "oklch(60.71% 0.00409 91.45)",
+          "oklch(72.14% 0.00409 91.45)",
+          "oklch(83.57% 0.00409 91.45)",
+          "oklch(95.00% 0.00409 91.45)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.01442 128.64)",
+          "oklch(26.43% 0.01442 128.64)",
+          "oklch(37.86% 0.01442 128.64)",
+          "oklch(49.29% 0.01442 128.64)",
+          "oklch(60.71% 0.01442 128.64)",
+          "oklch(72.14% 0.01442 128.64)",
+          "oklch(83.57% 0.01442 128.64)",
+          "oklch(95.00% 0.01442 128.64)"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.01265 126.37)",
+          "oklch(26.43% 0.01265 126.37)",
+          "oklch(37.86% 0.01265 126.37)",
+          "oklch(49.29% 0.01265 126.37)",
+          "oklch(60.71% 0.01265 126.37)",
+          "oklch(72.14% 0.01265 126.37)",
+          "oklch(83.57% 0.01265 126.37)",
+          "oklch(95.00% 0.01265 126.37)"
+        ]
+      },
+      "amber": {
+        "role": "semantic",
+        "displayName": "Amber",
+        "tonalRamp": [
+          "oklch(15.00% 0.09469 73.86)",
+          "oklch(26.43% 0.09469 73.86)",
+          "oklch(37.86% 0.09469 73.86)",
+          "oklch(49.29% 0.09469 73.86)",
+          "oklch(60.71% 0.09469 73.86)",
+          "oklch(72.14% 0.09469 73.86)",
+          "oklch(83.57% 0.09469 73.86)",
+          "oklch(95.00% 0.09469 73.86)"
+        ]
+      },
+      "amber-bg": {
+        "role": "semantic",
+        "displayName": "Amber background",
+        "tonalRamp": [
+          "oklch(15.00% 0.03220 87.29)",
+          "oklch(26.43% 0.03220 87.29)",
+          "oklch(37.86% 0.03220 87.29)",
+          "oklch(49.29% 0.03220 87.29)",
+          "oklch(60.71% 0.03220 87.29)",
+          "oklch(72.14% 0.03220 87.29)",
+          "oklch(83.57% 0.03220 87.29)",
+          "oklch(95.00% 0.03220 87.29)"
+        ]
+      },
+      "red": {
+        "role": "semantic",
+        "displayName": "Red",
+        "tonalRamp": [
+          "oklch(15.00% 0.11749 29.59)",
+          "oklch(26.43% 0.11749 29.59)",
+          "oklch(37.86% 0.11749 29.59)",
+          "oklch(49.29% 0.11749 29.59)",
+          "oklch(60.71% 0.11749 29.59)",
+          "oklch(72.14% 0.11749 29.59)",
+          "oklch(83.57% 0.11749 29.59)",
+          "oklch(95.00% 0.11749 29.59)"
+        ]
+      },
+      "red-bg": {
+        "role": "semantic",
+        "displayName": "Red background",
+        "tonalRamp": [
+          "oklch(15.00% 0.01723 35.34)",
+          "oklch(26.43% 0.01723 35.34)",
+          "oklch(37.86% 0.01723 35.34)",
+          "oklch(49.29% 0.01723 35.34)",
+          "oklch(60.71% 0.01723 35.34)",
+          "oklch(72.14% 0.01723 35.34)",
+          "oklch(83.57% 0.01723 35.34)",
+          "oklch(95.00% 0.01723 35.34)"
+        ]
+      },
+      "focus": {
+        "role": "semantic",
+        "displayName": "Focus",
+        "tonalRamp": [
+          "oklch(15.00% 0.11851 71.90)",
+          "oklch(26.43% 0.11851 71.90)",
+          "oklch(37.86% 0.11851 71.90)",
+          "oklch(49.29% 0.11851 71.90)",
+          "oklch(60.71% 0.11851 71.90)",
+          "oklch(72.14% 0.11851 71.90)",
+          "oklch(83.57% 0.11851 71.90)",
+          "oklch(95.00% 0.11851 71.90)"
+        ]
+      },
+      "primary-text": {
+        "role": "neutral",
+        "displayName": "Primary text",
+        "tonalRamp": [
+          "oklch(15.00% 0.00926 99.98)",
+          "oklch(26.43% 0.00926 99.98)",
+          "oklch(37.86% 0.00926 99.98)",
+          "oklch(49.29% 0.00926 99.98)",
+          "oklch(60.71% 0.00926 99.98)",
+          "oklch(72.14% 0.00926 99.98)",
+          "oklch(83.57% 0.00926 99.98)",
+          "oklch(95.00% 0.00926 99.98)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Primary hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.06104 166.69)",
+          "oklch(26.43% 0.06104 166.69)",
+          "oklch(37.86% 0.06104 166.69)",
+          "oklch(49.29% 0.06104 166.69)",
+          "oklch(60.71% 0.06104 166.69)",
+          "oklch(72.14% 0.06104 166.69)",
+          "oklch(83.57% 0.06104 166.69)",
+          "oklch(95.00% 0.06104 166.69)"
+        ]
+      },
+      "secondary-border": {
+        "role": "neutral",
+        "displayName": "Secondary border",
+        "tonalRamp": [
+          "oklch(15.00% 0.02001 135.84)",
+          "oklch(26.43% 0.02001 135.84)",
+          "oklch(37.86% 0.02001 135.84)",
+          "oklch(49.29% 0.02001 135.84)",
+          "oklch(60.71% 0.02001 135.84)",
+          "oklch(72.14% 0.02001 135.84)",
+          "oklch(83.57% 0.02001 135.84)",
+          "oklch(95.00% 0.02001 135.84)"
+        ]
+      },
+      "secondary-hover": {
+        "role": "neutral",
+        "displayName": "Secondary hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.01430 128.63)",
+          "oklch(26.43% 0.01430 128.63)",
+          "oklch(37.86% 0.01430 128.63)",
+          "oklch(49.29% 0.01430 128.63)",
+          "oklch(60.71% 0.01430 128.63)",
+          "oklch(72.14% 0.01430 128.63)",
+          "oklch(83.57% 0.01430 128.63)",
+          "oklch(95.00% 0.01430 128.63)"
+        ]
+      },
+      "danger-hover": {
+        "role": "semantic",
+        "displayName": "Danger hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.02898 33.68)",
+          "oklch(26.43% 0.02898 33.68)",
+          "oklch(37.86% 0.02898 33.68)",
+          "oklch(49.29% 0.02898 33.68)",
+          "oklch(60.71% 0.02898 33.68)",
+          "oklch(72.14% 0.02898 33.68)",
+          "oklch(83.57% 0.02898 33.68)",
+          "oklch(95.00% 0.02898 33.68)"
+        ]
+      },
+      "nav-text": {
+        "role": "neutral",
+        "displayName": "Navigation text",
+        "tonalRamp": [
+          "oklch(15.00% 0.02291 151.61)",
+          "oklch(26.43% 0.02291 151.61)",
+          "oklch(37.86% 0.02291 151.61)",
+          "oklch(49.29% 0.02291 151.61)",
+          "oklch(60.71% 0.02291 151.61)",
+          "oklch(72.14% 0.02291 151.61)",
+          "oklch(83.57% 0.02291 151.61)",
+          "oklch(95.00% 0.02291 151.61)"
+        ]
+      },
+      "nav-active-bg": {
+        "role": "neutral",
+        "displayName": "Navigation active background",
+        "tonalRamp": [
+          "oklch(15.00% 0.02576 118.89)",
+          "oklch(26.43% 0.02576 118.89)",
+          "oklch(37.86% 0.02576 118.89)",
+          "oklch(49.29% 0.02576 118.89)",
+          "oklch(60.71% 0.02576 118.89)",
+          "oklch(72.14% 0.02576 118.89)",
+          "oklch(83.57% 0.02576 118.89)",
+          "oklch(95.00% 0.02576 118.89)"
+        ]
+      },
+      "nav-active-text": {
+        "role": "neutral",
+        "displayName": "Navigation active text",
+        "tonalRamp": [
+          "oklch(15.00% 0.05334 168.62)",
+          "oklch(26.43% 0.05334 168.62)",
+          "oklch(37.86% 0.05334 168.62)",
+          "oklch(49.29% 0.05334 168.62)",
+          "oklch(60.71% 0.05334 168.62)",
+          "oklch(72.14% 0.05334 168.62)",
+          "oklch(83.57% 0.05334 168.62)",
+          "oklch(95.00% 0.05334 168.62)"
+        ]
+      },
+      "nav-hover": {
+        "role": "neutral",
+        "displayName": "Navigation hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.05177 170.66)",
+          "oklch(26.43% 0.05177 170.66)",
+          "oklch(37.86% 0.05177 170.66)",
+          "oklch(49.29% 0.05177 170.66)",
+          "oklch(60.71% 0.05177 170.66)",
+          "oklch(72.14% 0.05177 170.66)",
+          "oklch(83.57% 0.05177 170.66)",
+          "oklch(95.00% 0.05177 170.66)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Chinese page headings; 29px below the 640px breakpoint."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings; contextual variants remain in source."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Brief entry titles and compact section titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Root reading defaults; interface copy uses contextual smaller sizes."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Canonical compact button type."
+      }
+    },
+    "shadows": [
+      {
+        "name": "modal-toast",
+        "value": "0 16px 48px rgba(18,53,46,.16)",
+        "purpose": "Native confirmation dialog and toast."
+      },
+      {
+        "name": "selection-shelf",
+        "value": "0 6px 24px #173e3510",
+        "purpose": "Separates sticky selection actions from list content."
+      },
+      {
+        "name": "prepare-stack",
+        "value": "0 5px 14px #6a80531a",
+        "purpose": "Middle static prepare illustration layer."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-background",
+        "value": "background .15s",
+        "purpose": "Buttons and switch track; navigation also transitions color .15s."
+      },
+      {
+        "name": "switch-thumb",
+        "value": "transform .15s",
+        "purpose": "Moves thumb 15px into checked state."
+      },
+      {
+        "name": "toast",
+        "value": "opacity .2s, transform .2s",
+        "purpose": "Toast reveal from translate(-50%,15px) to translate(-50%,0)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1500px",
+        "query": "min-width"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1150px",
+        "query": "max-width"
+      },
+      {
+        "name": "single-column",
+        "value": "860px",
+        "query": "max-width"
+      },
+      {
+        "name": "mobile",
+        "value": "640px",
+        "query": "max-width"
+      }
+    ],
+    "focus": {
+      "value": "3px solid #b47b28",
+      "offset": "4px",
+      "purpose": "Global focus-visible outline; source search input overrides outline to none."
+    },
+    "reducedMotion": {
+      "query": "prefers-reduced-motion: reduce",
+      "behavior": "transition:none!important; animation:none!important; scroll-behavior:auto!important"
+    },
+    "provenance": {
+      "sources": [
+        "src/style.css",
+        "src/main.ts",
+        "../../PRODUCT.md",
+        "../../work/direction.md"
+      ],
+      "mode": "scan",
+      "visualAuthority": "Provisional developer recommendation; no permanent brand approval.",
+      "tonalRamps": "Synthesized OKLCH preview ramps derived from source colors. Not production tokens; out-of-sRGB colors may be gamut mapped by the browser.",
+      "reviewScope": "Ship verdict scores only select-all disabled behavior and text-contrast corrections. Initial desktop capture and responsive DOM checks exist. Final mobile screenshot is invalid coverage; no final mobile visual certification.",
+      "snippetScope": "Static self-contained HTML/CSS specimens; runtime selection, navigation, execution and modal focus behavior remain in main.ts. Var fallbacks allow isolated rendering while preserving inherited source variables where available."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Explicit next step; disabled when no eligible selection exists.",
+      "html": "<button class=\"ds-btn ds-primary\">查看并确认 <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-5-5 5 5-5 5\"/></svg></button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border-radius:7px;font:500 12px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;min-height:40px;border:1px solid transparent;white-space:nowrap;cursor:pointer;transition:background .15s}.ds-btn:disabled{cursor:not-allowed;opacity:.45}.ds-btn:focus-visible{outline:3px solid var(--focus,#b47b28);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-primary{color:var(--primary-text,#fffef7);background:var(--forest,#173e35)}.ds-primary:hover:not(:disabled){background:var(--primary-hover,#295947)}"
+    },
+    {
+      "name": "Subtle button",
+      "kind": "button",
+      "refersTo": "button-subtle",
+      "description": "Secondary action, including cancel, refresh and restore.",
+      "html": "<button class=\"ds-btn ds-subtle\">再看看</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border-radius:7px;font:500 12px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;min-height:40px;border:1px solid transparent;white-space:nowrap;cursor:pointer;transition:background .15s}.ds-btn:disabled{cursor:not-allowed;opacity:.45}.ds-btn:focus-visible{outline:3px solid var(--focus,#b47b28);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-subtle{background:var(--surface,#fffefb);color:var(--ink,#253d34);border-color:#d5ded1}.ds-subtle:hover:not(:disabled){background:#e9eee4}"
+    },
+    {
+      "name": "Danger button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Destructive local-demo reset, shown inside confirmation.",
+      "html": "<button class=\"ds-btn ds-danger\">清除并重置</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border-radius:7px;font:500 12px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;min-height:40px;border:1px solid transparent;white-space:nowrap;cursor:pointer;transition:background .15s}.ds-btn:disabled{cursor:not-allowed;opacity:.45}.ds-btn:focus-visible{outline:3px solid var(--focus,#b47b28);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-danger{color:var(--red,#923d32);background:var(--red-bg,#faebe7)}.ds-danger:hover{background:#f5dcd6}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Unboxed contextual action; smaller source links use the same family.",
+      "html": "<button class=\"ds-text\">查看待处理邮件 <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-5-5 5 5-5 5\"/></svg></button>",
+      "css": ".ds-text{display:inline-flex;align-items:center;gap:5px;padding:0;border:0;background:none;font:12px/1.65 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--green,#2d6251);cursor:pointer}.ds-text svg{width:13px;height:13px}.ds-text:hover{text-decoration:underline}.ds-text:focus-visible{outline:3px solid #b47b28;outline-offset:4px}"
+    },
+    {
+      "name": "Search field",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Mail search with native search input. Inner outline is removed in the source; no custom focus-within ring is implemented.",
+      "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"10\" cy=\"10\" r=\"6\"/><path d=\"m15 15 5 5\"/></svg><input type=\"search\" placeholder=\"搜索发件人或主题\" aria-label=\"搜索发件人或主题\"></label>",
+      "css": ".ds-search{display:flex;align-items:center;gap:8px;border:1px solid #d2ddce;background:var(--surface,#fffefb);padding:8px 11px;border-radius:7px;width:220px;margin-bottom:7px;color:var(--muted,#627268)}.ds-search input{border:0;background:transparent;outline:none;width:100%;min-width:0;font:11px/1.65 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--ink,#253d34);caret-color:var(--green,#2d6251)}.ds-search input::placeholder{color:#67756a}@media(max-width:1150px){.ds-search{width:auto;margin-bottom:16px}}"
+    },
+    {
+      "name": "Primary navigation",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "Four same-page routes; active page uses a filled pale state. Demo links preview styling only.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"主导航示例\"><a class=\"ds-nav-link ds-current\" aria-current=\"page\" href=\"#today\">今日</a><a class=\"ds-nav-link\" href=\"#mail\">邮箱整理</a><a class=\"ds-nav-link\" href=\"#history\">任务记录</a><a class=\"ds-nav-link\" href=\"#settings\">偏好设置</a></nav>",
+      "css": ".ds-nav{display:flex;flex-direction:column;gap:9px;background:var(--forest,#173e35);padding:24px;font:14px/1.65 'Microsoft YaHei','PingFang SC',system-ui,sans-serif}.ds-nav-link{display:flex;align-items:center;gap:13px;padding:12px 16px;border-radius:9px;color:#ccdbcf;text-decoration:none;transition:background .15s,color .15s}.ds-nav-link.ds-current{background:#e7ecd9;color:#1a4436;font-weight:600}.ds-nav-link:hover:not(.ds-current){background:#254e41;color:white}.ds-nav-link:focus-visible{outline:3px solid #b47b28;outline-offset:4px}@media(max-width:640px){.ds-nav{flex-direction:row;gap:4px;padding:19px 20px 0}.ds-nav-link{flex:1;flex-direction:column;gap:4px;padding:9px 5px;white-space:nowrap;min-width:0;font-size:10px;border-radius:7px 7px 0 0}}@media(prefers-reduced-motion:reduce){.ds-nav-link{transition:none}}"
+    },
+    {
+      "name": "Task state labels",
+      "kind": "chip",
+      "refersTo": "status-awaiting",
+      "description": "Informational spans; text identifies success, waiting/uncertainty and failure. No interactive state is present in the source.",
+      "html": "<div class=\"ds-states\"><span class=\"ds-status\">已完成</span><span class=\"ds-status ds-awaiting\">待确认</span><span class=\"ds-status ds-failed\">未完成</span></div>",
+      "css": ".ds-states{display:flex;gap:12px;flex-wrap:wrap}.ds-status{font:10px/1.65 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;padding:4px 9px;background:#eaf1e5;color:var(--green,#2d6251);border-radius:4px;white-space:nowrap}.ds-awaiting{background:var(--amber-bg,#f6ecd5);color:var(--amber,#805715)}.ds-failed{background:var(--red-bg,#faebe7);color:var(--red,#923d32)}"
+    },
+    {
+      "name": "Itemized task receipt",
+      "kind": "card",
+      "refersTo": "task-receipt",
+      "description": "Flat container with written task status, per-item results and a restore action. Fictional snippet; controls do not execute.",
+      "html": "<article class=\"ds-receipt\"><div class=\"ds-receipt-title\"><div><h2>归档演示邮件 · 1 封</h2><p>10/17 09:00 · 成功 1 封</p></div><span class=\"ds-receipt-state\">已完成</span></div><ul class=\"ds-receipt-items\"><li><span>示例订阅邮件</span><small>已从演示收件箱移出</small></li></ul><button class=\"ds-btn ds-subtle\">恢复已成功归档的邮件</button></article>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border-radius:7px;font:500 12px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;min-height:40px;border:1px solid transparent;white-space:nowrap;cursor:pointer;transition:background .15s}.ds-btn:disabled{cursor:not-allowed;opacity:.45}.ds-btn:focus-visible{outline:3px solid var(--focus,#b47b28);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-receipt{background:var(--surface,#fffefb);color:var(--ink,#253d34);padding:25px 28px;border-radius:var(--radius,14px);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;line-height:1.65}.ds-receipt-title{display:flex;align-items:center;gap:13px}.ds-receipt h2{margin:0;font-size:15px;font-weight:600}.ds-receipt p{font-size:10px;color:var(--muted,#627268);margin:4px 0 0}.ds-receipt-state{font-size:10px;padding:4px 9px;background:#eaf1e5;color:var(--green,#2d6251);border-radius:4px;margin-left:auto;white-space:nowrap}.ds-receipt-items{list-style:none;margin:22px 0 13px;padding:0}.ds-receipt-items li{display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid var(--line,#dfe4da);padding:11px 0;font-size:11px}.ds-receipt-items small{font-size:10px;color:var(--muted,#627268);text-align:right}.ds-subtle{background:var(--surface,#fffefb);color:var(--ink,#253d34);border-color:#d5ded1}.ds-subtle:hover:not(:disabled){background:#e9eee4}@media(max-width:640px){.ds-receipt{padding:21px 17px}.ds-receipt h2{font-size:13px}.ds-receipt-items li{display:block}.ds-receipt-items small{display:block;text-align:left;font-size:9px;margin-top:4px}}"
+    },
+    {
+      "name": "Selection shelf",
+      "kind": "custom",
+      "refersTo": "selection-shelf",
+      "description": "Sticky current-selection summary and review action. Empty-state preview reflects both disabled controls; actual eligibility is computed by main.ts.",
+      "html": "<div class=\"ds-shelf\"><label class=\"ds-select\"><input type=\"checkbox\" disabled>选择当前结果</label><span>已选 0 封</span><button class=\"ds-btn ds-primary\" disabled>查看并确认 <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m-5-5 5 5-5 5\"/></svg></button></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border-radius:7px;font:500 12px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;min-height:40px;border:1px solid transparent;white-space:nowrap;cursor:pointer;transition:background .15s}.ds-btn:disabled{cursor:not-allowed;opacity:.45}.ds-btn:focus-visible{outline:3px solid var(--focus,#b47b28);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-shelf{display:flex;align-items:center;gap:22px;background:var(--surface,#fffefb);color:var(--ink,#253d34);border:1px solid var(--line,#dfe4da);padding:16px 20px;border-radius:10px;margin-top:24px;position:sticky;bottom:18px;z-index:2;box-shadow:0 6px 24px #173e3510;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;line-height:1.65}.ds-select{display:flex;align-items:center;gap:9px;font-size:11px}.ds-select input{accent-color:var(--green,#2d6251);width:16px;height:16px;margin:0}.ds-select input:focus-visible{outline:3px solid #b47b28;outline-offset:4px}.ds-shelf>span{font-size:11px;color:var(--muted,#627268)}.ds-shelf>.ds-btn{margin-left:auto}.ds-primary{color:#fffef7;background:var(--forest,#173e35)}.ds-primary:hover:not(:disabled){background:#295947}@media(max-width:640px){.ds-shelf{padding:12px 13px;gap:10px;bottom:8px;margin-top:18px;flex-wrap:wrap}.ds-select,.ds-shelf>span{font-size:10px}.ds-shelf>.ds-btn{font-size:10px;padding:9px 12px}}"
+    },
+    {
+      "name": "Confirmation dialog",
+      "kind": "custom",
+      "refersTo": "confirmation-dialog",
+      "description": "Open native-dialog specimen with permission checkbox and itemized review. Production modal uses showModal; this static snippet does not wire confirmation, focus management, or cancellation.",
+      "html": "<dialog open class=\"ds-dialog\" aria-labelledby=\"ds-dialog-title\"><div class=\"ds-dialog-inner\"><h2 id=\"ds-dialog-title\">确认归档这些演示邮件？</h2><p>仅从演示收件箱移出，保留邮件与已读状态。</p><ul class=\"ds-confirm-list\"><li>示例订阅邮件</li></ul><label class=\"ds-permission\"><input type=\"checkbox\">允许本次本地演示操作（不连接真实 Gmail）</label><div class=\"ds-dialog-actions\"><button class=\"ds-btn ds-subtle\">再看看</button><button class=\"ds-btn ds-primary\" disabled>确认归档 1 封</button></div></div></dialog>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border-radius:7px;font:500 12px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;min-height:40px;border:1px solid transparent;white-space:nowrap;cursor:pointer;transition:background .15s}.ds-btn:disabled{cursor:not-allowed;opacity:.45}.ds-btn:focus-visible{outline:3px solid var(--focus,#b47b28);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-btn{transition:none}}.ds-dialog{position:relative;margin:0 auto;color:var(--ink,#253d34);background:var(--surface,#fffefb);border:0;border-radius:16px;box-shadow:var(--shadow,0 16px 48px rgba(18,53,46,.16));width:min(570px,calc(100% - 32px));max-height:85dvh;padding:0;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;line-height:1.65}.ds-dialog::backdrop{background:#102f2770;backdrop-filter:blur(2px)}.ds-dialog-inner{padding:30px}.ds-dialog h2{font-size:20px;font-weight:600;line-height:1.55;margin:0 0 16px}.ds-dialog p{font-size:12px;color:var(--muted,#627268);line-height:1.9;margin:0}.ds-confirm-list{list-style:none;margin:22px 0;padding:0;max-height:29dvh;overflow:auto}.ds-confirm-list li{padding:12px 0;border-top:1px solid var(--line,#dfe4da);font-size:12px}.ds-permission{display:flex;align-items:center;gap:9px;font-size:11px;padding:13px;background:var(--wash,#edf1e8);border-radius:7px}.ds-permission input{accent-color:var(--green,#2d6251);width:16px;height:16px;flex-shrink:0}.ds-permission input:focus-visible{outline:3px solid #b47b28;outline-offset:4px}.ds-dialog-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:25px}.ds-subtle{background:var(--surface,#fffefb);color:var(--ink,#253d34);border-color:#d5ded1}.ds-subtle:hover:not(:disabled){background:#e9eee4}.ds-primary{color:#fffef7;background:var(--forest,#173e35)}.ds-primary:hover:not(:disabled){background:#295947}@media(max-width:640px){.ds-dialog-inner{padding:24px 21px}.ds-dialog h2{font-size:17px}.ds-dialog p,.ds-confirm-list li{font-size:11px}.ds-permission{font-size:10px;align-items:flex-start}.ds-dialog-actions .ds-btn{font-size:11px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Quiet daily workspace (provisional description)",
+    "overview": "This is an extraction of the implemented prototype, not a permanent brand approval. The developer-recommended direction combines a warm mineral background, a deep-green navigation shell, and warm-white working surfaces. Serif Chinese page titles give a calm reading entry; compact sans-serif rows support decisions. Green and amber retain tentative continuity with the product plan.\n\nThe first user is the owner. The interface makes suggestions, selection, confirmation and itemized results visibly distinct. Atmosphere language here describes the current build and remains provisional. Token values document the implementation; they do not authorize a broader rebrand. Source evidence: `src/style.css`, `src/main.ts`, the workspace `PRODUCT.md`, and `work/direction.md`, extracted on 2026-10-17.\n\nReview evidence is limited: the finish reviewer returned **ship** for the two scored corrections, select-all disabled behavior and text contrast. An initial desktop screenshot and responsive DOM checks exist; the final mobile screenshot is invalid coverage. This document does not certify final mobile visuals, whole-surface accessibility, or fidelity to an approved comp.",
+    "keyCharacteristics": [
+      "Deep-green shell, warm-white work surfaces and ruled information rows.",
+      "Serif page titles with compact, neutral sans-serif reading text.",
+      "Explicit textual status, selection, confirmation and recovery affordances.",
+      "Flat working surfaces; lifted confirmation and transient feedback."
+    ],
+    "rules": [
+      {
+        "name": "The Textual State Rule",
+        "body": "Every consequential status has a written label; color is an additional cue.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do reuse the existing forest, warm-neutral and semantic state tokens.",
+      "Do pair consequential color states with explicit labels and item-level results.",
+      "Do preserve selection, review and confirmation as separate visible stages.",
+      "Do retain keyboard focus, native control semantics and reduced-motion support.",
+      "Do treat aesthetic interpretation as provisional and verify mobile visuals before claiming coverage."
+    ],
+    "donts": [
+      "Don't present tentative green/amber continuity as a user-approved permanent brand.",
+      "Don't turn the flat mail list into unrelated floating cards without a new design decision.",
+      "Don't use color alone to distinguish protected, pending, failed or uncertain states.",
+      "Don't infer working OAuth, live mail, scheduling or model processing from the prototype styling.",
+      "Don't treat generated sidecar tonal ramps as production tokens or claim whole-surface approval from the two-fix verdict."
+    ]
+  }
+}
