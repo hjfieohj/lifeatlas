@@ -239,6 +239,8 @@ Receipts preserve subjects and show per-item results with recoverable actions. T
 
 ### Feedback and Motion
 
+The real Gmail connection panel added during server integration reuses the settings Surface, semantic status labels and standard buttons. It is scoped to read-only setup and preview, with explicit unconfigured/loading/error/stale states; it does not change the visual identity. Actual mail uses larger reading text (14px desktop, 16px mobile) and long content wraps. This records an implemented component extension, not a new brand approval or a claim of real-account validation.
+
 Toasts fade and translate (0.2s) and remain visible for (4200ms). Hover backgrounds and switch states transition (0.15s); there is no entrance choreography. The reduced-motion query removes transitions/animations and resets smooth scrolling. Modal, toast, switch and shelf details are preserved in the sidecar because frontmatter cannot represent them fully.
 
 ## Do's and Don'ts

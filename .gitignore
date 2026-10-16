@@ -4,3 +4,9 @@ dist/
 !.env.example
 .impeccable/review/
 *.log
+.sites-runtime/
+.wrangler/
+.next/
+*.tsbuildinfo
+.dev.vars*
+.vinext/

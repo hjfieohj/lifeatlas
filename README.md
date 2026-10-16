@@ -11,18 +11,18 @@
 - 偏好设置：保存时间、时区、免打扰；演示连接、导出、清除重置。
 - 异常体验：在设置里选择部分失败或响应丢失，再执行一次整理；未知结果可核对，不能盲目重试。
 
-**所有邮件、分类和操作均为本地演示。** 没有连接真实 Gmail、模型、新闻源、用户登录、服务器数据库或后台调度。数据只保存在当前浏览器的 localStorage；正式账号的权限与隔离必须由服务端实现。不能把这个原型作为真实邮箱客户端上线。
+**简报、分类与归档操作仍为本地演示。** 已加入独立的真实 Gmail 只读服务端和设置入口，沿用 Sites 身份、D1 数据库及加密令牌存储。Google 配置尚未完成，真实账户联调未做；当前不会读取真实邮箱。真实读取结果只在设置页内存展示，不写入演示 localStorage，也不调用 AI。后台调度、真实归档与完整生产功能尚未实现。
 
 ## 本地运行
 
-要求 Node.js 22.12+（本次使用 24.13）及 npm。
+要求 Node.js 22.13+（本次使用 24.13）及 npm。正式工程已迁移到 Sites Vinext 服务端，保留原 TypeScript 界面。
 
 ```powershell
 npm ci
 npm run dev
 ```
 
-使用终端显示的本地 URL。生产静态构建：`npm run build`。领域测试：`npm test`（Node 22.18+ 的类型剥离；本次 Node 24.13 通过）。依赖版本由 package-lock.json 锁定。
+使用终端显示的本地 URL。服务端构建：`npm run build`；类型检查：`npm run typecheck`；测试：`npm test`（使用 Node 实验性 TypeScript 转换与内存 SQLite；本次 Node 24.13 通过）。依赖版本由 package-lock.json 锁定。
 
 ## 代码入口
 
@@ -31,7 +31,10 @@ npm run dev
 - `src/style.css`：响应式界面与设计令牌。
 - `tests/domain.test.ts`：关键授权与执行边界测试。
 - `docs/STARTUP.md`：复查结论、依赖事实、下一步工作及完成条件。
+- `server/` 与 `app/api/gmail/`：只读授权、用户隔离、加密存储、刷新、断开与受限读取。
+- `db/schema.ts` 与 `drizzle/`：连接及授权状态表，迁移由部署流程应用。
+- `docs/GOOGLE-SETUP.md`：下一步本人配置 Google 项目和安全运行时值的步骤。
 
 ## 下一步
 
-先由本人试走原型，记录不理解的地方，再配置独立 Google Cloud OAuth 项目。真实接入先只读、后归档，不把 ChatGPT 中的现有 Gmail 连接或浏览器登录态当成本产品凭证。不要把客户端密钥、访问令牌或真实邮件粘贴进聊天或提交代码。
+按 `docs/GOOGLE-SETUP.md` 完成独立 Google Cloud OAuth 配置后，做本人真实邮箱只读联调。真实接入先只读、后归档，不把 ChatGPT 中的现有 Gmail 连接或浏览器登录态当成本产品凭证。不要把客户端密钥、访问令牌或真实邮件粘贴进聊天或提交代码。
