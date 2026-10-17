@@ -44,26 +44,54 @@ export function createAtmosphere(host: HTMLElement, signal: AbortSignal) {
   function paint() {
     if (!ctx || !state.enabled || !width) return;
     ctx.clearRect(0, 0, width, height);
-    // Fine, sharp grains form broad currents rather than floating bokeh.
-    // Adjacent streams share a wave, gathering and unfolding like flowing water.
-    const bands = compact ? 22 : 30, grains = compact ? 40 : 76;
-    for (let band = 0; band < bands; band++) for (let i = 0; i < grains; i++) {
-      const n = band * 79 + i;
-      let x = ((i / grains + seed(band + 90) * .035 + time * .014) % 1) * (width + 80) - 40;
-      const phase = x / width * 5.8 - time * .18;
-      let y = (band / (bands - 1) * 1.36 - .18) * height
-        + Math.sin(phase + band * .11) * height * .14
-        + Math.sin(phase * .53 + band * .24 + time * .09) * height * .1
-        + (seed(n + 62) - .5) * 4;
+    // Three composed silk-like currents: a distant ridge, a folded middle
+    // passage and a low reflection. Deliberate negative space replaces noise.
+    const pigment = ctx.createLinearGradient(0, 0, width, height * .4);
+    pigment.addColorStop(0, cool); pigment.addColorStop(.54, water); pigment.addColorStop(1, warm);
+    ctx.fillStyle = pigment; ctx.strokeStyle = pigment;
+    const strands = compact ? 10 : 14, grains = compact ? 54 : 88;
+    function point(u: number, strand: number, river: number) {
+      let x = (u * 1.2 - .1) * width;
+      const swell = river === 0 ? .06 + .25 * u + .16 * Math.sin(u * 6 - time * .06)
+        : river === 1 ? .48 + .19 * u - .2 * Math.sin(u * 4.8 + .7 + time * .04)
+        : .86 - .25 * u + .15 * Math.sin(u * 5 + time * .05);
+      const spread = (.25 + Math.sin(u * Math.PI) ** 2) * height * .12;
+      const fold = Math.cos(u * 5.5 + river + time * .08);
+      let y = swell * height + strand * spread * fold;
       const dx = x - breeze.x, dy = y - breeze.y, distance = Math.hypot(dx, dy);
-      if (distance > 0 && distance < 140) {
-        const parting = (1 - distance / 140) * 14;
+      if (distance > 0 && distance < 150) {
+        const parting = (1 - distance / 150) * 10;
         x += dx / distance * parting; y += dy / distance * parting;
       }
-      const shimmer = .5 + .5 * Math.sin(phase * 1.8 + band * .35 + time * .36);
-      ctx.globalAlpha = .17 + shimmer * .38;
-      ctx.fillStyle = band % 9 === 0 ? warm : band % 3 === 0 ? water : cool;
-      ctx.beginPath(); ctx.arc(x, y, .65 + seed(n + 7) * .55, 0, Math.PI * 2); ctx.fill();
+      return { x, y };
+    }
+    // Translucent pigment gives each current a body, like a wash on paper.
+    for (let river = 0; river < 3; river++) {
+      ctx.globalAlpha = river === 0 ? .1 : .065; ctx.beginPath();
+      for (let i = 0; i <= 64; i++) { const p = point(i / 64, .64, river); if (!i) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); }
+      for (let i = 64; i >= 0; i--) { const p = point(i / 64, -.64, river); ctx.lineTo(p.x, p.y); }
+      ctx.closePath(); ctx.fill();
+    }
+    for (let river = 0; river < 3; river++) for (let s = 0; s < strands; s++) {
+      const strand = s / (strands - 1) - .5;
+      // Hairline contours hold the composition even between moving grains.
+      ctx.globalAlpha = river === 0 ? .27 : .18; ctx.lineWidth = .6;
+      ctx.beginPath();
+      for (let i = 0; i <= 64; i++) {
+        const p = point(i / 64, strand, river);
+        if (!i) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+      for (let i = 0; i < grains; i++) {
+        const n = river * 1709 + s * 97 + i;
+        if (seed(n + 5) < .14) continue;
+        const u = (i / grains + seed(s + river * 41) * .16 + time * (.009 + river * .002)) % 1;
+        const p = point(u, strand + (seed(n + 17) - .5) * .055, river);
+        const envelope = Math.sin(Math.PI * u) ** 2;
+        const gleam = .5 + .5 * Math.sin(u * 16 - time * .65 + river * 2);
+        ctx.globalAlpha = (.24 + envelope * .56) * (.55 + gleam * .45);
+        ctx.beginPath(); ctx.arc(p.x, p.y, .45 + seed(n + 7) * .75, 0, Math.PI * 2); ctx.fill();
+      }
     }
     ctx.globalAlpha = 1; paintNavigation();
   }

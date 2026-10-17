@@ -654,8 +654,8 @@
     "motion": [
       {
         "name": "particles",
-        "value": "One continuous sharp particle current: 30x76 desktop / 22x40 compact, radius .65-1.2px, 30/24fps, DPR caps 1.5/1.25, main bitmap <=2M pixels",
-        "purpose": "Navigation copies the same viewport coordinates and frame; background extends behind LifeAtlas, with no dust sprites or seeds."
+        "value": "Three composed silk-like currents: gradient pigment washes, .6px contours and .45-1.2px moving grains; 3x14x88 desktop / 3x10x54 compact before sparse omission",
+        "purpose": "A continuous landscape with negative space, sharing the same scene behind LifeAtlas and the workspace."
       },
       {
         "name": "particle-stop-rules",
