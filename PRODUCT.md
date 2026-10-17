@@ -9,16 +9,20 @@ web
 Delegated by the user on 2026-10-17: TypeScript Web application. The initial browser-local Vite prototype is now hosted in the supplied Sites Vinext/Cloudflare server starter. Existing UI is preserved; Sites supplies app identity and D1 supplies encrypted connection persistence. Google OAuth configuration and real-account validation remain pending. Jobs and real write actions remain separate gated work.
 
 ## Users
-The owner is the first real tester, reviewing a daily brief and organizing one personal Gmail account. Later recruitment is unvalidated.
+The owner is the first real tester, reviewing a daily brief, organizing one personal Gmail account, and observing their personal growth over time. Later recruitment is unvalidated.
 
 ## Product Purpose
 Turn scattered information into reviewable actions and reduce everyday administrative burden. The primary loop is brief → email suggestions → explicit selection and confirmation → archive results → restore when needed.
+
+User addition on 2026-10-17: support a longitudinal personal-growth loop, experience → observe → reflect/summarize → experiment → observe again. A topic preserves the present situation and desired direction, repeated dated experiences, feedback on prior attempts, changing interpretations, and cross-year comparisons. Earlier words remain inspectable through immutable content revisions. Growth is understood by the user rather than assigned a score.
 
 ## Operating Context
 Chinese interface, responsive desktop-first web. Quiet daily use, not a feed for maximizing engagement. One personal mailbox; default scan scope 7 days / 100 inbox messages. Local prototype uses fictional, explicitly labeled mail only.
 
 ## Capabilities and Constraints
 v0.1 scope: daily brief, protected mail, suggestions, confirmed archive, itemized results, recovery, history and preferences. These daily/archive actions remain demonstrative. An independent real Gmail readonly flow is implemented server-side; it is disabled until the owner configures Google credentials and encryption. No send, unsubscribe, trash, payment, travel booking, health or family permissions. No real model processing. Only readonly scope is requested; app reads remain bounded by server policy. Real email never enters demo localStorage.
+
+Personal growth is an independent implemented extension: real user-authored topics and observations persist in D1 by Sites user ID without Google setup. Dates of occurrence and recording are distinct. Topic/moment edits retain text versions and use optimistic concurrency; archive is reversible. Timeline and version history paginate; topic JSON export includes archived records and versions. Cloud storage is stated explicitly; no journal content in localStorage, AI calls, automatic psychological inference, scoring, reminders or streaks. Storage is server-side, not end-to-end encrypted. A maximum of 100 topics per account includes archived topics; individual topics can carry ongoing records across years. Full account erasure and import remain later work.
 
 ## Brand Commitments
 LifeAtlas Reimagined / 生活全图. Existing planning document uses deep green and warm amber; preserve those as a tentative continuity choice, not a user-approved permanent brand system. Plain Chinese, calm and concrete, no inflated claims.
