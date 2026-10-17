@@ -31,10 +31,10 @@ export function mountAppearance() {
   const atmosphere = document.createElement('div');
   atmosphere.className = 'life-atmosphere';
   atmosphere.setAttribute('aria-hidden', 'true');
-  // Stable positions and long independent periods keep the field quiet.
-  for (let i = 0; i < 32; i++) {
+  // Independent drift and slow breathing keep the selected firefly field calm.
+  for (let i = 0; i < 48; i++) {
     const dot = document.createElement('i');
-    dot.style.cssText = `--x:${(i * 37 + 11) % 100}%;--y:${(i * 61 + 7) % 100}%;--duration:${78 + (i * 13) % 53}s;--delay:-${i * 7}s;--size:${i % 5 === 0 ? 3 : 2}px`;
+    dot.style.cssText = `--x:${(i * 37 + 11) % 100}%;--y:${(i * 61 + 7) % 100}%;--duration:${28 + (i * 13) % 25}s;--breath:${9 + (i * 7) % 11}s;--delay:-${i * 7}s;--size:${2 + (i % 3)}px;--sway:${16 + (i * 11) % 27}px`;
     atmosphere.appendChild(dot);
   }
   document.body.insertBefore(atmosphere, document.body.firstChild);

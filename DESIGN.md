@@ -202,7 +202,7 @@ Observatory uses a 235px topic/context rail beside the reading surface; its next
 
 Panels use the skin’s ambient shadow: Island `0 14px 44px #314a7320`, Observatory `0 14px 44px #29435516`. White reading surfaces stay opaque over the decorative lake and particles. The independently generated `/images/dawn-lake.webp` (52,390 bytes) is atmosphere, not a personal photo or a crop from the approved interface references. Its provenance sidecar accompanies the asset; the asset scan found one shipping raster and no missing provenance.
 
-Particles are 32 stable 2–3px dots, opacity .4, drifting from (-18px,12px) to (22px,-25px) with independent 78–130s linear alternate periods and negative delays. At <=640px only the first 16 remain visible. The user can hide them; typing, a hidden document or reduced-motion preference pauses them, and reduced motion removes animation. Navigation has no transition. Buttons/switches retain 150ms transitions and toast uses 200ms; the global reduced-motion rule removes transitions and animations.
+The selected Firefly atmosphere uses 48 stable 2–4px points with a small soft light falloff. Independent 28–52s eased drift and 9–19s opacity breathing (.16–.66) avoid synchronized pulses; negative delays distribute the phases. At <=640px only 24 remain visible. Opaque reading panels cover the field. The user can hide it; typing or a hidden document pauses both animations, and reduced motion removes animation with static opacity .4. Skin changes preserve the same particles and live input. Navigation has no transition. Buttons/switches retain 150ms transitions and toast uses 200ms; the global reduced-motion rule removes transitions and animations.
 
 ## Shapes
 

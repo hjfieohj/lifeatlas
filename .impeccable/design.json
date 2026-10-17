@@ -654,7 +654,7 @@
     "motion": [
       {
         "name": "particles",
-        "value": "atlas-drift 78–130s linear infinite alternate; 32 dots, 2–3px, opacity .4",
+        "value": "atlas-drift 28–52s ease-in-out alternate plus atlas-breathe 9–19s; 48 points, 2–4px, opacity .16–.66; 24 points at <=640px",
         "purpose": "translate3d(-18px,12px,0) to translate3d(22px,-25px,0); stable positions and negative delays; <=640px keeps 16 dots."
       },
       {

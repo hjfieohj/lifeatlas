@@ -25,10 +25,12 @@ input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
 :focus-visible,.switch input:focus-visible+span{outline-color:var(--focus)}
 ::-webkit-scrollbar-thumb{background:var(--secondary-border)}
 .life-atmosphere{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;contain:strict}
-.life-atmosphere i{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:var(--particle);opacity:var(--particle-opacity);animation:atlas-drift var(--duration) linear var(--delay) infinite alternate}
+.life-atmosphere i{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:var(--particle);opacity:var(--particle-opacity);animation:atlas-drift var(--duration) ease-in-out var(--delay) infinite alternate,atlas-breathe var(--breath) ease-in-out var(--delay) infinite alternate}
+.life-atmosphere i::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:radial-gradient(circle,var(--particle),transparent 70%);opacity:.32}
 .life-atmosphere[data-paused="true"] i{animation-play-state:paused}
 .life-atmosphere[hidden]{display:none}
-@keyframes atlas-drift{from{transform:translate3d(-18px,12px,0)}to{transform:translate3d(22px,-25px,0)}}
+@keyframes atlas-drift{0%{transform:translate3d(calc(-1 * var(--sway)),16px,0)}50%{transform:translate3d(8px,-14px,0)}100%{transform:translate3d(var(--sway),-38px,0)}}
+@keyframes atlas-breathe{from{opacity:.16}to{opacity:.66}}
 .sidebar{width:214px;background:var(--nav);color:var(--ink);padding:30px 16px 22px;border-right:1px solid var(--line)}
 .brand{font-family:'Microsoft YaHei','PingFang SC',sans-serif;font-size:23px;font-weight:600;gap:8px}
 .brand-mark{color:var(--green);width:34px}.brand small{color:var(--muted);font-size:12px;letter-spacing:.07em;font-weight:400}
@@ -272,7 +274,7 @@ dialog::backdrop{background:#152b4590}
  .appearance-section .appearance-controls{align-items:flex-start;flex-direction:column;gap:8px}
  .appearance-section .skin-control select{font-size:14px}
  footer{padding:20px 16px;gap:12px;flex-wrap:wrap}
- .life-atmosphere i:nth-child(n+17){display:none}
+ .life-atmosphere i:nth-child(n+25){display:none}
 }
 @media(max-width:560px){.growth-compare{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.life-atmosphere i{animation:none}}
