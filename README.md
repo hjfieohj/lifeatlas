@@ -16,15 +16,18 @@
 
 ## 皮肤与动态
 
-顶部栏或「偏好设置 → 外观与动态」可切换三套皮肤，两处控件同步：
+顶部栏、宽屏对页导航栏或「偏好设置 → 外观与动态」可切换两套皮肤，控件同步：
 
-- 晨光 · 生活静室（Daylight，默认）：冷白与青色，留白阅读空间。
-- 星夜 · 成长轨迹（Orbit）：海军蓝与浅青，成长记录增加日期轨迹。
-- 石墨 · 生活舱（Habitat）：石墨与砂色；宽度 1051px 起使用横向导航。
+- 光屿工作台（`island`，默认）：浅蓝与白色、清晨湖景；桌面竖向导航，连续记录旁呈现下一步尝试。
+- 对页观察室（`observatory`）：炭灰导航、冷暖对照；1200px 起使用横向导航，成长主题旁有现状与方向及湖景小窗。首次进入成长页默认前后对照。
 
-切换皮肤保留当前未保存输入、焦点与滚动位置。「粒子动态」可单独开关；输入文字、切到后台或系统启用减少动态时暂停。偏好仅以 `lifeatlas-appearance-v1` 保存在当前浏览器，不包含成长正文；浏览器拒绝存储时，本次切换仍生效，设置页会提示未保存。
+之后切换皮肤只更新 CSS，保留当前视图、未保存输入、焦点与滚动位置。「粒子动态」可独立开关；文字输入、页面隐藏或系统启用减少动态时暂停，减少动态时不播放动画。1050px 及以下成长布局变为单栏；640px 及以下保留五个导航入口；560px 及以下对照纵向排列。
 
-设计令牌见 `DESIGN.md`；补充阴影、动态、断点和组件示例见 `.impeccable/design.json`。三套皮肤替代旧森林绿默认。独立评审 SHIP 的视觉证据限实际约 718×550px 设置/共享外壳；390px、1440px 为 DOM 无横向溢出与五个导航可见检查，移动和宽屏视觉尚未认证。评审截图在 `.impeccable/review/skins-{daylight,orbit,habitat}-user.png`，不是发布资产。
+偏好沿用当前浏览器的 `lifeatlas-appearance-v1` 键，保存结构升级为 `{version:2, skin:'island'|'observatory', particles:boolean}`。旧版 `version:1` 的 `daylight`、`orbit`、`habitat` 均迁移到 `island`，保留粒子开关；无效或缺失偏好回到 Island、粒子开启。迁移后的值在下次保存外观时写入。旧三套皮肤已退出选择器和规范调色板。浏览器拒绝存储时，本次切换仍生效，设置页提示未保存。外观偏好不包含成长正文，云端 D1／本地数据库记录不受影响。
+
+设计令牌见 `DESIGN.md`；阴影、动态、断点和自包含组件示例见 `.impeccable/design.json`。`public/images/dawn-lake.webp`（52,390 bytes）为独立生成的装饰湖景，附有来源侧车；没有裁切参考界面，也没有把参考图中的照片、数量、分类或 AI 分析当作个人数据。
+
+独立评审为 SHIP，未发现实质回归。视觉证据限实际 636×534px 应用内浏览器画面；390px、1440px 的两皮肤 × 五路由 DOM 检查显示无横向溢出且有五个导航入口。模拟截图出现裁切／拼接问题，不能据此认证完整桌面还原或移动端视觉。有效截图在 `.impeccable/review/replacement-island-top.png`、`replacement-island-records.png`、`replacement-observatory-top.png`、`replacement-observatory-compare.png`、`replacement-settings.png`；它们不是发布资产。
 
 ## 本地运行
 

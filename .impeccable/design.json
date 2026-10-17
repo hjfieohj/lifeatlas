@@ -1,152 +1,40 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-17T13:41:02.713009+00:00",
-  "title": "Design System: LifeAtlas Reimagined",
+  "generatedAt": "2026-10-17T15:59:53.412105+00:00",
+  "title": "Design System: LifeAtlas",
   "extensions": {
     "colorMeta": {
-      "daylight-paper": {
+      "island-paper": {
         "role": "neutral",
-        "displayName": "Daylight Paper",
+        "displayName": "Island Paper",
         "tonalRamp": [
-          "oklch(15.00% 0.00759 207.14)",
-          "oklch(26.43% 0.00759 207.14)",
-          "oklch(37.86% 0.00759 207.14)",
-          "oklch(49.29% 0.00759 207.14)",
-          "oklch(60.71% 0.00759 207.14)",
-          "oklch(72.14% 0.00759 207.14)",
-          "oklch(83.57% 0.00759 207.14)",
-          "oklch(95.00% 0.00759 207.14)"
+          "oklch(15.00% 0.01733 264.49)",
+          "oklch(26.43% 0.01733 264.49)",
+          "oklch(37.86% 0.01733 264.49)",
+          "oklch(49.29% 0.01733 264.49)",
+          "oklch(60.71% 0.01733 264.49)",
+          "oklch(72.14% 0.01733 264.49)",
+          "oklch(83.57% 0.01733 264.49)",
+          "oklch(95.00% 0.01733 264.49)"
         ]
       },
-      "daylight-nav": {
+      "island-nav": {
         "role": "neutral",
-        "displayName": "Daylight Nav",
+        "displayName": "Island Nav",
         "tonalRamp": [
-          "oklch(15.00% 0.00425 197.09)",
-          "oklch(26.43% 0.00425 197.09)",
-          "oklch(37.86% 0.00425 197.09)",
-          "oklch(49.29% 0.00425 197.09)",
-          "oklch(60.71% 0.00425 197.09)",
-          "oklch(72.14% 0.00425 197.09)",
-          "oklch(83.57% 0.00425 197.09)",
-          "oklch(95.00% 0.00425 197.09)"
+          "oklch(15.00% 0.00697 268.55)",
+          "oklch(26.43% 0.00697 268.55)",
+          "oklch(37.86% 0.00697 268.55)",
+          "oklch(49.29% 0.00697 268.55)",
+          "oklch(60.71% 0.00697 268.55)",
+          "oklch(72.14% 0.00697 268.55)",
+          "oklch(83.57% 0.00697 268.55)",
+          "oklch(95.00% 0.00697 268.55)"
         ]
       },
-      "daylight-surface": {
+      "island-surface": {
         "role": "neutral",
-        "displayName": "Daylight Surface",
-        "tonalRamp": [
-          "oklch(15.00% 0.00212 197.12)",
-          "oklch(26.43% 0.00212 197.12)",
-          "oklch(37.86% 0.00212 197.12)",
-          "oklch(49.29% 0.00212 197.12)",
-          "oklch(60.71% 0.00212 197.12)",
-          "oklch(72.14% 0.00212 197.12)",
-          "oklch(83.57% 0.00212 197.12)",
-          "oklch(95.00% 0.00212 197.12)"
-        ]
-      },
-      "daylight-ink": {
-        "role": "neutral",
-        "displayName": "Daylight Ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.03549 225.38)",
-          "oklch(26.43% 0.03549 225.38)",
-          "oklch(37.86% 0.03549 225.38)",
-          "oklch(49.29% 0.03549 225.38)",
-          "oklch(60.71% 0.03549 225.38)",
-          "oklch(72.14% 0.03549 225.38)",
-          "oklch(83.57% 0.03549 225.38)",
-          "oklch(95.00% 0.03549 225.38)"
-        ]
-      },
-      "daylight-muted": {
-        "role": "neutral",
-        "displayName": "Daylight Muted",
-        "tonalRamp": [
-          "oklch(15.00% 0.03159 229.78)",
-          "oklch(26.43% 0.03159 229.78)",
-          "oklch(37.86% 0.03159 229.78)",
-          "oklch(49.29% 0.03159 229.78)",
-          "oklch(60.71% 0.03159 229.78)",
-          "oklch(72.14% 0.03159 229.78)",
-          "oklch(83.57% 0.03159 229.78)",
-          "oklch(95.00% 0.03159 229.78)"
-        ]
-      },
-      "daylight-line": {
-        "role": "neutral",
-        "displayName": "Daylight Line",
-        "tonalRamp": [
-          "oklch(15.00% 0.01663 221.10)",
-          "oklch(26.43% 0.01663 221.10)",
-          "oklch(37.86% 0.01663 221.10)",
-          "oklch(49.29% 0.01663 221.10)",
-          "oklch(60.71% 0.01663 221.10)",
-          "oklch(72.14% 0.01663 221.10)",
-          "oklch(83.57% 0.01663 221.10)",
-          "oklch(95.00% 0.01663 221.10)"
-        ]
-      },
-      "daylight-wash": {
-        "role": "neutral",
-        "displayName": "Daylight Wash",
-        "tonalRamp": [
-          "oklch(15.00% 0.01244 215.83)",
-          "oklch(26.43% 0.01244 215.83)",
-          "oklch(37.86% 0.01244 215.83)",
-          "oklch(49.29% 0.01244 215.83)",
-          "oklch(60.71% 0.01244 215.83)",
-          "oklch(72.14% 0.01244 215.83)",
-          "oklch(83.57% 0.01244 215.83)",
-          "oklch(95.00% 0.01244 215.83)"
-        ]
-      },
-      "daylight-green": {
-        "role": "primary",
-        "displayName": "Daylight Green",
-        "tonalRamp": [
-          "oklch(15.00% 0.06936 212.68)",
-          "oklch(26.43% 0.06936 212.68)",
-          "oklch(37.86% 0.06936 212.68)",
-          "oklch(49.29% 0.06936 212.68)",
-          "oklch(60.71% 0.06936 212.68)",
-          "oklch(72.14% 0.06936 212.68)",
-          "oklch(83.57% 0.06936 212.68)",
-          "oklch(95.00% 0.06936 212.68)"
-        ]
-      },
-      "daylight-forest": {
-        "role": "primary",
-        "displayName": "Daylight Forest",
-        "tonalRamp": [
-          "oklch(15.00% 0.06936 212.68)",
-          "oklch(26.43% 0.06936 212.68)",
-          "oklch(37.86% 0.06936 212.68)",
-          "oklch(49.29% 0.06936 212.68)",
-          "oklch(60.71% 0.06936 212.68)",
-          "oklch(72.14% 0.06936 212.68)",
-          "oklch(83.57% 0.06936 212.68)",
-          "oklch(95.00% 0.06936 212.68)"
-        ]
-      },
-      "daylight-forest-deep": {
-        "role": "primary",
-        "displayName": "Daylight Forest Deep",
-        "tonalRamp": [
-          "oklch(15.00% 0.05922 216.71)",
-          "oklch(26.43% 0.05922 216.71)",
-          "oklch(37.86% 0.05922 216.71)",
-          "oklch(49.29% 0.05922 216.71)",
-          "oklch(60.71% 0.05922 216.71)",
-          "oklch(72.14% 0.05922 216.71)",
-          "oklch(83.57% 0.05922 216.71)",
-          "oklch(95.00% 0.05922 216.71)"
-        ]
-      },
-      "daylight-accent-ink": {
-        "role": "neutral",
-        "displayName": "Daylight Accent Ink",
+        "displayName": "Island Surface",
         "tonalRamp": [
           "oklch(15.00% 0.00000 89.88)",
           "oklch(26.43% 0.00000 89.88)",
@@ -158,857 +46,729 @@
           "oklch(95.00% 0.00000 89.88)"
         ]
       },
-      "daylight-nav-active-bg": {
+      "island-ink": {
         "role": "neutral",
-        "displayName": "Daylight Nav Active Bg",
+        "displayName": "Island Ink",
         "tonalRamp": [
-          "oklch(15.00% 0.01688 215.46)",
-          "oklch(26.43% 0.01688 215.46)",
-          "oklch(37.86% 0.01688 215.46)",
-          "oklch(49.29% 0.01688 215.46)",
-          "oklch(60.71% 0.01688 215.46)",
-          "oklch(72.14% 0.01688 215.46)",
-          "oklch(83.57% 0.01688 215.46)",
-          "oklch(95.00% 0.01688 215.46)"
+          "oklch(15.00% 0.07568 261.64)",
+          "oklch(26.43% 0.07568 261.64)",
+          "oklch(37.86% 0.07568 261.64)",
+          "oklch(49.29% 0.07568 261.64)",
+          "oklch(60.71% 0.07568 261.64)",
+          "oklch(72.14% 0.07568 261.64)",
+          "oklch(83.57% 0.07568 261.64)",
+          "oklch(95.00% 0.07568 261.64)"
         ]
       },
-      "daylight-secondary-border": {
+      "island-muted": {
         "role": "neutral",
-        "displayName": "Daylight Secondary Border",
+        "displayName": "Island Muted",
         "tonalRamp": [
-          "oklch(15.00% 0.02296 221.87)",
-          "oklch(26.43% 0.02296 221.87)",
-          "oklch(37.86% 0.02296 221.87)",
-          "oklch(49.29% 0.02296 221.87)",
-          "oklch(60.71% 0.02296 221.87)",
-          "oklch(72.14% 0.02296 221.87)",
-          "oklch(83.57% 0.02296 221.87)",
-          "oklch(95.00% 0.02296 221.87)"
+          "oklch(15.00% 0.06686 259.40)",
+          "oklch(26.43% 0.06686 259.40)",
+          "oklch(37.86% 0.06686 259.40)",
+          "oklch(49.29% 0.06686 259.40)",
+          "oklch(60.71% 0.06686 259.40)",
+          "oklch(72.14% 0.06686 259.40)",
+          "oklch(83.57% 0.06686 259.40)",
+          "oklch(95.00% 0.06686 259.40)"
         ]
       },
-      "daylight-focus": {
+      "island-line": {
+        "role": "neutral",
+        "displayName": "Island Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.02384 262.09)",
+          "oklch(26.43% 0.02384 262.09)",
+          "oklch(37.86% 0.02384 262.09)",
+          "oklch(49.29% 0.02384 262.09)",
+          "oklch(60.71% 0.02384 262.09)",
+          "oklch(72.14% 0.02384 262.09)",
+          "oklch(83.57% 0.02384 262.09)",
+          "oklch(95.00% 0.02384 262.09)"
+        ]
+      },
+      "island-wash": {
+        "role": "neutral",
+        "displayName": "Island Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.01733 264.49)",
+          "oklch(26.43% 0.01733 264.49)",
+          "oklch(37.86% 0.01733 264.49)",
+          "oklch(49.29% 0.01733 264.49)",
+          "oklch(60.71% 0.01733 264.49)",
+          "oklch(72.14% 0.01733 264.49)",
+          "oklch(83.57% 0.01733 264.49)",
+          "oklch(95.00% 0.01733 264.49)"
+        ]
+      },
+      "island-green": {
         "role": "primary",
-        "displayName": "Daylight Focus",
+        "displayName": "Island Green",
         "tonalRamp": [
-          "oklch(15.00% 0.06936 212.68)",
-          "oklch(26.43% 0.06936 212.68)",
-          "oklch(37.86% 0.06936 212.68)",
-          "oklch(49.29% 0.06936 212.68)",
-          "oklch(60.71% 0.06936 212.68)",
-          "oklch(72.14% 0.06936 212.68)",
-          "oklch(83.57% 0.06936 212.68)",
-          "oklch(95.00% 0.06936 212.68)"
+          "oklch(15.00% 0.19407 264.78)",
+          "oklch(26.43% 0.19407 264.78)",
+          "oklch(37.86% 0.19407 264.78)",
+          "oklch(49.29% 0.19407 264.78)",
+          "oklch(60.71% 0.19407 264.78)",
+          "oklch(72.14% 0.19407 264.78)",
+          "oklch(83.57% 0.19407 264.78)",
+          "oklch(95.00% 0.19407 264.78)"
         ]
       },
-      "daylight-particle": {
+      "island-forest": {
         "role": "primary",
-        "displayName": "Daylight Particle",
+        "displayName": "Island Forest",
         "tonalRamp": [
-          "oklch(15.00% 0.06912 215.25)",
-          "oklch(26.43% 0.06912 215.25)",
-          "oklch(37.86% 0.06912 215.25)",
-          "oklch(49.29% 0.06912 215.25)",
-          "oklch(60.71% 0.06912 215.25)",
-          "oklch(72.14% 0.06912 215.25)",
-          "oklch(83.57% 0.06912 215.25)",
-          "oklch(95.00% 0.06912 215.25)"
+          "oklch(15.00% 0.19407 264.78)",
+          "oklch(26.43% 0.19407 264.78)",
+          "oklch(37.86% 0.19407 264.78)",
+          "oklch(49.29% 0.19407 264.78)",
+          "oklch(60.71% 0.19407 264.78)",
+          "oklch(72.14% 0.19407 264.78)",
+          "oklch(83.57% 0.19407 264.78)",
+          "oklch(95.00% 0.19407 264.78)"
         ]
       },
-      "daylight-amber": {
-        "role": "semantic",
-        "displayName": "Daylight Amber",
-        "tonalRamp": [
-          "oklch(15.00% 0.07977 71.47)",
-          "oklch(26.43% 0.07977 71.47)",
-          "oklch(37.86% 0.07977 71.47)",
-          "oklch(49.29% 0.07977 71.47)",
-          "oklch(60.71% 0.07977 71.47)",
-          "oklch(72.14% 0.07977 71.47)",
-          "oklch(83.57% 0.07977 71.47)",
-          "oklch(95.00% 0.07977 71.47)"
-        ]
-      },
-      "daylight-amber-bg": {
-        "role": "semantic",
-        "displayName": "Daylight Amber Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.02461 83.42)",
-          "oklch(26.43% 0.02461 83.42)",
-          "oklch(37.86% 0.02461 83.42)",
-          "oklch(49.29% 0.02461 83.42)",
-          "oklch(60.71% 0.02461 83.42)",
-          "oklch(72.14% 0.02461 83.42)",
-          "oklch(83.57% 0.02461 83.42)",
-          "oklch(95.00% 0.02461 83.42)"
-        ]
-      },
-      "daylight-red": {
-        "role": "semantic",
-        "displayName": "Daylight Red",
-        "tonalRamp": [
-          "oklch(15.00% 0.11867 25.85)",
-          "oklch(26.43% 0.11867 25.85)",
-          "oklch(37.86% 0.11867 25.85)",
-          "oklch(49.29% 0.11867 25.85)",
-          "oklch(60.71% 0.11867 25.85)",
-          "oklch(72.14% 0.11867 25.85)",
-          "oklch(83.57% 0.11867 25.85)",
-          "oklch(95.00% 0.11867 25.85)"
-        ]
-      },
-      "daylight-red-bg": {
-        "role": "semantic",
-        "displayName": "Daylight Red Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.01906 29.55)",
-          "oklch(26.43% 0.01906 29.55)",
-          "oklch(37.86% 0.01906 29.55)",
-          "oklch(49.29% 0.01906 29.55)",
-          "oklch(60.71% 0.01906 29.55)",
-          "oklch(72.14% 0.01906 29.55)",
-          "oklch(83.57% 0.01906 29.55)",
-          "oklch(95.00% 0.01906 29.55)"
-        ]
-      },
-      "orbit-paper": {
-        "role": "neutral",
-        "displayName": "Orbit Paper",
-        "tonalRamp": [
-          "oklch(15.00% 0.02774 258.29)",
-          "oklch(26.43% 0.02774 258.29)",
-          "oklch(37.86% 0.02774 258.29)",
-          "oklch(49.29% 0.02774 258.29)",
-          "oklch(60.71% 0.02774 258.29)",
-          "oklch(72.14% 0.02774 258.29)",
-          "oklch(83.57% 0.02774 258.29)",
-          "oklch(95.00% 0.02774 258.29)"
-        ]
-      },
-      "orbit-nav": {
-        "role": "neutral",
-        "displayName": "Orbit Nav",
-        "tonalRamp": [
-          "oklch(15.00% 0.03185 256.91)",
-          "oklch(26.43% 0.03185 256.91)",
-          "oklch(37.86% 0.03185 256.91)",
-          "oklch(49.29% 0.03185 256.91)",
-          "oklch(60.71% 0.03185 256.91)",
-          "oklch(72.14% 0.03185 256.91)",
-          "oklch(83.57% 0.03185 256.91)",
-          "oklch(95.00% 0.03185 256.91)"
-        ]
-      },
-      "orbit-surface": {
-        "role": "neutral",
-        "displayName": "Orbit Surface",
-        "tonalRamp": [
-          "oklch(15.00% 0.03276 251.11)",
-          "oklch(26.43% 0.03276 251.11)",
-          "oklch(37.86% 0.03276 251.11)",
-          "oklch(49.29% 0.03276 251.11)",
-          "oklch(60.71% 0.03276 251.11)",
-          "oklch(72.14% 0.03276 251.11)",
-          "oklch(83.57% 0.03276 251.11)",
-          "oklch(95.00% 0.03276 251.11)"
-        ]
-      },
-      "orbit-ink": {
-        "role": "neutral",
-        "displayName": "Orbit Ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.01180 239.91)",
-          "oklch(26.43% 0.01180 239.91)",
-          "oklch(37.86% 0.01180 239.91)",
-          "oklch(49.29% 0.01180 239.91)",
-          "oklch(60.71% 0.01180 239.91)",
-          "oklch(72.14% 0.01180 239.91)",
-          "oklch(83.57% 0.01180 239.91)",
-          "oklch(95.00% 0.01180 239.91)"
-        ]
-      },
-      "orbit-muted": {
-        "role": "neutral",
-        "displayName": "Orbit Muted",
-        "tonalRamp": [
-          "oklch(15.00% 0.02855 249.93)",
-          "oklch(26.43% 0.02855 249.93)",
-          "oklch(37.86% 0.02855 249.93)",
-          "oklch(49.29% 0.02855 249.93)",
-          "oklch(60.71% 0.02855 249.93)",
-          "oklch(72.14% 0.02855 249.93)",
-          "oklch(83.57% 0.02855 249.93)",
-          "oklch(95.00% 0.02855 249.93)"
-        ]
-      },
-      "orbit-line": {
-        "role": "neutral",
-        "displayName": "Orbit Line",
-        "tonalRamp": [
-          "oklch(15.00% 0.03657 245.95)",
-          "oklch(26.43% 0.03657 245.95)",
-          "oklch(37.86% 0.03657 245.95)",
-          "oklch(49.29% 0.03657 245.95)",
-          "oklch(60.71% 0.03657 245.95)",
-          "oklch(72.14% 0.03657 245.95)",
-          "oklch(83.57% 0.03657 245.95)",
-          "oklch(95.00% 0.03657 245.95)"
-        ]
-      },
-      "orbit-wash": {
-        "role": "neutral",
-        "displayName": "Orbit Wash",
-        "tonalRamp": [
-          "oklch(15.00% 0.03765 241.99)",
-          "oklch(26.43% 0.03765 241.99)",
-          "oklch(37.86% 0.03765 241.99)",
-          "oklch(49.29% 0.03765 241.99)",
-          "oklch(60.71% 0.03765 241.99)",
-          "oklch(72.14% 0.03765 241.99)",
-          "oklch(83.57% 0.03765 241.99)",
-          "oklch(95.00% 0.03765 241.99)"
-        ]
-      },
-      "orbit-green": {
+      "island-forest-deep": {
         "role": "primary",
-        "displayName": "Orbit Green",
+        "displayName": "Island Forest Deep",
         "tonalRamp": [
-          "oklch(15.00% 0.05975 204.10)",
-          "oklch(26.43% 0.05975 204.10)",
-          "oklch(37.86% 0.05975 204.10)",
-          "oklch(49.29% 0.05975 204.10)",
-          "oklch(60.71% 0.05975 204.10)",
-          "oklch(72.14% 0.05975 204.10)",
-          "oklch(83.57% 0.05975 204.10)",
-          "oklch(95.00% 0.05975 204.10)"
+          "oklch(15.00% 0.16975 265.04)",
+          "oklch(26.43% 0.16975 265.04)",
+          "oklch(37.86% 0.16975 265.04)",
+          "oklch(49.29% 0.16975 265.04)",
+          "oklch(60.71% 0.16975 265.04)",
+          "oklch(72.14% 0.16975 265.04)",
+          "oklch(83.57% 0.16975 265.04)",
+          "oklch(95.00% 0.16975 265.04)"
         ]
       },
-      "orbit-forest": {
+      "island-accent-ink": {
+        "role": "neutral",
+        "displayName": "Island Accent Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "island-nav-active-bg": {
+        "role": "neutral",
+        "displayName": "Island Nav Active Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.02578 266.61)",
+          "oklch(26.43% 0.02578 266.61)",
+          "oklch(37.86% 0.02578 266.61)",
+          "oklch(49.29% 0.02578 266.61)",
+          "oklch(60.71% 0.02578 266.61)",
+          "oklch(72.14% 0.02578 266.61)",
+          "oklch(83.57% 0.02578 266.61)",
+          "oklch(95.00% 0.02578 266.61)"
+        ]
+      },
+      "island-secondary-border": {
+        "role": "neutral",
+        "displayName": "Island Secondary Border",
+        "tonalRamp": [
+          "oklch(15.00% 0.04054 260.14)",
+          "oklch(26.43% 0.04054 260.14)",
+          "oklch(37.86% 0.04054 260.14)",
+          "oklch(49.29% 0.04054 260.14)",
+          "oklch(60.71% 0.04054 260.14)",
+          "oklch(72.14% 0.04054 260.14)",
+          "oklch(83.57% 0.04054 260.14)",
+          "oklch(95.00% 0.04054 260.14)"
+        ]
+      },
+      "island-focus": {
         "role": "primary",
-        "displayName": "Orbit Forest",
+        "displayName": "Island Focus",
         "tonalRamp": [
-          "oklch(15.00% 0.05975 204.10)",
-          "oklch(26.43% 0.05975 204.10)",
-          "oklch(37.86% 0.05975 204.10)",
-          "oklch(49.29% 0.05975 204.10)",
-          "oklch(60.71% 0.05975 204.10)",
-          "oklch(72.14% 0.05975 204.10)",
-          "oklch(83.57% 0.05975 204.10)",
-          "oklch(95.00% 0.05975 204.10)"
+          "oklch(15.00% 0.19407 264.78)",
+          "oklch(26.43% 0.19407 264.78)",
+          "oklch(37.86% 0.19407 264.78)",
+          "oklch(49.29% 0.19407 264.78)",
+          "oklch(60.71% 0.19407 264.78)",
+          "oklch(72.14% 0.19407 264.78)",
+          "oklch(83.57% 0.19407 264.78)",
+          "oklch(95.00% 0.19407 264.78)"
         ]
       },
-      "orbit-forest-deep": {
+      "island-particle": {
+        "role": "neutral",
+        "displayName": "Island Particle",
+        "tonalRamp": [
+          "oklch(15.00% 0.10525 261.25)",
+          "oklch(26.43% 0.10525 261.25)",
+          "oklch(37.86% 0.10525 261.25)",
+          "oklch(49.29% 0.10525 261.25)",
+          "oklch(60.71% 0.10525 261.25)",
+          "oklch(72.14% 0.10525 261.25)",
+          "oklch(83.57% 0.10525 261.25)",
+          "oklch(95.00% 0.10525 261.25)"
+        ]
+      },
+      "island-amber": {
+        "role": "neutral",
+        "displayName": "Island Amber",
+        "tonalRamp": [
+          "oklch(15.00% 0.09397 58.36)",
+          "oklch(26.43% 0.09397 58.36)",
+          "oklch(37.86% 0.09397 58.36)",
+          "oklch(49.29% 0.09397 58.36)",
+          "oklch(60.71% 0.09397 58.36)",
+          "oklch(72.14% 0.09397 58.36)",
+          "oklch(83.57% 0.09397 58.36)",
+          "oklch(95.00% 0.09397 58.36)"
+        ]
+      },
+      "island-amber-bg": {
+        "role": "neutral",
+        "displayName": "Island Amber Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.02477 75.28)",
+          "oklch(26.43% 0.02477 75.28)",
+          "oklch(37.86% 0.02477 75.28)",
+          "oklch(49.29% 0.02477 75.28)",
+          "oklch(60.71% 0.02477 75.28)",
+          "oklch(72.14% 0.02477 75.28)",
+          "oklch(83.57% 0.02477 75.28)",
+          "oklch(95.00% 0.02477 75.28)"
+        ]
+      },
+      "island-red": {
+        "role": "neutral",
+        "displayName": "Island Red",
+        "tonalRamp": [
+          "oklch(15.00% 0.13393 20.94)",
+          "oklch(26.43% 0.13393 20.94)",
+          "oklch(37.86% 0.13393 20.94)",
+          "oklch(49.29% 0.13393 20.94)",
+          "oklch(60.71% 0.13393 20.94)",
+          "oklch(72.14% 0.13393 20.94)",
+          "oklch(83.57% 0.13393 20.94)",
+          "oklch(95.00% 0.13393 20.94)"
+        ]
+      },
+      "island-red-bg": {
+        "role": "neutral",
+        "displayName": "Island Red Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.01624 17.44)",
+          "oklch(26.43% 0.01624 17.44)",
+          "oklch(37.86% 0.01624 17.44)",
+          "oklch(49.29% 0.01624 17.44)",
+          "oklch(60.71% 0.01624 17.44)",
+          "oklch(72.14% 0.01624 17.44)",
+          "oklch(83.57% 0.01624 17.44)",
+          "oklch(95.00% 0.01624 17.44)"
+        ]
+      },
+      "observatory-paper": {
+        "role": "neutral",
+        "displayName": "Observatory Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.00759 241.66)",
+          "oklch(26.43% 0.00759 241.66)",
+          "oklch(37.86% 0.00759 241.66)",
+          "oklch(49.29% 0.00759 241.66)",
+          "oklch(60.71% 0.00759 241.66)",
+          "oklch(72.14% 0.00759 241.66)",
+          "oklch(83.57% 0.00759 241.66)",
+          "oklch(95.00% 0.00759 241.66)"
+        ]
+      },
+      "observatory-nav": {
+        "role": "neutral",
+        "displayName": "Observatory Nav",
+        "tonalRamp": [
+          "oklch(15.00% 0.03792 243.25)",
+          "oklch(26.43% 0.03792 243.25)",
+          "oklch(37.86% 0.03792 243.25)",
+          "oklch(49.29% 0.03792 243.25)",
+          "oklch(60.71% 0.03792 243.25)",
+          "oklch(72.14% 0.03792 243.25)",
+          "oklch(83.57% 0.03792 243.25)",
+          "oklch(95.00% 0.03792 243.25)"
+        ]
+      },
+      "observatory-surface": {
+        "role": "neutral",
+        "displayName": "Observatory Surface",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "observatory-ink": {
+        "role": "neutral",
+        "displayName": "Observatory Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.03349 245.70)",
+          "oklch(26.43% 0.03349 245.70)",
+          "oklch(37.86% 0.03349 245.70)",
+          "oklch(49.29% 0.03349 245.70)",
+          "oklch(60.71% 0.03349 245.70)",
+          "oklch(72.14% 0.03349 245.70)",
+          "oklch(83.57% 0.03349 245.70)",
+          "oklch(95.00% 0.03349 245.70)"
+        ]
+      },
+      "observatory-muted": {
+        "role": "neutral",
+        "displayName": "Observatory Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.03755 245.80)",
+          "oklch(26.43% 0.03755 245.80)",
+          "oklch(37.86% 0.03755 245.80)",
+          "oklch(49.29% 0.03755 245.80)",
+          "oklch(60.71% 0.03755 245.80)",
+          "oklch(72.14% 0.03755 245.80)",
+          "oklch(83.57% 0.03755 245.80)",
+          "oklch(95.00% 0.03755 245.80)"
+        ]
+      },
+      "observatory-line": {
+        "role": "neutral",
+        "displayName": "Observatory Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.01286 244.26)",
+          "oklch(26.43% 0.01286 244.26)",
+          "oklch(37.86% 0.01286 244.26)",
+          "oklch(49.29% 0.01286 244.26)",
+          "oklch(60.71% 0.01286 244.26)",
+          "oklch(72.14% 0.01286 244.26)",
+          "oklch(83.57% 0.01286 244.26)",
+          "oklch(95.00% 0.01286 244.26)"
+        ]
+      },
+      "observatory-wash": {
+        "role": "neutral",
+        "displayName": "Observatory Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.00927 242.84)",
+          "oklch(26.43% 0.00927 242.84)",
+          "oklch(37.86% 0.00927 242.84)",
+          "oklch(49.29% 0.00927 242.84)",
+          "oklch(60.71% 0.00927 242.84)",
+          "oklch(72.14% 0.00927 242.84)",
+          "oklch(83.57% 0.00927 242.84)",
+          "oklch(95.00% 0.00927 242.84)"
+        ]
+      },
+      "observatory-green": {
         "role": "primary",
-        "displayName": "Orbit Forest Deep",
+        "displayName": "Observatory Green",
         "tonalRamp": [
-          "oklch(15.00% 0.04777 202.90)",
-          "oklch(26.43% 0.04777 202.90)",
-          "oklch(37.86% 0.04777 202.90)",
-          "oklch(49.29% 0.04777 202.90)",
-          "oklch(60.71% 0.04777 202.90)",
-          "oklch(72.14% 0.04777 202.90)",
-          "oklch(83.57% 0.04777 202.90)",
-          "oklch(95.00% 0.04777 202.90)"
+          "oklch(15.00% 0.08276 236.64)",
+          "oklch(26.43% 0.08276 236.64)",
+          "oklch(37.86% 0.08276 236.64)",
+          "oklch(49.29% 0.08276 236.64)",
+          "oklch(60.71% 0.08276 236.64)",
+          "oklch(72.14% 0.08276 236.64)",
+          "oklch(83.57% 0.08276 236.64)",
+          "oklch(95.00% 0.08276 236.64)"
         ]
       },
-      "orbit-accent-ink": {
-        "role": "neutral",
-        "displayName": "Orbit Accent Ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.03008 217.65)",
-          "oklch(26.43% 0.03008 217.65)",
-          "oklch(37.86% 0.03008 217.65)",
-          "oklch(49.29% 0.03008 217.65)",
-          "oklch(60.71% 0.03008 217.65)",
-          "oklch(72.14% 0.03008 217.65)",
-          "oklch(83.57% 0.03008 217.65)",
-          "oklch(95.00% 0.03008 217.65)"
-        ]
-      },
-      "orbit-nav-active-bg": {
-        "role": "neutral",
-        "displayName": "Orbit Nav Active Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.04085 229.52)",
-          "oklch(26.43% 0.04085 229.52)",
-          "oklch(37.86% 0.04085 229.52)",
-          "oklch(49.29% 0.04085 229.52)",
-          "oklch(60.71% 0.04085 229.52)",
-          "oklch(72.14% 0.04085 229.52)",
-          "oklch(83.57% 0.04085 229.52)",
-          "oklch(95.00% 0.04085 229.52)"
-        ]
-      },
-      "orbit-secondary-border": {
-        "role": "neutral",
-        "displayName": "Orbit Secondary Border",
-        "tonalRamp": [
-          "oklch(15.00% 0.04115 239.88)",
-          "oklch(26.43% 0.04115 239.88)",
-          "oklch(37.86% 0.04115 239.88)",
-          "oklch(49.29% 0.04115 239.88)",
-          "oklch(60.71% 0.04115 239.88)",
-          "oklch(72.14% 0.04115 239.88)",
-          "oklch(83.57% 0.04115 239.88)",
-          "oklch(95.00% 0.04115 239.88)"
-        ]
-      },
-      "orbit-focus": {
+      "observatory-forest": {
         "role": "primary",
-        "displayName": "Orbit Focus",
+        "displayName": "Observatory Forest",
         "tonalRamp": [
-          "oklch(15.00% 0.05975 204.10)",
-          "oklch(26.43% 0.05975 204.10)",
-          "oklch(37.86% 0.05975 204.10)",
-          "oklch(49.29% 0.05975 204.10)",
-          "oklch(60.71% 0.05975 204.10)",
-          "oklch(72.14% 0.05975 204.10)",
-          "oklch(83.57% 0.05975 204.10)",
-          "oklch(95.00% 0.05975 204.10)"
+          "oklch(15.00% 0.15197 39.57)",
+          "oklch(26.43% 0.15197 39.57)",
+          "oklch(37.86% 0.15197 39.57)",
+          "oklch(49.29% 0.15197 39.57)",
+          "oklch(60.71% 0.15197 39.57)",
+          "oklch(72.14% 0.15197 39.57)",
+          "oklch(83.57% 0.15197 39.57)",
+          "oklch(95.00% 0.15197 39.57)"
         ]
       },
-      "orbit-particle": {
+      "observatory-forest-deep": {
         "role": "primary",
-        "displayName": "Orbit Particle",
+        "displayName": "Observatory Forest Deep",
         "tonalRamp": [
-          "oklch(15.00% 0.05596 213.44)",
-          "oklch(26.43% 0.05596 213.44)",
-          "oklch(37.86% 0.05596 213.44)",
-          "oklch(49.29% 0.05596 213.44)",
-          "oklch(60.71% 0.05596 213.44)",
-          "oklch(72.14% 0.05596 213.44)",
-          "oklch(83.57% 0.05596 213.44)",
-          "oklch(95.00% 0.05596 213.44)"
+          "oklch(15.00% 0.13191 39.80)",
+          "oklch(26.43% 0.13191 39.80)",
+          "oklch(37.86% 0.13191 39.80)",
+          "oklch(49.29% 0.13191 39.80)",
+          "oklch(60.71% 0.13191 39.80)",
+          "oklch(72.14% 0.13191 39.80)",
+          "oklch(83.57% 0.13191 39.80)",
+          "oklch(95.00% 0.13191 39.80)"
         ]
       },
-      "orbit-amber": {
-        "role": "semantic",
-        "displayName": "Orbit Amber",
-        "tonalRamp": [
-          "oklch(15.00% 0.07902 78.41)",
-          "oklch(26.43% 0.07902 78.41)",
-          "oklch(37.86% 0.07902 78.41)",
-          "oklch(49.29% 0.07902 78.41)",
-          "oklch(60.71% 0.07902 78.41)",
-          "oklch(72.14% 0.07902 78.41)",
-          "oklch(83.57% 0.07902 78.41)",
-          "oklch(95.00% 0.07902 78.41)"
-        ]
-      },
-      "orbit-amber-bg": {
-        "role": "semantic",
-        "displayName": "Orbit Amber Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.02493 71.82)",
-          "oklch(26.43% 0.02493 71.82)",
-          "oklch(37.86% 0.02493 71.82)",
-          "oklch(49.29% 0.02493 71.82)",
-          "oklch(60.71% 0.02493 71.82)",
-          "oklch(72.14% 0.02493 71.82)",
-          "oklch(83.57% 0.02493 71.82)",
-          "oklch(95.00% 0.02493 71.82)"
-        ]
-      },
-      "orbit-red": {
-        "role": "semantic",
-        "displayName": "Orbit Red",
-        "tonalRamp": [
-          "oklch(15.00% 0.07791 28.72)",
-          "oklch(26.43% 0.07791 28.72)",
-          "oklch(37.86% 0.07791 28.72)",
-          "oklch(49.29% 0.07791 28.72)",
-          "oklch(60.71% 0.07791 28.72)",
-          "oklch(72.14% 0.07791 28.72)",
-          "oklch(83.57% 0.07791 28.72)",
-          "oklch(95.00% 0.07791 28.72)"
-        ]
-      },
-      "orbit-red-bg": {
-        "role": "semantic",
-        "displayName": "Orbit Red Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.02988 8.92)",
-          "oklch(26.43% 0.02988 8.92)",
-          "oklch(37.86% 0.02988 8.92)",
-          "oklch(49.29% 0.02988 8.92)",
-          "oklch(60.71% 0.02988 8.92)",
-          "oklch(72.14% 0.02988 8.92)",
-          "oklch(83.57% 0.02988 8.92)",
-          "oklch(95.00% 0.02988 8.92)"
-        ]
-      },
-      "habitat-paper": {
+      "observatory-accent-ink": {
         "role": "neutral",
-        "displayName": "Habitat Paper",
+        "displayName": "Observatory Accent Ink",
         "tonalRamp": [
-          "oklch(15.00% 0.00698 145.38)",
-          "oklch(26.43% 0.00698 145.38)",
-          "oklch(37.86% 0.00698 145.38)",
-          "oklch(49.29% 0.00698 145.38)",
-          "oklch(60.71% 0.00698 145.38)",
-          "oklch(72.14% 0.00698 145.38)",
-          "oklch(83.57% 0.00698 145.38)",
-          "oklch(95.00% 0.00698 145.38)"
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
         ]
       },
-      "habitat-nav": {
+      "observatory-nav-active-bg": {
         "role": "neutral",
-        "displayName": "Habitat Nav",
+        "displayName": "Observatory Nav Active Bg",
         "tonalRamp": [
-          "oklch(15.00% 0.01005 151.48)",
-          "oklch(26.43% 0.01005 151.48)",
-          "oklch(37.86% 0.01005 151.48)",
-          "oklch(49.29% 0.01005 151.48)",
-          "oklch(60.71% 0.01005 151.48)",
-          "oklch(72.14% 0.01005 151.48)",
-          "oklch(83.57% 0.01005 151.48)",
-          "oklch(95.00% 0.01005 151.48)"
+          "oklch(15.00% 0.01520 241.77)",
+          "oklch(26.43% 0.01520 241.77)",
+          "oklch(37.86% 0.01520 241.77)",
+          "oklch(49.29% 0.01520 241.77)",
+          "oklch(60.71% 0.01520 241.77)",
+          "oklch(72.14% 0.01520 241.77)",
+          "oklch(83.57% 0.01520 241.77)",
+          "oklch(95.00% 0.01520 241.77)"
         ]
       },
-      "habitat-surface": {
+      "observatory-secondary-border": {
         "role": "neutral",
-        "displayName": "Habitat Surface",
+        "displayName": "Observatory Secondary Border",
         "tonalRamp": [
-          "oklch(15.00% 0.01467 141.18)",
-          "oklch(26.43% 0.01467 141.18)",
-          "oklch(37.86% 0.01467 141.18)",
-          "oklch(49.29% 0.01467 141.18)",
-          "oklch(60.71% 0.01467 141.18)",
-          "oklch(72.14% 0.01467 141.18)",
-          "oklch(83.57% 0.01467 141.18)",
-          "oklch(95.00% 0.01467 141.18)"
+          "oklch(15.00% 0.02884 243.17)",
+          "oklch(26.43% 0.02884 243.17)",
+          "oklch(37.86% 0.02884 243.17)",
+          "oklch(49.29% 0.02884 243.17)",
+          "oklch(60.71% 0.02884 243.17)",
+          "oklch(72.14% 0.02884 243.17)",
+          "oklch(83.57% 0.02884 243.17)",
+          "oklch(95.00% 0.02884 243.17)"
         ]
       },
-      "habitat-ink": {
-        "role": "neutral",
-        "displayName": "Habitat Ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.01402 88.69)",
-          "oklch(26.43% 0.01402 88.69)",
-          "oklch(37.86% 0.01402 88.69)",
-          "oklch(49.29% 0.01402 88.69)",
-          "oklch(60.71% 0.01402 88.69)",
-          "oklch(72.14% 0.01402 88.69)",
-          "oklch(83.57% 0.01402 88.69)",
-          "oklch(95.00% 0.01402 88.69)"
-        ]
-      },
-      "habitat-muted": {
-        "role": "neutral",
-        "displayName": "Habitat Muted",
-        "tonalRamp": [
-          "oklch(15.00% 0.01687 114.47)",
-          "oklch(26.43% 0.01687 114.47)",
-          "oklch(37.86% 0.01687 114.47)",
-          "oklch(49.29% 0.01687 114.47)",
-          "oklch(60.71% 0.01687 114.47)",
-          "oklch(72.14% 0.01687 114.47)",
-          "oklch(83.57% 0.01687 114.47)",
-          "oklch(95.00% 0.01687 114.47)"
-        ]
-      },
-      "habitat-line": {
-        "role": "neutral",
-        "displayName": "Habitat Line",
-        "tonalRamp": [
-          "oklch(15.00% 0.02188 135.09)",
-          "oklch(26.43% 0.02188 135.09)",
-          "oklch(37.86% 0.02188 135.09)",
-          "oklch(49.29% 0.02188 135.09)",
-          "oklch(60.71% 0.02188 135.09)",
-          "oklch(72.14% 0.02188 135.09)",
-          "oklch(83.57% 0.02188 135.09)",
-          "oklch(95.00% 0.02188 135.09)"
-        ]
-      },
-      "habitat-wash": {
-        "role": "neutral",
-        "displayName": "Habitat Wash",
-        "tonalRamp": [
-          "oklch(15.00% 0.02068 134.08)",
-          "oklch(26.43% 0.02068 134.08)",
-          "oklch(37.86% 0.02068 134.08)",
-          "oklch(49.29% 0.02068 134.08)",
-          "oklch(60.71% 0.02068 134.08)",
-          "oklch(72.14% 0.02068 134.08)",
-          "oklch(83.57% 0.02068 134.08)",
-          "oklch(95.00% 0.02068 134.08)"
-        ]
-      },
-      "habitat-green": {
+      "observatory-focus": {
         "role": "primary",
-        "displayName": "Habitat Green",
+        "displayName": "Observatory Focus",
         "tonalRamp": [
-          "oklch(15.00% 0.05498 78.90)",
-          "oklch(26.43% 0.05498 78.90)",
-          "oklch(37.86% 0.05498 78.90)",
-          "oklch(49.29% 0.05498 78.90)",
-          "oklch(60.71% 0.05498 78.90)",
-          "oklch(72.14% 0.05498 78.90)",
-          "oklch(83.57% 0.05498 78.90)",
-          "oklch(95.00% 0.05498 78.90)"
+          "oklch(15.00% 0.15197 39.57)",
+          "oklch(26.43% 0.15197 39.57)",
+          "oklch(37.86% 0.15197 39.57)",
+          "oklch(49.29% 0.15197 39.57)",
+          "oklch(60.71% 0.15197 39.57)",
+          "oklch(72.14% 0.15197 39.57)",
+          "oklch(83.57% 0.15197 39.57)",
+          "oklch(95.00% 0.15197 39.57)"
         ]
       },
-      "habitat-forest": {
-        "role": "primary",
-        "displayName": "Habitat Forest",
-        "tonalRamp": [
-          "oklch(15.00% 0.05498 78.90)",
-          "oklch(26.43% 0.05498 78.90)",
-          "oklch(37.86% 0.05498 78.90)",
-          "oklch(49.29% 0.05498 78.90)",
-          "oklch(60.71% 0.05498 78.90)",
-          "oklch(72.14% 0.05498 78.90)",
-          "oklch(83.57% 0.05498 78.90)",
-          "oklch(95.00% 0.05498 78.90)"
-        ]
-      },
-      "habitat-forest-deep": {
-        "role": "primary",
-        "displayName": "Habitat Forest Deep",
-        "tonalRamp": [
-          "oklch(15.00% 0.05185 77.59)",
-          "oklch(26.43% 0.05185 77.59)",
-          "oklch(37.86% 0.05185 77.59)",
-          "oklch(49.29% 0.05185 77.59)",
-          "oklch(60.71% 0.05185 77.59)",
-          "oklch(72.14% 0.05185 77.59)",
-          "oklch(83.57% 0.05185 77.59)",
-          "oklch(95.00% 0.05185 77.59)"
-        ]
-      },
-      "habitat-accent-ink": {
+      "observatory-particle": {
         "role": "neutral",
-        "displayName": "Habitat Accent Ink",
+        "displayName": "Observatory Particle",
         "tonalRamp": [
-          "oklch(15.00% 0.01277 120.18)",
-          "oklch(26.43% 0.01277 120.18)",
-          "oklch(37.86% 0.01277 120.18)",
-          "oklch(49.29% 0.01277 120.18)",
-          "oklch(60.71% 0.01277 120.18)",
-          "oklch(72.14% 0.01277 120.18)",
-          "oklch(83.57% 0.01277 120.18)",
-          "oklch(95.00% 0.01277 120.18)"
+          "oklch(15.00% 0.06459 238.63)",
+          "oklch(26.43% 0.06459 238.63)",
+          "oklch(37.86% 0.06459 238.63)",
+          "oklch(49.29% 0.06459 238.63)",
+          "oklch(60.71% 0.06459 238.63)",
+          "oklch(72.14% 0.06459 238.63)",
+          "oklch(83.57% 0.06459 238.63)",
+          "oklch(95.00% 0.06459 238.63)"
         ]
       },
-      "habitat-nav-active-bg": {
+      "observatory-amber": {
         "role": "neutral",
-        "displayName": "Habitat Nav Active Bg",
+        "displayName": "Observatory Amber",
         "tonalRamp": [
-          "oklch(15.00% 0.02410 126.37)",
-          "oklch(26.43% 0.02410 126.37)",
-          "oklch(37.86% 0.02410 126.37)",
-          "oklch(49.29% 0.02410 126.37)",
-          "oklch(60.71% 0.02410 126.37)",
-          "oklch(72.14% 0.02410 126.37)",
-          "oklch(83.57% 0.02410 126.37)",
-          "oklch(95.00% 0.02410 126.37)"
+          "oklch(15.00% 0.08958 60.08)",
+          "oklch(26.43% 0.08958 60.08)",
+          "oklch(37.86% 0.08958 60.08)",
+          "oklch(49.29% 0.08958 60.08)",
+          "oklch(60.71% 0.08958 60.08)",
+          "oklch(72.14% 0.08958 60.08)",
+          "oklch(83.57% 0.08958 60.08)",
+          "oklch(95.00% 0.08958 60.08)"
         ]
       },
-      "habitat-secondary-border": {
+      "observatory-amber-bg": {
         "role": "neutral",
-        "displayName": "Habitat Secondary Border",
+        "displayName": "Observatory Amber Bg",
         "tonalRamp": [
-          "oklch(15.00% 0.02931 121.59)",
-          "oklch(26.43% 0.02931 121.59)",
-          "oklch(37.86% 0.02931 121.59)",
-          "oklch(49.29% 0.02931 121.59)",
-          "oklch(60.71% 0.02931 121.59)",
-          "oklch(72.14% 0.02931 121.59)",
-          "oklch(83.57% 0.02931 121.59)",
-          "oklch(95.00% 0.02931 121.59)"
+          "oklch(15.00% 0.02373 73.61)",
+          "oklch(26.43% 0.02373 73.61)",
+          "oklch(37.86% 0.02373 73.61)",
+          "oklch(49.29% 0.02373 73.61)",
+          "oklch(60.71% 0.02373 73.61)",
+          "oklch(72.14% 0.02373 73.61)",
+          "oklch(83.57% 0.02373 73.61)",
+          "oklch(95.00% 0.02373 73.61)"
         ]
       },
-      "habitat-focus": {
-        "role": "primary",
-        "displayName": "Habitat Focus",
+      "observatory-red": {
+        "role": "neutral",
+        "displayName": "Observatory Red",
         "tonalRamp": [
-          "oklch(15.00% 0.05498 78.90)",
-          "oklch(26.43% 0.05498 78.90)",
-          "oklch(37.86% 0.05498 78.90)",
-          "oklch(49.29% 0.05498 78.90)",
-          "oklch(60.71% 0.05498 78.90)",
-          "oklch(72.14% 0.05498 78.90)",
-          "oklch(83.57% 0.05498 78.90)",
-          "oklch(95.00% 0.05498 78.90)"
+          "oklch(15.00% 0.13393 20.94)",
+          "oklch(26.43% 0.13393 20.94)",
+          "oklch(37.86% 0.13393 20.94)",
+          "oklch(49.29% 0.13393 20.94)",
+          "oklch(60.71% 0.13393 20.94)",
+          "oklch(72.14% 0.13393 20.94)",
+          "oklch(83.57% 0.13393 20.94)",
+          "oklch(95.00% 0.13393 20.94)"
         ]
       },
-      "habitat-particle": {
-        "role": "primary",
-        "displayName": "Habitat Particle",
+      "observatory-red-bg": {
+        "role": "neutral",
+        "displayName": "Observatory Red Bg",
         "tonalRamp": [
-          "oklch(15.00% 0.05498 78.90)",
-          "oklch(26.43% 0.05498 78.90)",
-          "oklch(37.86% 0.05498 78.90)",
-          "oklch(49.29% 0.05498 78.90)",
-          "oklch(60.71% 0.05498 78.90)",
-          "oklch(72.14% 0.05498 78.90)",
-          "oklch(83.57% 0.05498 78.90)",
-          "oklch(95.00% 0.05498 78.90)"
+          "oklch(15.00% 0.01624 17.44)",
+          "oklch(26.43% 0.01624 17.44)",
+          "oklch(37.86% 0.01624 17.44)",
+          "oklch(49.29% 0.01624 17.44)",
+          "oklch(60.71% 0.01624 17.44)",
+          "oklch(72.14% 0.01624 17.44)",
+          "oklch(83.57% 0.01624 17.44)",
+          "oklch(95.00% 0.01624 17.44)"
         ]
       },
-      "habitat-amber": {
-        "role": "semantic",
-        "displayName": "Habitat Amber",
+      "compare-cool": {
+        "role": "neutral",
+        "displayName": "Compare Cool",
         "tonalRamp": [
-          "oklch(15.00% 0.07639 78.25)",
-          "oklch(26.43% 0.07639 78.25)",
-          "oklch(37.86% 0.07639 78.25)",
-          "oklch(49.29% 0.07639 78.25)",
-          "oklch(60.71% 0.07639 78.25)",
-          "oklch(72.14% 0.07639 78.25)",
-          "oklch(83.57% 0.07639 78.25)",
-          "oklch(95.00% 0.07639 78.25)"
+          "oklch(15.00% 0.00834 236.56)",
+          "oklch(26.43% 0.00834 236.56)",
+          "oklch(37.86% 0.00834 236.56)",
+          "oklch(49.29% 0.00834 236.56)",
+          "oklch(60.71% 0.00834 236.56)",
+          "oklch(72.14% 0.00834 236.56)",
+          "oklch(83.57% 0.00834 236.56)",
+          "oklch(95.00% 0.00834 236.56)"
         ]
       },
-      "habitat-amber-bg": {
-        "role": "semantic",
-        "displayName": "Habitat Amber Bg",
+      "compare-warm": {
+        "role": "neutral",
+        "displayName": "Compare Warm",
         "tonalRamp": [
-          "oklch(15.00% 0.02685 83.05)",
-          "oklch(26.43% 0.02685 83.05)",
-          "oklch(37.86% 0.02685 83.05)",
-          "oklch(49.29% 0.02685 83.05)",
-          "oklch(60.71% 0.02685 83.05)",
-          "oklch(72.14% 0.02685 83.05)",
-          "oklch(83.57% 0.02685 83.05)",
-          "oklch(95.00% 0.02685 83.05)"
+          "oklch(15.00% 0.01130 71.90)",
+          "oklch(26.43% 0.01130 71.90)",
+          "oklch(37.86% 0.01130 71.90)",
+          "oklch(49.29% 0.01130 71.90)",
+          "oklch(60.71% 0.01130 71.90)",
+          "oklch(72.14% 0.01130 71.90)",
+          "oklch(83.57% 0.01130 71.90)",
+          "oklch(95.00% 0.01130 71.90)"
         ]
       },
-      "habitat-red": {
-        "role": "semantic",
-        "displayName": "Habitat Red",
+      "start-warm": {
+        "role": "neutral",
+        "displayName": "Start Warm",
         "tonalRamp": [
-          "oklch(15.00% 0.07352 31.29)",
-          "oklch(26.43% 0.07352 31.29)",
-          "oklch(37.86% 0.07352 31.29)",
-          "oklch(49.29% 0.07352 31.29)",
-          "oklch(60.71% 0.07352 31.29)",
-          "oklch(72.14% 0.07352 31.29)",
-          "oklch(83.57% 0.07352 31.29)",
-          "oklch(95.00% 0.07352 31.29)"
+          "oklch(15.00% 0.01636 79.35)",
+          "oklch(26.43% 0.01636 79.35)",
+          "oklch(37.86% 0.01636 79.35)",
+          "oklch(49.29% 0.01636 79.35)",
+          "oklch(60.71% 0.01636 79.35)",
+          "oklch(72.14% 0.01636 79.35)",
+          "oklch(83.57% 0.01636 79.35)",
+          "oklch(95.00% 0.01636 79.35)"
         ]
       },
-      "habitat-red-bg": {
-        "role": "semantic",
-        "displayName": "Habitat Red Bg",
+      "record-details": {
+        "role": "neutral",
+        "displayName": "Record Details",
         "tonalRamp": [
-          "oklch(15.00% 0.03426 29.98)",
-          "oklch(26.43% 0.03426 29.98)",
-          "oklch(37.86% 0.03426 29.98)",
-          "oklch(49.29% 0.03426 29.98)",
-          "oklch(60.71% 0.03426 29.98)",
-          "oklch(72.14% 0.03426 29.98)",
-          "oklch(83.57% 0.03426 29.98)",
-          "oklch(95.00% 0.03426 29.98)"
+          "oklch(15.00% 0.00986 267.36)",
+          "oklch(26.43% 0.00986 267.36)",
+          "oklch(37.86% 0.00986 267.36)",
+          "oklch(49.29% 0.00986 267.36)",
+          "oklch(60.71% 0.00986 267.36)",
+          "oklch(72.14% 0.00986 267.36)",
+          "oklch(83.57% 0.00986 267.36)",
+          "oklch(95.00% 0.00986 267.36)"
         ]
       }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Display",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
+      "display-island": {
+        "displayName": "Display Island",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
-      "display-mobile": {
-        "displayName": "Display Mobile",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
+      "display-observatory": {
+        "displayName": "Display Observatory",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
-      "growth-title": {
-        "displayName": "Growth Title",
-        "purpose": "Desktop topic title."
+      "display-island-mobile": {
+        "displayName": "Display Island Mobile",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
-      "growth-year": {
-        "displayName": "Growth Year",
-        "purpose": "Dated growth-year headings."
+      "display-observatory-mobile": {
+        "displayName": "Display Observatory Mobile",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
-      "growth-editor-title": {
-        "displayName": "Growth Editor Title",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
+      "topic-title": {
+        "displayName": "Topic Title",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
-      },
-      "growth-reading": {
-        "displayName": "Growth Reading",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
-      },
-      "growth-baseline": {
-        "displayName": "Growth Baseline",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
+      "topic-title-observatory": {
+        "displayName": "Topic Title Observatory",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
+      },
+      "event": {
+        "displayName": "Event",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
+      },
+      "comparison": {
+        "displayName": "Comparison",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Shared buttons and interface controls."
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       },
-      "auxiliary": {
-        "displayName": "Auxiliary",
-        "purpose": "Observed shared type role; see DESIGN.md for responsive/contextual overrides."
+      "editor": {
+        "displayName": "Editor",
+        "purpose": "Extracted from final style cascade; see DESIGN.md for responsive context."
       }
     },
     "shadows": [
       {
-        "name": "daylight-dialog-toast",
-        "value": "0 18px 55px #162e3430",
-        "purpose": "Dialog and transient feedback; no shadow on ordinary panels or selection shelf."
+        "name": "island-panel",
+        "value": "0 14px 44px #314a7320",
+        "purpose": "Island ambient panels"
       },
       {
-        "name": "orbit-dialog-toast",
-        "value": "0 18px 55px #0007",
-        "purpose": "Dialog and transient feedback; no shadow on ordinary panels or selection shelf."
-      },
-      {
-        "name": "habitat-dialog-toast",
-        "value": "0 18px 55px #10150f60",
-        "purpose": "Dialog and transient feedback; no shadow on ordinary panels or selection shelf."
+        "name": "observatory-panel",
+        "value": "0 14px 44px #29435516",
+        "purpose": "Observatory ambient panels"
       }
     ],
     "motion": [
       {
-        "name": "control-transition",
-        "value": "background .15s",
-        "purpose": "Shared button background; reduced motion disables transitions."
+        "name": "particles",
+        "value": "atlas-drift 78–130s linear infinite alternate; 32 dots, 2–3px, opacity .4",
+        "purpose": "translate3d(-18px,12px,0) to translate3d(22px,-25px,0); stable positions and negative delays; <=640px keeps 16 dots."
       },
       {
-        "name": "toast-transition",
-        "value": "opacity .2s, transform .2s",
-        "purpose": "Transient feedback; duration 4200ms."
+        "name": "particle-stop-rules",
+        "value": "user off: hidden; editing/document hidden/reduced motion: paused; reduced motion: animation none",
+        "purpose": "Controlled by appearance.ts; particles are aria-hidden and pointer-events:none."
       },
       {
-        "name": "particle-drift",
-        "value": "translate3d(-18px,12px,0) → translate3d(22px,-25px,0); linear infinite alternate; 78–130s",
-        "purpose": "Stable-position dots; pause during writing, hidden tabs and reduced motion; checkbox hides layer."
+        "name": "controls",
+        "value": "150ms; nav none; toast 200ms",
+        "purpose": "Global reduced-motion rule removes transitions and animations."
       }
     ],
     "breakpoints": [
       {
-        "name": "mobile-max",
-        "value": "640px"
+        "name": "observatory-horizontal",
+        "value": "min-width:1200px"
       },
       {
-        "name": "legacy-content-stack-max",
-        "value": "860px"
+        "name": "island-narrow-desktop",
+        "value": "1051px–1250px"
       },
       {
-        "name": "shell-stack-max",
-        "value": "1050px"
+        "name": "single-column",
+        "value": "max-width:1050px"
       },
       {
-        "name": "habitat-horizontal-min",
-        "value": "1051px"
+        "name": "mobile",
+        "value": "max-width:640px"
       },
       {
-        "name": "legacy-density-max",
-        "value": "1150px"
+        "name": "comparison-stack",
+        "value": "max-width:560px"
       },
       {
-        "name": "daylight-reading-min",
-        "value": "1200px"
-      },
-      {
-        "name": "density-max",
-        "value": "1200px"
-      },
-      {
-        "name": "legacy-daily-expand-min",
-        "value": "1500px"
+        "name": "base-spacious",
+        "value": "min-width:1500px"
       }
-    ],
-    "skinSystem": {
-      "default": "daylight",
-      "sourceOrder": [
-        "src/style.css",
-        "src/growth.css",
-        "src/skins.css"
-      ],
-      "selector": "document.documentElement.dataset.skin",
-      "storageKey": "lifeatlas-appearance-v1",
-      "particleOpacity": {
-        "daylight": ".32",
-        "orbit": ".4",
-        "habitat": ".32"
-      },
-      "backdrop": "background:#09141c99;backdrop-filter:blur(2px)",
-      "ramps": "Display-only synthesized OKLCH ramps; not production CSS tokens."
-    }
+    ]
   },
   "components": [
     {
-      "name": "Primary button",
+      "name": "Primary action",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Shared native action; skin variables inherit through the shadow boundary.",
-      "html": "<button type=\"button\" class=\"ds-button ds-primary\">保存设置</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border:1px solid transparent;border-radius:8px;min-height:42px;font:500 13px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;cursor:pointer;transition:background .15s}.ds-button:disabled{opacity:.45;cursor:not-allowed}.ds-button:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#286b78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-primary{background:var(--forest,#286b78);color:var(--accent-ink,#fff)}.ds-primary:hover:not(:disabled){background:var(--forest-deep,#205562)}"
+      "refersTo": "button-primary-island",
+      "description": "Live-bound to either skin; default fallbacks show Island.",
+      "html": "<button class=\"ds-button ds-primary\">保存记录</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:42px;border:1px solid transparent;border-radius:9px;padding:10px 17px;font-size:13px;line-height:1.7;font-weight:500;cursor:pointer;transition:background .15s;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-button:focus-visible{outline:3px solid var(--focus,#315fd9);outline-offset:4px}.ds-button:disabled{opacity:.45;cursor:not-allowed}.ds-button:active:not(:disabled){filter:brightness(.96)}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-primary{background:var(--forest,#315fd9);color:var(--accent-ink,#fff)}.ds-primary:hover:not(:disabled){background:var(--forest-deep,#2449b0)}"
     },
     {
-      "name": "Subtle button",
+      "name": "Subtle action",
       "kind": "button",
       "refersTo": "button-subtle",
-      "description": "Shared native action; skin variables inherit through the shadow boundary.",
-      "html": "<button type=\"button\" class=\"ds-button ds-subtle\">保存设置</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border:1px solid transparent;border-radius:8px;min-height:42px;font:500 13px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;cursor:pointer;transition:background .15s}.ds-button:disabled{opacity:.45;cursor:not-allowed}.ds-button:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#286b78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-subtle{background:var(--surface,#fbfdfd);color:var(--ink,#233c46);border-color:var(--secondary-border,#b4c7ce)}.ds-subtle:hover:not(:disabled){background:var(--wash,#e1ecef)}"
+      "description": "Secondary native action.",
+      "html": "<button class=\"ds-button ds-subtle\">取消</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:42px;border:1px solid transparent;border-radius:9px;padding:10px 17px;font-size:13px;line-height:1.7;font-weight:500;cursor:pointer;transition:background .15s;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-button:focus-visible{outline:3px solid var(--focus,#315fd9);outline-offset:4px}.ds-button:disabled{opacity:.45;cursor:not-allowed}.ds-button:active:not(:disabled){filter:brightness(.96)}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-subtle{background:var(--surface,#fff);color:var(--ink,#182d54);border-color:var(--secondary-border,#b8c8e2)}.ds-subtle:hover:not(:disabled){background:var(--wash,#edf3ff)}"
     },
     {
-      "name": "Danger button",
-      "kind": "button",
-      "refersTo": "button-danger",
-      "description": "Shared native action; skin variables inherit through the shadow boundary.",
-      "html": "<button type=\"button\" class=\"ds-button ds-danger\">清除演示记录</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 17px;border:1px solid transparent;border-radius:8px;min-height:42px;font:500 13px/1.7 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;cursor:pointer;transition:background .15s}.ds-button:disabled{opacity:.45;cursor:not-allowed}.ds-button:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#286b78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-danger,.ds-danger:hover{background:var(--red-bg,#f8e7e4);color:var(--red,#943d38)}"
-    },
-    {
-      "name": "Text field",
+      "name": "Growth text field",
       "kind": "input",
-      "refersTo": "input-field",
-      "description": "Labeled growth field; search has a separate inline-icon wrapper in the app.",
-      "html": "<label class=\"ds-label\">主题名称<input class=\"ds-input\" placeholder=\"写下你想持续观察的事\"></label>",
-      "css": ".ds-label{display:grid;gap:9px;font-size:15px;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--ink,#233c46);}.ds-input{width:100%;min-width:0;padding:10px 12px;border:1px solid var(--secondary-border,#b4c7ce);border-radius:6px;background:var(--surface,#fbfdfd);font:15px/1.9 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif;color:var(--ink,#233c46);caret-color:var(--green,#286b78)}.ds-input::placeholder{color:var(--muted,#526873);opacity:1}.ds-button:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#286b78);outline-offset:4px}"
+      "refersTo": "input",
+      "description": "Native text entry; persistence belongs to the app.",
+      "html": "<label class=\"ds-label\">下一步<textarea class=\"ds-input\" placeholder=\"写下一个可以尝试的小行动\"></textarea></label>",
+      "css": ".ds-label{display:block;font-size:15px;color:var(--ink,#182d54);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-input{display:block;width:100%;margin-top:9px;min-height:100px;border:1px solid var(--secondary-border,#b8c8e2);border-radius:6px;padding:10px 12px;background:var(--surface,#fff);color:var(--ink,#182d54);font:15px/1.9 \"Microsoft YaHei\",\"PingFang SC\",system-ui,sans-serif;resize:vertical;caret-color:var(--green,#315fd9)}.ds-input::placeholder{color:var(--muted,#536b91);opacity:1}.ds-input:hover{border-color:var(--green,#315fd9)}.ds-input:focus-visible{outline:3px solid var(--focus,#315fd9);outline-offset:4px}@media(max-width:640px){.ds-input{font-size:16px}}"
     },
     {
-      "name": "Navigation",
+      "name": "Navigation states",
       "kind": "nav",
       "refersTo": "navigation-active",
-      "description": "Shared active/hover states; specimen displays the five existing destinations.",
+      "description": "Five existing destinations; specimen shows state styling, not route handlers.",
       "html": "<nav class=\"ds-nav\" aria-label=\"主导航\"><a href=\"#today\">今日</a><a href=\"#mail\">邮箱整理</a><a href=\"#growth\" aria-current=\"page\">个人成长</a><a href=\"#history\">任务记录</a><a href=\"#settings\">偏好设置</a></nav>",
-      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--nav,#f3f7f7);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--ink,#233c46);}.ds-nav a{font-size:14px;padding:12px;border-radius:9px;text-decoration:none;color:var(--muted,#526873);transition:background .15s,color .15s}.ds-nav a[aria-current]{color:var(--green,#286b78);background:var(--nav-active-bg,#dcebef);font-weight:600}.ds-nav a:hover:not([aria-current]){color:var(--ink,#233c46);background:var(--wash,#e1ecef)}.ds-button:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#286b78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}"
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--nav,#f8faff);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-nav a{padding:14px 15px;border-radius:10px;color:var(--muted,#536b91);font-size:14px;text-decoration:none}.ds-nav a[aria-current]{color:var(--green,#315fd9);background:var(--nav-active-bg,#e5edff);font-weight:600}.ds-nav a:hover:not([aria-current]){background:var(--wash,#edf3ff);color:var(--ink,#182d54)}.ds-nav a:focus-visible{outline:3px solid var(--focus,#315fd9);outline-offset:4px}.ds-nav a:active{filter:brightness(.96)}"
     },
     {
-      "name": "Pending chip",
+      "name": "Pending status",
       "kind": "chip",
       "refersTo": "status-awaiting",
-      "description": "Informational status with text; no invented interaction.",
+      "description": "Noninteractive status with explicit text.",
       "html": "<span class=\"ds-chip\">待确认</span>",
-      "css": ".ds-chip{display:inline-block;padding:4px 9px;border-radius:4px;background:var(--amber-bg,#f1e8d7);color:var(--amber,#785424);font:10px/1.65 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif}"
+      "css": ".ds-chip{display:inline-block;padding:4px 9px;border-radius:4px;background:var(--amber-bg,#fff3e3);color:var(--amber,#8a5426);font-size:12px;line-height:1.65;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}"
     },
     {
       "name": "Reading panel",
       "kind": "card",
       "refersTo": "growth-reading-panel",
-      "description": "Opaque shared reading surface; static specimen contains no personal record.",
+      "description": "Opaque static reading surface with no invented personal record.",
       "html": "<section class=\"ds-reading\"><h2>个人成长</h2><p>写下经历，再回看理解如何变化。</p></section>",
-      "css": ".ds-reading{background:var(--surface,#fbfdfd);border-radius:var(--radius,14px);padding:28px 32px;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--ink,#233c46);}.ds-reading h2{font-size:25px;line-height:1.65;margin:0 0 16px;font-weight:600}.ds-reading p{font-size:16px;line-height:2;margin:0;max-width:70ch}"
+      "css": ".ds-reading{background:var(--surface,#fff);color:var(--ink,#182d54);padding:26px 28px;border-radius:16px;box-shadow:var(--shadow,0 14px 44px #314a7320);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-reading h2{font-size:23px;font-weight:600;line-height:1.65;margin:0 0 16px}.ds-reading p{font-size:16px;line-height:1.95;margin:0;max-width:70ch}"
     },
     {
       "name": "Appearance controls",
       "kind": "custom",
       "refersTo": "button-subtle",
-      "description": "Native controls specimen; synchronization and persistence require appearance.ts.",
-      "html": "<div class=\"ds-appearance\"><label>皮肤 <select aria-label=\"选择皮肤\"><option>晨光 · 生活静室</option><option>星夜 · 成长轨迹</option><option>石墨 · 生活舱</option></select></label><label><input type=\"checkbox\" checked> 粒子动态</label></div>",
-      "css": ".ds-appearance{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;font-size:13px;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--ink,#233c46);}.ds-appearance label{display:inline-flex;align-items:center;gap:8px;min-height:40px;color:var(--muted,#526873)}.ds-appearance select{max-width:100%;min-height:40px;border:1px solid var(--secondary-border,#b4c7ce);border-radius:7px;padding:6px 28px 6px 10px;background:var(--surface,#fbfdfd);color:var(--ink,#233c46);font:13px 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif}.ds-appearance input{width:16px;height:16px;margin:0;accent-color:var(--green,#286b78)}.ds-button:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#286b78);outline-offset:4px}"
+      "description": "Exactly two native options; app supplies synchronization, migration and stop rules.",
+      "html": "<div class=\"ds-appearance\"><label>皮肤 <select aria-label=\"选择皮肤\"><option value=\"island\">光屿工作台</option><option value=\"observatory\">对页观察室</option></select></label><label><input type=\"checkbox\" checked> 粒子动态</label></div>",
+      "css": ".ds-appearance{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;font-size:13px;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-appearance label{display:inline-flex;align-items:center;gap:8px;min-height:40px;color:var(--muted,#536b91)}.ds-appearance select{max-width:100%;min-height:40px;border:1px solid var(--secondary-border,#b8c8e2);border-radius:8px;padding:6px 26px 6px 10px;background:var(--surface,#fff);color:var(--ink,#182d54);font:inherit}.ds-appearance input{width:16px;height:16px;accent-color:var(--green,#315fd9)}.ds-appearance select:hover{border-color:var(--green,#315fd9)}.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#315fd9);outline-offset:4px}"
+    },
+    {
+      "name": "Facing periods",
+      "kind": "custom",
+      "refersTo": "comparison-cool",
+      "description": "Static label specimen; real events and reflections come from authored records.",
+      "html": "<div class=\"ds-compare\"><section><h3>较早记录</h3><p>经历与反省</p></section><section><h3>较近记录</h3><p>经历与反省</p></section></div>",
+      "css": ".ds-compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;color:var(--ink,#182d54);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-compare section{min-width:0;padding:22px;border-radius:14px;background:#f1f7fb}.ds-compare section+section{background:#fcf6ef}.ds-compare h3{font-size:14px;color:var(--green,#315fd9);margin:0 0 12px}.ds-compare p{font-family:AtlasSerif,\"Noto Serif SC\",serif;font-size:19px;line-height:1.85;background:#fff;padding:18px;border-radius:10px;margin:0}@media(max-width:560px){.ds-compare{grid-template-columns:1fr}}"
     }
   ],
   "narrative": {
-    "northStar": "A life space you can choose",
-    "overview": "The user approved three selectable visual worlds on 2026-10-17. Daylight (晨光 · 生活静室) is the default cool, airy reading room; Orbit (星夜 · 成长轨迹) pairs navy and cyan with a dated growth track; Habitat (石墨 · 生活舱) pairs graphite and sand with a horizontal shell on wide screens. This system supersedes the earlier forest default.\n\nAll skins share factual content, opaque reading panels, self-hosted serif titles, Chinese system text and existing outline icons. Appearance changes preserve the live task and unsaved input. Peripheral particles add a quiet atmosphere; their independent control and writing pauses keep reading and authorship central.",
+    "northStar": "光屿与对页",
+    "overview": "The two image directions approved on 2026-10-17 replace all previous skins. 光屿工作台 (Island) is the default blue and white morning-lake workspace, with vertical desktop navigation and continuous dated records beside the next experiment. 对页观察室 (Observatory) uses a charcoal desktop header, a topic context rail with a lake vignette, and warm/cool facing records. Both keep body text on opaque white surfaces.\n\nThe same factual records, native controls and five destinations serve both spaces. A skin change preserves the live view and unsaved input. Atmosphere supports reading and writing; it does not supply personal history or interpretation.",
     "keyCharacteristics": [
-      "Three semantic palettes with Daylight as the default.",
-      "Opaque reading surfaces, ruled records and explicit textual states.",
-      "Shared serif titles, legible Chinese interface type and native controls.",
-      "Switchable peripheral particles that pause during writing."
+      "Two compositions, with Island as the default.",
+      "Opaque reading panels and explicit textual states.",
+      "Chinese system interface type, with serif Observatory titles and comparison text.",
+      "Independent peripheral particles that pause during writing."
     ],
     "rules": [
       {
@@ -1018,23 +778,23 @@
       },
       {
         "name": "The Live Task Rule",
-        "body": "Changing appearance must preserve live input, focus and scroll; update the document skin attribute instead of remounting the route.",
+        "body": "Changing appearance preserves live input, focus, scroll and the current view by updating the document skin attribute.",
         "section": "components"
       }
     ],
     "dos": [
       "Do use the active skin’s semantic CSS variables across all five routes.",
-      "Do pair consequential color states with explicit labels and item-level results.",
-      "Do preserve selection, review, confirmation and recovery as distinct stages.",
-      "Do retain native control semantics, keyboard focus and reduced-motion behavior.",
-      "Do verify mobile and wide-screen visuals before claiming that coverage."
+      "Do lead comparison with event and reflection; keep observation, feedback and action in expandable details.",
+      "Do preserve native control semantics, explicit saving, keyboard focus and reduced-motion behavior.",
+      "Do identify fictional mail separately from real growth records.",
+      "Do state the actual viewport and capture limits when reporting visual coverage."
     ],
     "donts": [
-      "Don't restore the superseded forest palette as the default.",
-      "Don't use color alone for protected, pending, failed or uncertain states.",
-      "Don't replace or remount the live form to change appearance.",
+      "Don't add retired skins to the selector or canonical palette.",
+      "Don't remount the live route to change appearance.",
       "Don't put reading text on a transparent particle layer.",
-      "Don't infer live Gmail access, AI processing or hosted deployment from the skin review."
+      "Don't turn mockup photos, counts, categories or automatic analysis into personal data.",
+      "Don't infer hosted deployment, live Gmail access or full mobile/desktop fidelity from this review."
     ]
   }
 }

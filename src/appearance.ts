@@ -1,25 +1,25 @@
 export const skins = [
-  { id: 'daylight', name: '晨光 · 生活静室' },
-  { id: 'orbit', name: '星夜 · 成长轨迹' },
-  { id: 'habitat', name: '石墨 · 生活舱' },
+  { id: 'island', name: '光屿工作台' },
+  { id: 'observatory', name: '对页观察室' },
 ] as const;
 type Skin = typeof skins[number]['id'];
-export type Appearance = { version: 1; skin: Skin; particles: boolean };
+export type Appearance = { version: 2; skin: Skin; particles: boolean };
 const storageKey = 'lifeatlas-appearance-v1';
 export function parseAppearance(raw: string | null): Appearance {
   try {
     const value = JSON.parse(raw || 'null');
-    if (value?.version === 1 && skins.some(s => s.id === value.skin)) {
-      return { version: 1, skin: value.skin, particles: value.particles !== false };
+    if (value?.version === 2 && skins.some(s => s.id === value.skin)) {
+      return { version: 2, skin: value.skin, particles: value.particles !== false };
     }
+    if (value?.version === 1 && ['daylight', 'orbit', 'habitat'].includes(value.skin)) return { version: 2, skin: 'island', particles: value.particles !== false };
   } catch { /* Invalid preferences fall back to the chosen light skin. */ }
-  return { version: 1, skin: 'daylight', particles: true };
+  return { version: 2, skin: 'island', particles: true };
 }
 export function appearanceControls() {
   return `<div class="appearance-controls"><label class="skin-control"><span>皮肤</span><select data-appearance="skin" aria-label="选择皮肤">${skins.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></label><label class="particle-control"><input type="checkbox" data-appearance="particles"><span>粒子动态</span></label></div>`;
 }
 export function appearanceSettings() {
-  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">三套皮肤，随时切换。外观偏好保存在这台浏览器。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">输入文字时，粒子会暂时静止；也会遵循系统的减少动态设置。</p></section>`;
+  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">光屿的清晨，与对页的回望。选择适合此刻的阅读空间。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">偏好保存在这台浏览器。输入时粒子暂时静止，也遵循系统的减少动态设置。</p></section>`;
 }
 export function mountAppearance() {
   let preferences: Appearance;
