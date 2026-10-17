@@ -1,260 +1,288 @@
 ---
 name: LifeAtlas Reimagined
-description: Current visual system of the Chinese personal daily-brief and mail-triage prototype
+description: Three selectable skins for a quiet Chinese personal workspace
 colors:
-  forest: "#173e35"
-  forest-deep: "#12352e"
-  green: "#2d6251"
-  ink: "#253d34"
-  muted: "#627268"
-  paper: "#f6f5ef"
-  surface: "#fffefb"
-  line: "#dfe4da"
-  wash: "#edf1e8"
-  amber: "#805715"
-  amber-bg: "#f6ecd5"
-  red: "#923d32"
-  red-bg: "#faebe7"
-  focus: "#b47b28"
-  primary-text: "#fffef7"
-  primary-hover: "#295947"
-  secondary-border: "#d5ded1"
-  secondary-hover: "#e9eee4"
-  danger-hover: "#f5dcd6"
-  nav-text: "#ccdbcf"
-  nav-active-bg: "#e7ecd9"
-  nav-active-text: "#1a4436"
-  nav-hover: "#254e41"
+  daylight-paper: '#eaf1f2'
+  daylight-nav: '#f3f7f7'
+  daylight-surface: '#fbfdfd'
+  daylight-ink: '#233c46'
+  daylight-muted: '#526873'
+  daylight-line: '#ccdadf'
+  daylight-wash: '#e1ecef'
+  daylight-green: '#286b78'
+  daylight-forest: '#286b78'
+  daylight-forest-deep: '#205562'
+  daylight-accent-ink: '#fff'
+  daylight-nav-active-bg: '#dcebef'
+  daylight-secondary-border: '#b4c7ce'
+  daylight-focus: '#286b78'
+  daylight-particle: '#387887'
+  daylight-amber: '#785424'
+  daylight-amber-bg: '#f1e8d7'
+  daylight-red: '#943d38'
+  daylight-red-bg: '#f8e7e4'
+  orbit-paper: '#0a121e'
+  orbit-nav: '#0d1725'
+  orbit-surface: '#121f2d'
+  orbit-ink: '#e5edf3'
+  orbit-muted: '#a0afbf'
+  orbit-line: '#293b4b'
+  orbit-wash: '#1c303f'
+  orbit-green: '#9ed8de'
+  orbit-forest: '#9ed8de'
+  orbit-forest-deep: '#b7e5e9'
+  orbit-accent-ink: '#10262c'
+  orbit-nav-active-bg: '#213d4a'
+  orbit-secondary-border: '#526b7d'
+  orbit-focus: '#9ed8de'
+  orbit-particle: '#a8dce8'
+  orbit-amber: '#e5c38e'
+  orbit-amber-bg: '#3a3024'
+  orbit-red: '#f2b1a7'
+  orbit-red-bg: '#412d30'
+  habitat-paper: '#242724'
+  habitat-nav: '#282d29'
+  habitat-surface: '#30362f'
+  habitat-ink: '#eeeae0'
+  habitat-muted: '#b4b6aa'
+  habitat-line: '#4b5347'
+  habitat-wash: '#3a4136'
+  habitat-green: '#d4bd99'
+  habitat-forest: '#d4bd99'
+  habitat-forest-deep: '#ead3b1'
+  habitat-accent-ink: '#292b24'
+  habitat-nav-active-bg: '#454b3d'
+  habitat-secondary-border: '#737966'
+  habitat-focus: '#d4bd99'
+  habitat-particle: '#d4bd99'
+  habitat-amber: '#e4c390'
+  habitat-amber-bg: '#453d2e'
+  habitat-red: '#f2b5a9'
+  habitat-red-bg: '#4b3430'
 typography:
   display:
-    fontFamily: "AtlasSerif, 'Noto Serif SC', serif"
-    fontSize: "34px"
+    fontFamily: AtlasSerif, 'Noto Serif SC', serif
+    fontSize: 34px
     fontWeight: 600
     lineHeight: 1.45
-    letterSpacing: "-0.025em"
+    letterSpacing: -0.025em
+  display-mobile:
+    fontFamily: AtlasSerif, 'Noto Serif SC', serif
+    fontSize: 29px
+    fontWeight: 600
+    lineHeight: 1.45
+    letterSpacing: -0.025em
+  growth-title:
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 25px
+    fontWeight: 600
+    lineHeight: 1.65
+  growth-year:
+    fontFamily: AtlasSerif, serif
+    fontSize: 24px
+    fontWeight: 600
+    lineHeight: 1.65
+  growth-editor-title:
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 23px
+    fontWeight: 600
+    lineHeight: 1.6
   headline:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "17px"
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 17px
     fontWeight: 600
     lineHeight: 1.65
-  title:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "15px"
-    fontWeight: 600
-    lineHeight: 1.65
+  growth-reading:
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 16px
+    lineHeight: 2
+  growth-baseline:
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 15px
+    lineHeight: 2
   body:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "14px"
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 14px
     lineHeight: 1.65
   label:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "12px"
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 13px
     fontWeight: 500
     lineHeight: 1.7
+  auxiliary:
+    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
+    fontSize: 12px
+    lineHeight: 1.65
 rounded:
-  category: "4px"
-  badge: "5px"
-  field: "6px"
-  control: "7px"
-  toast: "8px"
-  navigation: "9px"
-  selection: "10px"
-  mail-list: "12px"
-  surface: "14px"
-  dialog: "16px"
+  category: 4px
+  badge: 5px
+  field: 6px
+  select: 7px
+  control: 8px
+  navigation: 9px
+  selection: 10px
+  mail-list: 12px
+  surface: 14px
+  dialog: 16px
 spacing:
-  base: "8px"
-  control-gap: "9px"
-  action-gap: "12px"
-  form-gap: "20px"
-  section-gap: "24px"
-  panel-inline: "28px"
-  page-inline: "42px"
+  base: 8px
+  control-gap: 9px
+  action-gap: 12px
+  mobile-inline: 16px
+  form-gap: 20px
+  section-gap: 24px
+  panel-inline: 28px
+  growth-gap: 30px
+  page-inline: 36px
 components:
   button-primary:
-    backgroundColor: "{colors.forest}"
-    textColor: "{colors.primary-text}"
-    typography: "{typography.label}"
-    rounded: "{rounded.control}"
-    padding: "10px 17px"
+    backgroundColor: '{colors.daylight-forest}'
+    textColor: '{colors.daylight-accent-ink}'
+    typography: '{typography.label}'
+    rounded: '{rounded.control}'
+    padding: 10px 17px
+    height: 42px
   button-primary-hover:
-    backgroundColor: "{colors.primary-hover}"
+    backgroundColor: '{colors.daylight-forest-deep}'
   button-subtle:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.control}"
-    padding: "10px 17px"
-  button-subtle-hover:
-    backgroundColor: "{colors.secondary-hover}"
+    backgroundColor: '{colors.daylight-surface}'
+    textColor: '{colors.daylight-ink}'
+    typography: '{typography.label}'
+    rounded: '{rounded.control}'
+    padding: 10px 17px
   button-danger:
-    backgroundColor: "{colors.red-bg}"
-    textColor: "{colors.red}"
-    typography: "{typography.label}"
-    rounded: "{rounded.control}"
-    padding: "10px 17px"
-  button-danger-hover:
-    backgroundColor: "{colors.danger-hover}"
-  button-text:
-    backgroundColor: "transparent"
-    textColor: "{colors.green}"
-    padding: "0"
+    backgroundColor: '{colors.daylight-red-bg}'
+    textColor: '{colors.daylight-red}'
+    typography: '{typography.label}'
+    rounded: '{rounded.control}'
+    padding: 10px 17px
   input-search:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.control}"
-    padding: "8px 11px"
-    width: "220px"
+    backgroundColor: '{colors.daylight-surface}'
+    textColor: '{colors.daylight-ink}'
+    rounded: '{rounded.select}'
+    padding: 8px 11px
+    width: 220px
   navigation-active:
-    backgroundColor: "{colors.nav-active-bg}"
-    textColor: "{colors.nav-active-text}"
-    rounded: "{rounded.navigation}"
-    padding: "12px 16px"
+    backgroundColor: '{colors.daylight-nav-active-bg}'
+    textColor: '{colors.daylight-green}'
+    rounded: '{rounded.navigation}'
+    padding: 12px
   status-awaiting:
-    backgroundColor: "{colors.amber-bg}"
-    textColor: "{colors.amber}"
-    rounded: "{rounded.category}"
-    padding: "4px 9px"
-  task-receipt:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.surface}"
-    padding: "25px 28px"
-  selection-shelf:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.selection}"
-    padding: "16px 20px"
+    backgroundColor: '{colors.daylight-amber-bg}'
+    textColor: '{colors.daylight-amber}'
+    rounded: '{rounded.category}'
+    padding: 4px 9px
+  growth-reading-panel:
+    backgroundColor: '{colors.daylight-surface}'
+    textColor: '{colors.daylight-ink}'
+    rounded: '{rounded.surface}'
+    padding: 28px 32px
   confirmation-dialog:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.dialog}"
-    padding: "30px"
-    width: "min(570px, calc(100% - 32px))"
+    backgroundColor: '{colors.daylight-surface}'
+    textColor: '{colors.daylight-ink}'
+    rounded: '{rounded.dialog}'
+    padding: 30px
+    width: min(570px, calc(100% - 32px))
+  input-field:
+    backgroundColor: '{colors.daylight-surface}'
+    textColor: '{colors.daylight-ink}'
+    rounded: '{rounded.field}'
+    padding: 10px 12px
 ---
 
 # Design System: LifeAtlas Reimagined
 
 ## Overview
 
-**Creative North Star: "Quiet daily workspace" (provisional description).**
+**Creative North Star: "A life space you can choose"**
 
-This is an extraction of the implemented prototype, not a permanent brand approval. The developer-recommended direction combines a warm mineral background, a deep-green navigation shell, and warm-white working surfaces. Serif Chinese page titles give a calm reading entry; compact sans-serif rows support decisions. Green and amber retain tentative continuity with the product plan.
+The user approved three selectable visual worlds on 2026-10-17. Daylight (晨光 · 生活静室) is the default cool, airy reading room; Orbit (星夜 · 成长轨迹) pairs navy and cyan with a dated growth track; Habitat (石墨 · 生活舱) pairs graphite and sand with a horizontal shell on wide screens. This system supersedes the earlier forest default.
 
-The first user is the owner. The interface makes suggestions, selection, confirmation and itemized results visibly distinct. Atmosphere language here describes the current build and remains provisional. Token values document the implementation; they do not authorize a broader rebrand. Source evidence: `src/style.css`, `src/main.ts`, the workspace `PRODUCT.md`, and `work/direction.md`, extracted on 2026-10-17.
-
-Review evidence is limited: the finish reviewer returned **ship** for the two scored corrections, select-all disabled behavior and text contrast. An initial desktop screenshot and responsive DOM checks exist; the final mobile screenshot is invalid coverage. This document does not certify final mobile visuals, whole-surface accessibility, or fidelity to an approved comp.
+All skins share factual content, opaque reading panels, self-hosted serif titles, Chinese system text and existing outline icons. Appearance changes preserve the live task and unsaved input. Peripheral particles add a quiet atmosphere; their independent control and writing pauses keep reading and authorship central.
 
 **Key Characteristics:**
-- Deep-green shell, warm-white work surfaces and ruled information rows.
-- Serif page titles with compact, neutral sans-serif reading text.
-- Explicit textual status, selection, confirmation and recovery affordances.
-- Flat working surfaces; lifted confirmation and transient feedback.
+- Three semantic palettes with Daylight as the default.
+- Opaque reading surfaces, ruled records and explicit textual states.
+- Shared serif titles, legible Chinese interface type and native controls.
+- Switchable peripheral particles that pause during writing.
+
+Extracted from `src/style.css` → `src/growth.css` → `src/skins.css` (the import order in `app/layout.tsx`), plus `src/appearance.ts` and `src/main.ts`. `PRODUCT.md` Brand Commitments and `.impeccable/surfaces/src-main-ts.md` record the accepted direction. Ignore `.impeccable/live` exploration state.
+
+The independent reviewer returned **SHIP** for this skin work. Visual evidence covers the shared shell/settings in the actual approximately (718×550px) in-app browser: `.impeccable/review/skins-{daylight,orbit,habitat}-user.png`. Source/DOM checks cover the other routes. At CSS widths (390px) and (1440px), DOM checks found five visible navigation links and no horizontal overflow in all skins. Emulated mobile/wide screenshots were malformed and discarded; these checks do not certify mobile/wide visuals or whole-app accessibility. Reported validation: (33) tests, typecheck and build passed. No shipping assets were created; screenshots are review evidence.
 
 ## Colors
 
-The palette uses forest greens for structure, soft warm neutrals for reading, and semantic amber/red pairs for states. Frontmatter is the normative color record; names below describe observed roles rather than user-approved brand terminology.
+Frontmatter contains every hex palette primitive from the three root skin blocks. Prefixes identify the skin; the suffix matches its CSS custom property. Component token references show the default Daylight mapping; runtime components use semantic variables so Orbit and Habitat inherit their own palette.
 
 ### Primary
-- **Forest**: persistent navigation shell, primary action and feedback toast.
-- **Green**: text actions, connection indicators, checkboxes and enabled switches.
-- **Forest deep**: shadow tint source; not an additional action tier.
+- **Daylight cool teal**: `green` and `forest` drive links, active navigation, checkboxes and primary actions; `forest-deep` is primary hover. White `accent-ink` keeps actions readable.
+- **Orbit pale cyan**: the same roles on navy surfaces, with dark `accent-ink` for primary action text.
+- **Habitat warm sand**: the same roles on graphite surfaces, with dark `accent-ink` for primary action text.
+- `focus` follows each skin’s accent. `particle` is peripheral atmosphere, with opacity documented in the sidecar.
 
 ### Neutral
-- **Ink / Muted**: main reading text / secondary provenance and supporting copy. The final footer override uses Muted; the old lighter footer colors are superseded.
-- **Paper / Surface / Wash**: page ground / working containers / quiet icon and permission fills.
-- **Line**: rules dividing brief entries, mail rows, settings and receipts.
-- **Navigation text / active background / active text / hover**: distinct default, active and hover states in the green shell.
+- `paper`, `nav`, `surface`: page ground, navigation shell and opaque working surface.
+- `ink`, `muted`: reading text and supporting text. `line` separates rows; `wash` marks quiet inset or selected regions.
+- `nav-active-bg` marks the active destination; `secondary-border` outlines controls and colors the unchecked switch track.
 
-### Semantic States
-- **Amber / Amber background**: demo notice, awaiting confirmation, uncertain and partial task status. Protected-mail chips also use a related amber fill; amber is not an exclusive confirmation color in the actual source.
-- **Red / Red background**: destructive reset, errors and failed item results.
-- **Focus**: keyboard outline across actionable controls, including switches.
-- Literal per-category tints and low-emphasis support colors remain in the source; they are not promoted into new global accents here.
+Amber/amber-background pairs signal pending, partial, uncertain and protected/promotion states; red/red-background pairs signal failure or destructive actions. These meanings remain shared across skins.
 
 **The Textual State Rule.** Every consequential status has a written label; color is an additional cue.
 
 ## Typography
 
-**Display Font:** locally hosted AtlasSerif with Noto Serif SC and generic serif fallback. The font face uses `/fonts/atlas-serif.woff2`, a variable weight range (400–700), and `font-display: swap`.
+**Display Font:** self-hosted AtlasSerif (`/fonts/atlas-serif.woff2`, variable weights 400–700, `font-display: swap`), with Noto Serif SC and serif fallbacks. **Body Font:** Microsoft YaHei, PingFang SC, system-ui, sans-serif. Brand/brief numerals retain Georgia fallbacks; numeric counts and growth years use tabular numerals. No new font assets or external font requests were added.
 
-**Body Font:** Microsoft YaHei, PingFang SC, system-ui, sans-serif. No external font request is needed. Georgia appears in brief entry numerals and the brand fallback. These are implementation facts, not proof of full glyph coverage.
-
-### Hierarchy
-- **Display**: page title, reduced to (29px) at the small-screen breakpoint. Balanced wrapping and slightly tight tracking create the reading entry.
-- **Headline / Title**: section headings and brief entry titles. Some contextual headings use (17px), (20px) or the display serif; do not flatten these into one arbitrary scale.
-- **Body**: root reading defaults are in frontmatter. Most interface copy intentionally uses (11–13px), with brief paragraphs at line heights (1.9–1.95) and a lead width of (65ch).
-- **Label**: buttons use the frontmatter role; provenance, counts and statuses commonly use (10–11px). Mobile auxiliary text reaches (9px); that is an observed limitation, not a recommendation for new screens.
-- Tabular numerals align mail counts, brief indices and daily totals.
+Frontmatter records the shared hierarchy, including interface labels (13px), growth years (24px) and topic titles (25px). Page titles use the display/mobile-display roles. Section headings use the headline role, while brief titles and subjects use (15px). Growth prose uses the growth-reading role; baseline text uses growth-baseline. Forms retain contextual (14–15px) desktop text and (16px) growth-editor fields on small screens. On small screens, the more-specific inherited section-heading rule makes the topic heading (21px), overriding the skin’s (22px) declaration; editor titles retain (23px). Supporting labels use the auxiliary role. Some inherited category/status captions remain (9–11px); this is an observed limitation, not a new minimum-size recommendation. Brief leads cap at (65ch), growth prose at (70ch).
 
 ## Layout
 
-Desktop uses a fixed navigation rail (230px), an offset workspace, a top bar (68px), and a main container capped at (1450px). Default page side padding is (42px). The daily view has a fluid primary column plus a narrow side column (263px), separated by (38px). Settings follows the same two-column family with a (250px) side column. Mail triage is a ruled list rather than a grid of independent cards.
+Above (1050px), Daylight and Orbit use a fixed rail (206px) and offset workspace. Habitat uses an in-flow horizontal navigation bar at (1051px) and above, with no workspace offset. Shared main width is capped at (1420px); above (1199px), Daylight caps at (1350px) with extra reading space, and wide Habitat caps at (1320px). The header wraps appearance controls instead of clipping them.
 
-The CSS defines an (8px) base variable but uses contextual spacing rather than a strict multiple-only scale. Preserve the source's deliberate page/panel/row hierarchy; do not claim a universal eight-point grid.
-
-Responsive behavior is extracted from CSS, not visually certified: at (1500px) and above, daily-view spacing and side-column width increase; at (1150px) and below, the rail narrows to (194px), page padding becomes (28px), search fills the toolbar, and the decorative prepare stack disappears. At (860px) and below, the primary grids become one column and auxiliary sections use a two-column arrangement. At (640px) and below, navigation becomes an in-flow top row with stacked icon/text links, the workspace loses its offset, page side padding becomes (20px), and the selection shelf wraps near the viewport bottom. Receipt rows stack item detail beneath the subject. The final mobile navigation override uses equal-width links, a (4px) gap and (10px) labels.
+At (1200px) and below, main side padding becomes (26px), growth gaps tighten and baseline/direction stack. At (1050px) and below, every skin uses in-flow horizontal navigation, no rail offset and a one-column growth layout. At (860px) and below, inherited daily/settings grids become one column. At (640px) and below, navigation is a five-column equal-width grid with visible icon/text links; main side padding becomes (16px), appearance controls get a full header row, growth topic links/forms/comparison stack, and reading/editor padding tightens. Keep the inherited daily-view expansion at (1500px); the skin layer determines the final shell. The spacing scale is contextual, not a strict eight-point grid.
 
 ## Elevation & Depth
 
-Working panels are flat tonal surfaces with fine rules. Elevation is reserved for confirmation, transient feedback, the sticky selection shelf and the small prepare-stack illustration. There are no ambient gradients or image textures in this prototype.
-
-### Shadow Vocabulary
-- **Modal and toast** (`0 16px 48px rgba(18,53,46,.16)`): the shared shadow variable.
-- **Selection shelf** (`0 6px 24px #173e3510`): separates a sticky action region from list content.
-- **Prepare-stack middle layer** (`0 5px 14px #6a80531a`): a small static illustration layer, shifted left (7px).
-- Dialog backdrop (`#102f2770`) uses (2px) blur. This treatment belongs to the modal layer rather than ordinary cards.
+Panels are opaque and flat; borders and tonal differences carry hierarchy. The selection shelf and small prepare-stack layers have no shadow after skin overrides. The shared skin-specific shadow is reserved for dialog/toast elevation (exact values in the sidecar). Dialog backdrop is dark with (2px) blur. Particles sit behind the app and never receive pointer events; they are not text backgrounds.
 
 ## Shapes
 
-Small controls have gently curved corners; larger reading surfaces use the shared surface radius. Mail rows join into a list with only the outer top and bottom corners rounded. Chips are compact rounded rectangles, while connection markers and the profile avatar are circular. Stroke icons use a (24×24) viewBox, no fill, a (1.6) stroke, and round caps/joins; most render at (13–19px). Preserve those existing SVG paths rather than introducing an icon font.
+Use the extracted radius scale: restrained rounded controls, larger reading surfaces, and joined mail-list outer corners. Avatars, timeline dots and particles are circular. Existing SVG icons retain their (24×24) viewBox, no fill, (1.6px) stroke, and round caps/joins; reuse those paths rather than introducing an icon font.
 
 ## Components
 
-### Buttons
+### Buttons and fields
 
-Primary actions use Forest and warm-white text; secondary actions use a Surface fill and a thin green-gray border. The destructive variant uses the Red semantic pair. All three share compact label type, a minimum height (40px), a (9px) icon gap and a short background transition (0.15s). Text actions are unboxed Green and underline on hover; source actions are the smaller (11px) variation. Disabled buttons use opacity (0.45) and the unavailable cursor. Global keyboard focus is an outlined ring (3px) offset (4px).
+Primary buttons use `forest`/`accent-ink`, with `forest-deep` hover. Subtle buttons use `surface`, `ink` and `secondary-border`, then `wash` on hover. Danger uses the red semantic pair. Shared buttons retain (10px 17px) padding, a (9px) icon gap, label type and a minimum height (42px); growth actions retain the inherited (44px) minimum. Disabled buttons remain native and visibly dimmed. Search retains its inline icon, transparent inner input and (220px) default width, becoming full-width under the inherited toolbar breakpoint. Its inner input removes the outline; no custom search-container focus ring is implemented.
 
-### Inputs / Fields
+Settings fields use a thin semantic border and native labels. Global keyboard focus is a (3px) skin-accent outline, offset (4px); growth-specific controls use offset (3px). Native checkboxes use the skin accent. Existing switches retain a (36×21px) rounded track, white (15px) thumb, checked translation (15px), explicit labels and track focus outline.
 
-Search uses an inline search icon, a narrow border and a transparent inner input. The inner input removes its outline; the current implementation does not provide a custom search-container focus-within ring, so do not claim otherwise. Settings inputs/selects have a field radius, a thin border, (9px 10px) padding and labels above them. Native checkboxes use Green accent color. Switches use a rounded track (36×21px), a white thumb (15px), checked translation (15px), explicit accessible labels and a focus outline on the track.
+### Navigation, chips and records
 
-### Navigation
+Five destinations remain available: 今日、邮箱整理、个人成长、任务记录、偏好设置. Active links carry `aria-current="page"`, accent text, a filled background and increased weight; hover uses `wash` and `ink`. Status/category chips stay textual informational spans, without invented hover behavior. Mail remains a ruled list, with selection/review/confirmation and itemized recovery kept distinct. Dialogs retain native modal semantics, a bounded width/height and a permission checkbox; styling alone does not implement these behaviors.
 
-The persistent desktop rail carries four routes: 今日, 邮箱整理, 任务记录, 偏好设置. The active route has a pale filled shape, darker text and increased weight; hover lightens the forest shell. Active links carry `aria-current="page"`. Mobile moves the same navigation into document flow and hides the badge counts and profile area. Mail filters are separate text tabs with an active bottom rule.
+Growth uses a topic list plus a reading/writing area. Orbit adds a ruled timeline and small dated-entry dots without assigning scores. Habitat changes the wide shell; all skins preserve the same topic records, versions and comparison controls. The growth surface brief owns the reflection workflow; this document owns its shared visual system.
 
-### Chips and Task Status
+### Appearance and motion
 
-Category and status labels stay compact and textual. Green-toned statuses indicate ordinary completion; amber covers pending/partial/unknown; red identifies failure. Category chips have distinct subscription, promotion, action and protected fills. They are informational spans, not buttons, and have no invented hover or focus response.
+The header and settings expose synchronized native skin selects and an independent particle checkbox. New/invalid preferences default to Daylight with particles enabled. `lifeatlas-appearance-v1` stores only `{version, skin, particles}` in browser localStorage; journal content stays in the server database. Appearance storage failure leaves the current session functional and displays a status message in settings. Cross-tab storage events synchronize preferences.
 
-### Mail List and Selection Shelf
+**The Live Task Rule.** Changing appearance must preserve live input, focus and scroll; update the document skin attribute instead of remounting the route.
 
-Each mail row aligns a native checkbox or lock mark, sender identity, subject, preview and category. A ruled reason line and source action sit below. Selection changes the row fill; subject activation expands details while keeping row identity stable. The sticky shelf displays current selection and a review action. Select-all is disabled outside the suggested tab and whenever there are no eligible current results; an empty selection disables review. The mobile shelf wraps, with a bottom offset (8px).
-
-### Confirmation and Itemized Receipt
-
-The signature is a staged action flow: inspect suggestions, explicitly select, review an itemized native dialog, authorize the local demonstration, then read a task receipt. The dialog has a scrollable list, explicit permission checkbox, cancel/confirm actions, and a bounded width/height. It uses native modal behavior; processing prevents cancellation. No snippet or token record implies that the style layer implements these behaviors by itself.
-
-Receipts preserve subjects and show per-item results with recoverable actions. They use a flat Surface container with ruled item rows and a textual task status. Failed and unknown item details remain visible; unknown results offer reconciliation. This visual document covers local fictional-data UI, not production Gmail authorization.
-
-### Feedback and Motion
-
-The real Gmail connection panel added during server integration reuses the settings Surface, semantic status labels and standard buttons. It is scoped to read-only setup and preview, with explicit unconfigured/loading/error/stale states; it does not change the visual identity. Actual mail uses larger reading text (14px desktop, 16px mobile) and long content wraps. This records an implemented component extension, not a new brand approval or a claim of real-account validation.
-
-Toasts fade and translate (0.2s) and remain visible for (4200ms). Hover backgrounds and switch states transition (0.15s); there is no entrance choreography. The reduced-motion query removes transitions/animations and resets smooth scrolling. Modal, toast, switch and shelf details are preserved in the sidecar because frontmatter cannot represent them fully.
+The decorative layer contains (32) stable-position dots, with only (16) visible on small screens. Long alternating drifts pause while a text field/contenteditable has focus, while the tab is hidden, or when the system requests reduced motion. The checkbox independently hides the layer. Existing background/switch transitions are (0.15s), toast transitions (0.2s), and toast duration (4200ms); reduced motion disables transitions and animations. Exact animation/shadow values and standalone component specimens live in `.impeccable/design.json`.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** reuse the existing forest, warm-neutral and semantic state tokens.
+- **Do** use the active skin’s semantic CSS variables across all five routes.
 - **Do** pair consequential color states with explicit labels and item-level results.
-- **Do** preserve selection, review and confirmation as separate visible stages.
-- **Do** retain keyboard focus, native control semantics and reduced-motion support.
-- **Do** treat aesthetic interpretation as provisional and verify mobile visuals before claiming coverage.
+- **Do** preserve selection, review, confirmation and recovery as distinct stages.
+- **Do** retain native control semantics, keyboard focus and reduced-motion behavior.
+- **Do** verify mobile and wide-screen visuals before claiming that coverage.
 
 ### Don't:
-- **Don't** present tentative green/amber continuity as a user-approved permanent brand.
-- **Don't** turn the flat mail list into unrelated floating cards without a new design decision.
-- **Don't** use color alone to distinguish protected, pending, failed or uncertain states.
-- **Don't** infer working OAuth, live mail, scheduling or model processing from the prototype styling.
-- **Don't** treat generated sidecar tonal ramps as production tokens or claim whole-surface approval from the two-fix verdict.
+- **Don't** restore the superseded forest palette as the default.
+- **Don't** use color alone for protected, pending, failed or uncertain states.
+- **Don't** replace or remount the live form to change appearance.
+- **Don't** put reading text on a transparent particle layer.
+- **Don't** infer live Gmail access, AI processing or hosted deployment from the skin review.

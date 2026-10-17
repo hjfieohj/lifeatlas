@@ -2,8 +2,10 @@ import { seedStore, prepare, prepareRestore, execute, reconcile, cancel, isEligi
 import type { Store, Mail, Task, Scenario } from './domain';
 import { mountRealGmailPanel } from './real-gmail';
 import { mountGrowth } from './growth';
+import { mountAppearance, appearanceControls, appearanceSettings } from './appearance';
 
 export function mountLifeAtlas() {
+const appearance = mountAppearance();
 let realCleanup: (() => void) | undefined;
 let growth: ReturnType<typeof mountGrowth> | undefined;
 const lifetime = new AbortController();
@@ -81,6 +83,9 @@ function render() {
   growth?.destroy(); growth = undefined;
   realCleanup?.(); realCleanup = undefined;
   root.innerHTML = shell(page === 'today' ? today() : page === 'mail' ? mail() : page === 'growth' ? '<div id="growth-panel"></div>' : page === 'history' ? history() : settings());
+  root.querySelector('.topbar')?.insertAdjacentHTML('beforeend', appearanceControls());
+  if (page === 'settings') root.querySelector('#main .page-heading')?.insertAdjacentHTML('afterend', appearanceSettings());
+  appearance.sync();
   if (page === 'growth') growth = mountGrowth(root.querySelector<HTMLElement>('#growth-panel')!);
   if (page === 'settings') {
     const section = document.createElement('div'); section.id = 'real-gmail-panel';
@@ -158,5 +163,5 @@ const skip = document.querySelector<HTMLAnchorElement>('.skip')!;
 listen(skip, 'click', ev => { ev.preventDefault(); document.querySelector<HTMLElement>('#main')?.focus(); });
 listen(window, 'hashchange', () => { if (page === 'growth' && growth && !growth.canLeave()) { window.history.replaceState(null, '', '#growth'); return; } page = ['today', 'mail', 'growth', 'history', 'settings'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'today'; selected.clear(); render(); window.scrollTo(0, 0); document.querySelector<HTMLElement>('#main')?.focus({ preventScroll: true }); });
 render();
-return () => { lifetime.abort(); growth?.destroy(); realCleanup?.(); clearTimeout(toastTimer); if (dialog.open) dialog.close(); };
+return () => { lifetime.abort(); appearance.destroy(); growth?.destroy(); realCleanup?.(); clearTimeout(toastTimer); if (dialog.open) dialog.close(); };
 }
