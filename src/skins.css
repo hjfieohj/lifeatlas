@@ -4,7 +4,7 @@
  --paper:#edf3ff;--nav:#f8faff;--surface:#fff;--ink:#182d54;--muted:#536b91;
  --line:#dce5f5;--wash:#edf3ff;--green:#315fd9;--forest:#315fd9;--forest-deep:#2449b0;
  --accent-ink:#fff;--nav-active-bg:#e5edff;--secondary-border:#b8c8e2;
- --focus:#315fd9;--particle:#7398d9;--particle-opacity:.4;
+ --focus:#315fd9;--particle:#7398d9;--atmosphere-sun:#ceaa71;--atmosphere-water:#72a9b1;
  --amber:#8a5426;--amber-bg:#fff3e3;--red:#a33e42;--red-bg:#fff0f0;
  --radius:16px;--shadow:0 14px 44px #314a7320;
 }
@@ -13,7 +13,7 @@
  --paper:#edf2f6;--nav:#293d4d;--surface:#fff;--ink:#1d2d3b;--muted:#536779;
  --line:#dce4eb;--wash:#eff5fa;--green:#276486;--forest:#bc4e25;--forest-deep:#9b3f1c;
  --accent-ink:#fff;--nav-active-bg:#e5eff7;--secondary-border:#b6c8d7;
- --focus:#bc4e25;--particle:#7da9c7;--particle-opacity:.4;
+ --focus:#bc4e25;--particle:#7da9c7;--atmosphere-sun:#c79267;--atmosphere-water:#78a4a3;
  --amber:#855326;--amber-bg:#fcf0e1;--red:#a33e42;--red-bg:#fff0f0;
  --shadow:0 14px 44px #29435516;
 }
@@ -24,13 +24,9 @@ input,textarea{caret-color:var(--green);accent-color:var(--green)}
 input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
 :focus-visible,.switch input:focus-visible+span{outline-color:var(--focus)}
 ::-webkit-scrollbar-thumb{background:var(--secondary-border)}
-.life-atmosphere{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;contain:strict}
-.life-atmosphere i{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:var(--particle);opacity:var(--particle-opacity);animation:atlas-drift var(--duration) ease-in-out var(--delay) infinite alternate,atlas-breathe var(--breath) ease-in-out var(--delay) infinite alternate}
-.life-atmosphere i::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:radial-gradient(circle,var(--particle),transparent 70%);opacity:.32}
-.life-atmosphere[data-paused="true"] i{animation-play-state:paused}
+.life-atmosphere{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;contain:strict}
+.life-atmosphere canvas{display:block;width:100%;height:100%}
 .life-atmosphere[hidden]{display:none}
-@keyframes atlas-drift{0%{transform:translate3d(calc(-1 * var(--sway)),16px,0)}50%{transform:translate3d(8px,-14px,0)}100%{transform:translate3d(var(--sway),-38px,0)}}
-@keyframes atlas-breathe{from{opacity:.16}to{opacity:.66}}
 .sidebar{width:214px;background:var(--nav);color:var(--ink);padding:30px 16px 22px;border-right:1px solid var(--line)}
 .brand{font-family:'Microsoft YaHei','PingFang SC',sans-serif;font-size:23px;font-weight:600;gap:8px}
 .brand-mark{color:var(--green);width:34px}.brand small{color:var(--muted);font-size:12px;letter-spacing:.07em;font-weight:400}
@@ -42,7 +38,7 @@ input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
 .quiet,.profile small{color:var(--muted);font-size:12px}
 .profile{border-color:var(--line);font-size:13px}.nav-appearance{display:none}
 .workspace{position:relative;margin-left:214px;isolation:isolate}
-.scene-banner{position:absolute;z-index:-1;top:65px;left:0;right:0;height:280px;background:linear-gradient(180deg,#f6f9ffb8,#f6f9ffb0 65%,var(--paper)),url('/images/dawn-lake.webp') center 59% / cover no-repeat;pointer-events:none}
+.scene-banner{position:absolute;z-index:-2;top:65px;left:0;right:0;height:280px;background:linear-gradient(180deg,#f6f9ffb8,#f6f9ffb0 65%,var(--paper)),url('/images/dawn-lake.webp') center 59% / cover no-repeat;pointer-events:none}
 .topbar{height:auto;min-height:65px;padding:12px 30px;gap:12px;flex-wrap:wrap;background:#ffffffed;border-color:var(--line)}
 .breadcrumb{font-size:13px;flex:1;min-width:145px}.breadcrumb>span{color:var(--muted);padding:0 9px}
 .demo-badge{font-size:12px;background:var(--wash);color:var(--green)}
@@ -274,7 +270,5 @@ dialog::backdrop{background:#152b4590}
  .appearance-section .appearance-controls{align-items:flex-start;flex-direction:column;gap:8px}
  .appearance-section .skin-control select{font-size:14px}
  footer{padding:20px 16px;gap:12px;flex-wrap:wrap}
- .life-atmosphere i:nth-child(n+25){display:none}
 }
 @media(max-width:560px){.growth-compare{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.life-atmosphere i{animation:none}}

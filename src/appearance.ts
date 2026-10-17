@@ -1,3 +1,5 @@
+import { createAtmosphere } from './atmosphere.ts';
+
 export const skins = [
   { id: 'island', name: '光屿工作台' },
   { id: 'observatory', name: '对页观察室' },
@@ -19,7 +21,7 @@ export function appearanceControls() {
   return `<div class="appearance-controls"><label class="skin-control"><span>皮肤</span><select data-appearance="skin" aria-label="选择皮肤">${skins.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></label><label class="particle-control"><input type="checkbox" data-appearance="particles"><span>粒子动态</span></label></div>`;
 }
 export function appearanceSettings() {
-  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">光屿的清晨，与对页的回望。选择适合此刻的阅读空间。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">偏好保存在这台浏览器。输入时粒子暂时静止，也遵循系统的减少动态设置。</p></section>`;
+  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">光屿的清晨，与对页的回望。选择适合此刻的阅读空间。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">微尘随风，水光起伏。输入时光景静止，也遵循系统的减少动态设置。外观偏好保存在这台浏览器。</p></section>`;
 }
 export function mountAppearance() {
   let preferences: Appearance;
@@ -31,21 +33,19 @@ export function mountAppearance() {
   const atmosphere = document.createElement('div');
   atmosphere.className = 'life-atmosphere';
   atmosphere.setAttribute('aria-hidden', 'true');
-  // Independent drift and slow breathing keep the selected firefly field calm.
-  for (let i = 0; i < 48; i++) {
-    const dot = document.createElement('i');
-    dot.style.cssText = `--x:${(i * 37 + 11) % 100}%;--y:${(i * 61 + 7) % 100}%;--duration:${28 + (i * 13) % 25}s;--breath:${9 + (i * 7) % 11}s;--delay:-${i * 7}s;--size:${2 + (i % 3)}px;--sway:${16 + (i * 11) % 27}px`;
-    atmosphere.appendChild(dot);
-  }
   document.body.insertBefore(atmosphere, document.body.firstChild);
+  const landscape = createAtmosphere(atmosphere, controller.signal);
   function editing() {
     const active = document.activeElement;
     return active instanceof HTMLElement && active.matches('textarea, input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]), [contenteditable="true"]');
   }
   function sync() {
     document.documentElement.dataset.skin = preferences.skin;
+    const workspace = document.querySelector<HTMLElement>('.workspace');
+    if (workspace && atmosphere.parentElement !== workspace) workspace.insertBefore(atmosphere, workspace.firstChild);
     atmosphere.hidden = !preferences.particles;
     atmosphere.dataset.paused = String(reduced.matches || document.hidden || editing());
+    landscape.update({ enabled: preferences.particles, paused: atmosphere.dataset.paused === 'true', skin: preferences.skin });
     document.querySelectorAll('[data-appearance="skin"]').forEach(node => { (node as unknown as HTMLSelectElement).value = preferences.skin; });
     document.querySelectorAll<HTMLInputElement>('[data-appearance="particles"]').forEach(el => { el.checked = preferences.particles; });
     const message = storageFailed ? '浏览器未能保存外观偏好，本次切换仍然生效。' : reduced.matches && preferences.particles ? '系统已启用减少动态，粒子保持静止。' : preferences.particles ? '粒子动态已开启；输入时暂时静止。' : '粒子背景已关闭。';

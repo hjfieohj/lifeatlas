@@ -654,12 +654,12 @@
     "motion": [
       {
         "name": "particles",
-        "value": "atlas-drift 28–52s ease-in-out alternate plus atlas-breathe 9–19s; 48 points, 2–4px, opacity .16–.66; 24 points at <=640px",
-        "purpose": "translate3d(-18px,12px,0) to translate3d(22px,-25px,0); stable positions and negative delays; <=640px keeps 16 dots."
+        "value": "Canvas natural atmosphere: 132 dust + 252 water grains desktop, 64 + 96 compact; sparse turning flecks, daylight pools, local pointer breeze and blank-space ripples; 30/24fps, DPR caps 1.5/1.25",
+        "purpose": "Coherent sunlight, wind-borne dust and reflected water behind opaque reading surfaces; implemented in src/atmosphere.ts"
       },
       {
         "name": "particle-stop-rules",
-        "value": "user off: hidden; editing/document hidden/reduced motion: paused; reduced motion: animation none",
+        "value": "Cancel RAF when off, typing, hidden or reduced motion; retain still except off; redraw on resize/theme; abort cancels loop and listeners",
         "purpose": "Controlled by appearance.ts; particles are aria-hidden and pointer-events:none."
       },
       {
