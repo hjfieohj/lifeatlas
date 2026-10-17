@@ -21,7 +21,7 @@ export function appearanceControls() {
   return `<div class="appearance-controls"><label class="skin-control"><span>皮肤</span><select data-appearance="skin" aria-label="选择皮肤">${skins.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></label><label class="particle-control"><input type="checkbox" data-appearance="particles"><span>粒子动态</span></label></div>`;
 }
 export function appearanceSettings() {
-  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">光屿的清晨，与对页的回望。选择适合此刻的阅读空间。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">微尘随风，水光起伏。输入时光景静止，也遵循系统的减少动态设置。外观偏好保存在这台浏览器。</p></section>`;
+  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">光屿的清晨，与对页的回望。选择适合此刻的阅读空间。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">细小粒子汇成流动的背景，延伸至导航栏。输入时光景静止，也遵循系统的减少动态设置。外观偏好保存在这台浏览器。</p></section>`;
 }
 export function mountAppearance() {
   let preferences: Appearance;

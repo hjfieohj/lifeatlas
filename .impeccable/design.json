@@ -654,12 +654,12 @@
     "motion": [
       {
         "name": "particles",
-        "value": "Canvas natural atmosphere: 132 dust + 252 water grains desktop, 64 + 96 compact; sparse turning flecks, daylight pools, local pointer breeze and blank-space ripples; 30/24fps, DPR caps 1.5/1.25",
-        "purpose": "Coherent sunlight, wind-borne dust and reflected water behind opaque reading surfaces; implemented in src/atmosphere.ts"
+        "value": "One continuous sharp particle current: 30x76 desktop / 22x40 compact, radius .65-1.2px, 30/24fps, DPR caps 1.5/1.25, main bitmap <=2M pixels",
+        "purpose": "Navigation copies the same viewport coordinates and frame; background extends behind LifeAtlas, with no dust sprites or seeds."
       },
       {
         "name": "particle-stop-rules",
-        "value": "Cancel RAF when off, typing, hidden or reduced motion; retain still except off; redraw on resize/theme; abort cancels loop and listeners",
+        "value": "Off hides both canvases; typing/hidden/reduced-motion cancels one shared RAF; still redraws on resize/theme; route changes reconnect canvases; abort removes both",
         "purpose": "Controlled by appearance.ts; particles are aria-hidden and pointer-events:none."
       },
       {
