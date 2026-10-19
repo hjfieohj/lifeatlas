@@ -1,0 +1,1 @@
+ALTER TABLE `growth_moments` ADD `context` text DEFAULT '{}' NOT NULL;

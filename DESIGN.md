@@ -218,6 +218,8 @@ The native appearance selector has exactly two options and synchronizes across t
 
 **The Live Task Rule.** Changing appearance preserves live input, focus, scroll and the current view by updating the document skin attribute.
 
+Growth evidence extension (2026-10-19): native keyword/date filters wrap with the reading width and search opens the record view. New entries lead with the event; other fields expand on demand. Explicit attempt selection shows the original action before writing feedback. Period review uses a bounded native checkbox list and frozen source excerpts in expandable reading sections. Controls retain the active skin's semantic colors, 44px form actions, and visible focus. The recent-attempt panel now flows as a block in both skins, accommodating multiple attempts without the former single-action grid. No theme, particle, or raster changes.
+
 ## Do's and Don'ts
 
 ### Do

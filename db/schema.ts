@@ -28,6 +28,7 @@ export const growthMoments = sqliteTable('growth_moments', {
   occurredOn: text('occurred_on').notNull(), kind: text('kind').notNull(),
   event: text('event').notNull(), observation: text('observation').notNull(), reflection: text('reflection').notNull(),
   action: text('action').notNull(), feedback: text('feedback').notNull(),
+  context: text('context').notNull().default('{}'),
   createdAt: integer('created_at').notNull(), updatedAt: integer('updated_at').notNull(),
   version: integer('version').notNull(), deleted: integer('deleted').notNull().default(0),
 }, t => [index('growth_moments_timeline').on(t.owner, t.topicId, t.occurredOn, t.id)]);

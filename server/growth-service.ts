@@ -1,12 +1,13 @@
 import { GrowthRepository } from './growth-repository.ts';
-import { validDay, momentFields } from '../src/growth-model.ts';
-import type { GrowthTopic, GrowthMoment } from '../src/growth-model.ts';
+import { validDay, momentFields, contextOf } from '../src/growth-model.ts';
+import type { GrowthTopic, GrowthMoment, GrowthContext, GrowthReference } from '../src/growth-model.ts';
 class GrowthError extends Error { constructor(message:string,public status=400){super(message);} }
 const headers={'Cache-Control':'private, no-store','Pragma':'no-cache','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'};
 const json=(data:unknown,status=200)=>Response.json(data,{status,headers});
 const uuid=(v:unknown):v is string=>typeof v==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(v);
 function text(v:unknown,max:number,required=false){if(typeof v!=='string'||v.length>max||(required&&!v.trim()))throw new GrowthError('内容为空或超过长度限制，请检查后保存。');return v.trim();}
 function expected(v:unknown){if(!Number.isSafeInteger(v)||Number(v)<0||Number(v)>2_000_000_000)throw new GrowthError('记录版本无效，请重新读取。');return Number(v);}
+const reference=(m:GrowthMoment,withAction=false):GrowthReference=>({id:m.id,version:m.version,occurredOn:m.occurredOn,event:m.event.slice(0,300),reflection:m.reflection.slice(0,500),action:withAction?m.action:''});
 export class GrowthService {
   constructor(private repo:GrowthRepository|null,private now=Date.now){}
   async handle(request:Request,user:{userId:string}|null):Promise<Response>{
@@ -17,12 +18,15 @@ export class GrowthService {
       if(request.method==='GET'){
         if(action==='topics')return json({items:await repo.topics(owner)});
         const topicId=url.searchParams.get('topic');
-        if(action==='moments'||action==='export'){
+        if(action==='moments'||action==='export'||action==='attempts'){
           if(!uuid(topicId)||!await repo.topic(owner,topicId))throw new GrowthError('找不到这个成长主题。',404);
+          if(action==='attempts')return json({items:await repo.attempts(owner,topicId)});
           if(action==='export'){const raw=url.searchParams.get('offset')||'0';if(!/^\d{1,8}$/.test(raw))throw new GrowthError('导出位置无效。');return json(await repo.exportPage(owner,topicId,Number(raw)));}
           const cursor=url.searchParams.get('cursor')||undefined;
           if(cursor&&(!validDay(cursor.split('_')[0])||!uuid(cursor.split('_')[1])||cursor.split('_').length!==2))throw new GrowthError('时间线位置无效，请重新读取。');
-          return json(await repo.moments(owner,topicId,cursor));
+          const q=(url.searchParams.get('q')||'').trim(),from=url.searchParams.get('from')||'',to=url.searchParams.get('to')||'';
+          if(q.length>120||(from&&!validDay(from))||(to&&!validDay(to))||(from&&to&&from>to))throw new GrowthError('请检查关键词与起止日期。');
+          return json(await repo.moments(owner,topicId,cursor,{q,from,to}));
         }
         if(action==='revisions'){
           const id=url.searchParams.get('id'),kind=url.searchParams.get('kind');
@@ -57,7 +61,29 @@ export class GrowthService {
         if(old&&(old.version!==version||old.deleted||old.topicId!==b.topicId))throw new GrowthError('这条记录已变化。请保留当前输入，重新读取后再编辑。',409);
         if(!validDay(b.occurredOn)||!['experience','review'].includes(String(b.kind)))throw new GrowthError('请填写有效的发生日期和记录类型。');
         const fields=Object.fromEntries(momentFields.map(k=>[k,text(b[k],6000,k==='event')])) as Pick<GrowthMoment,typeof momentFields[number]>;
-        const value:GrowthMoment={id,topicId:b.topicId,occurredOn:b.occurredOn,kind:b.kind as GrowthMoment['kind'],...fields,createdAt:old?.createdAt??now,updatedAt:now,version:version+1,deleted:0};
+        const context:GrowthContext=old?contextOf(old):{};
+        if(!old&&b.sourceId){
+          if(!uuid(b.sourceId)||b.sourceId===id)throw new GrowthError('尝试来源无效。');
+          const source=await repo.moment(owner,b.sourceId);
+          if(!source||source.topicId!==b.topicId||source.deleted||!source.action.trim())throw new GrowthError('找不到可回应的这次尝试。',404);
+          if(source.version!==expected(b.sourceVersion))throw new GrowthError('这次尝试的原文已变化，请重新选择来源后保存。',409);
+          if(b.occurredOn<source.occurredOn)throw new GrowthError('反馈日期不能早于尝试来源日期。');
+          context.source=reference(source,true);
+        }
+        if(context.source&&!fields.feedback)throw new GrowthError('请写下这次尝试的实际结果，也可以填写尚未尝试。');
+        if(!old&&b.reviewRefs!==undefined){
+          if(b.kind!=='review'||!validDay(b.reviewFrom)||!validDay(b.reviewTo)||b.reviewFrom>b.reviewTo||!Array.isArray(b.reviewRefs)||b.reviewRefs.length>20)throw new GrowthError('回顾区间或材料无效，最多选择 20 条。');
+          const refs:GrowthReference[]=[],seen=new Set<string>();
+          for(const item of b.reviewRefs){
+            if(!item||typeof item!=='object'||!uuid(item.id)||item.id===id||seen.has(item.id))throw new GrowthError('回顾材料编号无效或重复。');
+            seen.add(item.id);const record=await repo.moment(owner,item.id);
+            if(!record||record.topicId!==b.topicId||record.deleted||record.occurredOn<b.reviewFrom||record.occurredOn>b.reviewTo)throw new GrowthError('回顾材料不存在或不在这个区间，请重新载入。',404);
+            if(record.version!==expected(item.version))throw new GrowthError('回顾材料已有更新，请重新载入后再保存。',409);
+            refs.push(reference(record));
+          }
+          context.review={from:b.reviewFrom,to:b.reviewTo,refs};
+        }
+        const value:GrowthMoment={id,topicId:b.topicId,occurredOn:b.occurredOn,kind:b.kind as GrowthMoment['kind'],...fields,context:JSON.stringify(context),createdAt:old?.createdAt??now,updatedAt:now,version:version+1,deleted:0};
         if(!await repo.saveMoment(owner,value,version))throw new GrowthError('未保存：记录或主题已变化，请保留输入并重新读取。',409);
         return json({item:value});
       }

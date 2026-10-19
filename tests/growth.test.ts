@@ -9,6 +9,7 @@ const origin='https://lifeatlas.test',owner={userId:'first'},other={userId:'seco
 function harness(){
   const sql=new DatabaseSync(':memory:');
   sql.exec(readFileSync(new URL('../drizzle/0001_thin_katie_power.sql',import.meta.url),'utf8'));
+  sql.exec(readFileSync(new URL('../drizzle/0002_sloppy_star_brand.sql',import.meta.url),'utf8'));
   function prepare(query:string,args:unknown[]=[]):any{return {bind(...v:unknown[]){return prepare(query,v);},async first(){return sql.prepare(query).get(...args as any[])||null;},async all(){return {results:sql.prepare(query).all(...args as any[])};},async run(){return {meta:{changes:Number(sql.prepare(query).run(...args as any[]).changes)}};}};}
   const db={prepare,async batch(queries:any[]){sql.exec('BEGIN');try{const rows=[];for(const q of queries)rows.push(await q.run());sql.exec('COMMIT');return rows;}catch(e){sql.exec('ROLLBACK');throw e;}}};
   let clock=1_792_188_000_000;
@@ -75,4 +76,59 @@ test('export contains archived data and immutable history, scoped to selected to
 });
 test('repeated creation id does not create duplicate moments after a lost response',async()=>{
   const h=harness(),t=topic();await h.request('topic',t);const m=moment(t.id);assert.equal((await h.request('moment',m)).status,200);assert.equal((await h.request('moment',m)).status,409);assert.equal((await h.request('moments?topic='+t.id)).body.items.length,1);
+});
+test('history search spans pages, binds literal keywords, respects inclusive dates and account isolation',async()=>{
+  const h=harness(),t=topic();await h.request('topic',t);
+  for(let i=0;i<36;i++)await h.request('moment',{...moment(t.id,`2025-${i<28?'01':'02'}-${String(i<28?i+1:i-27).padStart(2,'0')}`),event:i===0?"边界 ' OR 1=1 --":'边界协商'});
+  const path='moments?topic='+t.id+'&q='+encodeURIComponent('边界')+'&from=2025-01-01&to=2025-02-08';
+  const first=(await h.request(path)).body,second=(await h.request(path+'&cursor='+encodeURIComponent(first.next))).body;
+  assert.equal(first.items.length,30);assert.equal(second.items.length,6);assert.equal(new Set([...first.items,...second.items].map((m:any)=>m.id)).size,36);
+  assert.equal(first.first.occurredOn,'2025-01-01');assert.equal(first.latest.occurredOn,'2025-02-08');
+  assert.equal((await h.request('moments?topic='+t.id+'&q='+encodeURIComponent("' OR 1=1 --"))).body.items.length,1);
+  const one=(await h.request('moments?topic='+t.id+'&from=2025-01-01&to=2025-01-01')).body;assert.equal(one.items.length,1);
+  assert.equal((await h.request(path,undefined,other)).status,404);assert.equal((await h.request('attempts?topic='+t.id,undefined,other)).status,404);
+  for(const suffix of ['&from=2025-02-30','&from=2026-01-01&to=2025-01-01','&q='+('a'.repeat(121))])assert.equal((await h.request('moments?topic='+t.id+suffix)).status,400);
+});
+
+test('feedback freezes its source; edits and archive do not rewrite evidence or invent follow-up',async()=>{
+  const h=harness(),t=topic(),source=moment(t.id);await h.request('topic',t);await h.request('moment',source);
+  const response={...moment(t.id,'2026-10-19'),feedback:'问清时间后，协商成功',sourceId:source.id,sourceVersion:1};
+  const saved=await h.request('moment',response);assert.equal(saved.status,200);const context=JSON.parse(saved.body.item.context);
+  assert.equal(context.source.action,source.action);assert.equal(context.source.version,1);
+  const attempts=()=>h.request('attempts?topic='+t.id);assert.equal((await attempts()).body.items.find((m:any)=>m.id===source.id).feedbackCount,1);
+  await h.request('moment',{...source,version:1,reflection:'现在有新理解'});assert.equal((await attempts()).body.items.find((m:any)=>m.id===source.id).feedbackCount,1);
+  await h.request('moment',{...source,version:2,action:'下次提出两个方案'});assert.equal((await attempts()).body.items.find((m:any)=>m.id===source.id).feedbackCount,0);
+  const updated=await h.request('moment',{...response,version:1,event:'补充这次反馈',context:{source:{action:'伪造'}}});assert.equal(updated.status,200);assert.deepEqual(JSON.parse(updated.body.item.context),context);
+  const exported=(await h.request('export?topic='+t.id)).body.items.find((r:any)=>r.type==='moment'&&r.data.id===response.id);assert.deepEqual(exported.data.context,context);
+  const revisions=(await h.request('revisions?id='+response.id+'&kind=moment')).body.items;assert.deepEqual(JSON.parse(JSON.parse(revisions[1].snapshot).context),context);
+  await h.request('moment',{...source,version:3,action:source.action});assert.equal((await attempts()).body.items.find((m:any)=>m.id===source.id).feedbackCount,1);
+  await h.request('archive',{id:response.id,kind:'moment',version:2,deleted:1});assert.equal((await attempts()).body.items.find((m:any)=>m.id===source.id).feedbackCount,0);
+  await h.request('archive',{id:response.id,kind:'moment',version:3,deleted:0});assert.equal((await attempts()).body.items.find((m:any)=>m.id===source.id).feedbackCount,1);
+});
+
+test('linked feedback rejects stale, private, cross-topic, undated and empty results',async()=>{
+  const h=harness(),t=topic(),t2=topic(),source=moment(t.id),foreign=moment(t2.id);await h.request('topic',t);await h.request('topic',t2);await h.request('moment',source);await h.request('moment',foreign);
+  const reply=(extra={})=>({...moment(t.id,'2026-10-19'),sourceId:source.id,sourceVersion:1,...extra});
+  for(const [extra,status] of [[{sourceVersion:0},409],[{sourceId:foreign.id},404],[{feedback:''},400],[{occurredOn:'2024-01-01'},400],[{id:source.id},409]] as const)assert.equal((await h.request('moment',reply(extra))).status,status);
+  const privateTopic=topic();await h.request('topic',privateTopic,other);const privateMoment=moment(privateTopic.id);await h.request('moment',privateMoment,other);assert.equal((await h.request('moment',reply({sourceId:privateMoment.id}))).status,404);
+  await h.request('moment',{...source,version:1,action:''});assert.equal((await h.request('moment',reply({sourceVersion:2}))).status,404);
+  assert.equal((await h.request('moments?topic='+t.id)).body.items.length,1);
+});
+
+test('stage review freezes selected originals and preserves references through revision and export',async()=>{
+  const h=harness(),t=topic(),source=moment(t.id);await h.request('topic',t);await h.request('moment',source);
+  const review={...moment(t.id,'2026-10-19'),kind:'review',reviewFrom:'2025-01-01',reviewTo:'2025-12-31',reviewRefs:[{id:source.id,version:1}]};
+  const saved=await h.request('moment',review);assert.equal(saved.status,200);const context=JSON.parse(saved.body.item.context);assert.equal(context.review.refs[0].reflection,source.reflection);
+  await h.request('moment',{...source,version:1,reflection:'后来的理解'});
+  const edited=await h.request('moment',{...review,version:1,event:'补充阶段理解',reviewRefs:[],context:{}});assert.deepEqual(JSON.parse(edited.body.item.context),context);
+  const exported=(await h.request('export?topic='+t.id)).body.items.find((r:any)=>r.type==='moment'&&r.data.id===review.id);assert.deepEqual(exported.data.context,context);
+  const revision=(await h.request('revisions?id='+review.id+'&kind=moment')).body.items.at(-1);assert.deepEqual(JSON.parse(JSON.parse(revision.snapshot).context),context);
+});
+
+test('review selections validate date, identity, topic, duplicates and current source version',async()=>{
+  const h=harness(),t=topic(),t2=topic(),source=moment(t.id),foreign=moment(t2.id);await h.request('topic',t);await h.request('topic',t2);await h.request('moment',source);await h.request('moment',foreign);
+  const review=(extra={})=>({...moment(t.id,'2026-10-19'),kind:'review',reviewFrom:'2025-01-01',reviewTo:'2025-12-31',reviewRefs:[{id:source.id,version:1}],...extra});
+  for(const [extra,status] of [[{reviewFrom:'2026-01-01'},400],[{reviewFrom:'2025-11-01'},404],[{reviewRefs:[{id:source.id,version:0}]},409],[{reviewRefs:[{id:source.id,version:1},{id:source.id,version:1}]},400],[{reviewRefs:Array(21).fill({id:source.id,version:1})},400],[{reviewRefs:[{id:foreign.id,version:1}]},404]] as const)assert.equal((await h.request('moment',review(extra))).status,status);
+  await h.request('archive',{id:source.id,kind:'moment',version:1,deleted:1});assert.equal((await h.request('moment',review())).status,404);
+  assert.equal((await h.request('moments?topic='+t.id)).body.items.length,1);
 });

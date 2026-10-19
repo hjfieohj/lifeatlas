@@ -1,5 +1,10 @@
 export type GrowthTopic = { id: string; title: string; baseline: string; direction: string; createdAt: number; updatedAt: number; version: number; deleted: number };
-export type GrowthMoment = { id: string; topicId: string; occurredOn: string; kind: 'experience' | 'review'; event: string; observation: string; reflection: string; action: string; feedback: string; createdAt: number; updatedAt: number; version: number; deleted: number };
+export type GrowthMoment = { id: string; topicId: string; occurredOn: string; kind: 'experience' | 'review'; event: string; observation: string; reflection: string; action: string; feedback: string; context?: string; createdAt: number; updatedAt: number; version: number; deleted: number };
+export type GrowthReference = { id:string; version:number; occurredOn:string; event:string; reflection:string; action:string };
+export type GrowthContext = { source?:GrowthReference; review?:{ from:string; to:string; refs:GrowthReference[] } };
+export type GrowthAttempt = GrowthMoment & { feedbackCount:number };
+export type GrowthFilters = { q?:string; from?:string; to?:string };
+export function contextOf(m:Pick<GrowthMoment,'context'>):GrowthContext { try { return JSON.parse(m.context||'{}') as GrowthContext; } catch { return {}; } }
 export type GrowthRevision = { id: string; entityId: string; kind: 'topic' | 'moment'; version: number; snapshot: string; savedAt: number };
 export const momentFields = ['event', 'observation', 'feedback', 'reflection', 'action'] as const;
 export const momentLabels = { event: '发生了什么', observation: '我观察到什么', feedback: '上一次尝试的结果', reflection: '现在的理解与总结', action: '下一次准备怎样尝试' };
