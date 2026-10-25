@@ -1,13 +1,26 @@
 import { GrowthRepository } from './growth-repository.ts';
 import { validDay, momentFields, contextOf } from '../src/growth-model.ts';
 import type { GrowthTopic, GrowthMoment, GrowthContext, GrowthReference } from '../src/growth-model.ts';
+import { environmentFields, environmentOf, type LifeEnvironment } from '../src/environment-model.ts';
 class GrowthError extends Error { constructor(message:string,public status=400){super(message);} }
 const headers={'Cache-Control':'private, no-store','Pragma':'no-cache','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'};
 const json=(data:unknown,status=200)=>Response.json(data,{status,headers});
 const uuid=(v:unknown):v is string=>typeof v==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(v);
 function text(v:unknown,max:number,required=false){if(typeof v!=='string'||v.length>max||(required&&!v.trim()))throw new GrowthError('内容为空或超过长度限制，请检查后保存。');return v.trim();}
 function expected(v:unknown){if(!Number.isSafeInteger(v)||Number(v)<0||Number(v)>2_000_000_000)throw new GrowthError('记录版本无效，请重新读取。');return Number(v);}
-const reference=(m:GrowthMoment,withAction=false):GrowthReference=>({id:m.id,version:m.version,occurredOn:m.occurredOn,event:m.event.slice(0,300),reflection:m.reflection.slice(0,500),action:withAction?m.action:''});
+function environment(value:unknown):LifeEnvironment|null{
+  if(value===null)return null;
+  if(!value||typeof value!=='object'||Array.isArray(value)||!validDay((value as LifeEnvironment).asOf))throw new GrowthError('请填写有效的环境起始日期。');
+  const e=value as LifeEnvironment,result={asOf:e.asOf} as LifeEnvironment;
+  for(const k of environmentFields)result[k]=text(e[k]??'',1500);
+  if(!environmentFields.some(k=>result[k]))throw new GrowthError('请至少写下一项环境事实，或取消附上环境。');
+  return result;
+}
+function reference(m:GrowthMoment,withAction=false):GrowthReference{
+  const context=contextOf(m),env=environmentOf(context.environment);
+  const excerpt=env?{asOf:env.asOf,...Object.fromEntries(environmentFields.map(k=>[k,env[k].slice(0,300)]))} as LifeEnvironment:undefined;
+  return {id:m.id,version:m.version,occurredOn:m.occurredOn,event:m.event.slice(0,300),reflection:m.reflection.slice(0,500),action:withAction?m.action:'',...(excerpt?{environment:excerpt,environmentImpact:context.environmentImpact?.slice(0,500)}:{})};
+}
 export class GrowthService {
   constructor(private repo:GrowthRepository|null,private now=Date.now){}
   async handle(request:Request,user:{userId:string}|null):Promise<Response>{
@@ -49,7 +62,8 @@ export class GrowthService {
         const old=await repo.topic(owner,id);
         if(version>0&&!old)throw new GrowthError('找不到这个成长主题。',404);
         if(old&&(old.version!==version||old.deleted))throw new GrowthError('这个主题已在另一处修改或归档。请保留当前输入，重新读取后再编辑。',409);
-        const value:GrowthTopic={id,title:text(b.title,100,true),baseline:text(b.baseline,3000),direction:text(b.direction,1000),createdAt:old?.createdAt??now,updatedAt:now,version:version+1,deleted:0};
+        const profile=b.environmentProfile===undefined?old?.environmentProfile||'{}':JSON.stringify(environment(b.environmentProfile)||{});
+        const value:GrowthTopic={id,title:text(b.title,100,true),baseline:text(b.baseline,3000),direction:text(b.direction,1000),environmentProfile:profile,createdAt:old?.createdAt??now,updatedAt:now,version:version+1,deleted:0};
         if(!await repo.saveTopic(owner,value,version))throw new GrowthError('未保存：主题已变化，或已达到 100 个主题上限。请重新读取确认。',409);
         return json({item:value});
       }
@@ -62,6 +76,11 @@ export class GrowthService {
         if(!validDay(b.occurredOn)||!['experience','review'].includes(String(b.kind)))throw new GrowthError('请填写有效的发生日期和记录类型。');
         const fields=Object.fromEntries(momentFields.map(k=>[k,text(b[k],6000,k==='event')])) as Pick<GrowthMoment,typeof momentFields[number]>;
         const context:GrowthContext=old?contextOf(old):{};
+        if(b.environment!==undefined){
+          const env=environment(b.environment),impact=text(b.environmentImpact??'',2000);
+          if(env){if(env.asOf>b.occurredOn)throw new GrowthError('环境起始日期不能晚于经历日期；补记过去时，请按当时的情况修正。');context.environment=env;context.environmentImpact=impact;}
+          else{if(impact)throw new GrowthError('请先附上这次经历的环境，再填写影响。');delete context.environment;delete context.environmentImpact;}
+        }
         if(!old&&b.sourceId){
           if(!uuid(b.sourceId)||b.sourceId===id)throw new GrowthError('尝试来源无效。');
           const source=await repo.moment(owner,b.sourceId);

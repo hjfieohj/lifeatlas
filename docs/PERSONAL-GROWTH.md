@@ -14,6 +14,8 @@
 
 ## 保存与权限
 
+2026-10-25 补充：已加入环境感知，覆盖家庭、同事与组织、地域、政策社会条件和风俗文化；主题环境与经历中的当时环境分别保留。用法及边界见 [ENVIRONMENT-AWARENESS.md](ENVIRONMENT-AWARENESS.md)。
+
 2026-10-19 补充：已加入关键词与日期检索、明确关联反馈、有来源的阶段回顾。操作、参考项目、迁移与验证见 [GROWTH-RESEARCH.md](GROWTH-RESEARCH.md)。
 
 - 需要登录生活空间。服务端以 Sites 提供的用户 ID 隔离每次读写；不依赖 Gmail 权限或 Google 配置。

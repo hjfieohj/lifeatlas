@@ -1,0 +1,1 @@
+ALTER TABLE `growth_topics` ADD `environment_profile` text DEFAULT '{}' NOT NULL;

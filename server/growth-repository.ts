@@ -1,5 +1,5 @@
 import type { GrowthTopic, GrowthMoment, GrowthRevision, GrowthFilters, GrowthAttempt } from '../src/growth-model.ts';
-const topicCols = 'id,title,baseline,direction,created_at AS createdAt,updated_at AS updatedAt,version,deleted';
+const topicCols = 'id,title,baseline,direction,environment_profile AS environmentProfile,created_at AS createdAt,updated_at AS updatedAt,version,deleted';
 const momentCols = 'id,topic_id AS topicId,occurred_on AS occurredOn,kind,event,observation,reflection,action,feedback,context,created_at AS createdAt,updated_at AS updatedAt,version,deleted';
 export class GrowthRepository {
   constructor(private db: D1Database) {}
@@ -7,8 +7,8 @@ export class GrowthRepository {
   topic(owner: string, id: string) { return this.db.prepare(`SELECT ${topicCols} FROM growth_topics WHERE owner=? AND id=?`).bind(owner,id).first<GrowthTopic>(); }
   moment(owner: string, id: string) { return this.db.prepare(`SELECT ${momentCols} FROM growth_moments WHERE owner=? AND id=?`).bind(owner,id).first<GrowthMoment>(); }
   async saveTopic(owner: string, value: GrowthTopic, expected: number) {
-    const statement = expected === 0 ? this.db.prepare('INSERT OR IGNORE INTO growth_topics (id,owner,title,baseline,direction,created_at,updated_at,version,deleted) SELECT ?,?,?,?,?,?,?,1,0 WHERE (SELECT count(*) FROM growth_topics WHERE owner=?)<100').bind(value.id,owner,value.title,value.baseline,value.direction,value.createdAt,value.updatedAt,owner)
-      : this.db.prepare('UPDATE growth_topics SET title=?,baseline=?,direction=?,updated_at=?,version=? WHERE owner=? AND id=? AND version=? AND deleted=0').bind(value.title,value.baseline,value.direction,value.updatedAt,value.version,owner,value.id,expected);
+    const statement = expected === 0 ? this.db.prepare('INSERT OR IGNORE INTO growth_topics (id,owner,title,baseline,direction,environment_profile,created_at,updated_at,version,deleted) SELECT ?,?,?,?,?,?,?,?,1,0 WHERE (SELECT count(*) FROM growth_topics WHERE owner=?)<100').bind(value.id,owner,value.title,value.baseline,value.direction,value.environmentProfile||'{}',value.createdAt,value.updatedAt,owner)
+      : this.db.prepare('UPDATE growth_topics SET title=?,baseline=?,direction=?,environment_profile=?,updated_at=?,version=? WHERE owner=? AND id=? AND version=? AND deleted=0').bind(value.title,value.baseline,value.direction,value.environmentProfile||'{}',value.updatedAt,value.version,owner,value.id,expected);
     const revision = this.revisionStatement(owner, value.id, value.id,'topic',value.version,value.updatedAt,JSON.stringify(value));
     return (await this.db.batch([statement,revision]))[0].meta.changes === 1;
   }
@@ -24,7 +24,7 @@ export class GrowthRepository {
   }
   async moments(owner:string,topicId:string,cursor?:string,filters:GrowthFilters={}) {
     const params: string[]=[]; let filter='';
-    if(filters.q){filter+=" AND instr(lower(event||' '||observation||' '||reflection||' '||action||' '||feedback),lower(?))>0";params.push(filters.q);}
+    if(filters.q){filter+=" AND instr(lower(event||' '||observation||' '||reflection||' '||action||' '||feedback||' '||COALESCE(json_extract(context,'$.environment'),'')||' '||COALESCE(json_extract(context,'$.environmentImpact'),'')),lower(?))>0";params.push(filters.q);}
     if(filters.from){filter+=' AND occurred_on>=?';params.push(filters.from);}
     if(filters.to){filter+=' AND occurred_on<=?';params.push(filters.to);}
     const parts=cursor?.split('_'); const clause=parts?' AND (occurred_on<? OR (occurred_on=? AND id<?))':'';
@@ -50,7 +50,7 @@ export class GrowthRepository {
   }
   async exportPage(owner:string,topicId:string,offset:number) {
     const tag=await this.db.prepare('SELECT t.version,t.deleted,(SELECT count(*) FROM growth_moments WHERE owner=? AND topic_id=?) AS n,(SELECT COALESCE(sum(version),0) FROM growth_moments WHERE owner=? AND topic_id=?) AS v,(SELECT count(*) FROM growth_revisions WHERE owner=? AND topic_id=?) AS r FROM growth_topics t WHERE t.owner=? AND t.id=?').bind(owner,topicId,owner,topicId,owner,topicId,owner,topicId).first();
-    const rows=(await this.db.prepare(`SELECT 'topic' AS type, 't:'||id AS key, json_object('id',id,'title',title,'baseline',baseline,'direction',direction,'createdAt',created_at,'updatedAt',updated_at,'version',version,'deleted',deleted) AS data FROM growth_topics WHERE owner=? AND id=? UNION ALL SELECT 'moment','m:'||id,json_object('id',id,'topicId',topic_id,'occurredOn',occurred_on,'kind',kind,'event',event,'observation',observation,'reflection',reflection,'action',action,'feedback',feedback,'context',json(context),'createdAt',created_at,'updatedAt',updated_at,'version',version,'deleted',deleted) FROM growth_moments WHERE owner=? AND topic_id=? UNION ALL SELECT 'revision','r:'||id,json_object('entityId',entity_id,'kind',kind,'version',version,'snapshot',json(snapshot),'savedAt',saved_at) FROM growth_revisions WHERE owner=? AND topic_id=? ORDER BY key LIMIT 101 OFFSET ?`).bind(owner,topicId,owner,topicId,owner,topicId,offset).all<{type:string;key:string;data:string}>()).results;
+    const rows=(await this.db.prepare(`SELECT 'topic' AS type, 't:'||id AS key, json_object('id',id,'title',title,'baseline',baseline,'direction',direction,'environmentProfile',json(environment_profile),'createdAt',created_at,'updatedAt',updated_at,'version',version,'deleted',deleted) AS data FROM growth_topics WHERE owner=? AND id=? UNION ALL SELECT 'moment','m:'||id,json_object('id',id,'topicId',topic_id,'occurredOn',occurred_on,'kind',kind,'event',event,'observation',observation,'reflection',reflection,'action',action,'feedback',feedback,'context',json(context),'createdAt',created_at,'updatedAt',updated_at,'version',version,'deleted',deleted) FROM growth_moments WHERE owner=? AND topic_id=? UNION ALL SELECT 'revision','r:'||id,json_object('entityId',entity_id,'kind',kind,'version',version,'snapshot',json(snapshot),'savedAt',saved_at) FROM growth_revisions WHERE owner=? AND topic_id=? ORDER BY key LIMIT 101 OFFSET ?`).bind(owner,topicId,owner,topicId,owner,topicId,offset).all<{type:string;key:string;data:string}>()).results;
     return {tag:JSON.stringify(tag),items:rows.slice(0,100).map(r=>({type:r.type,data:JSON.parse(r.data)})),next:rows.length>100?offset+100:null};
   }
 }

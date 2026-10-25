@@ -10,6 +10,7 @@ function harness(){
   const sql=new DatabaseSync(':memory:');
   sql.exec(readFileSync(new URL('../drizzle/0001_thin_katie_power.sql',import.meta.url),'utf8'));
   sql.exec(readFileSync(new URL('../drizzle/0002_sloppy_star_brand.sql',import.meta.url),'utf8'));
+  sql.exec(readFileSync(new URL('../drizzle/0003_polite_cloak.sql',import.meta.url),'utf8'));
   function prepare(query:string,args:unknown[]=[]):any{return {bind(...v:unknown[]){return prepare(query,v);},async first(){return sql.prepare(query).get(...args as any[])||null;},async all(){return {results:sql.prepare(query).all(...args as any[])};},async run(){return {meta:{changes:Number(sql.prepare(query).run(...args as any[]).changes)}};}};}
   const db={prepare,async batch(queries:any[]){sql.exec('BEGIN');try{const rows=[];for(const q of queries)rows.push(await q.run());sql.exec('COMMIT');return rows;}catch(e){sql.exec('ROLLBACK');throw e;}}};
   let clock=1_792_188_000_000;
@@ -131,4 +132,56 @@ test('review selections validate date, identity, topic, duplicates and current s
   for(const [extra,status] of [[{reviewFrom:'2026-01-01'},400],[{reviewFrom:'2025-11-01'},404],[{reviewRefs:[{id:source.id,version:0}]},409],[{reviewRefs:[{id:source.id,version:1},{id:source.id,version:1}]},400],[{reviewRefs:Array(21).fill({id:source.id,version:1})},400],[{reviewRefs:[{id:foreign.id,version:1}]},404]] as const)assert.equal((await h.request('moment',review(extra))).status,status);
   await h.request('archive',{id:source.id,kind:'moment',version:1,deleted:1});assert.equal((await h.request('moment',review())).status,404);
   assert.equal((await h.request('moments?topic='+t.id)).body.items.length,1);
+});
+const environment=(extra:Record<string,unknown>={})=>({asOf:'2025-01-01',family:'与家人共同生活，需要照顾长辈',work:'小型公司，同事之间常临时协调',place:'县城，通勤二十分钟',society:'当地政策尚待核实',culture:'亲身经历中比较重视人情往来',supports:'家人可以分担照护',constraints:'岗位选择有限',sources:'本人观察；政策未核实',...extra});
+
+test('environment profiles are versioned, owner scoped, and preserved by older topic clients',async()=>{
+  const h=harness(),t=topic();assert.equal((await h.request('topic',{...t,environmentProfile:environment()})).status,200);
+  const oldClient=await h.request('topic',{...t,version:1,baseline:'补充起点'});assert.equal(JSON.parse(oldClient.body.item.environmentProfile).place,'县城，通勤二十分钟');
+  const moved=await h.request('topic',{...t,version:2,environmentProfile:environment({asOf:'2026-01-01',place:'迁居城市'})});assert.equal(moved.status,200);
+  assert.equal((await h.request('topic',{...t,version:2,environmentProfile:environment()})).status,409);
+  assert.equal((await h.request('topic',{...t,version:3,environmentProfile:environment()},other)).status,404);
+  const revisions=(await h.request('revisions?id='+t.id+'&kind=topic')).body.items;assert.equal(JSON.parse(JSON.parse(revisions.at(-1).snapshot).environmentProfile).place,'县城，通勤二十分钟');
+  const legacy=topic();await h.request('topic',legacy);assert.deepEqual(JSON.parse((await h.repo.topic(owner.userId,legacy.id))!.environmentProfile!),{});
+});
+
+test('a moment explicitly freezes its own environment; later profile updates and export retain both periods',async()=>{
+  const h=harness(),t=topic();await h.request('topic',{...t,environmentProfile:environment()});const m=moment(t.id);
+  const saved=await h.request('moment',{...m,environment:environment(),environmentImpact:'照护责任限制了加班时间'});assert.equal(saved.status,200);
+  await h.request('topic',{...t,version:1,environmentProfile:environment({asOf:'2026-01-01',place:'迁居城市'})});
+  const stored=JSON.parse((await h.repo.moment(owner.userId,m.id))!.context!);assert.equal(stored.environment.place,'县城，通勤二十分钟');assert.equal(stored.environmentImpact,'照护责任限制了加班时间');
+  const noSnapshot=moment(t.id,'2024-01-01');await h.request('moment',noSnapshot);assert.equal(JSON.parse((await h.repo.moment(owner.userId,noSnapshot.id))!.context!).environment,undefined);
+  const exported=(await h.request('export?topic='+t.id)).body.items;assert.equal(exported.find((r:any)=>r.type==='topic').data.environmentProfile.place,'迁居城市');assert.equal(exported.find((r:any)=>r.type==='moment'&&r.data.id===m.id).data.context.environment.place,'县城，通勤二十分钟');
+});
+
+test('environment validates chronology, content, length and canonical fields before writing',async()=>{
+  const h=harness(),t=topic();await h.request('topic',t);
+  for(const value of [environment({asOf:'2025-02-30'}),environment({family:{private:true}}),environment({family:'x'.repeat(1501)})])assert.equal((await h.request('topic',{...t,version:1,environmentProfile:value})).status,400);
+  assert.equal((await h.request('topic',{...t,version:1,environmentProfile:{asOf:'2025-01-01'}})).status,400);
+  assert.equal((await h.request('moment',{...moment(t.id,'2024-12-31'),environment:environment()})).status,400);
+  assert.equal((await h.request('moment',{...moment(t.id),environment:null,environmentImpact:'只有影响，没有环境'})).status,400);
+  const m=moment(t.id);const result=await h.request('moment',{...m,environment:environment({owner:'second',privateFlag:true}),environmentImpact:'观察'});assert.equal(result.status,200);assert.equal(JSON.parse(result.body.item.context).environment.owner,undefined);
+});
+
+test('correcting or removing a moment environment keeps historical evidence and feedback source intact',async()=>{
+  const h=harness(),t=topic(),source=moment(t.id);await h.request('topic',t);await h.request('moment',source);
+  const m={...moment(t.id,'2026-10-25'),sourceId:source.id,sourceVersion:1,environment:environment(),environmentImpact:'家庭照护影响安排'};await h.request('moment',m);
+  const edited=await h.request('moment',{...m,version:1,environment:environment({family:'更正照护分工'}),environmentImpact:'更正影响'});assert.equal(edited.status,200);assert.equal(JSON.parse(edited.body.item.context).source.id,source.id);
+  const removed=await h.request('moment',{...m,version:2,environment:null,environmentImpact:''});assert.equal(removed.status,200);assert.equal(JSON.parse(removed.body.item.context).environment,undefined);assert.equal(JSON.parse(removed.body.item.context).source.id,source.id);
+  const history=(await h.request('revisions?id='+m.id+'&kind=moment')).body.items;assert.equal(JSON.parse(JSON.parse(history.at(-1).snapshot).context).environment.family,environment().family);
+});
+
+test('review and feedback citations freeze bounded environmental excerpts with their original record',async()=>{
+  const h=harness(),t=topic(),source=moment(t.id);await h.request('topic',t);await h.request('moment',{...source,environment:environment({family:'家'.repeat(800)}),environmentImpact:'家庭照护影响了选择'});
+  const reply=await h.request('moment',{...moment(t.id,'2026-10-25'),sourceId:source.id,sourceVersion:1});assert.equal(reply.status,200);assert.equal(JSON.parse(reply.body.item.context).source.environment.family.length,300);
+  const review=await h.request('moment',{...moment(t.id,'2026-10-25'),kind:'review',reviewFrom:'2025-01-01',reviewTo:'2026-10-25',reviewRefs:[{id:source.id,version:1}]});assert.equal(review.status,200);
+  await h.request('moment',{...source,version:1,environment:environment({family:'后来的家庭情况'}),environmentImpact:''});
+  assert.equal(JSON.parse((await h.repo.moment(owner.userId,review.body.item.id))!.context!).review.refs[0].environment.family,'家'.repeat(300));
+});
+
+test('environment search finds an older snapshot beyond the initially loaded page',async()=>{
+  const h=harness(),t=topic();await h.request('topic',t);const old=moment(t.id,'2024-01-01');await h.request('moment',{...old,environment:environment({asOf:'2023-01-01',place:'山间县城'}),environmentImpact:'公共交通影响通勤'});
+  for(let i=0;i<31;i++)await h.request('moment',moment(t.id,'2026-01-01'));
+  assert.equal((await h.request('moments?topic='+t.id)).body.items.some((m:any)=>m.id===old.id),false);
+  for(const q of ['山间县城','公共交通']){const found=(await h.request('moments?topic='+t.id+'&q='+encodeURIComponent(q))).body;assert.equal(found.items.length,1);assert.equal(found.items[0].id,old.id);}
 });

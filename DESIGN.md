@@ -222,6 +222,8 @@ Growth evidence extension (2026-10-19): native keyword/date filters wrap with th
 
 ## Do's and Don'ts
 
+Environmental context (2026-10-25) extends the existing growth reading surface. A quiet topic action opens the dated environment form; individual experiences opt into a separate snapshot using a native disclosure and checkbox. Long fields use 22px group separation and standard text entry. Comparisons show environmental descriptions as ordinary 14px reading text (15px at <=640px), without inheriting the large serif event cards. Dates, sources and uncertainty remain visible. No new visual assets, skin choices, or particle changes.
+
 ### Do
 
 - Do use the active skin’s semantic CSS variables across all five routes.

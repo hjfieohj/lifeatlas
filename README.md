@@ -55,6 +55,8 @@ npm run dev
 
 ## 下一步
 
+2026-10-25 已加入环境感知第一版：维护主题环境、给经历保留当时环境、前后对照、来源与待核实信息，并纳入检索与导出。说明见 [docs/ENVIRONMENT-AWARENESS.md](docs/ENVIRONMENT-AWARENESS.md)。当前共 45 项自动测试通过。源码仓库：[hjfieohj/lifeatlas](https://github.com/hjfieohj/lifeatlas)（私有）。
+
 2026-10-19 已增加成长过程的明确反馈关联、按关键词／日期检索、带原文依据的阶段回顾。参考项目、用法、存储边界和验证记录见 [docs/GROWTH-RESEARCH.md](docs/GROWTH-RESEARCH.md)。当前自动测试共 39 项通过。
 
 按 `docs/GOOGLE-SETUP.md` 完成独立 Google Cloud OAuth 配置后，做本人真实邮箱只读联调。真实接入先只读、后归档，不把 ChatGPT 中的现有 Gmail 连接或浏览器登录态当成本产品凭证。不要把客户端密钥、访问令牌或真实邮件粘贴进聊天或提交代码。

@@ -20,6 +20,7 @@ export const gmailOAuthStates = sqliteTable('gmail_oauth_states', {
 export const growthTopics = sqliteTable('growth_topics', {
   id: text('id').primaryKey(), owner: text('owner').notNull(),
   title: text('title').notNull(), baseline: text('baseline').notNull(), direction: text('direction').notNull(),
+  environmentProfile: text('environment_profile').notNull().default('{}'),
   createdAt: integer('created_at').notNull(), updatedAt: integer('updated_at').notNull(),
   version: integer('version').notNull(), deleted: integer('deleted').notNull().default(0),
 }, t => [index('growth_topics_owner').on(t.owner, t.createdAt)]);
