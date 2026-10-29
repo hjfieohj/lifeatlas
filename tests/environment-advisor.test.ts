@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {analyzeEnvironment,blankGuidance,validateGuidance} from '../src/environment-advisor.ts';
-import {blankEnvironment,environmentOf,hasEnvironmentContent,blankProfile} from '../src/environment-model.ts';
+import {blankEnvironment,environmentOf,hasEnvironmentContent,blankProfile,environmentLayers,environmentFields} from '../src/environment-model.ts';
 
 test('a child reporting violence gets support-first choices with no direct compromise',()=>{
   const i={...blankGuidance(),story:'虚构案例：父亲动手打我，还威胁要打我。',age:'13',stage:'secondary',capacity:'dependent' as const,safety:'danger' as const};
@@ -35,4 +35,20 @@ test('self-discovery and opportunity questions get feasible domain-specific step
   const self=analyzeEnvironment({...blankGuidance(),domain:'personal',story:'不知道自己擅长什么',safety:'safe'});assert.match(self.plans[0].steps,/短时练习/);
   const place=analyzeEnvironment({...blankGuidance(),domain:'society',story:'想看看附近能申请什么学习机会'});assert.match(place.plans[0].steps,/原发布机构/);assert.match(place.plans[0].steps,/适用地区/);
   const online=analyzeEnvironment({...blankGuidance(),domain:'digital',story:'有人推荐课程，想先判断能不能相信',resources:'一位亲友'});assert.match(online.plans[0].steps,/暂停付款/);assert.ok(online.findings.some(f=>f.reason.includes('亲友')));
+});
+
+test('five ordered layers contain each descriptive field once and retain cross-layer resources separately',()=>{
+  assert.deepEqual(environmentLayers.map(l=>l.id),['personal','family','social','regional','macro']);
+  const fields=environmentLayers.flatMap(l=>[...l.fields]);assert.equal(new Set(fields).size,fields.length);
+  assert.deepEqual([...fields].sort(),environmentFields.filter(f=>!['exposure','supports','constraints','sources'].includes(f)).sort());
+});
+test('economic guidance links evidence to individual exposure without issuing blanket investment instructions',()=>{
+  const i=validateGuidance({...blankGuidance(),domain:'economic',story:'虚构：担心订单变化影响自己的工作',safety:'safe',change:'虚构：所在行业订单有变化',connection:'行业需求 → 企业订单 → 我的岗位',evidence:'虚构资料，未核实',watchFor:'下一次排班是否变化'});
+  const r=analyzeEnvironment(i);assert.equal(r.version,'environment-guide-v2');assert.match(r.plans[0].steps,/现金|必要支出/);assert.match(r.plans[0].steps,/不因.*统一买卖/);assert.ok(r.evidence.some(e=>e.includes('未核实')));assert.ok(r.findings.some(f=>f.reason.includes('我的岗位')));assert.ok(r.questions.some(q=>q.includes('下一次排班')));
+  assert.throws(()=>validateGuidance({...i,change:'x'.repeat(1001)}));assert.throws(()=>validateGuidance({...i,evidence:[]}));
+});
+test('geographic or geopolitical labels do not establish danger, and actual threats still take priority',()=>{
+  const i={...blankGuidance(),domain:'geopolitical' as const,story:'虚构：我住在台湾，想了解信息如何判断'};const r=analyzeEnvironment(i);
+  assert.match(r.plans[0].steps,/不要因居住地就推断冲突必然发生/);assert.ok(!r.findings.some(f=>f.title==='先处理安全与求助'));
+  const threat=analyzeEnvironment({...i,safety:'danger'});assert.match(threat.plans[0].steps,/不独自对质/);assert.equal(threat.plans.find(p=>p.key==='compromise')!.allowed,false);
 });
