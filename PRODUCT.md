@@ -18,6 +18,8 @@ User addition on 2026-10-17: support a longitudinal personal-growth loop, experi
 
 ## Operating Context
 
+2026-10-29: two explicit environmental-awareness purposes. “环境分析与成长” covers personal stage/strengths, locality/opportunity, family, school, neighborhood/relationships, work, society/culture, and living/information conditions. “帮我看清局面” accepts a concrete concern without a full profile and offers reasons, uncertainty and conditional preferred/alternative/compromise/pause choices. The current bounded educational rule engine makes no LLM calls or validated psychological assessments. Unknown safety, dependency and threats change feasible options. Reports are recomputed server-side, frozen with input and choice, then linked to feedback through the existing growth loop. No personality diagnosis or socioeconomic ranking. See docs/ENVIRONMENT-SUPPORT.md.
+
 2026-10-25: environmental awareness joins the growth loop. Each topic can maintain a dated description of family, colleagues/organization, locality, policy/social conditions, and customs/culture, plus supports, constraints, sources and uncertainty. Each experience may explicitly retain its own applicable environment and observed influence. Later environmental updates preserve prior snapshots. These are user-authored observations, without automatic collection or inferred regional traits; global cross-topic sharing remains outside this increment.
 Chinese interface, responsive desktop-first web. Quiet daily use, not a feed for maximizing engagement. One personal mailbox; default scan scope 7 days / 100 inbox messages. Local prototype uses fictional, explicitly labeled mail only.
 

@@ -5,6 +5,8 @@ import { readFileSync } from 'node:fs';
 import { GrowthRepository } from '../server/growth-repository.ts';
 import { GrowthService } from '../server/growth-service.ts';
 import { validDay } from '../src/growth-model.ts';
+import {blankGuidance} from '../src/environment-advisor.ts';
+import {blankProfile} from '../src/environment-model.ts';
 const origin='https://lifeatlas.test',owner={userId:'first'},other={userId:'second'};
 function harness(){
   const sql=new DatabaseSync(':memory:');
@@ -184,4 +186,32 @@ test('environment search finds an older snapshot beyond the initially loaded pag
   for(let i=0;i<31;i++)await h.request('moment',moment(t.id,'2026-01-01'));
   assert.equal((await h.request('moments?topic='+t.id)).body.items.some((m:any)=>m.id===old.id),false);
   for(const q of ['山间县城','公共交通']){const found=(await h.request('moments?topic='+t.id+'&q='+encodeURIComponent(q))).body;assert.equal(found.items.length,1);assert.equal(found.items[0].id,old.id);}
+});
+
+test('structured personal stages, locality and new dimensions survive snapshots, validation and export',async()=>{
+  const h=harness(),t=topic();const p={...blankProfile(),age:'16',stage:'secondary',settlement:'town',province:'示例省',city:'示例市',district:'示例县'};
+  assert.equal((await h.request('topic',{...t,environmentProfile:{asOf:'2025-01-01',profile:p,school:'老师会逐项解释错题',strengths:'喜欢画图'}})).status,200);
+  const saved=JSON.parse((await h.repo.topic(owner.userId,t.id))!.environmentProfile!);assert.deepEqual(saved.profile,p);assert.equal(saved.school,'老师会逐项解释错题');
+  for(const profile of [[],{...p,age:'121'},{...p,stage:'infer'},{...p,settlement:'poor'},{...p,province:'x'.repeat(81)}])assert.equal((await h.request('topic',{...t,version:1,environmentProfile:{asOf:'2025-01-01',profile}})).status,400);
+  const m=moment(t.id);await h.request('moment',{...m,environment:saved});await h.request('topic',{...t,version:1,environmentProfile:{asOf:'2026-01-01',profile:{...p,age:'17'},school:'转学后'}});
+  const e=(await h.request('export?topic='+t.id)).body.items.find((i:any)=>i.type==='moment').data.context.environment;assert.equal(e.profile.age,'16');assert.equal(e.school,'老师会逐项解释错题');
+});
+
+test('advice is recomputed on server, frozen, owner scoped, searchable and preserved in feedback lineage',async()=>{
+  const h=harness(),t=topic();await h.request('topic',t);const m=moment(t.id,'2026-10-29'),input={...blankGuidance(),story:'虚构：任务太多，想找一点学习时间',domain:'work',safety:'safe',constraints:'特殊岗位排班约束'};
+  const saved=await h.request('moment',{...m,guidance:{input,selectedPlan:'preferred',report:{summary:'伪造的保证结论'}}});assert.equal(saved.status,200);
+  const c=JSON.parse(saved.body.item.context);assert.equal(c.guidance.input.story,input.story);assert.notEqual(c.guidance.report.summary,'伪造的保证结论');assert.equal(saved.body.item.event,input.story);assert.equal(saved.body.item.action,c.guidance.report.plans[0].steps);
+  assert.equal((await h.request('moments?topic='+t.id+'&q='+encodeURIComponent('特殊岗位排班约束'))).body.items[0].id,m.id);
+  assert.equal((await h.request('revisions?id='+m.id+'&kind=moment',undefined,other)).status,404);
+  const follow=await h.request('moment',{...moment(t.id,'2026-10-30'),sourceId:m.id,sourceVersion:1,feedback:'已试了一次'});assert.equal(follow.status,200);assert.equal(JSON.parse(follow.body.item.context).source.action,saved.body.item.action);
+  await h.request('moment',{...m,version:1,event:input.story,feedback:'补记结果'});const now=JSON.parse((await h.repo.moment(owner.userId,m.id))!.context!);assert.deepEqual(now.guidance,c.guidance);
+  const exported=(await h.request('export?topic='+t.id)).body.items;assert.deepEqual(exported.find((r:any)=>r.type==='moment'&&r.data.id===m.id).data.context.guidance,c.guidance);
+});
+
+test('server rejects unsafe, invalid or retrospective overwritten guidance without persisting a record',async()=>{
+  const h=harness(),t=topic();await h.request('topic',t);const input={...blankGuidance(),story:'虚构：有安全担忧',safety:'danger'};
+  for(const guidance of [null,{input,selectedPlan:'compromise'},{input,selectedPlan:'guaranteed'},{input:{...input,age:'200'},selectedPlan:'preferred'}])assert.equal((await h.request('moment',{...moment(t.id),guidance})).status,400);
+  assert.equal((await h.request('moments?topic='+t.id)).body.items.length,0);
+  const m=moment(t.id);await h.request('moment',{...m,guidance:{input,selectedPlan:'preferred'}});
+  assert.equal((await h.request('moment',{...m,version:1,guidance:{input,selectedPlan:'pause'}})).status,400);
 });

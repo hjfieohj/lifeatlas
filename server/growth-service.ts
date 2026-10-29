@@ -1,7 +1,8 @@
 import { GrowthRepository } from './growth-repository.ts';
 import { validDay, momentFields, contextOf } from '../src/growth-model.ts';
 import type { GrowthTopic, GrowthMoment, GrowthContext, GrowthReference } from '../src/growth-model.ts';
-import { environmentFields, environmentOf, type LifeEnvironment } from '../src/environment-model.ts';
+import { environmentFields, environmentOf, hasEnvironmentContent, blankProfile, profileKeys, lifeStages, settlements, type LifeEnvironment } from '../src/environment-model.ts';
+import {analyzeEnvironment,validateGuidance,guidanceVersion,planKeys,type PlanKey} from '../src/environment-advisor.ts';
 class GrowthError extends Error { constructor(message:string,public status=400){super(message);} }
 const headers={'Cache-Control':'private, no-store','Pragma':'no-cache','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'};
 const json=(data:unknown,status=200)=>Response.json(data,{status,headers});
@@ -13,12 +14,18 @@ function environment(value:unknown):LifeEnvironment|null{
   if(!value||typeof value!=='object'||Array.isArray(value)||!validDay((value as LifeEnvironment).asOf))throw new GrowthError('请填写有效的环境起始日期。');
   const e=value as LifeEnvironment,result={asOf:e.asOf} as LifeEnvironment;
   for(const k of environmentFields)result[k]=text(e[k]??'',1500);
-  if(!environmentFields.some(k=>result[k]))throw new GrowthError('请至少写下一项环境事实，或取消附上环境。');
+  if(e.profile!==undefined){
+    if(!e.profile||typeof e.profile!=='object'||Array.isArray(e.profile))throw new GrowthError('个人阶段与地域的格式无效。');
+    result.profile=blankProfile();for(const k of profileKeys)result.profile[k]=text(e.profile[k]??'',k==='age'?3:80);
+    const p=result.profile;if(p.age&&!/^(?:[0-9]|[1-9][0-9]|1[01][0-9]|120)$/.test(p.age))throw new GrowthError('年龄请填写 0 至 120 的整数，也可以留空。');
+    if(!Object.hasOwn(lifeStages,p.stage)||!Object.hasOwn(settlements,p.settlement))throw new GrowthError('请选择有效的个人阶段与居住形态。');
+  }
+  if(!hasEnvironmentContent(result))throw new GrowthError('请至少写下一项环境事实，或取消附上环境。');
   return result;
 }
 function reference(m:GrowthMoment,withAction=false):GrowthReference{
   const context=contextOf(m),env=environmentOf(context.environment);
-  const excerpt=env?{asOf:env.asOf,...Object.fromEntries(environmentFields.map(k=>[k,env[k].slice(0,300)]))} as LifeEnvironment:undefined;
+  const excerpt=env?{asOf:env.asOf,...Object.fromEntries(environmentFields.map(k=>[k,env[k].slice(0,300)])),...(env.profile?{profile:env.profile}:{})} as LifeEnvironment:undefined;
   return {id:m.id,version:m.version,occurredOn:m.occurredOn,event:m.event.slice(0,300),reflection:m.reflection.slice(0,500),action:withAction?m.action:'',...(excerpt?{environment:excerpt,environmentImpact:context.environmentImpact?.slice(0,500)}:{})};
 }
 export class GrowthService {
@@ -54,7 +61,7 @@ export class GrowthService {
       if(request.method!=='POST')throw new GrowthError('此操作需要明确提交。',405);
       if(request.headers.get('Origin')!==url.origin||request.headers.get('Sec-Fetch-Site')==='cross-site')throw new GrowthError('请求来源不匹配，请回到生活空间重试。',403);
       if(!(request.headers.get('Content-Type')||'').startsWith('application/json'))throw new GrowthError('请求格式无效。',415);
-      const raw=await request.text();if(raw.length>50_000)throw new GrowthError('这次内容过长，请分成多条记录。',413);
+      const raw=await request.text();if(raw.length>120_000)throw new GrowthError('这次内容过长，请分成多条记录。',413);
       let b:Record<string,unknown>;try{b=JSON.parse(raw);if(!b||Array.isArray(b)||typeof b!=='object')throw 0;}catch{throw new GrowthError('请求内容无效。');}
       if(!uuid(b.id))throw new GrowthError('记录编号无效。');
       const id=b.id,version=expected(b.version),now=this.now();
@@ -76,6 +83,17 @@ export class GrowthService {
         if(!validDay(b.occurredOn)||!['experience','review'].includes(String(b.kind)))throw new GrowthError('请填写有效的发生日期和记录类型。');
         const fields=Object.fromEntries(momentFields.map(k=>[k,text(b[k],6000,k==='event')])) as Pick<GrowthMoment,typeof momentFields[number]>;
         const context:GrowthContext=old?contextOf(old):{};
+        if(b.guidance!==undefined){
+          if(old)throw new GrowthError('原有分析保留当时版本；请新建一次分析来修正判断。');
+          if(!b.guidance||typeof b.guidance!=='object'||Array.isArray(b.guidance))throw new GrowthError('分析内容无效，请重新分析。');
+          const rawGuide=b.guidance as {input?:unknown;selectedPlan?:unknown};
+          let input;try{input=validateGuidance(rawGuide.input);}catch(e){throw new GrowthError((e as Error).message);}
+          const report=analyzeEnvironment(input),selected=rawGuide.selectedPlan;
+          if(!planKeys.includes(selected as PlanKey)||!report.plans.find(p=>p.key===selected)?.allowed)throw new GrowthError('请选择一个目前适用的方案；安全担忧下不建议直接协商妥协。');
+          const plan=report.plans.find(p=>p.key===selected)!;
+          context.guidance={version:guidanceVersion,input,report,selectedPlan:selected as PlanKey};
+          fields.event=input.story;fields.observation=input.impact;fields.reflection=report.summary;fields.action=plan.steps;fields.feedback='';
+        }
         if(b.environment!==undefined){
           const env=environment(b.environment),impact=text(b.environmentImpact??'',2000);
           if(env){if(env.asOf>b.occurredOn)throw new GrowthError('环境起始日期不能晚于经历日期；补记过去时，请按当时的情况修正。');context.environment=env;context.environmentImpact=impact;}

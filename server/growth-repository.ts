@@ -24,7 +24,7 @@ export class GrowthRepository {
   }
   async moments(owner:string,topicId:string,cursor?:string,filters:GrowthFilters={}) {
     const params: string[]=[]; let filter='';
-    if(filters.q){filter+=" AND instr(lower(event||' '||observation||' '||reflection||' '||action||' '||feedback||' '||COALESCE(json_extract(context,'$.environment'),'')||' '||COALESCE(json_extract(context,'$.environmentImpact'),'')),lower(?))>0";params.push(filters.q);}
+    if(filters.q){filter+=" AND instr(lower(event||' '||observation||' '||reflection||' '||action||' '||feedback||' '||COALESCE(json_extract(context,'$.environment'),'')||' '||COALESCE(json_extract(context,'$.environmentImpact'),'')||' '||COALESCE(json_extract(context,'$.guidance.input'),'')),lower(?))>0";params.push(filters.q);}
     if(filters.from){filter+=' AND occurred_on>=?';params.push(filters.from);}
     if(filters.to){filter+=' AND occurred_on<=?';params.push(filters.to);}
     const parts=cursor?.split('_'); const clause=parts?' AND (occurred_on<? OR (occurred_on=? AND id<?))':'';
