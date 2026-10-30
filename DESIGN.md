@@ -1,245 +1,253 @@
 ---
-name: LifeAtlas
-description: Two approved reading spaces for a continuous personal practice
+name: "LifeAtlas"
+description: "生活阅览室：one shared reading layout, two selectable palettes"
 colors:
-  island-paper: '#edf3ff'
-  island-nav: '#f8faff'
-  island-surface: '#fff'
-  island-ink: '#182d54'
-  island-muted: '#536b91'
-  island-line: '#dce5f5'
-  island-wash: '#edf3ff'
-  island-green: '#315fd9'
-  island-forest: '#315fd9'
-  island-forest-deep: '#2449b0'
-  island-accent-ink: '#fff'
-  island-nav-active-bg: '#e5edff'
-  island-secondary-border: '#b8c8e2'
-  island-focus: '#315fd9'
-  island-particle: '#7398d9'
-  island-amber: '#8a5426'
-  island-amber-bg: '#fff3e3'
-  island-red: '#a33e42'
-  island-red-bg: '#fff0f0'
-  observatory-paper: '#edf2f6'
-  observatory-nav: '#293d4d'
-  observatory-surface: '#fff'
-  observatory-ink: '#1d2d3b'
-  observatory-muted: '#536779'
-  observatory-line: '#dce4eb'
-  observatory-wash: '#eff5fa'
-  observatory-green: '#276486'
-  observatory-forest: '#bc4e25'
-  observatory-forest-deep: '#9b3f1c'
-  observatory-accent-ink: '#fff'
-  observatory-nav-active-bg: '#e5eff7'
-  observatory-secondary-border: '#b6c8d7'
-  observatory-focus: '#bc4e25'
-  observatory-particle: '#7da9c7'
-  observatory-amber: '#855326'
-  observatory-amber-bg: '#fcf0e1'
-  observatory-red: '#a33e42'
-  observatory-red-bg: '#fff0f0'
-  compare-cool: '#f1f7fb'
-  compare-warm: '#fcf6ef'
-  start-warm: '#fdf6eb'
-  record-details: '#f5f8ff'
+  island-paper: "#f0f3f9"
+  island-nav: "#273c59"
+  island-surface: "#fff"
+  island-ink: "#273c59"
+  island-muted: "#5f6f87"
+  island-line: "#e0e6f0"
+  island-wash: "#eef2f9"
+  island-green: "#4b5db4"
+  island-forest: "#4b5db4"
+  island-forest-deep: "#3b4b98"
+  island-nav-active-bg: "#e1e7f6"
+  island-secondary-border: "#becadd"
+  island-focus: "#4b5db4"
+  island-accent-ink: "#fff"
+  island-rail-active: "#40577b"
+  island-rail-ink: "#e8edf7"
+  island-particle: "#7398d9"
+  island-amber: "#8a5426"
+  island-amber-bg: "#fff3e3"
+  island-red: "#a33e42"
+  island-red-bg: "#fff0f0"
+  observatory-paper: "#edf2f6"
+  observatory-nav: "#293d4d"
+  observatory-surface: "#fff"
+  observatory-ink: "#1d2d3b"
+  observatory-muted: "#536779"
+  observatory-line: "#dce4eb"
+  observatory-wash: "#eff5fa"
+  observatory-green: "#276486"
+  observatory-forest: "#a34726"
+  observatory-forest-deep: "#84371d"
+  observatory-nav-active-bg: "#e5eff7"
+  observatory-secondary-border: "#b6c8d7"
+  observatory-focus: "#a34726"
+  observatory-accent-ink: "#fff"
+  observatory-rail-active: "#415b6b"
+  observatory-rail-ink: "#e3ebf2"
+  observatory-particle: "#7da9c7"
+  observatory-amber: "#855326"
+  observatory-amber-bg: "#fcf0e1"
+  observatory-red: "#a33e42"
+  observatory-red-bg: "#fff0f0"
+  compare-warm: "#faf4ec"
 typography:
-  display-island:
-    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
-    fontSize: 34px
-    fontWeight: 650
-    lineHeight: 1.45
-    letterSpacing: -0.025em
-  display-observatory:
-    fontFamily: AtlasSerif, 'Noto Serif SC', serif
-    fontSize: 34px
+  headline:
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "30px"
     fontWeight: 600
-    lineHeight: 1.45
-    letterSpacing: -0.025em
-  display-island-mobile:
-    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
-    fontSize: 29px
-    fontWeight: 650
-    lineHeight: 1.45
-  display-observatory-mobile:
-    fontFamily: AtlasSerif, 'Noto Serif SC', serif
-    fontSize: 27px
+    lineHeight: 1.5
+    letterSpacing: "-.025em"
+  growth-headline-mobile:
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "25px"
     fontWeight: 600
-    lineHeight: 1.45
+    lineHeight: 1.65
   topic-title:
-    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
-    fontSize: 23px
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "20px"
     fontWeight: 600
-    lineHeight: 1.65
-  topic-title-observatory:
-    fontFamily: AtlasSerif, 'Noto Serif SC', serif
-    fontSize: 24px
-    fontWeight: 600
-    lineHeight: 1.65
+    lineHeight: 1.75
+    letterSpacing: "-.015em"
   body:
-    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
-    fontSize: 14px
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "14px"
     lineHeight: 1.65
   event:
-    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
-    fontSize: 16px
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "16px"
     fontWeight: 500
     lineHeight: 1.95
   comparison:
-    fontFamily: AtlasSerif, 'Noto Serif SC', serif
-    fontSize: 19px
-    lineHeight: 1.85
+    fontFamily: "AtlasSerif, 'Noto Serif SC', serif"
+    fontSize: "18px"
+    lineHeight: 1.95
   label:
-    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
-    fontSize: 13px
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "13px"
     lineHeight: 1.65
   editor:
-    fontFamily: '''Microsoft YaHei'', ''PingFang SC'', system-ui, sans-serif'
-    fontSize: 15px
-    lineHeight: 1.9
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "15px"
+    lineHeight: 1.85
+  brand:
+    fontFamily: "AtlasSerif, Georgia, serif"
+    fontSize: "27px"
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: "-.025em"
 rounded:
-  input: 6px
-  control: 8px
-  button: 9px
-  nav: 10px
-  topic: 12px
-  compare: 14px
-  panel: 16px
+  control: "8px"
+  navigation: "9px"
+  filter: "10px"
+  comparison: "12px"
+  sheet: "14px"
 spacing:
-  control: 10px 17px
-  panel: 26px 28px
-  compare: 22px
-  growth-gap: 22px
-  topic-gap: 20px
-  mobile-panel: 22px 18px
+  control: "10px 16px"
+  sheet: "26px 28px"
+  comparison: "20px"
+  growth-gap: "26px"
+  mobile-sheet: "22px 18px"
+  editor: "30px 32px"
 components:
   button-primary-island:
-    backgroundColor: '{colors.island-forest}'
-    textColor: '{colors.island-accent-ink}'
-    rounded: '{rounded.button}'
-    padding: '{spacing.control}'
-    typography: '{typography.label}'
+    backgroundColor: "{colors.island-forest}"
+    textColor: "{colors.island-accent-ink}"
+    rounded: "{rounded.control}"
+    padding: "{spacing.control}"
+    height: "44px"
   button-primary-island-hover:
-    backgroundColor: '{colors.island-forest-deep}'
+    backgroundColor: "{colors.island-forest-deep}"
   button-primary-observatory:
-    backgroundColor: '{colors.observatory-forest}'
-    textColor: '{colors.observatory-accent-ink}'
-    rounded: '{rounded.button}'
-    padding: '{spacing.control}'
-    typography: '{typography.label}'
+    backgroundColor: "{colors.observatory-forest}"
+    textColor: "{colors.observatory-accent-ink}"
+    rounded: "{rounded.control}"
+    padding: "{spacing.control}"
+    height: "44px"
   button-primary-observatory-hover:
-    backgroundColor: '{colors.observatory-forest-deep}'
+    backgroundColor: "{colors.observatory-forest-deep}"
   button-subtle:
-    backgroundColor: '{colors.island-surface}'
-    textColor: '{colors.island-ink}'
-    rounded: '{rounded.button}'
-    padding: '{spacing.control}'
+    backgroundColor: "{colors.island-surface}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.control}"
+    padding: "{spacing.control}"
   input:
-    backgroundColor: '{colors.island-surface}'
-    textColor: '{colors.island-ink}'
-    rounded: '{rounded.input}'
-    padding: 10px 12px
-    typography: '{typography.editor}'
+    backgroundColor: "{colors.island-surface}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.control}"
+    padding: "11px 12px"
+    typography: "{typography.editor}"
   navigation-active:
-    backgroundColor: '{colors.island-nav-active-bg}'
-    textColor: '{colors.island-green}'
-    rounded: '{rounded.nav}'
-    padding: 14px 15px
+    backgroundColor: "{colors.island-rail-active}"
+    textColor: "{colors.island-accent-ink}"
+    rounded: "{rounded.navigation}"
+    padding: "12px"
+  topic-active:
+    backgroundColor: "{colors.island-nav-active-bg}"
+    textColor: "{colors.island-green}"
+    rounded: "{rounded.navigation}"
+    padding: "13px 11px"
   status-awaiting:
-    backgroundColor: '{colors.island-amber-bg}'
-    textColor: '{colors.island-amber}'
-    rounded: 4px
-    padding: 4px 9px
-  growth-reading-panel:
-    backgroundColor: '{colors.island-surface}'
-    textColor: '{colors.island-ink}'
-    rounded: '{rounded.panel}'
-    padding: '{spacing.panel}'
+    backgroundColor: "{colors.island-amber-bg}"
+    textColor: "{colors.island-amber}"
+    rounded: "5px"
+    padding: "4px 8px"
+  growth-reading-sheet:
+    backgroundColor: "{colors.island-surface}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.sheet}"
+    padding: "{spacing.sheet}"
   comparison-cool:
-    backgroundColor: '{colors.compare-cool}'
-    rounded: '{rounded.compare}'
-    padding: '{spacing.compare}'
+    backgroundColor: "{colors.island-wash}"
+    rounded: "{rounded.comparison}"
+    padding: "{spacing.comparison}"
   comparison-warm:
-    backgroundColor: '{colors.compare-warm}'
-    rounded: '{rounded.compare}'
-    padding: '{spacing.compare}'
+    backgroundColor: "{colors.compare-warm}"
+    rounded: "{rounded.comparison}"
+    padding: "{spacing.comparison}"
 ---
 
 # Design System: LifeAtlas
 
 ## Overview
 
-**Creative North Star: "光屿与对页"**
+**Creative North Star: "生活阅览室"**
 
-The two image directions approved on 2026-10-17 replace all previous skins. 光屿工作台 (Island) is the default blue and white morning-lake workspace, with vertical desktop navigation and continuous dated records beside the next experiment. 对页观察室 (Observatory) uses a charcoal desktop header, a topic context rail with a lake vignette, and warm/cool facing records. Both keep body text on opaque white surfaces.
+生活阅览室 is the user-selected replacement visual world, adopted on 2026-10-30. A deep blue navigation rail, an independent topic index and a continuous white reading sheet give locating, reading and acting distinct places. This shared layout now serves both 光屿工作台 (Island, default) and 对页观察室 (Observatory); their selectable color identities remain.
 
-The same factual records, native controls and five destinations serve both spaces. A skin change preserves the live view and unsaved input. Atmosphere supports reading and writing; it does not supply personal history or interpretation.
+The same authored records, native controls and five destinations serve both palettes. Quiet hierarchy and progressive disclosure reduce nested card framing while keeping versions, uncertainty and sources findable. A skin change preserves live work; atmosphere does not supply personal history or interpretation.
 
 **Key Characteristics:**
-- Two compositions, with Island as the default.
-- Opaque reading panels and explicit textual states.
-- Chinese system interface type, with serif Observatory titles and comparison text.
-- Independent peripheral particles that pause during writing.
+
+- One shared reading-room layout with two selectable palettes.
+- A flat topic index beside an opaque, continuous reading sheet.
+- Chinese sans titles and controls; serif comparison excerpts and the existing brand.
+- Independent particles with the existing pause and preference behavior.
 
 ## Colors
 
-The frontmatter records the final overrides in `src/skins.css`; names retain the implemented semantic variables (`green` means link/selection accent, `forest` means primary action). Island uses blue actions on a pale blue field. Observatory pairs cool links with warm rust actions and a charcoal navigation frame; it remains a light reading theme. Shared comparison panels place cool earlier and warm later periods side by side. Use active-skin variables, rather than baking the default palette into new screens.
+The frontmatter records the effective cascade: `src/style.css`, `src/growth.css`, `src/skins.css`, `src/growth-presentation.css`, then `src/reading-room.css`. The final file owns the shared shell and growth geometry. Implemented semantic names remain stable: `green` is the reading/selection accent; `forest` is the main action.
+
+### Primary
+
+Island uses restrained indigo for actions, topic selection and focus on a cool blue ground. Observatory keeps cool blue reading links and rust actions/focus inside its blue-charcoal frame.
+
+### Neutral
+
+Both palettes use white reading sheets, their own ink/muted/line/wash roles, light rail text and a darker active-rail fill. Warm comparison background distinguishes the later period; the earlier period uses the active palette’s wash. Amber and red remain written pending/error states. Existing particle colors remain inherited from the skins.
 
 **The Textual State Rule.** Every consequential status has a written label; color is an additional cue.
 
 ## Typography
 
-Chinese interface text uses the system sans stack. Island headings retain that stack; Observatory headings and both skins’ comparison excerpts use self-hosted AtlasSerif with Noto Serif SC/serif fallbacks. The font file is `/fonts/atlas-serif.woff2` (400–700, swap). Topic titles are 23px in Island and 24px in Observatory; both become 21px at <=640px. Body is 14px; prominent events are 16px/1.95. Comparison excerpts are 19px/1.85, 18px at <=640px. Editor text is 15px/1.9 and 16px at <=640px. Longer record fields wrap and preserve authored newlines, with a 70ch maximum inherited from growth styles.
+Chinese interface titles and controls use the system sans stack in both palettes. Observatory no longer uses serif page/topic headings. The existing self-hosted AtlasSerif remains for the brand and comparison excerpts; no font was added.
+
+Module titles use the headline role; the growth title reduces to the mobile role at <=640px, while other page titles use 26px/1.6. Topic titles reduce to 18px/1.8. Editor headings are 23px/1.6 (22px on small screens). Events use 16px/1.95, with 2 line-height on small screens. Ordinary record fields use 14px/1.95, rising to 15px/2 on small screens; authored line breaks are preserved and reading fields generally cap at 70ch. Comparison excerpts retain serif at 18px/1.95; environment and detail fields use ordinary sans. Editor controls use 15px/1.85, increasing to 16px at <=640px. Supporting text uses 11–13px with generous line-height. Dates and time use tabular numerals.
 
 ## Layout
 
-Island has a 214px fixed desktop sidebar and a main area capped at 1500px. Growth uses `minmax(0,1fr) 255px`, a 22px gap, a spanning topic strip, and the next experiment alongside the record stream. At 1051–1250px its next-step column is 220px and the gap is 16px.
+Both palettes have the same fixed desktop app rail (208px) and workspace offset. The utility bar has a 64px minimum height; main content is capped at 1600px with 36px side padding. Growth places a 186px topic index beside a flexible reading sheet with a 26px gap. The topic index is transparent and borderless; recent attempts continue beneath it. The sheet uses the sheet spacing token; a divided operation band presents the two analysis entries above standard tabs and dated records. Starting point, management, storage and filters expand on demand.
 
-Observatory uses a 235px topic/context rail beside the reading surface; its next-step strip follows the content. At >=1200px the app navigation becomes a horizontal charcoal header and main is capped at 1560px. Between 1051 and 1199px it retains the vertical app sidebar. At <=1050px both shells become horizontal and growth becomes one column; Observatory moves context back into the topic introduction and hides the vignette. At <=640px navigation has five equal columns, heading sizes reduce, form pairs stack and main padding is 26px 16px 40px. The comparison remains paired above 560px and stacks at <=560px. Base non-growth spacious-layout adjustments remain at >=1500px.
+At >=1500px, main/utility side padding is 46px, topic index is 208px with a 32px gap, and sheet padding is 30px 36px. At 1051–1200px the topic index is 170px with a 20px gap and main side padding is 26px. At <=1050px the app rail becomes a horizontal top shell, the workspace offset clears, main side padding becomes 24px, and the topic index remains 170px with a 22px gap.
+
+At <=820px the five app destinations occupy equal columns, growth becomes one column, topic choices scroll only inside their own region, and recent attempts follow the sheet. Today and Settings also become one column. At <=640px main padding is 20px 16px 36px, the sheet uses mobile-sheet spacing, the two analysis entries and comparison stack, paired forms stack, and appearance remains available in Settings while the topbar controls hide. These are shared breakpoints, not palette-specific layouts.
 
 ## Elevation & Depth
 
-Panels use the skin’s ambient shadow: Island `0 14px 44px #314a7320`, Observatory `0 14px 44px #29435516`. White reading surfaces stay opaque over the decorative lake and particles. The independently generated `/images/dawn-lake.webp` (52,390 bytes) is atmosphere, not a personal photo or a crop from the approved interface references. Its provenance sidecar accompanies the asset; the asset scan found one shipping raster and no missing provenance.
+The reading sheet has one quiet ambient shadow per palette, recorded in the sidecar. Internal records use real dividers and native disclosures without extra elevation; comparison periods use tonal fields. Dialogs have a stronger overlay shadow. Reading surfaces remain opaque above the existing particle renderer.
 
-The continuous atmosphere is composed as three silk-like currents: a distant ridge, a folded middle passage and a low reflection. Blue, water-green and warm gold blend along hairline contours and translucent pigment washes. Sharp grains travel along the composed strands with shifting highlights and deliberate negative space. Desktop uses 3x14 strands with 88 grains each before sparse omission; compact uses 3x10 with 54. There are no uniform rows or dust sprites. Navigation copies the same scene and viewport coordinates below its contents. Reading panels stay opaque; local pointer movement gently parts the currents. No pointer data leaves the browser.
+**The Index and Sheet Rule.** The topic index locates; the white sheet carries reading. Use dividers and disclosures inside the sheet rather than another stack of equal-weight cards.
 
-Rendering is capped at 30fps desktop / 24fps at <=640px, with device-pixel-ratio capped at 1.5 / 1.25 and the main bitmap at two million pixels. Turning dynamics off hides both canvases; typing, hiding the document or requesting reduced motion cancels the animation frame and retains the current still. Resize and skin changes repaint the still as needed. Abort removes listeners and both canvases and cancels animation. Route changes reconnect the same two canvases with continuous time; skin changes retain live input. Navigation has no transition. Buttons/switches retain 150ms transitions and toast uses 200ms; the global reduced-motion rule removes transitions and animations.
+The particle implementation is unchanged by this redesign. It retains the shared scene behind workspace/navigation, independent on/off control, local pointer response, and stop rules for typing, hidden documents and reduced motion. Existing caps remain 30fps desktop / 24fps at <=640px and a two-million-pixel main bitmap. The previous lake image remains an existing repository asset with provenance; the reading-room shell hides its scene banner and does not require new imagery. No new visual assets or paid services were used.
 
 ## Shapes
 
-Reading panels and dialogs use 16px corners; comparison containers 14px, topic strip 12px, navigation 10px, buttons 9px, appearance selects 8px and growth inputs 6px. Borders and ruled records carry grouping. Wide Observatory navigation uses square corners and an active underline.
+Sheets and dialogs use the sheet radius; buttons, text fields and appearance selects use the control radius. Desktop app/topic selections use the navigation radius. Filters and environment inset areas use 10px, comparison periods use 12px. At <=1050px app navigation becomes a tab silhouette with rounded top corners; <=820px keeps all five entries equally available. Records inside the white sheet are flat ruled sections.
 
 ## Components
 
-Primary actions use `--forest` / `--forest-deep` with `--accent-ink`; links use `--green`. Subtle actions use the white surface and secondary border; destructive and pending states use text plus red/amber treatments. Growth actions have a 44px minimum height; shared buttons use 42px. Focus uses a 3px skin-colored outline (4px offset globally; 3px inside growth). Disabled controls retain their disabled semantics.
+### Buttons and fields
 
-The native appearance selector has exactly two options and synchronizes across the shell and settings. First mounting growth in Observatory opens comparison; changing skins later changes CSS only and retains the selected view. Comparison foregrounds event and reflection, while other record fields remain in native expandable details. No record field is deleted by this presentation.
+Main actions bind to `forest` and hover to `forest-deep`, with white accent text. Subtle actions use the surface and secondary border, hovering to wash. Shared actions have a 44px minimum height; the desktop analysis band uses compact 40px actions, returning to 44px on small screens. Growth editor fields have a 46px minimum height, standard control corners and native semantics. Focus is a 3px active-palette outline with a 4px global offset; inherited growth content/topic controls retain a 3px offset. Disabled states remain explicitly disabled. Buttons retain existing 150ms state transitions; navigation has no transition. Reduced motion suppresses CSS transitions and animations.
+
+### Navigation, topics and reading
+
+The five destinations are Today, Personal Growth / Environmental Awareness, Mail, History and Settings. The active app entry uses rail-active with white text; topic selection uses nav-active-bg with the reading accent. The separate index and white sheet share one anchor. Both analysis entries stay visible before the tabs; records and their versions remain available through existing controls. Comparison presents event and reflection first; secondary content stays expandable. Pending status uses explicit text with amber; failure uses text with red.
+
+### Appearance and live work
+
+The native selector still has exactly two choices: 光屿工作台 and 对页观察室. Shell and Settings controls synchronize; the small-screen control lives in Settings. First growth mount in Observatory still opens the existing comparison view, while subsequent skin changes preserve the current view and DOM. Existing preference migration and particle behavior remain in `appearance.ts`.
 
 **The Live Task Rule.** Changing appearance preserves live input, focus, scroll and the current view by updating the document skin attribute.
 
-Growth evidence extension (2026-10-19): native keyword/date filters wrap with the reading width and search opens the record view. New entries lead with the event; other fields expand on demand. Explicit attempt selection shows the original action before writing feedback. Period review uses a bounded native checkbox list and frozen source excerpts in expandable reading sections. Controls retain the active skin's semantic colors, 44px form actions, and visible focus. The recent-attempt panel now flows as a block in both skins, accommodating multiple attempts without the former single-action grid. No theme, particle, or raster changes.
-
 ## Do's and Don'ts
-
-2026-10-29 follow-up: the module identity is “个人成长 / 环境感知”, placed immediately after Today. Refine the existing world with a compact 30px module title (25px mobile), the existing lake crop, a semantic five-scope strip and asymmetric light/ink entry panels using the skin's own variables. All content stays semantic and opaque. Five environment disclosures replace the flat categories; profession/locality facts form a compact reading pair. Macro evidence fields are optional disclosures. Mobile uses two lines for the long navigation label and an internal horizontal topic list. Analysis options use label/value rows on desktop and stack on mobile. No new raster assets, palette, skin or particle changes.
-
-2026-10-29: two environmental-awareness entries share a quiet divided row. Eight optional environment groups use native disclosures. Decision support begins with ordinary-language concerns and plain-language capacity/safety selects. Reports distinguish reasons, uncertainty, framework sources and four conditional choices. Native radios select an attempt; unsafe compromise stays disabled. Changing input invalidates the preview until reanalysis. Frozen input/report/choice appear in timeline, comparison and revision disclosures. The existing 14px body, 12px help and 17px subhead scale and skin variables are preserved. Mobile collapses paired entries/locality fields. No new imagery or particle changes.
-
-Environmental context (2026-10-25) extends the existing growth reading surface. A quiet topic action opens the dated environment form; individual experiences opt into a separate snapshot using a native disclosure and checkbox. Long fields use 22px group separation and standard text entry. Comparisons show environmental descriptions as ordinary 14px reading text (15px at <=640px), without inheriting the large serif event cards. Dates, sources and uncertainty remain visible. No new visual assets, skin choices, or particle changes.
 
 ### Do
 
-- Do use the active skin’s semantic CSS variables across all five routes.
+- Do use the active palette’s semantic CSS variables across all five destinations.
+- Do keep topic lookup separate from continuous reading and secondary tools in native disclosures.
 - Do lead comparison with event and reflection; keep observation, feedback and action in expandable details.
-- Do preserve native control semantics, explicit saving, keyboard focus and reduced-motion behavior.
-- Do identify fictional mail separately from real growth records.
-- Do state the actual viewport and capture limits when reporting visual coverage.
+- Do preserve native control semantics, explicit saving, visible keyboard focus and reduced-motion behavior.
+- Do distinguish fictional demonstrations from real authored records and report the actual viewport limits of visual review.
 
 ### Don't
 
+- Don't restore the superseded horizontal Observatory desktop shell or lake banner as the current layout authority.
 - Don't add retired skins to the selector or canonical palette.
 - Don't remount the live route to change appearance.
 - Don't put reading text on a transparent particle layer.
-- Don't turn mockup photos, counts, categories or automatic analysis into personal data.
-- Don't infer hosted deployment, live Gmail access or full mobile/desktop fidelity from this review.
+- Don't turn examples, scenery, counts or unimplemented analysis into personal data or capability claims.

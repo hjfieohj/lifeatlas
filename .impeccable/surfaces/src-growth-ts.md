@@ -2,18 +2,18 @@
 version: 1
 slug: "src-growth-ts"
 primary_target: "src/growth.ts"
-related_targets: ["src/growth.css","src/skins.css","src/appearance.ts","src/main.ts"]
+related_targets: ["src/reading-room.css","src/growth-presentation.ts","src/main.ts","src/skins.css"]
 ---
 
-# Personal growth / existing-world extension
-Mode: Operate + Read. Owner's reflective practice, used during events and over years. User clarified that the task is an iterative development process, not an isolated diary.
+# LifeAtlas / 生活阅览室
+Mode: Operate + Read. Owner and later individual users recording lived experience and understanding their environment. Scope: shared shell, growth, mail, history, settings and Today. Keep real data, native interactions, two selectable skins and the existing particle renderer.
 
 ## Direction contract
-THESIS: A growth topic carries repeated experience → observation → reflection → experiment → feedback; later evidence can revise earlier understanding without erasing it.
-OWN-WORLD: Inherit the approved two-skin replacement system in DESIGN.md and src-main-ts.md. Island (default) uses a blue/white morning-lake workspace, vertical desktop navigation, continuous records and next experiment alongside. Observatory uses charcoal horizontal app navigation at >=1200px, a topic/context rail with a lake vignette and warm/cool facing periods. Use system sans interface text, serif Observatory headings and comparison excerpts, opaque reading panels, native controls and existing outline icons. The independently generated lake asset has provenance; no personal data is inferred from the mockups.
-STORY: Name a life question and present situation; add dated experiences or summaries; revisit prior attempts; compare earlier and later records; read immutable content versions.
-FIRST VIEWPORT: Existing five-destination shell with Personal Growth selected. Empty state opens the topic form. Populated Island uses a topic strip above continuous records and a next-step column. Observatory uses topic context beside comparison and opens comparison on first growth mount; later skin changes preserve the current view and unsaved input. Comparison leads with event/reflection; observation, feedback and action remain in expandable details. Saving, authorship and storage stay explicit.
-FORM: Local extension; directly shaped around the user's specified process. No concept seed or comp round is applicable. Signature interaction: compare two dates across years, then start the next reflective cycle.
+THESIS: A quiet working reading room lets the user locate a theme, understand a real experience, and choose the next action without a stack of equal-weight boxes.
+OWN-WORLD: Deep blue fixed navigation; cool blue ground; white 14px-corner reading surface; restrained indigo selection. System Chinese sans for controls and titles; existing serif only in comparison excerpts. Flat topic index, continuous reading, 8px controls, one soft sheet elevation. Observatory retains charcoal and rust color roles inside the same layout.
+STORY: Locate a theme in the adjacent index, use either environment analysis or decision support, then read, compare and respond to actual dated records. Earlier versions, uncertainty and storage remain findable.
+FIRST VIEWPORT: A 208px desktop app rail, compact 64px utility bar, 30px module heading with the primary recording action; five environment scopes beneath. A 186px theme index sits beside the flexible white reading sheet. Two compact analysis entries share a divided operation band above standard tabs and the continuous record area. Metadata, starting point, sources and filtering expand on demand. Phone navigation becomes a five-item horizontal row; topics scroll within their own region, content stacks without page overflow. Signature interaction: switching skin updates color in place while preserving a live draft; choosing a theme keeps the same reading anchor and control positions. No entrance animation; state transitions use existing 150ms controls, particles remain independently paused.
+FORM: Grounded candidate 7, public reading room; direction seed 32a82516. Seven considered sources: open folio, garden journal, civic wayfinding, museum catalogue, family album, correspondence desk, public reading room. User selected 生活阅览室 through the structured question fallback after the decision page closed unanswered. Code-led; chosen sketch .impeccable/mocks/decision/reading-room.html is the layout reference, no approved raster comp.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-Scope: Real server database records (local test database on loopback; D1 in the hosted life space), owner isolation, optimistic concurrency, immutable text revisions, reversible archive, paginated history and topic export. No AI interpretation, scores, streaks or fabricated user history. Gmail and existing fictional demo remain independent. New growth records are not stored in browser localStorage and do not depend on Google OAuth configuration.
+Constraints: no fabricated personal records, no new collection or analysis claims, no data migration. Existing two skin choices remain. Public source remains hjfieohj/lifeatlas. No new raster assets, fonts or paid services required. Native details keep secondary tools available; all existing field limits, save behavior, archived records and feedback references remain.

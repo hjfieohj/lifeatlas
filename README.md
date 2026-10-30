@@ -18,18 +18,18 @@
 
 ## 皮肤与动态
 
-顶部栏、宽屏对页导航栏或「偏好设置 → 外观与动态」可切换两套皮肤，控件同步：
+2026-10-30 用户选定“生活阅览室”，已替换此前视觉布局。两套皮肤仍可切换，使用相同的深蓝桌面侧栏、独立主题索引和连续白色阅读页，减少层层套卡；对页不再采用横向桌面导航。
 
-- 光屿工作台（`island`，默认）：浅蓝与白色、清晨湖景；桌面竖向导航，连续记录旁呈现下一步尝试。
-- 对页观察室（`observatory`）：炭灰导航、冷暖对照；1200px 起使用横向导航，成长主题旁有现状与方向及湖景小窗。首次进入成长页默认前后对照。
+- 光屿工作台（`island`，默认）：冷蓝底色、深蓝导航与克制的靛蓝操作。
+- 对页观察室（`observatory`）：蓝炭灰导航、冷蓝阅读色与铁锈色主操作，共用同一布局。
 
-之后切换皮肤保留当前视图、未保存输入、焦点与滚动位置。「流光山水」以三道有留白的光流、细线轮廓、半透明水色与流动粒子构成整体背景，延伸到 LifeAtlas 标识与导航栏；导航区域复制同一场景的对应坐标，共用一个时间和绘制循环。已移除灰尘般的模糊圆点、光絮和点击涟漪。鼠标附近粒子流轻轻让开。正文面板保持不透明；Canvas 不接受点击，不收集或上传指针数据。「粒子动态」统一控制两处；文字输入、页面隐藏或系统启用减少动态时取消绘制循环并保留静帧。桌面最多 30fps，640px 及以下减少点数和像素比例、最多 24fps；主画布位图上限两百万像素。1050px 及以下成长布局变为单栏；640px 及以下保留五个导航入口；560px 及以下对照纵向排列。
+桌面应用侧栏为 208px；成长主题索引常规 186px，宽屏 208px、中等宽度 170px。1050px 及以下导航移到顶部；820px 及以下五个入口等列、成长内容单栏，主题只在自身区域横向滚动；640px 及以下分析入口、前后对照和成对表单纵向排列。顶部栏或「偏好设置 → 外观与动态」切换皮肤与粒子；小屏从设置进入。
 
-偏好沿用当前浏览器的 `lifeatlas-appearance-v1` 键，保存结构升级为 `{version:2, skin:'island'|'observatory', particles:boolean}`。旧版 `version:1` 的 `daylight`、`orbit`、`habitat` 均迁移到 `island`，保留粒子开关；无效或缺失偏好回到 Island、粒子开启。迁移后的值在下次保存外观时写入。旧三套皮肤已退出选择器和规范调色板。浏览器拒绝存储时，本次切换仍生效，设置页提示未保存。外观偏好不包含成长正文，云端 D1／本地数据库记录不受影响。
+切换皮肤保留当前视图、未保存输入、焦点与滚动位置。现有「流光山水」粒子渲染器未改：共享场景延伸到导航，Canvas 不接受点击、不上传指针数据，正文面板不透明；文字输入、页面隐藏或系统减少动态时停止绘制并保留静帧。桌面最多 30fps，640px 及以下最多 24fps；主画布位图上限两百万像素。现有偏好键 `lifeatlas-appearance-v1`、version 2 格式及旧三皮肤迁移规则保持。外观偏好不包含成长正文，也不改变数据库记录。
 
-设计令牌见 `DESIGN.md`；阴影、动态、断点和自包含组件示例见 `.impeccable/design.json`。`public/images/dawn-lake.webp`（52,390 bytes）为独立生成的装饰湖景，附有来源侧车；没有裁切参考界面，也没有把参考图中的照片、数量、分类或 AI 分析当作个人数据。
+设计令牌见 `DESIGN.md`；阴影、动态、断点和自包含组件示例见 `.impeccable/design.json`。最后加载的 `src/reading-room.css` 是当前布局覆盖。此次未新增图片、字体或付费服务；已有 `public/images/dawn-lake.webp` 及来源侧车保留，旧湖景概念与截图属于历史参考。
 
-独立评审为 SHIP，未发现实质回归。视觉证据限实际 636×534px 应用内浏览器画面；390px、1440px 的两皮肤 × 五路由 DOM 检查显示无横向溢出且有五个导航入口。模拟截图出现裁切／拼接问题，不能据此认证完整桌面还原或移动端视觉。有效截图在 `.impeccable/review/replacement-island-top.png`、`replacement-island-records.png`、`replacement-observatory-top.png`、`replacement-observatory-compare.png`、`replacement-settings.png`；它们不是发布资产。
+独立评审结果为 SHIP，证据范围内无实质修复项。当前有效成长截图为 `.impeccable/review/desktop-final.jpg`（1280px CSS 宽、全页）、`mobile-final.jpg`（390px CSS 宽、全页）与 `mobile-environment-final.jpg`（五层环境编辑器）；设置、今日、任务记录分别见 `settings-correct.jpg`、`today-view.jpg`、`history-view.jpg`。这不代表所有设备与状态均已认证。`settings-view.jpg` 实为邮箱，`current-final.jpg` 含已丢弃的测试草稿提示，旧 replacement-* 截图不代表当前布局。测试草稿跨皮肤保留后已丢弃；空邮箱搜索和五层编辑入口验证完成，未保存真实或个人数据。60 项测试、最终类型检查与生产构建通过。
 
 ## 本地运行
 
@@ -47,7 +47,7 @@ npm run dev
 - `src/main.ts`：五个页面的导航、演示确认对话框、事件和演示存储。
 - `src/growth.ts`、`src/growth-model.ts`、`src/growth.css`：独立成长过程界面；`server/growth-*` 和 `app/api/growth/` 处理真实个人记录。
 - `src/domain.ts`：演示对象、确认快照、保护规则、执行、取消、结果核对和恢复。
-- `src/style.css`、`src/growth.css`、`src/skins.css`：依次加载的基础、成长界面和最终皮肤令牌/响应式覆盖。
+- `src/style.css`、`src/growth.css`、`src/skins.css`、`src/growth-presentation.css`、`src/reading-room.css`：按此顺序加载；生活阅览室为最后的共享布局与皮肤覆盖。
 - `src/appearance.ts`：皮肤选择、同步、浏览器偏好和粒子暂停。
 - `tests/domain.test.ts`：关键授权与执行边界测试。
 - `docs/STARTUP.md`：复查结论、依赖事实、下一步工作及完成条件。
@@ -56,6 +56,8 @@ npm run dev
 - `docs/GOOGLE-SETUP.md`：下一步本人配置 Google 项目和安全运行时值的步骤。
 
 ## 进展与下一步
+
+2026-10-30：完成用户选定的“生活阅览室”布局替换；两套皮肤与粒子效果保留，成长、邮箱、今日、任务记录及设置共用新的侧栏和阅读表面。独立评审 SHIP，60 项测试、类型检查及生产构建通过。能力与存储边界保持不变。
 
 2026-10-29：模块更名为“个人成长 / 环境感知”，紧随“今日”；环境档案改为五层，增加职业、专业、行业与宏观影响路径，分析 v2 保留旧版记录。60 项自动测试、类型检查与构建通过。正式源码仓库 [hjfieohj/lifeatlas](https://github.com/hjfieohj/lifeatlas) 已公开，后续更改持续提交到该仓库。详见 [五层结构](docs/ENVIRONMENT-LAYERS.md)。
 
