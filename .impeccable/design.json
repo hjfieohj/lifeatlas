@@ -639,10 +639,6 @@
       "editor": {
         "displayName": "editor",
         "purpose": "Extracted from the effective reading-room cascade; responsive context is in DESIGN.md."
-      },
-      "brand": {
-        "displayName": "brand",
-        "purpose": "Extracted from the effective reading-room cascade; responsive context is in DESIGN.md."
       }
     },
     "shadows": [
@@ -700,7 +696,24 @@
         "name": "small-and-comparison-stack",
         "value": "max-width:640px"
       }
-    ]
+    ],
+    "brandAsset": {
+      "source": "src/wordmark.ts",
+      "standalone": "public/brand/lifeatlas-wordmark.svg",
+      "family": "Alegreya (outlined)",
+      "styles": {
+        "Life": "true italic 550",
+        "Atlas": "roman 500"
+      },
+      "widths": {
+        "desktop": "156px",
+        "top-shell": "146px",
+        "small": "138px"
+      },
+      "delivery": "Inline currentColor SVG; intrinsic aspect ratio; no runtime font request",
+      "accessibleName": "LifeAtlas · 生活全图，回到今日",
+      "provenance": "public/brand/wordmark-provenance.json"
+    }
   },
   "components": [
     {
@@ -782,7 +795,7 @@
     "keyCharacteristics": [
       "One shared reading-room layout with two selectable palettes.",
       "A flat topic index beside an opaque, continuous reading sheet.",
-      "Chinese sans titles and controls; serif comparison excerpts and the existing brand.",
+      "Chinese sans titles and controls; serif comparison excerpts and an outlined literary wordmark.",
       "Independent particles with the existing pause and preference behavior."
     ],
     "rules": [

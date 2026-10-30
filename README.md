@@ -27,9 +27,11 @@
 
 切换皮肤保留当前视图、未保存输入、焦点与滚动位置。现有「流光山水」粒子渲染器未改：共享场景延伸到导航，Canvas 不接受点击、不上传指针数据，正文面板不透明；文字输入、页面隐藏或系统减少动态时停止绘制并保留静帧。桌面最多 30fps，640px 及以下最多 24fps；主画布位图上限两百万像素。现有偏好键 `lifeatlas-appearance-v1`、version 2 格式及旧三皮肤迁移规则保持。外观偏好不包含成长正文，也不改变数据库记录。
 
-设计令牌见 `DESIGN.md`；阴影、动态、断点和自包含组件示例见 `.impeccable/design.json`。最后加载的 `src/reading-room.css` 是当前布局覆盖。此次未新增图片、字体或付费服务；已有 `public/images/dawn-lake.webp` 及来源侧车保留，旧湖景概念与截图属于历史参考。
+设计令牌见 `DESIGN.md`；阴影、动态、断点和自包含组件示例见 `.impeccable/design.json`。最后加载的 `src/reading-room.css` 是当前布局覆盖。LifeAtlas 字标采用同族真实斜体 Life 与正体 Atlas，作为 SVG 轮廓呈现；`public/brand/` 提供矢量版、开源授权和来源记录，`scripts/build-wordmark.py` 可重建。运行时不新增字体请求或付费服务；已有 `public/images/dawn-lake.webp` 及来源侧车保留，旧湖景概念与截图属于历史参考。
 
-独立评审结果为 SHIP，证据范围内无实质修复项。当前有效成长截图为 `.impeccable/review/desktop-final.jpg`（1280px CSS 宽、全页）、`mobile-final.jpg`（390px CSS 宽、全页）与 `mobile-environment-final.jpg`（五层环境编辑器）；设置、今日、任务记录分别见 `settings-correct.jpg`、`today-view.jpg`、`history-view.jpg`。这不代表所有设备与状态均已认证。`settings-view.jpg` 实为邮箱，`current-final.jpg` 含已丢弃的测试草稿提示，旧 replacement-* 截图不代表当前布局。测试草稿跨皮肤保留后已丢弃；空邮箱搜索和五层编辑入口验证完成，未保存真实或个人数据。60 项测试、最终类型检查与生产构建通过。
+生活阅览室布局的独立评审结果为 SHIP，证据范围内无实质修复项。字标更新前的成长布局截图为 `.impeccable/review/desktop-final.jpg`（1280px CSS 宽、全页）、`mobile-final.jpg`（390px CSS 宽、全页）与 `mobile-environment-final.jpg`（五层环境编辑器）；设置、今日、任务记录分别见 `settings-correct.jpg`、`today-view.jpg`、`history-view.jpg`。这不代表所有设备与状态均已认证。`settings-view.jpg` 实为邮箱，`current-final.jpg` 含已丢弃的测试草稿提示，旧 replacement-* 截图不代表当前布局。测试草稿跨皮肤保留后已丢弃；空邮箱搜索和五层编辑入口验证完成，未保存真实或个人数据。该轮 60 项测试、类型检查与生产构建通过。
+
+字标的单独排印复核为 SHIP，桌面效果见本地 `.impeccable/review/wordmark-desktop.jpg`；手机验证了 138px 比例、矢量边界及页面无横向溢出，截图工具未能提供有效手机图片，故不作手机视觉认证。两套皮肤继承色、键盘返回首页、类型检查与生产构建通过。审查图不随源码发布。重建字标需 fontTools，普通应用构建不运行该脚本。
 
 ## 本地运行
 

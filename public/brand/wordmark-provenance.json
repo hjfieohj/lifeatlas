@@ -1,0 +1,27 @@
+{
+  "asset": "lifeatlas-wordmark.svg",
+  "kind": "outlined typography",
+  "family": "Alegreya",
+  "copyright": "2011 The Alegreya Project Authors",
+  "license": "SIL Open Font License 1.1; see OFL-Alegreya.txt",
+  "source": [
+    {
+      "style": "italic",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/alegreya/Alegreya-Italic%5Bwght%5D.ttf",
+      "sha256": "fa915eec76227935dc5fb678953c94b71287c360928013cfdb441dfe52f5a391"
+    },
+    {
+      "style": "roman",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/alegreya/Alegreya%5Bwght%5D.ttf",
+      "sha256": "ba5564634b93a8f8ba57b48cd4f1ae7417d2b4656fbac779028679b00de3cf12"
+    }
+  ],
+  "lettering": {
+    "Life": "true italic 550",
+    "Atlas": "roman 500",
+    "alignment": "matched cap heights and shared baseline",
+    "seam_font_units": 60
+  },
+  "generator": "scripts/build-wordmark.py",
+  "runtime": "inline currentColor SVG; no added font request"
+}

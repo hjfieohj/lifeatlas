@@ -84,12 +84,6 @@ typography:
     fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
     fontSize: "15px"
     lineHeight: 1.85
-  brand:
-    fontFamily: "AtlasSerif, Georgia, serif"
-    fontSize: "27px"
-    fontWeight: 500
-    lineHeight: 1.3
-    letterSpacing: "-.025em"
 rounded:
   control: "8px"
   navigation: "9px"
@@ -175,7 +169,7 @@ The same authored records, native controls and five destinations serve both pale
 
 - One shared reading-room layout with two selectable palettes.
 - A flat topic index beside an opaque, continuous reading sheet.
-- Chinese sans titles and controls; serif comparison excerpts and the existing brand.
+- Chinese sans titles and controls; serif comparison excerpts and an outlined literary wordmark.
 - Independent particles with the existing pause and preference behavior.
 
 ## Colors
@@ -194,7 +188,7 @@ Both palettes use white reading sheets, their own ink/muted/line/wash roles, lig
 
 ## Typography
 
-Chinese interface titles and controls use the system sans stack in both palettes. Observatory no longer uses serif page/topic headings. The existing self-hosted AtlasSerif remains for the brand and comparison excerpts; no font was added.
+Chinese interface titles and controls use the system sans stack in both palettes. Observatory no longer uses serif page/topic headings. The existing self-hosted AtlasSerif remains for comparison excerpts. The brand is a dedicated SVG wordmark, described below; it adds no runtime font request.
 
 Module titles use the headline role; the growth title reduces to the mobile role at <=640px, while other page titles use 26px/1.6. Topic titles reduce to 18px/1.8. Editor headings are 23px/1.6 (22px on small screens). Events use 16px/1.95, with 2 line-height on small screens. Ordinary record fields use 14px/1.95, rising to 15px/2 on small screens; authored line breaks are preserved and reading fields generally cap at 70ch. Comparison excerpts retain serif at 18px/1.95; environment and detail fields use ordinary sans. Editor controls use 15px/1.85, increasing to 16px at <=640px. Supporting text uses 11–13px with generous line-height. Dates and time use tabular numerals.
 
@@ -219,6 +213,12 @@ The particle implementation is unchanged by this redesign. It retains the shared
 Sheets and dialogs use the sheet radius; buttons, text fields and appearance selects use the control radius. Desktop app/topic selections use the navigation radius. Filters and environment inset areas use 10px, comparison periods use 12px. At <=1050px app navigation becomes a tab silhouette with rounded top corners; <=820px keeps all five entries equally available. Records inside the white sheet are flat ruled sections.
 
 ## Components
+
+### Wordmark
+
+LifeAtlas uses a single outlined lettering asset: true Alegreya italic 550 for “Life”, roman 500 for “Atlas”, with matched cap heights, a shared baseline and a 60-font-unit optical seam. This supplies a gentle, lived-in rhythm while the upright second half retains formality. No swash, artificial skew or pictorial ornament is added. The inline `src/wordmark.ts` asset inherits the rail ink through `currentColor`; its viewBox includes the italic descender and edge padding. Width is 156px on the desktop rail, 146px on the top shell and 138px at <=640px, with intrinsic height reserved. The Chinese subtitle remains 12px on desktop and hides at the existing small-shell breakpoint. The home link retains the full text name “LifeAtlas · 生活全图，回到今日”.
+
+The standalone vector, SIL OFL 1.1 license and source hashes live in `public/brand/`. `scripts/build-wordmark.py` reproduces both SVG outputs from the documented free source fonts. The full source fonts are not shipped. This is a narrow brand-lettering refinement; page type, layout, palettes and particles retain their existing authority.
 
 ### Buttons and fields
 

@@ -32,6 +32,8 @@ Personal growth is an independent implemented extension: real user-authored topi
 
 ## Brand Commitments
 
+2026-10-30 wordmark refinement: the owner asked for LifeAtlas lettering with everyday warmth, artistry, formality and comfort. Only the wordmark changes: true italic “Life” and upright “Atlas” from the same openly licensed Alegreya family, optically spaced and shipped as SVG outlines. The text home-link name, existing Chinese subtitle behavior, two palettes, page typography and particles remain. No new runtime font download or paid service.
+
 2026-10-19 growth refinement: explicit feedback-to-attempt links with server-validated frozen source versions; period reviews with selected, frozen record excerpts; owner-scoped keyword/date search across paginated history. Prior records retain empty context rather than inferred relationships. Recent attempt counts describe linked feedback only. Manual saving remains necessary; durable drafts and automatic conclusions are outside this increment. See docs/GROWTH-RESEARCH.md.
 LifeAtlas Reimagined / 生活全图. Plain Chinese, calm and concrete, with actual records and capabilities kept distinct from fictional demonstrations. Preserve sources, uncertainty, earlier words and explicit saving; do not turn examples, counts or scenery into personal history or claim automatic interpretation.
 
