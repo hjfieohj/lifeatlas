@@ -1,0 +1,43 @@
+/* The integrated guide extends the reading room with ruled, expandable entries. */
+.guidance-framework{display:flex;flex-wrap:wrap;gap:12px 28px;margin:24px 0 32px;padding:16px 0 16px 22px;border-block:1px solid var(--line);font-size:14px;line-height:1.8;color:var(--muted)}
+.guidance-framework li{padding-left:2px}
+.guidance-subject-entry{margin:32px 0 24px}
+.guidance-subject-entry>.section-heading{align-items:baseline;gap:10px 20px;flex-wrap:wrap}
+.guidance-subject-entry h3{font-size:18px;line-height:1.7;margin:0}
+.guidance-empty-subjects{font-size:15px;color:var(--muted);padding:12px 0}
+#growth-panel .growth-editor .guidance-subject,#growth-panel .growth-editor .guidance-relationship{min-width:0;margin:28px 0;padding:12px 0 0;border:0;border-top:1px solid var(--line)}
+.guidance-subject legend,.guidance-relationship legend{max-width:100%;padding:0 12px 0 0;font-size:16px;font-weight:600;line-height:1.8;overflow-wrap:anywhere;color:var(--ink)}
+#growth-panel .guidance-remove{display:block;margin:0 0 12px auto;min-height:44px;white-space:normal;text-align:right}
+#growth-panel .guidance-subject-signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 22px;margin:16px 0 24px}
+#growth-panel .guidance-subject-signals label{display:flex;align-items:start;gap:10px;min-height:44px;margin:0;cursor:pointer}
+#growth-panel .guidance-subject-signals input{width:18px;min-width:18px;height:18px;min-height:18px;margin:5px 0 0;padding:0;accent-color:var(--green)}
+#growth-panel .guidance-subject-signals span{margin:0;color:var(--ink);font-size:14px;line-height:1.85}
+.guidance-subject-entry>.button{margin-bottom:24px}
+.guidance-integrated-report .guidance-case-summary{font-size:17px;line-height:1.9}
+.guidance-part{padding:26px 0;border-top:1px solid var(--line)}
+.guidance-part:first-of-type{margin-top:26px}
+#growth-panel .guidance-part>h3{margin:0 0 16px;font-size:20px;line-height:1.7;max-width:32em;text-wrap:balance}
+.guidance-part p,.guidance-part li{max-width:72ch;overflow-wrap:anywhere}
+.guidance-position{display:grid;grid-template-columns:minmax(90px,130px) minmax(0,1fr);gap:12px 24px;margin:22px 0 0}
+#growth-panel .guidance-position dt,#growth-panel .guidance-position dd{margin:0;font-size:15px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere}
+.guidance-subject-readings,.guidance-relationship-readings{margin-top:26px}
+.guidance-subject-reading{border-top:1px solid var(--line);min-width:0}
+.guidance-subject-reading>summary{padding:16px 0;min-height:44px;font-size:16px;font-weight:600;line-height:1.8;color:var(--green);cursor:pointer;overflow-wrap:anywhere}
+.guidance-subject-reading>summary span{display:block;margin:4px 0 0 18px;font-size:14px;font-weight:400;line-height:1.8;color:var(--muted)}
+.guidance-subject-reading>div{padding:0 0 24px}
+#growth-panel .guidance-subject-reading h5{font-size:16px;line-height:1.8;margin:26px 0 12px}
+#growth-panel .guidance-subject-reading h6{font-size:15px;line-height:1.8;margin:0 0 8px;overflow-wrap:anywhere}
+.guidance-characteristic{padding:16px 0;border-top:1px solid var(--line)}
+.guidance-characteristic p{margin:8px 0 0}
+.guidance-subject-reading :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media(max-width:640px){
+  .guidance-framework{gap:8px 25px;padding-block:12px;font-size:14px}
+  .guidance-subject-entry>.section-heading{display:block}
+  .guidance-subject-entry>.section-heading button{margin-top:8px;text-align:left;white-space:normal}
+  #growth-panel .guidance-subject-signals{grid-template-columns:1fr}
+  #growth-panel .guidance-subject-signals span{font-size:15px}
+  #growth-panel .guidance-part>h3{font-size:18px}
+  .guidance-position{grid-template-columns:1fr;gap:4px}
+  #growth-panel .guidance-position dd{margin-bottom:12px}
+  .guidance-part{padding:24px 0}
+}

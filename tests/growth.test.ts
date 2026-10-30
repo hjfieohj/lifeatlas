@@ -7,6 +7,7 @@ import { GrowthService } from '../server/growth-service.ts';
 import { validDay } from '../src/growth-model.ts';
 import {blankGuidance} from '../src/environment-advisor.ts';
 import {blankProfile} from '../src/environment-model.ts';
+import {blankSubject,blankRelationship} from '../src/environment-subjects.ts';
 const origin='https://lifeatlas.test',owner={userId:'first'},other={userId:'second'};
 function harness(){
   const sql=new DatabaseSync(':memory:');
@@ -224,10 +225,37 @@ test('regional and macro context plus professional position stay independent acr
   const frozen=JSON.parse((await h.repo.moment(owner.userId,m.id))!.context!).environment;assert.equal(frozen.economy,'虚构经济观察');assert.equal(frozen.profile.major,p.major);
   assert.equal((await h.request('topic',{...t,version:2,environmentProfile:{...env,power:'x'.repeat(1501)}})).status,400);
 });
-test('macro guidance input and v2 report are exported and remain searchable in their original form',async()=>{
+test('macro guidance input and v3 report are exported and remain searchable in their original form',async()=>{
   const h=harness(),t=topic();await h.request('topic',t);const input={...blankGuidance(),domain:'economic',story:'虚构：想核实行业变化',change:'虚构订单信号',connection:'行业 → 岗位',evidence:'虚构来源待核实',watchFor:'排班变化'};
   const m=moment(t.id),saved=await h.request('moment',{...m,guidance:{input,selectedPlan:'preferred'}});assert.equal(saved.status,200);
-  const guidance=JSON.parse(saved.body.item.context).guidance;assert.equal(guidance.version,'environment-guide-v2');assert.equal(guidance.input.watchFor,'排班变化');
+  const guidance=JSON.parse(saved.body.item.context).guidance;assert.equal(guidance.version,'environment-guide-v3');assert.equal(guidance.input.watchFor,'排班变化');
   assert.equal((await h.request('moments?topic='+t.id+'&q='+encodeURIComponent('虚构订单信号'))).body.items[0].id,m.id);
   const exported=(await h.request('export?topic='+t.id)).body.items.find((i:any)=>i.type==='moment').data.context.guidance;assert.deepEqual(exported,guidance);
+});
+
+
+test('integrated subjects and links are server-derived, owner-scoped, searchable and frozen across feedback',async()=>{
+  const h=harness(),t=topic();await h.request('topic',t);
+  const a={...blankSubject('a'),label:'负责人（虚构）',layer:'social',facts:'独特的测试排班事实',characteristics:'常改变安排',observedImpact:'昨天加了一项任务',possibleImpact:'可能挤压学习'},b={...blankSubject('b'),label:'公司',kind:'organization',layer:'social',facts:'每周公布任务'};
+  const link={...blankRelationship('r','a','b'),description:'负责人根据公司任务安排时间',impact:'计划需要跟着调整'};
+  const input={...blankGuidance(),domain:'work',safety:'safe',story:'虚构：想核对排班与个人时间',subjects:[a,b],relationships:[link]},m=moment(t.id,'2026-10-30');
+  const response=await h.request('moment',{...m,guidance:{input,selectedPlan:'preferred',report:{integration:{overview:'伪造结果'}}}});assert.equal(response.status,200);
+  const saved=JSON.parse(response.body.item.context).guidance;assert.equal(saved.version,'environment-guide-v3');assert.deepEqual(saved.input.subjects,[a,b]);assert.deepEqual(saved.input.relationships,[link]);assert.notEqual(saved.report.integration.overview,'伪造结果');
+  assert.equal((await h.request('moments?topic='+t.id+'&q='+encodeURIComponent(a.facts))).body.items[0].id,m.id);
+  const invalid=await h.request('moment',{...moment(t.id),guidance:{input:{...input,relationships:[{...link,to:'missing'}]},selectedPlan:'preferred'}});assert.equal(invalid.status,400);
+  const follow={...moment(t.id,'2026-10-31'),sourceId:m.id,sourceVersion:1,feedback:'实际协商后，安排更稳定',reflection:'对负责人的判断需要修正'};
+  assert.equal((await h.request('moment',follow,other)).status,404);assert.equal((await h.request('moment',follow)).status,200);
+  assert.equal((await h.request('moment',{...m,version:1,feedback:'补记反馈'})).status,200);
+  const exportData=(await h.request('export?topic='+t.id)).body.items;assert.deepEqual(exportData.find((x:any)=>x.type==='moment'&&x.data.id===m.id).data.context.guidance,saved);
+  const feedback=exportData.find((x:any)=>x.type==='moment'&&x.data.id===follow.id).data;assert.equal(feedback.context.source.version,1);assert.equal(feedback.context.source.action,response.body.item.action);assert.equal(feedback.reflection,follow.reflection);
+});
+
+test('editing legacy v1/v2 records never replaces their frozen analysis with current rules',async()=>{
+  for(const version of ['environment-guide-v1','environment-guide-v2']){
+    const h=harness(),t=topic();await h.request('topic',t);const m=moment(t.id);const saved=await h.request('moment',{...m,guidance:{input:{...blankGuidance(),story:'旧版示例'},selectedPlan:'preferred'}});
+    const context=JSON.parse(saved.body.item.context);context.guidance.version=version;context.guidance.report.version=version;context.guidance.report.summary='当时的判断';delete context.guidance.report.integration;
+    h.sql.prepare('UPDATE growth_moments SET context=? WHERE id=?').run(JSON.stringify(context),m.id);
+    assert.equal((await h.request('moment',{...m,version:1,feedback:'新增实际结果'})).status,200);
+    const exported=(await h.request('export?topic='+t.id)).body.items.find((x:any)=>x.type==='moment').data.context.guidance;assert.deepEqual(exported,context.guidance);
+  }
 });

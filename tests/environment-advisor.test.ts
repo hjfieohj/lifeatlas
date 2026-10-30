@@ -44,7 +44,7 @@ test('five ordered layers contain each descriptive field once and retain cross-l
 });
 test('economic guidance links evidence to individual exposure without issuing blanket investment instructions',()=>{
   const i=validateGuidance({...blankGuidance(),domain:'economic',story:'虚构：担心订单变化影响自己的工作',safety:'safe',change:'虚构：所在行业订单有变化',connection:'行业需求 → 企业订单 → 我的岗位',evidence:'虚构资料，未核实',watchFor:'下一次排班是否变化'});
-  const r=analyzeEnvironment(i);assert.equal(r.version,'environment-guide-v2');assert.match(r.plans[0].steps,/现金|必要支出/);assert.match(r.plans[0].steps,/不因.*统一买卖/);assert.ok(r.evidence.some(e=>e.includes('未核实')));assert.ok(r.findings.some(f=>f.reason.includes('我的岗位')));assert.ok(r.questions.some(q=>q.includes('下一次排班')));
+  const r=analyzeEnvironment(i);assert.equal(r.version,'environment-guide-v3');assert.match(r.plans[0].steps,/现金|必要支出/);assert.match(r.plans[0].steps,/不因.*统一买卖/);assert.ok(r.evidence.some(e=>e.includes('未核实')));assert.ok(r.findings.some(f=>f.reason.includes('我的岗位')));assert.ok(r.questions.some(q=>q.includes('下一次排班')));
   assert.throws(()=>validateGuidance({...i,change:'x'.repeat(1001)}));assert.throws(()=>validateGuidance({...i,evidence:[]}));
 });
 test('geographic or geopolitical labels do not establish danger, and actual threats still take priority',()=>{

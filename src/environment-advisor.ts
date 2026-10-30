@@ -1,15 +1,16 @@
 // Educational decision support. Rules expose their evidence and never diagnose a person.
-export const guidanceVersion='environment-guide-v2' as const;
+import {integrateGuidance,validateSubjects,validateRelationships,type GuidanceSubject,type GuidanceRelationship,type GuidanceIntegration} from './environment-subjects.ts';
+export const guidanceVersion='environment-guide-v3' as const;
 export const guidanceDomains={personal:'个人特点与生活选择',family:'父母与家庭',school:'学校与老师',neighborhood:'邻里、朋友或伴侣',work:'工作与同事',society:'地域、政策与机会',regional:'地方治理与区域环境',economic:'宏观经济与行业影响',geopolitical:'地缘与外部风险',digital:'网络与信息'};
 export const guidanceCapacities={unknown:'还不清楚',dependent:'生活或决定主要依赖他人',some:'能调整一部分，但有明显限制',independent:'基本能独立安排'};
 export const guidanceSafety={unknown:'不确定',safe:'目前没有安全担忧',concern:'担心表达后被报复或处境恶化',danger:'有身体伤害、威胁或无法安全离开的担忧'};
 export const guidanceSignals={listening:'愿意听我说，并讨论办法',help:'给过具体、可靠的帮助',humiliation:'反复辱骂、贬低或公开羞辱',control:'用关系或资源强迫我服从，限制正常交往',threat:'威胁伤害或报复',violence:'动手伤害或限制人身自由',overload:'要求过多，时间或资源明显不足',unclear:'规则常变，责任或评价标准不清',isolation:'很难找到可以放心求助的人'};
 export type GuidanceSignal=keyof typeof guidanceSignals;
-export type GuidanceInput={domain:keyof typeof guidanceDomains;age:string;stage:string;story:string;impact:string;goal:string;constraints:string;resources:string;capacity:keyof typeof guidanceCapacities;safety:keyof typeof guidanceSafety;signals:GuidanceSignal[];change?:string;connection?:string;evidence?:string;watchFor?:string};
+export type GuidanceInput={domain:keyof typeof guidanceDomains;age:string;stage:string;story:string;impact:string;goal:string;constraints:string;resources:string;capacity:keyof typeof guidanceCapacities;safety:keyof typeof guidanceSafety;signals:GuidanceSignal[];change?:string;connection?:string;evidence?:string;watchFor?:string;self?:string;subjects?:GuidanceSubject[];relationships?:GuidanceRelationship[]};
 export const planKeys=['preferred','alternative','compromise','pause'] as const;
 export type PlanKey=typeof planKeys[number];
 export type GuidancePlan={key:PlanKey;title:string;when:string;steps:string;cost:string;stop:string;allowed:boolean};
-export type GuidanceReport={version:typeof guidanceVersion|'environment-guide-v1';summary:string;evidence:string[];findings:{title:string;reason:string;meaning:string}[];questions:string[];plans:GuidancePlan[];review:string};
+export type GuidanceReport={version:typeof guidanceVersion|'environment-guide-v2'|'environment-guide-v1';summary:string;evidence:string[];findings:{title:string;reason:string;meaning:string}[];questions:string[];plans:GuidancePlan[];review:string;integration?:GuidanceIntegration};
 export type GuidanceSnapshot={version:GuidanceReport['version'];input:GuidanceInput;report:GuidanceReport;selectedPlan:PlanKey};
 export const guidanceSources=[
   {title:'CDC：个人、关系、社区与社会的多层环境视角',url:'https://www.cdc.gov/violence-prevention/about/index.html',use:'借用多层环境视角组织信息，不用于给个人预测暴力风险。'},
@@ -18,7 +19,7 @@ export const guidanceSources=[
   {title:'CFPB：应急储备与现金流',url:'https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/',use:'借用检查现金流和意外支出准备的思路；具体储备取决于实际情况，不给买卖或配置指令。'},
   {title:'UNDRR：区分事件、暴露与承受能力',url:'https://www.undrr.org/terminology/disaster-risk',use:'借用区分事件、暴露、脆弱性和能力的思路，不预测冲突或测算个人风险概率。'}
 ];
-export function blankGuidance():GuidanceInput{return {domain:'family',age:'',stage:'',story:'',impact:'',goal:'',constraints:'',resources:'',capacity:'unknown',safety:'unknown',signals:[],change:'',connection:'',evidence:'',watchFor:''};}
+export function blankGuidance():GuidanceInput{return {domain:'family',age:'',stage:'',story:'',impact:'',goal:'',constraints:'',resources:'',capacity:'unknown',safety:'unknown',signals:[],change:'',connection:'',evidence:'',watchFor:'',self:'',subjects:[],relationships:[]};}
 
 // Small, deliberately bounded cues supplement explicit answers. Non-matching text is never declared safe.
 const cues:Partial<Record<GuidanceSignal,string[]>>={humiliation:['辱骂','羞辱','骂我废物','骂我没用','骂我没出息'],control:['不准和朋友','不让我和朋友','控制我的钱','强迫我'],threat:['威胁伤害','威胁要打','威胁报复'],violence:['打我','殴打','动手打','掐我','锁在屋里','限制人身自由'],overload:['天天加班','每天加班','任务太多','忙不过来'],unclear:['标准总变','规则总变','责任不清']};
@@ -26,6 +27,11 @@ function cueEvidence(story:string){const result:{signal:GuidanceSignal;quote:str
 export function analyzeEnvironment(input:GuidanceInput):GuidanceReport{
   const hints=cueEvidence(input.story),signals=new Set(input.signals),evidence=input.signals.map(s=>'你确认：'+guidanceSignals[s]);
   for(const h of hints){signals.add(h.signal);evidence.push('叙述线索（待核实）：“'+h.quote+'”');}
+  const subjectCues=(input.subjects||[]).flatMap(s=>cueEvidence(s.facts).map(h=>({id:s.id,...h})));
+  for(const s of input.subjects||[]){
+    for(const flag of s.signals){signals.add(flag);evidence.push('你为“'+s.label+'”标注：'+guidanceSignals[flag]+'（系统未独立核实）。');}
+    for(const h of subjectCues.filter(h=>h.id===s.id)){signals.add(h.signal);evidence.push('“'+s.label+'”的关键词线索（待核实）：“'+h.quote+'”。');}
+  }
   const child=(input.age!==''&&Number(input.age)<18)||['preschool','primary','secondary'].includes(input.stage),dependent=child||input.capacity==='dependent';
   const danger=input.safety==='danger'||signals.has('violence')||signals.has('threat'),caution=danger||input.safety==='concern'||input.safety==='unknown'||signals.has('control');
   const findings:GuidanceReport['findings']=[],questions:string[]=[];
@@ -91,17 +97,20 @@ export function analyzeEnvironment(input:GuidanceInput):GuidanceReport{
   if(input.resources)findings.push({title:'把已有支持变成能用的一步',reason:'你写下的支持：“'+input.resources+'”。',meaning:'先核实谁愿意帮、能帮什么、是否安全和可靠，再提出一件具体、可完成的请求。不要把全部希望只押在一个人或渠道上。'});
   if(input.goal)for(const p of [preferred,alternative,compromise,pause])p.steps+=' 这次先围绕你希望的“'+input.goal+'”，确定一个小步骤。';
   if(input.constraints)findings.push({title:'先按现有能力安排改变',reason:'你写下的限制：“'+input.constraints+'”。',meaning:dependent?'先从可获得的陪同、保护与具体资源开始，不要求你立即独立或单独承担冲突。':'将大的改变拆成可撤回的小步，先核实资源和代价，再扩大行动。'});
-  return {version:guidanceVersion,summary:danger?'当前优先事项是安全与可靠支持。以下线索仍需结合实际核实。':macro?'先核实外部变化，再看它如何影响自己的职业、生活与选择。':caution?'先增加安全的选择余地，再决定是否直接沟通或改变环境。':'先用一件具体的小事检验环境的可协商空间，保留其他选择。',evidence,findings,questions,plans:[preferred,alternative,compromise,pause],review:'尝试之后记录：实际做了什么？对方或外部条件怎样变化？安全、负担或选择空间有没有变化？哪条判断需要修正？'};
+  return {version:guidanceVersion,summary:danger?'当前优先事项是安全与可靠支持。以下线索仍需结合实际核实。':macro?'先核实外部变化，再看它如何影响自己的职业、生活与选择。':caution?'先增加安全的选择余地，再决定是否直接沟通或改变环境。':'先用一件具体的小事检验环境的可协商空间，保留其他选择。',evidence,findings,questions,plans:[preferred,alternative,compromise,pause],review:'尝试之后记录：实际做了什么？对方或外部条件怎样变化？安全、负担或选择空间有没有变化？哪条判断需要修正？',integration:integrateGuidance(input,guidanceSignals,subjectCues,{danger,caution,dependent,capacityLabel:guidanceCapacities[input.capacity],domainLabel:guidanceDomains[input.domain]})};
 }
 
 export function validateGuidance(value:unknown):GuidanceInput{
   if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('请重新填写这次困扰。');
   const raw=value as Record<string,unknown>,result=blankGuidance();
-  for(const k of ['story','impact','goal','constraints','resources','age','stage','change','connection','evidence','watchFor'] as const){const v=raw[k]??'',max=k==='story'?4000:k==='age'?3:k==='stage'?30:1000;if(typeof v!=='string'||v.length>max)throw new Error('输入内容格式或长度不合适，请检查后再分析。');result[k]=v.trim();}
+  for(const k of ['story','impact','goal','constraints','resources','age','stage','change','connection','evidence','watchFor','self'] as const){const v=raw[k]??'',max=k==='story'?4000:k==='age'?3:k==='stage'?30:1000;if(typeof v!=='string'||v.length>max)throw new Error('输入内容格式或长度不合适，请检查后再分析。');result[k]=v.trim();}
   if(!result.story)throw new Error('请先描述一件具体发生的事。');
   if(result.age&&!/^(?:[0-9]|[1-9][0-9]|1[01][0-9]|120)$/.test(result.age))throw new Error('年龄请填写 0 至 120 的整数，也可以留空。');
   if(!['','preschool','primary','secondary','higher','work','transition','care','retired','other'].includes(result.stage))throw new Error('请选择有效的个人阶段。');
   for(const [k,options] of [['domain',guidanceDomains],['capacity',guidanceCapacities],['safety',guidanceSafety]] as const){if(typeof raw[k]!=='string'||!Object.hasOwn(options,raw[k] as string))throw new Error('请选择当前处境和安全情况。');(result as unknown as Record<string,unknown>)[k]=raw[k];}
   if(!Array.isArray(raw.signals)||raw.signals.length>Object.keys(guidanceSignals).length||raw.signals.some(s=>typeof s!=='string'||!Object.hasOwn(guidanceSignals,s)))throw new Error('具体行为选项无效，请重新选择。');
-  result.signals=[...new Set(raw.signals)] as GuidanceSignal[];return result;
+  result.signals=[...new Set(raw.signals)] as GuidanceSignal[];
+  result.subjects=validateSubjects(raw.subjects);result.relationships=validateRelationships(raw.relationships,result.subjects);
+  if(JSON.stringify(result).length>55_000)throw new Error('这次内容较多，请减少一部分主体或分次分析。');
+  return result;
 }
