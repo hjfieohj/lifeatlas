@@ -228,7 +228,7 @@ The coordinated component update was adopted on 2026-10-31. The CTA and switch d
 
 ### Navigation, topics and reading
 
-The six destinations are Today, Personal Growth / Environmental Awareness, Mail, History and Settings. The active app entry uses rail-active with white text; topic selection uses the active palette’s semantic colors. The separate index and white sheet share one anchor. Both analysis entries stay visible before the tabs; records and their versions remain available through existing controls. Comparison presents event and reflection first; secondary content stays expandable. Pending status uses explicit text with amber; failure uses text with red.
+The six destinations are Today, Personal Growth / Environmental Awareness, Investment, Mail, History and Settings. The active app entry uses rail-active with white text; topic selection uses the active palette’s semantic colors. The separate index and white sheet share one anchor. Both analysis entries stay visible before the tabs; records and their versions remain available through existing controls. Comparison presents event and reflection first; secondary content stays expandable. Pending status uses explicit text with amber; failure uses text with red.
 
 ### Appearance and live work
 
