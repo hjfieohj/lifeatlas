@@ -61,3 +61,6 @@ Real OAuth project and test account configuration, data retention, model provide
 
 
 2026-10-31 appearance placement: skin and particle controls are available only in Settings → 外观与动态. Other modules render no top utility bar; the Settings header retains its context/status without duplicate appearance controls. Existing saved appearance still applies throughout the app.
+
+
+2026-10-31 investment placeholder: six primary destinations now include 投资 immediately after Growth, before Mail. The #investment route contains a static international-market planning surface for funds/ETFs, bonds and stocks; no market data, portfolio persistence or trading. It inherits the reading-room palettes and controls. Phone navigation uses six equal columns. Planned scope is in docs/INVESTMENT-PLAN.md.

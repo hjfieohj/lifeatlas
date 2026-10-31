@@ -336,7 +336,7 @@ dialog{border-radius:14px;box-shadow:0 24px 80px #172b4b38}
  #toast{left:50%}
 }
 @media(max-width:820px){
- #app .sidebar nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+ #app .sidebar nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
  #app .nav-item{flex-direction:column;align-items:center;justify-content:flex-start;min-height:74px;padding:10px 4px;gap:5px;font-size:13px}
  #app .nav-title{text-align:center;line-height:1.5}
  #app .nav-title-primary{display:block}
@@ -360,7 +360,7 @@ dialog{border-radius:14px;box-shadow:0 24px 80px #172b4b38}
 @media(max-width:640px){
  #app>.sidebar{padding:16px 16px 0}
  #app .brand-wordmark{width:138px}
- #app .sidebar nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;margin-top:16px}
+ #app .sidebar nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px;margin-top:16px}
  #app .nav-item{flex-direction:column;justify-content:flex-start;align-items:center;padding:10px 2px 11px;gap:5px;min-height:75px;font-size:12px;line-height:1.5}
  #app .nav-item .icon{height:18px;width:18px}
  #app .nav-title{text-align:center;line-height:1.5}
