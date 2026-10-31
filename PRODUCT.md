@@ -55,3 +55,6 @@ Google Docs product plan v1.1, approved as a starting baseline. User confirms no
 
 ## Open Decisions
 Real OAuth project and test account configuration, data retention, model provider/data terms, deployment for real mail, notifications and budget. Do not silently treat prototype storage as production persistence.
+
+
+2026-10-31 Uiverse component integration: the approved reading-room layout now uses a coordinated 12px control radius, expanding CTA background, accessible track switches, segmented views, and a divided growth tool panel. Both palettes, wordmark and particles remain. Sources, pinned revision and MIT attribution are recorded in docs/UIVERSE-DESIGN.md; src/uiverse-system.css is the final component layer.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-30T12:41:42+08:00",
+  "generatedAt": "2026-10-31T09:20:41+08:00",
   "title": "Design System: LifeAtlas",
   "extensions": {
     "colorMeta": {
@@ -671,7 +671,7 @@
       },
       {
         "name": "controls",
-        "value": "150ms buttons/switches; nav none; toast 200ms; reduced motion suppresses transitions and animations",
+        "value": "180ms button, field, topic and segmented-view state feedback; CTA expanding layer 240ms and existing arrow shift 180ms; particle track/knob 180ms; Settings knob 180ms and inherited track color 150ms; app nav none; toast 200ms; reduced motion suppresses transitions and animations",
         "purpose": "State feedback without entrance animation."
       }
     ],
@@ -713,6 +713,14 @@
       "delivery": "Inline currentColor SVG; intrinsic aspect ratio; no runtime font request",
       "accessibleName": "LifeAtlas · 生活全图，回到今日",
       "provenance": "public/brand/wordmark-provenance.json"
+    },
+    "uiverse": {
+      "source": "uiverse-io/galaxy",
+      "commit": "adbd2adde0a299a3956ea288fb444ec01891ca41",
+      "controlRadius": "12px",
+      "css": "src/uiverse-system.css",
+      "documentation": "docs/UIVERSE-DESIGN.md",
+      "license": "public/licenses/Uiverse-Galaxy-MIT.txt"
     }
   },
   "components": [
@@ -720,9 +728,9 @@
       "name": "Primary action",
       "kind": "button",
       "refersTo": "button-primary-island",
-      "description": "Live-bound to either palette; the specimen fallback is Island.",
-      "html": "<button class=\"ds-button\">保存记录</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border:1px solid transparent;border-radius:8px;padding:10px 16px;font-size:13px;line-height:1.7;font-weight:500;cursor:pointer;transition:background .15s;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background:var(--forest,#4b5db4);border-color:var(--forest,#4b5db4);color:var(--accent-ink,#fff)}.ds-button:hover:not(:disabled){background:var(--forest-deep,#3b4b98);border-color:var(--forest-deep,#3b4b98)}.ds-button:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}.ds-button:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+      "description": "Uiverse-derived expanding layer with an existing-arrow shift; live-bound to either palette, with Island fallback.",
+      "html": "<button class=\"ds-button\">保存记录<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border:1px solid transparent;border-radius:12px;padding:10px 16px;font-size:13px;line-height:1.7;font-weight:500;cursor:pointer;transition:background-color 180ms,border-color 180ms,transform 180ms cubic-bezier(.2,.8,.2,1);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background:var(--forest,#4b5db4);border-color:var(--forest,#4b5db4);color:var(--accent-ink,#fff)}.ds-button:hover:not(:disabled){background:var(--forest-deep,#3b4b98);border-color:var(--forest-deep,#3b4b98)}.ds-button:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}.ds-button:disabled{opacity:.45;cursor:not-allowed} .ds-button{position:relative;isolation:isolate;overflow:hidden;box-shadow:0 4px 10px #253b5814}.ds-button::before{content:\"\";position:absolute;z-index:-1;inset:0 0 0 auto;width:42px;border-radius:inherit;background:#ffffff14;transition:width 240ms cubic-bezier(.2,.8,.2,1);pointer-events:none}.ds-button:hover:not(:disabled)::before{width:100%}.ds-button svg{transition:transform 180ms cubic-bezier(.2,.8,.2,1)}.ds-button:hover:not(:disabled) svg{transform:translateX(3px)}.ds-button:active:not(:disabled){transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-button,.ds-button::before,.ds-button svg{transition:none}.ds-button:active:not(:disabled){transform:none}}"
     },
     {
       "name": "Subtle action",
@@ -730,7 +738,7 @@
       "refersTo": "button-subtle",
       "description": "White secondary native action with a visible border.",
       "html": "<button class=\"ds-subtle\">取消</button>",
-      "css": ".ds-subtle{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border:1px solid transparent;border-radius:8px;padding:10px 16px;font-size:13px;line-height:1.7;font-weight:500;cursor:pointer;transition:background .15s;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background:var(--surface,#fff);color:var(--ink,#273c59);border-color:var(--secondary-border,#becadd)}.ds-subtle:hover:not(:disabled){background:var(--wash,#eef2f9)}.ds-subtle:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}.ds-subtle:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-subtle{transition:none}}"
+      "css": ".ds-subtle{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border:1px solid transparent;border-radius:12px;padding:10px 16px;font-size:13px;line-height:1.7;font-weight:500;cursor:pointer;transition:background-color 180ms,border-color 180ms,transform 180ms cubic-bezier(.2,.8,.2,1);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background:var(--surface,#fff);color:var(--ink,#273c59);border-color:var(--secondary-border,#becadd)}.ds-subtle:hover:not(:disabled){background:var(--wash,#eef2f9)}.ds-subtle:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}.ds-subtle:disabled{opacity:.45;cursor:not-allowed}.ds-subtle:active:not(:disabled){transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-subtle{transition:none}.ds-subtle:active:not(:disabled){transform:none}}"
     },
     {
       "name": "Growth text field",
@@ -738,7 +746,7 @@
       "refersTo": "input",
       "description": "Native text entry, with persistence supplied by the application.",
       "html": "<label class=\"ds-label\">下一步<textarea class=\"ds-input\" placeholder=\"写下一个可以尝试的小行动\"></textarea></label>",
-      "css": ".ds-label{display:block;font-size:14px;line-height:1.85;color:var(--ink,#273c59);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-input{display:block;width:100%;margin-top:8px;min-height:100px;border:1px solid var(--secondary-border,#becadd);border-radius:8px;padding:11px 12px;background:var(--surface,#fff);color:var(--ink,#273c59);font:15px/1.85 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;resize:vertical;caret-color:var(--green,#4b5db4)}.ds-input::placeholder{color:var(--muted,#5f6f87);opacity:1}.ds-input:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}@media(max-width:640px){.ds-input{font-size:16px}}"
+      "css": ".ds-label{display:block;font-size:14px;line-height:1.85;color:var(--ink,#273c59);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-input{display:block;width:100%;margin-top:8px;min-height:100px;border:1px solid var(--secondary-border,#becadd);border-radius:12px;padding:11px 12px;background:var(--surface,#fff);color:var(--ink,#273c59);font:15px/1.85 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;resize:vertical;transition:border-color 180ms,box-shadow 180ms;caret-color:var(--green,#4b5db4)}.ds-input::placeholder{color:var(--muted,#5f6f87);opacity:1}.ds-input:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}@media(max-width:640px){.ds-input{font-size:16px}}@media(prefers-reduced-motion:reduce){.ds-input{transition:none}}"
     },
     {
       "name": "Shared app navigation",
@@ -754,7 +762,7 @@
       "refersTo": "topic-active",
       "description": "A flat independent index, without another enclosing card.",
       "html": "<nav class=\"ds-topics\" aria-label=\"成长主题\"><button>演示主题一（虚构）</button><button aria-current=\"page\">演示主题二（虚构）</button></nav>",
-      "css": ".ds-topics{display:flex;flex-direction:column;gap:5px;width:186px;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-topics button{width:100%;min-height:46px;background:transparent;border:0;border-radius:9px;padding:13px 11px;text-align:left;font:13px/1.85 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--muted,#5f6f87);cursor:pointer;overflow-wrap:anywhere}.ds-topics button[aria-current]{background:var(--nav-active-bg,#e1e7f6);color:var(--green,#4b5db4);font-weight:600}.ds-topics button:hover:not([aria-current]){background:var(--wash,#eef2f9);color:var(--ink,#273c59)}.ds-topics button:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:3px}"
+      "css": ".ds-topics{display:flex;flex-direction:column;gap:5px;width:186px;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-topics button{width:100%;min-height:46px;background:transparent;border:0;border-radius:12px;padding:13px 11px;text-align:left;font:13px/1.85 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;color:var(--muted,#5f6f87);cursor:pointer;overflow-wrap:anywhere;transition:background-color 180ms}.ds-topics button[aria-current]{background:var(--nav-active-bg,#e1e7f6);color:var(--green,#4b5db4);font-weight:600}.ds-topics button:hover:not([aria-current]){background:var(--wash,#eef2f9);color:var(--ink,#273c59)}.ds-topics button:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-topics button{transition:none}}"
     },
     {
       "name": "Pending status",
@@ -776,9 +784,9 @@
       "name": "Appearance controls",
       "kind": "custom",
       "refersTo": "input",
-      "description": "Exactly two palette choices; the app supplies synchronization and particle stop rules.",
-      "html": "<div class=\"ds-appearance\"><label>皮肤 <select aria-label=\"选择皮肤\"><option value=\"island\">光屿工作台</option><option value=\"observatory\">对页观察室</option></select></label><label><input type=\"checkbox\"> 粒子动态</label></div>",
-      "css": ".ds-appearance{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;font-size:12px;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-appearance label{display:inline-flex;align-items:center;gap:8px;min-height:40px;color:var(--muted,#5f6f87)}.ds-appearance select{max-width:100%;min-height:36px;border:1px solid var(--secondary-border,#becadd);border-radius:8px;padding:5px 26px 5px 10px;background:var(--surface,#fff);color:var(--ink,#273c59);font:inherit}.ds-appearance input{width:16px;height:16px;accent-color:var(--green,#4b5db4)}.ds-appearance select:focus-visible,.ds-appearance input:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}@media(max-width:640px){.ds-appearance{font-size:13px}.ds-appearance select{min-height:44px}}"
+      "description": "Two native palette choices and a Uiverse-derived particle switch; application logic supplies synchronization and stop rules.",
+      "html": "<div class=\"ds-appearance\"><label>皮肤 <select aria-label=\"选择皮肤\"><option value=\"island\">光屿工作台</option><option value=\"observatory\">对页观察室</option></select></label><label class=\"ds-particle\"><input type=\"checkbox\" checked><span class=\"ds-track\" aria-hidden=\"true\"><span class=\"ds-knob\"></span></span><span>粒子动态</span></label></div>",
+      "css": ".ds-appearance{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;font-size:12px;font-family:\"Microsoft YaHei\",\"PingFang SC\",system-ui,sans-serif}.ds-appearance label{display:inline-flex;align-items:center;gap:8px;min-height:40px;color:var(--muted,#5f6f87)}.ds-appearance select{max-width:100%;min-height:40px;border:1px solid var(--secondary-border,#becadd);border-radius:12px;padding:8px 30px 8px 12px;background:var(--surface,#fff);color:var(--ink,#273c59);font:inherit}.ds-appearance .ds-particle{position:relative;gap:10px;min-height:44px;cursor:pointer}.ds-particle>input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;z-index:1;cursor:pointer}.ds-track{position:relative;display:block;flex:none;width:44px;height:26px;border-radius:20px;background:var(--secondary-border,#becadd);transition:background-color 180ms;pointer-events:none}.ds-knob{position:absolute;left:3px;bottom:3px;height:20px;width:20px;border-radius:50%;background:var(--surface,#fff);box-shadow:0 2px 4px #253b5820;transition:transform 180ms cubic-bezier(.2,.8,.2,1)}.ds-particle>input:checked+.ds-track{background:var(--forest,#4b5db4)}.ds-particle>input:checked+.ds-track .ds-knob{transform:translateX(18px)}.ds-appearance select:focus-visible,.ds-particle>input:focus-visible+.ds-track{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}.ds-particle>input:disabled~span{opacity:.5}@media(max-width:640px){.ds-appearance{font-size:13px}.ds-appearance select{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-track,.ds-knob{transition:none}}@media(forced-colors:active){.ds-track{border:1px solid ButtonText}.ds-knob{background:ButtonText}}"
     },
     {
       "name": "Facing periods",

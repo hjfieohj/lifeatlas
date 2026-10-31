@@ -85,7 +85,7 @@ typography:
     fontSize: "15px"
     lineHeight: 1.85
 rounded:
-  control: "8px"
+  control: "12px"
   navigation: "9px"
   filter: "10px"
   comparison: "12px"
@@ -133,7 +133,7 @@ components:
   topic-active:
     backgroundColor: "{colors.island-nav-active-bg}"
     textColor: "{colors.island-green}"
-    rounded: "{rounded.navigation}"
+    rounded: "{rounded.control}"
     padding: "13px 11px"
   status-awaiting:
     backgroundColor: "{colors.island-amber-bg}"
@@ -174,7 +174,7 @@ The same authored records, native controls and five destinations serve both pale
 
 ## Colors
 
-The frontmatter records the effective cascade: `src/style.css`, `src/growth.css`, `src/skins.css`, `src/growth-presentation.css`, then `src/reading-room.css`. The final file owns the shared shell and growth geometry. Implemented semantic names remain stable: `green` is the reading/selection accent; `forest` is the main action.
+The frontmatter records the effective cascade: `src/style.css`, `src/growth.css`, `src/skins.css`, `src/growth-presentation.css`, `src/reading-room.css`, `src/guidance-integration.css`, then `src/uiverse-system.css`. The reading-room layer owns the shared shell and reading geometry; Uiverse is the final component layer. Implemented semantic names remain stable: `green` is the reading/selection accent; `forest` is the main action.
 
 ### Primary
 
@@ -194,7 +194,7 @@ Module titles use the headline role; the growth title reduces to the mobile role
 
 ## Layout
 
-Both palettes have the same fixed desktop app rail (208px) and workspace offset. The utility bar has a 64px minimum height; main content is capped at 1600px with 36px side padding. Growth places a 186px topic index beside a flexible reading sheet with a 26px gap. The topic index is transparent and borderless; recent attempts continue beneath it. The sheet uses the sheet spacing token; a divided operation band presents the two analysis entries above standard tabs and dated records. Starting point, management, storage and filters expand on demand.
+Both palettes have the same fixed desktop app rail (208px) and workspace offset. The utility bar has a 64px minimum height; main content is capped at 1600px with 36px side padding. Growth places a 186px topic index beside a flexible reading sheet with a 26px gap. The topic index is transparent and borderless; recent attempts continue beneath it. The sheet uses the sheet spacing token; a divided tool panel presents the two analysis entries above segmented tabs and dated records. Starting point, management, storage and filters expand on demand.
 
 At >=1500px, main/utility side padding is 46px, topic index is 208px with a 32px gap, and sheet padding is 30px 36px. At 1051–1200px the topic index is 170px with a 20px gap and main side padding is 26px. At <=1050px the app rail becomes a horizontal top shell, the workspace offset clears, main side padding becomes 24px, and the topic index remains 170px with a 22px gap.
 
@@ -210,7 +210,7 @@ The particle implementation is unchanged by this redesign. It retains the shared
 
 ## Shapes
 
-Sheets and dialogs use the sheet radius; buttons, text fields and appearance selects use the control radius. Desktop app/topic selections use the navigation radius. Filters and environment inset areas use 10px, comparison periods use 12px. At <=1050px app navigation becomes a tab silhouette with rounded top corners; <=820px keeps all five entries equally available. Records inside the white sheet are flat ruled sections.
+Sheets and dialogs use the sheet radius; buttons, text fields and appearance selects use the control radius. Desktop app selections use the navigation radius; topic selections use the control radius. Filters and environment inset areas use 10px, comparison periods use 12px. At <=1050px app navigation becomes a tab silhouette with rounded top corners; <=820px keeps all five entries equally available. Records inside the white sheet are flat ruled sections.
 
 ## Components
 
@@ -222,15 +222,17 @@ The standalone vector, SIL OFL 1.1 license and source hashes live in `public/bra
 
 ### Buttons and fields
 
-Main actions bind to `forest` and hover to `forest-deep`, with white accent text. Subtle actions use the surface and secondary border, hovering to wash. Shared actions have a 44px minimum height; the desktop analysis band uses compact 40px actions, returning to 44px on small screens. Growth editor fields have a 46px minimum height, standard control corners and native semantics. Focus is a 3px active-palette outline with a 4px global offset; inherited growth content/topic controls retain a 3px offset. Disabled states remain explicitly disabled. Buttons retain existing 150ms state transitions; navigation has no transition. Reduced motion suppresses CSS transitions and animations.
+Main actions bind to `forest` and hover to `forest-deep`, with white accent text. Their Uiverse-derived background expands from the right over 240ms; an existing arrow shifts 3px over 180ms. Button color, border and pressed feedback use 180ms, with `cubic-bezier(.2,.8,.2,1)` for transforms and the expanding layer. Subtle actions use the surface and secondary border, hovering to wash. Shared actions and both growth analysis actions have a 44px minimum height. Growth editor fields retain native semantics and a 46px minimum height; their borders and focus feedback use 180ms. Visible keyboard focus remains palette-bound; inherited growth topic/content controls retain a 3px offset. Disabled states remain explicitly disabled. App navigation has no transition; topic and segmented-view state colors use 180ms. Reduced motion suppresses CSS transitions and animations.
+
+The coordinated component update was adopted on 2026-10-31. The CTA and switch derive from the pinned Uiverse Galaxy sources; fields, segmented views, topic selection and the growth tool panel are LifeAtlas companion designs. Source revision and modifications are recorded in `docs/UIVERSE-DESIGN.md`; the full MIT notice is in `public/licenses/Uiverse-Galaxy-MIT.txt`. Both palettes, wordmark and particles remain.
 
 ### Navigation, topics and reading
 
-The five destinations are Today, Personal Growth / Environmental Awareness, Mail, History and Settings. The active app entry uses rail-active with white text; topic selection uses nav-active-bg with the reading accent. The separate index and white sheet share one anchor. Both analysis entries stay visible before the tabs; records and their versions remain available through existing controls. Comparison presents event and reflection first; secondary content stays expandable. Pending status uses explicit text with amber; failure uses text with red.
+The five destinations are Today, Personal Growth / Environmental Awareness, Mail, History and Settings. The active app entry uses rail-active with white text; topic selection uses the active palette’s semantic colors. The separate index and white sheet share one anchor. Both analysis entries stay visible before the tabs; records and their versions remain available through existing controls. Comparison presents event and reflection first; secondary content stays expandable. Pending status uses explicit text with amber; failure uses text with red.
 
 ### Appearance and live work
 
-The native selector still has exactly two choices: 光屿工作台 and 对页观察室. Shell and Settings controls synchronize; the small-screen control lives in Settings. First growth mount in Observatory still opens the existing comparison view, while subsequent skin changes preserve the current view and DOM. Existing preference migration and particle behavior remain in `appearance.ts`.
+The native selector still has exactly two choices: 光屿工作台 and 对页观察室. Particle controls retain native checkboxes; their track color and knob movement use 180ms. Existing Settings switches use 180ms knob movement; their track color retains the inherited 150ms transition. Shell and Settings controls synchronize; the small-screen control lives in Settings. First growth mount in Observatory still opens the existing comparison view, while subsequent skin changes preserve the current view and DOM. Existing preference migration and particle behavior remain in `appearance.ts`.
 
 **The Live Task Rule.** Changing appearance preserves live input, focus, scroll and the current view by updating the document skin attribute.
 

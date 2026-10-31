@@ -1,0 +1,61 @@
+/* LifeAtlas / soft instruments. Adapted Uiverse components, MIT.
+ * CTA: 0x-Sarthak/hungry-penguin-30; switch: AbanoubMagdy1/fluffy-octopus-90.
+ * Pinned sources and modifications: docs/UIVERSE-DESIGN.md.
+ * Composition, native field treatment and segmented controls: LifeAtlas.
+ */
+:root{--control-radius:12px;--ui-motion:180ms;--ui-ease:cubic-bezier(.2,.8,.2,1)}
+#app .button{border-radius:var(--control-radius);font-weight:600;padding:11px 18px;transition:background-color var(--ui-motion),border-color var(--ui-motion),transform var(--ui-motion) var(--ui-ease)}
+/* Adapted CTA: expanding circle remains under the label, within the button. */
+#app .button.primary{position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--forest);background:var(--forest);box-shadow:0 4px 10px #253b5814}
+#app .button.primary::before{content:"";position:absolute;z-index:-1;inset:0 0 0 auto;width:42px;border-radius:inherit;background:#ffffff14;transition:width 240ms var(--ui-ease);pointer-events:none}
+#app .button.primary:hover:not(:disabled)::before{width:100%}
+#app .button.primary svg{transition:transform var(--ui-motion) var(--ui-ease)}
+#app .button.primary:hover:not(:disabled) svg{transform:translateX(3px)}
+#app .button:active:not(:disabled){transform:translateY(1px)}
+#app .button.subtle{background:var(--surface);border-color:var(--secondary-border)}
+#app .button:disabled{opacity:.5;box-shadow:none}
+/* The original switch's track and movable knob, with a full-size native hit area. */
+#app .particle-control{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:44px;cursor:pointer}
+#app .particle-control>input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;z-index:1;cursor:pointer}
+#app .la-switch-track{position:relative;display:block;flex:none;width:44px;height:26px;border-radius:20px;background:var(--secondary-border);transition:background-color var(--ui-motion);pointer-events:none}
+#app .la-switch-knob{position:absolute;left:3px;bottom:3px;height:20px;width:20px;border-radius:50%;background:var(--surface);box-shadow:0 2px 4px #253b5820;transition:transform var(--ui-motion) var(--ui-ease)}
+#app .particle-control>input:checked+.la-switch-track{background:var(--forest)}
+#app .particle-control>input:checked+.la-switch-track .la-switch-knob{transform:translateX(18px)}
+#app .particle-control>input:focus-visible+.la-switch-track{outline:3px solid var(--focus);outline-offset:4px}
+#app .particle-control>input:disabled~span{opacity:.5}
+#app .switch{min-width:48px;min-height:44px;align-items:center;cursor:pointer}
+#app .switch>span{position:relative;width:44px;height:26px;background:var(--secondary-border)}
+#app .switch>span::before{width:20px;height:20px;top:3px;left:3px;box-shadow:0 2px 4px #253b5820;transition:transform var(--ui-motion) var(--ui-ease)}
+#app .switch input:checked+span{background:var(--forest)}
+#app .switch input:checked+span::before{transform:translateX(18px)}
+#app .switch input:focus-visible+span{outline-color:var(--focus)}
+/* One field vocabulary across the journal, inbox and settings. */
+#app :is(.growth-editor,.growth-filter,.form-grid,.search-box,.test-section) :is(input:not([type="checkbox"]):not([type="radio"]),textarea,select){border:1px solid var(--secondary-border);border-radius:var(--control-radius);background:var(--surface);color:var(--ink);transition:border-color var(--ui-motion),box-shadow var(--ui-motion)}
+#app :is(.growth-editor,.growth-filter,.form-grid,.search-box,.test-section) :is(input,textarea,select):focus-visible{border-color:var(--focus);outline:2px solid var(--focus);outline-offset:2px}
+#app :is(input,textarea,select):disabled{background:var(--wash);color:var(--muted)}
+#app .skin-control select{border:1px solid var(--secondary-border);border-radius:var(--control-radius);padding:8px 30px 8px 12px;min-height:40px}
+/* Segmented views: a single track with an explicit selected tab. */
+#growth-panel .growth-tabs,#app .tabs{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:5px;background:var(--wash);border:0;border-radius:14px;width:fit-content;max-width:100%;margin-block:22px}
+#growth-panel .growth-tabs button,#app .tabs button{border:0;border-radius:10px;padding:10px 16px;min-height:44px;background:transparent;color:var(--muted);font:inherit;font-weight:500;transition:background-color var(--ui-motion),color var(--ui-motion)}
+#growth-panel .growth-tabs button.active,#growth-panel .growth-tabs button[aria-pressed="true"],#app .tabs button.active{background:var(--surface);color:var(--forest);box-shadow:0 2px 5px #253b5810;font-weight:600}
+#growth-panel .growth-tabs button:hover:not(:disabled),#app .tabs button:hover:not(:disabled){color:var(--forest)}
+#growth-panel .growth-topic-link{border-radius:var(--control-radius);transition:background-color var(--ui-motion)}
+#growth-panel .growth-topic-link.active{background:var(--surface);color:var(--forest);box-shadow:0 3px 12px #253b5810}
+/* A divided instrument panel connects the two existing growth entry points. */
+#growth-panel .growth-environment-paths{padding:22px;border:0;border-radius:14px;background:var(--wash);margin-bottom:20px;gap:24px}
+#growth-panel .growth-environment-paths h3{font-size:18px}
+#growth-panel .growth-environment-paths p{font-size:14px;line-height:1.85;margin:8px 0 16px}
+#growth-panel .growth-environment-paths .button{font-size:13px;min-height:44px;border-radius:var(--control-radius);padding:10px 14px}
+#app .setting-line strong{font-size:15px;font-weight:600}
+#app .setting-line p{font-size:13px;line-height:1.85}
+@media(max-width:640px){
+ #growth-panel .growth-environment-paths{padding:18px;gap:18px}
+ #growth-panel .growth-environment-paths>div{display:block}
+ #growth-panel .growth-environment-paths>.growth-path-guide{padding:18px 0 0}
+ #growth-panel .growth-environment-paths p{font-size:14px;margin:8px 0 14px}
+ #growth-panel .growth-tabs,#app .tabs{width:100%;gap:2px;flex-wrap:nowrap;overflow-x:auto}
+ #growth-panel .growth-tabs button,#app .tabs button{padding:10px 12px;white-space:nowrap;flex:1 0 auto;font-size:13px}
+ #app .form-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){#app .button,#app .button::before,#app .button svg,#app .la-switch-knob,#app .la-switch-track,#app .switch>span::before{transition:none}#app .button:active:not(:disabled){transform:none}}
+@media(forced-colors:active){#app .la-switch-track,#app .switch>span{border:1px solid ButtonText}#app .la-switch-knob,#app .switch>span::before{background:ButtonText}}
