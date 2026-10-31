@@ -689,7 +689,7 @@
         "value": "max-width:1050px"
       },
       {
-        "name": "five-column-navigation-and-stacked-growth",
+        "name": "visible-count-navigation-and-stacked-growth",
         "value": "max-width:820px"
       },
       {
@@ -752,7 +752,7 @@
       "name": "Shared app navigation",
       "kind": "nav",
       "refersTo": "navigation-active",
-      "description": "Desktop state specimen; both palettes share the rail. Real routing remains in the app.",
+      "description": "Five-core-destination specimen with both optional modules disabled; both palettes share the rail. Investment and 人生丰富多彩 are independently optional after Growth. Real routing and visibility remain in the app. At 641–820px columns match the 5–7 visible items; at <=640px seven items use four columns, six use three, and five use five.",
       "html": "<nav class=\"ds-nav\" aria-label=\"主导航\"><a href=\"#today\">今日</a><a href=\"#growth\" aria-current=\"page\">个人成长<br><small>环境感知</small></a><a href=\"#mail\">邮箱整理</a><a href=\"#history\">任务记录</a><a href=\"#settings\">偏好设置</a></nav>",
       "css": ".ds-nav{display:flex;flex-direction:column;gap:7px;width:176px;padding:16px;background:var(--nav,#273c59);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-nav a{display:block;min-height:49px;padding:12px;border-radius:9px;color:var(--rail-ink,#e8edf7);font-size:14px;line-height:1.6;text-decoration:none}.ds-nav small{font-size:12px;font-weight:400}.ds-nav a[aria-current]{color:#fff;background:var(--rail-active,#40577b);font-weight:600}.ds-nav a:hover:not([aria-current]){background:var(--rail-active,#40577b);color:#fff}.ds-nav a:focus-visible{outline:3px solid var(--focus,#4b5db4);outline-offset:4px}@media(max-width:820px){.ds-nav{width:auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.ds-nav a{font-size:12px;padding:10px 4px;text-align:center}}"
     },
@@ -799,7 +799,7 @@
   ],
   "narrative": {
     "northStar": "生活阅览室",
-    "overview": "生活阅览室 is the user-selected replacement visual world, adopted on 2026-10-30. A deep blue navigation rail, an independent topic index and a continuous white reading sheet give locating, reading and acting distinct places. This shared layout now serves both 光屿工作台 (Island, default) and 对页观察室 (Observatory); their selectable color identities remain.\n\nThe same authored records, native controls and five destinations serve both palettes. Quiet hierarchy and progressive disclosure reduce nested card framing while keeping versions, uncertainty and sources findable. A skin change preserves live work; atmosphere does not supply personal history or interpretation.",
+    "overview": "生活阅览室 is the user-selected replacement visual world, adopted on 2026-10-30. A deep blue navigation rail, an independent topic index and a continuous white reading sheet give locating, reading and acting distinct places. This shared layout now serves both 光屿工作台 (Island, default) and 对页观察室 (Observatory); their selectable color identities remain.\n\nThe same authored records, native controls, five core destinations and two independently optional destinations serve both palettes. Quiet hierarchy and progressive disclosure reduce nested card framing while keeping versions, uncertainty and sources findable. A skin change preserves live work; atmosphere does not supply personal history or interpretation.",
     "keyCharacteristics": [
       "One shared reading-room layout with two selectable palettes.",
       "A flat topic index beside an opaque, continuous reading sheet.",
@@ -824,7 +824,7 @@
       }
     ],
     "dos": [
-      "Do use the active palette’s semantic CSS variables across all five destinations.",
+      "Do use the active palette’s semantic CSS variables across all core and optional destinations.",
       "Do keep topic lookup separate from continuous reading and secondary tools in native disclosures.",
       "Do lead comparison with event and reflection; keep observation, feedback and action in expandable details.",
       "Do preserve native control semantics, explicit saving, visible keyboard focus and reduced-motion behavior.",

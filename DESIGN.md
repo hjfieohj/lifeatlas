@@ -163,7 +163,7 @@ components:
 
 生活阅览室 is the user-selected replacement visual world, adopted on 2026-10-30. A deep blue navigation rail, an independent topic index and a continuous white reading sheet give locating, reading and acting distinct places. This shared layout now serves both 光屿工作台 (Island, default) and 对页观察室 (Observatory); their selectable color identities remain.
 
-The same authored records, native controls and six destinations serve both palettes. Quiet hierarchy and progressive disclosure reduce nested card framing while keeping versions, uncertainty and sources findable. A skin change preserves live work; atmosphere does not supply personal history or interpretation.
+The same authored records, native controls, five core destinations and two independently optional destinations serve both palettes. Quiet hierarchy and progressive disclosure reduce nested card framing while keeping versions, uncertainty and sources findable. A skin change preserves live work; atmosphere does not supply personal history or interpretation.
 
 **Key Characteristics:**
 
@@ -198,7 +198,7 @@ Both palettes have the same fixed desktop app rail (208px) and workspace offset.
 
 At >=1500px, main/utility side padding is 46px, topic index is 208px with a 32px gap, and sheet padding is 30px 36px. At 1051–1200px the topic index is 170px with a 20px gap and main side padding is 26px. At <=1050px the app rail becomes a horizontal top shell, the workspace offset clears, main side padding becomes 24px, and the topic index remains 170px with a 22px gap.
 
-At <=820px the six app destinations occupy equal columns, growth becomes one column, topic choices scroll only inside their own region, and recent attempts follow the sheet. Today and Settings also become one column. At <=640px main padding is 20px 16px 36px, the sheet uses mobile-sheet spacing, the two analysis entries and comparison stack, paired forms stack, and appearance remains available in Settings while the topbar controls hide. These are shared breakpoints, not palette-specific layouts.
+At <=820px and above 640px, the 5–7 visible app destinations occupy an equal number of columns; hidden optional entries take no space. Growth becomes one column, topic choices scroll only inside their own region, and recent attempts follow the sheet. Today and Settings also become one column. At <=640px navigation uses four columns for seven visible items, three columns for six, and five columns for five. Main padding is 20px 16px 36px, the sheet uses mobile-sheet spacing, the two analysis entries and comparison stack, paired forms stack, and appearance remains available in Settings while the topbar controls hide. These are shared breakpoints, not palette-specific layouts.
 
 ## Elevation & Depth
 
@@ -210,7 +210,7 @@ The particle implementation is unchanged by this redesign. It retains the shared
 
 ## Shapes
 
-Sheets and dialogs use the sheet radius; buttons, text fields and appearance selects use the control radius. Desktop app selections use the navigation radius; topic selections use the control radius. Filters and environment inset areas use 10px, comparison periods use 12px. At <=1050px app navigation becomes a tab silhouette with rounded top corners; <=820px keeps all five entries equally available. Records inside the white sheet are flat ruled sections.
+Sheets and dialogs use the sheet radius; buttons, text fields and appearance selects use the control radius. Desktop app selections use the navigation radius; topic selections use the control radius. Filters and environment inset areas use 10px, comparison periods use 12px. At <=1050px app navigation becomes a tab silhouette with rounded top corners; <=820px keeps all visible entries equally available using the column rules in Layout. Records inside the white sheet are flat ruled sections.
 
 ## Components
 
@@ -228,7 +228,7 @@ The coordinated component update was adopted on 2026-10-31. The CTA and switch d
 
 ### Navigation, topics and reading
 
-The six destinations are Today, Personal Growth / Environmental Awareness, Investment, Mail, History and Settings. The active app entry uses rail-active with white text; topic selection uses the active palette’s semantic colors. The separate index and white sheet share one anchor. Both analysis entries stay visible before the tabs; records and their versions remain available through existing controls. Comparison presents event and reflection first; secondary content stays expandable. Pending status uses explicit text with amber; failure uses text with red.
+The five core destinations are Today, Personal Growth / Environmental Awareness, Mail, History and Settings. Investment and 人生丰富多彩 are independently optional, ordered after Growth and before Mail. Their native Settings switches sit near the skin and particle preferences and reuse existing Settings control states; disabled module entries are hidden and cannot receive keyboard focus. The active app entry uses rail-active with white text; topic selection uses the active palette’s semantic colors. The separate index and white sheet share one anchor. Both analysis entries stay visible before the tabs; records and their versions remain available through existing controls. Comparison presents event and reflection first; secondary content stays expandable. Pending status uses explicit text with amber; failure uses text with red.
 
 ### Appearance and live work
 
@@ -240,7 +240,7 @@ The native selector still has exactly two choices: 光屿工作台 and 对页观
 
 ### Do
 
-- Do use the active palette’s semantic CSS variables across all six destinations.
+- Do use the active palette’s semantic CSS variables across all core and optional destinations.
 - Do keep topic lookup separate from continuous reading and secondary tools in native disclosures.
 - Do lead comparison with event and reflection; keep observation, feedback and action in expandable details.
 - Do preserve native control semantics, explicit saving, visible keyboard focus and reduced-motion behavior.
@@ -258,4 +258,7 @@ The native selector still has exactly two choices: 光屿工作台 and 对页观
 2026-10-31 appearance placement: skin and particle controls are available only in Settings → 外观与动态. Other modules render no top utility bar; the Settings header retains its context/status without duplicate appearance controls. Existing saved appearance still applies throughout the app.
 
 
-2026-10-31 investment placeholder: six primary destinations now include 投资 immediately after Growth, before Mail. The #investment route contains a static international-market planning surface for funds/ETFs, bonds and stocks; no market data, portfolio persistence or trading. It inherits the reading-room palettes and controls. Phone navigation uses six equal columns. Planned scope is in docs/INVESTMENT-PLAN.md.
+2026-10-31 investment placeholder: 投资 appears immediately after Growth when enabled. The #investment route contains a static international-market planning surface for funds/ETFs, bonds and stocks; no market data, portfolio persistence or trading. It inherits the reading-room palettes and controls. Navigation follows the visible-item rules in Layout. Planned scope is in docs/INVESTMENT-PLAN.md.
+
+
+2026-10-31 optional modules: Investment and 人生丰富多彩 have independent browser-local switches inside Settings → 外观与动态, next to appearance preferences. Default on; closed routes return to Settings without deleting records. Core destinations remain visible; navigation has 5–7 visible items and adapts its columns. The colorful-life heading carries the exact user motto “人的创造性是本质的，人的社会化是必然的。” and four initial content directions, with no recording feature yet. See docs/OPTIONAL-MODULES.md.
