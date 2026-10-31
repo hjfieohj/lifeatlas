@@ -1,5 +1,5 @@
 export const moduleStorageKey='lifeatlas-modules-v1';
-export const optionalModules={investment:'投资',life:'人生丰富多彩'} as const;
+export const optionalModules={investment:'投资',life:'人生丰富度'} as const;
 export type ModulePreferences={version:1;investment:boolean;life:boolean};
 export function parseModulePreferences(raw:string|null):ModulePreferences{
   const defaults:ModulePreferences={version:1,investment:true,life:true};
