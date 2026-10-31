@@ -58,3 +58,6 @@ Real OAuth project and test account configuration, data retention, model provide
 
 
 2026-10-31 Uiverse component integration: the approved reading-room layout now uses a coordinated 12px control radius, expanding CTA background, accessible track switches, segmented views, and a divided growth tool panel. Both palettes, wordmark and particles remain. Sources, pinned revision and MIT attribution are recorded in docs/UIVERSE-DESIGN.md; src/uiverse-system.css is the final component layer.
+
+
+2026-10-31 appearance placement: skin and particle controls are available only in Settings → 外观与动态. Other modules render no top utility bar; the Settings header retains its context/status without duplicate appearance controls. Existing saved appearance still applies throughout the app.

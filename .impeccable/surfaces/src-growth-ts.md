@@ -32,3 +32,6 @@ Documentation comparison checked `src/guidance-integration.css`, `src/guidance-s
 The approved reading-room layout now uses a coordinated 12px control radius, a CTA expanding layer (240ms) and existing-arrow shift (180ms), accessible track switches (180ms; the existing Settings track color inherits 150ms), segmented views and a divided growth tool panel. Both palettes, wordmark and particles remain. Sources, pinned revision, companion-design scope and MIT attribution are recorded in `docs/UIVERSE-DESIGN.md`; `src/uiverse-system.css` is the final component layer after `src/guidance-integration.css`.
 
 This documentation refresh compares the final component CSS and native appearance markup against the supplied Uiverse review captures: `.impeccable/review/uiverse-desktop.jpg` and `uiverse-growth-desktop.jpg` (1280×960), and `uiverse-mobile.jpg` (390×844). These are the review artifacts for the update; the earlier integrated-analysis captures above describe the earlier review.
+
+
+2026-10-31 appearance placement: skin and particle controls are available only in Settings → 外观与动态. Other modules render no top utility bar; the Settings header retains its context/status without duplicate appearance controls. Existing saved appearance still applies throughout the app.

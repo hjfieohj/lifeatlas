@@ -194,7 +194,7 @@ Module titles use the headline role; the growth title reduces to the mobile role
 
 ## Layout
 
-Both palettes have the same fixed desktop app rail (208px) and workspace offset. The utility bar has a 64px minimum height; main content is capped at 1600px with 36px side padding. Growth places a 186px topic index beside a flexible reading sheet with a 26px gap. The topic index is transparent and borderless; recent attempts continue beneath it. The sheet uses the sheet spacing token; a divided tool panel presents the two analysis entries above segmented tabs and dated records. Starting point, management, storage and filters expand on demand.
+Both palettes have the same fixed desktop app rail (208px) and workspace offset. Only Settings retains the context/status utility bar, with a 64px minimum height; main content is capped at 1600px with 36px side padding. Growth places a 186px topic index beside a flexible reading sheet with a 26px gap. The topic index is transparent and borderless; recent attempts continue beneath it. The sheet uses the sheet spacing token; a divided tool panel presents the two analysis entries above segmented tabs and dated records. Starting point, management, storage and filters expand on demand.
 
 At >=1500px, main/utility side padding is 46px, topic index is 208px with a 32px gap, and sheet padding is 30px 36px. At 1051–1200px the topic index is 170px with a 20px gap and main side padding is 26px. At <=1050px the app rail becomes a horizontal top shell, the workspace offset clears, main side padding becomes 24px, and the topic index remains 170px with a 22px gap.
 
@@ -232,7 +232,7 @@ The five destinations are Today, Personal Growth / Environmental Awareness, Mail
 
 ### Appearance and live work
 
-The native selector still has exactly two choices: 光屿工作台 and 对页观察室. Particle controls retain native checkboxes; their track color and knob movement use 180ms. Existing Settings switches use 180ms knob movement; their track color retains the inherited 150ms transition. Shell and Settings controls synchronize; the small-screen control lives in Settings. First growth mount in Observatory still opens the existing comparison view, while subsequent skin changes preserve the current view and DOM. Existing preference migration and particle behavior remain in `appearance.ts`.
+The native selector still has exactly two choices: 光屿工作台 and 对页观察室. Particle controls retain native checkboxes; their track color and knob movement use 180ms. Existing Settings switches use 180ms knob movement; their track color retains the inherited 150ms transition. Appearance controls exist only in Settings, at all screen sizes; no duplicate controls are inserted into the shell. First growth mount in Observatory still opens the existing comparison view, while subsequent skin changes preserve the current view and DOM. Existing preference migration and particle behavior remain in `appearance.ts`.
 
 **The Live Task Rule.** Changing appearance preserves live input, focus, scroll and the current view by updating the document skin attribute.
 
@@ -253,3 +253,6 @@ The native selector still has exactly two choices: 光屿工作台 and 对页观
 - Don't remount the live route to change appearance.
 - Don't put reading text on a transparent particle layer.
 - Don't turn examples, scenery, counts or unimplemented analysis into personal data or capability claims.
+
+
+2026-10-31 appearance placement: skin and particle controls are available only in Settings → 外观与动态. Other modules render no top utility bar; the Settings header retains its context/status without duplicate appearance controls. Existing saved appearance still applies throughout the app.
