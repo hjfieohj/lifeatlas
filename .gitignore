@@ -12,3 +12,5 @@ dist/
 *.tsbuildinfo
 .dev.vars*
 .vinext/
+dist-local/
+.local-data/

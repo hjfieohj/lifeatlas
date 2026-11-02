@@ -10,7 +10,7 @@ import {growthModuleLabel} from './growth-presentation';
 import { mountAppearance, appearanceSettings } from './appearance';
 import { lifeAtlasWordmark } from './wordmark';
 
-export function mountLifeAtlas() {
+export function mountLifeAtlas(options:{onRender?:()=>void}={}) {
 const appearance = mountAppearance();
 let modules:ModulePreferences=parseModulePreferences(null),moduleStorageFailed=false;
 try{modules=parseModulePreferences(localStorage.getItem(moduleStorageKey));}catch{moduleStorageFailed=true;}
@@ -115,6 +115,7 @@ function render() {
   root.innerHTML = shell(page === 'today' ? today() : page === 'mail' ? mail() : page === 'growth' ? '<div id="growth-panel"></div>' : page === 'investment' ? investmentPage() : page === 'life' ? colorfulLifePage() : page === 'knowledge' ? knowledgePage() : page === 'history' ? history() : settings());
   root.querySelector('.workspace')?.insertAdjacentHTML('afterbegin', '<div class="scene-banner" aria-hidden="true"></div>');
   root.dataset.page = page;
+  options.onRender?.();
   if (page === 'settings') {root.querySelector('#main .page-heading')?.insertAdjacentHTML('afterend', appearanceSettings());root.querySelector('.appearance-section')?.insertAdjacentHTML('beforeend',moduleSettings());}
   appearance.sync();
   syncModules();

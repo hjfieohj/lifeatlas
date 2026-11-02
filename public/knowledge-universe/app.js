@@ -1,5 +1,6 @@
 'use strict';
-(() => {
+(async () => {
+  await window.LIFEATLAS_LOCAL_READY;
   const K = window.KNOWLEDGE;
   const $ = (s, p = document) => p.querySelector(s);
   const $$ = (s, p = document) => [...p.querySelectorAll(s)];

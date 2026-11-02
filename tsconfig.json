@@ -11,6 +11,6 @@
     ,"jsx": "react-jsx", "esModuleInterop": true, "resolveJsonModule": true,
     "types": ["node", "@cloudflare/workers-types"], "paths": {"@/*": ["./*"]}
   },
-  "include": ["src", "server", "app", "db", "cloudflare-env.d.ts"],
+  "include": ["src", "server", "app", "db", "local", "cloudflare-env.d.ts"],
   "exclude": ["node_modules", "tests"]
 }

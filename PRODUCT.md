@@ -3,10 +3,10 @@
 <!-- impeccable:product-schema 1 -->
 
 ## Platform
-web
+Windows personal local application, using a loopback web UI; the earlier hosted web entry remains in source for development history.
 
 ## Stack
-Delegated by the user on 2026-10-17: TypeScript Web application. The initial browser-local Vite prototype is now hosted in the supplied Sites Vinext/Cloudflare server starter. Existing UI is preserved; Sites supplies app identity and D1 supplies encrypted connection persistence. Google OAuth configuration and real-account validation remain pending. Jobs and real write actions remain separate gated work.
+Current owner decision, 2026-11-03: the whole app runs as a personal local PC program, with browser technology acceptable. The installed Windows package includes Node.js 24.13.0, a bundled static TypeScript UI and a loopback-only SQLite server. It reuses the Growth/Gmail services through a D1-compatible SQLite adapter, without React or a cloud framework at runtime. Stable local identity replaces online identity for personal records. The earlier Sites/Vinext/Cloudflare entry remains in source. Google OAuth configuration and real-account validation remain pending; actual online capabilities keep their existing boundaries.
 
 ## Users
 The owner is the first real tester, reviewing a daily brief, organizing one personal Gmail account, and observing their personal growth over time. Later recruitment is unvalidated.
@@ -17,6 +17,8 @@ Turn scattered information into reviewable actions and reduce everyday administr
 User addition on 2026-10-17: support a longitudinal personal-growth loop, experience → observe → reflect/summarize → experiment → observe again. A topic preserves the present situation and desired direction, repeated dated experiences, feedback on prior attempts, changing interpretations, and cross-year comparisons. Earlier words remain inspectable through immutable content revisions. Growth is understood by the user rather than assigned a score.
 
 ## Operating Context
+
+2026-11-03 local ownership supersedes earlier hosted-storage statements for the installed PC program. Core use works without Codex or external network. Program and personal data are separate sibling folders; growth history and the four existing knowledge/demo/appearance/module storage keys persist in SQLite. Knowledge and preference changes use versions, idempotency, pending journals and conflict preservation; growth keeps explicit saving and existing version history. New browser sessions load saved disk values. The local settings section exposes save status, data folder, full backup, confirmed restore and draft export. Startup creates a consistent backup; restore checks the backup and protects the pre-restore data. Old growth database import backs up then copies without modifying the source; completed migration must be evidenced separately. Old file-origin knowledge notes require export from that old page and import in Knowledge; there is no cross-origin browser scan. Core runtime adds no paid API/model calls; local CPU/GPU, memory and disk are used. See docs/LOCAL-APP.md and .impeccable/surfaces/local-entry-ts.md.
 
 2026-10-31 approved integrated analysis: four questions connect self and subjects, interacting characteristics and impacts, feasible action space, and revised understanding after actual outcomes. Up to six user-authored subjects and six explicit cross-layer relationships retain facts, interpretation, observed versus possible impact, and source uncertainty. Dated topic-environment excerpts can seed a draft without replacing existing entries. Reports are current v3, recomputed server-side and frozen; v1/v2 remain unchanged. This is still bounded rule support with no model calls or source verification. See docs/ENVIRONMENT-INTEGRATED-ANALYSIS.md.
 

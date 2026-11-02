@@ -219,6 +219,8 @@ The November 2 integration supersedes the earlier white-sheet palette and isolat
 
 ## Colors
 
+The installed local entry (`local/entry.ts`, November 3) imports the same existing style layers in the same order, with `src/cosmic-integration.css` last. It introduces no palette, type, spacing, radius or motion tokens; the frontmatter and existing sidecar remain normative for both entries.
+
 The normative palette is the final `src/cosmic-integration.css` cascade, imported last by `app/layout.tsx` after the inherited shell, growth, Uiverse and optional-module layers. Earlier light values in those files are historical fallbacks. Semantic names remain stable: `green` is the reading/selection accent; `forest` is the main action.
 
 ### Primary
@@ -292,6 +294,8 @@ TrackballControls support palm-like rotation with unrestricted roll, inertial se
 The fitted and farther map views hide projected names; approaching a stellar cloud reveals a single title centered exactly on its projected core for every node type. Visibility combines distance relative to the fitted view, projected core size and positive camera depth. Selection has the highest visibility priority; lower-priority labels yield locally on overlap or reserved/offscreen bounds. Labels never relocate and have no leader lines. Hover text is also suppressed at a distance and during dragging. The native domain selector still exposes all six domains. Semantic bridges use broad, irregular XYZ mist and sparse round dust with faded ends, without a narrow centerline or cross-shaped stellar spikes; particles near the camera fade to avoid screen-filling artifacts.
 
 ### Appearance and live work
+
+The local program adds “本地资料与备份” as an ordinary native Settings section. It uses the existing section surface, heading/body hierarchy, wrapping action row, primary backup button, subtle restore/draft buttons and hidden native file picker. Written disk status is also shown in the profile; saving failures use the existing error notice with `role="alert"`. Long data paths may wrap. Restore uses the browser's native confirmation rather than a new dialog style. This is a scoped component composition, not a new visual world; see `.impeccable/surfaces/local-entry-ts.md`.
 
 The native selector has exactly two choices: 光屿工作台 and 对页观察室. Appearance, dynamic sky and optional-module controls exist only in Settings → 外观与动态. Existing native checkbox semantics and saved preference migration remain. Switch knob movement uses 180ms; inherited Settings track-color feedback remains 150ms. The sky responds to the existing dynamic preference without deleting the static scene. Skin changes retain the view and live DOM. Original data stores, APIs and authentication boundaries are outside this visual integration and remain unchanged.
 

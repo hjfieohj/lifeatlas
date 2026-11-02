@@ -10,6 +10,7 @@
     "db:generate": "drizzle-kit generate",
     "test": "node --experimental-transform-types --test tests/*.test.ts",
     "build:sky": "node scripts/build-cosmic-background.mjs",
+    "build:local": "node scripts/build-cosmic-background.mjs && node scripts/build-local.mjs",
     "predev": "npm run build:sky",
     "prebuild": "npm run build:sky"
   },
