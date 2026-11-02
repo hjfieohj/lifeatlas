@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-02T12:59:55.473019+00:00",
+  "generatedAt": "2026-11-02T13:09:55.516229+00:00",
   "title": "Design System: LifeAtlas",
   "extensions": {
     "colorMeta": {
@@ -879,6 +879,7 @@
         "camera": "47-degree perspective",
         "selection": "Luminous stellar beacons; sphere meshes have zero opacity and serve only as hit targets.",
         "layout": "Overview collapses reading; selecting a node restores the reader. Mathematics and physics remain separate among six domains.",
+        "labels": "Domain-label centers stay at projected stellar cores; concept and portal centers sit 6px below their cores during rotation and zoom. No label leader lines, relocation search or edge clamping. Selected labels have highest priority; lower-priority anchored labels yield locally on overlap or reserved/offscreen bounds. Semantic stellar connection filaments remain; the native selector exposes all six domains.",
         "density": "Desktop overview observed at 19,002 field points, not a reusable token. Gas/star populations and filament counts are reduced below 640px; pixel ratio caps at 1 mobile and 1.3 desktop."
       }
     }
@@ -967,7 +968,7 @@
       "name": "Nebula stellar label",
       "kind": "custom",
       "refersTo": "knowledge-domain-label",
-      "description": "A projected domain-label button over the volume. Mathematics uses its existing domain tint; the application supplies selection, hierarchy and collision-aware positioning. The snippet only demonstrates the local shape and states.",
+      "description": "A domain-label button centered on its projected stellar core without a leader line. Mathematics uses its existing domain tint; the application supplies anchored motion, selection priority and local overlap visibility. The snippet only demonstrates the unchanged local shape and states.",
       "html": "<button class=\"ds-nebula-label\"><span>数学</span></button>",
       "css": ".ds-nebula-label{display:block;border:0;border-radius:5px;background:transparent;padding:3px 7px;text-align:center;white-space:nowrap;font:500 15px/1.5 Atlas,\"Microsoft YaHei\",\"PingFang SC\",sans-serif;letter-spacing:.06em;text-shadow:0 1px 5px #000,0 1px 12px #020611;cursor:pointer}.ds-nebula-label span{color:#eea193;text-shadow:0 2px 8px #020610}.ds-nebula-label:hover{background:#081426c9;outline:1px solid #88a9ce60}.ds-nebula-label:focus-visible{outline:2px solid #b9deeb;outline-offset:4px}@media(max-width:620px){.ds-nebula-label{font-size:13px}}"
     }

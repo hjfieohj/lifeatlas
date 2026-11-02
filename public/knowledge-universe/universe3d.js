@@ -16,7 +16,6 @@
       this.renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<640?1:1.3));this.renderer.setSize(this.widthPx,this.heightPx);this.renderer.outputColorSpace=T.SRGBColorSpace;
       this.renderer.domElement.setAttribute('aria-label','可旋转、缩放和逐层进入的三维知识宇宙');this.el.appendChild(this.renderer.domElement);
       this.labelLayer=document.createElement('div');this.labelLayer.className='planet-labels';this.el.appendChild(this.labelLayer);
-      this.leaderLayer=document.createElementNS('http://www.w3.org/2000/svg','svg');this.leaderLayer.setAttribute('class','label-leaders');this.leaderLayer.setAttribute('aria-hidden','true');this.labelLayer.appendChild(this.leaderLayer);
       this.controls=new TrackballControls(this.camera,this.renderer.domElement);this.controls.rotateSpeed=2.1;this.controls.zoomSpeed=1.1;this.controls.panSpeed=.6;this.controls.dynamicDampingFactor=.13;this.controls.staticMoving=false;this.controls.multiTouchRoll=true;this.controls.keys=[];this.controls.minDistance=12;this.controls.maxDistance=10000;
       this.controls.addEventListener('change',()=>this.invalidate());this.controls.addEventListener('start',()=>{this.transition=null;this.interacting=true;this.invalidate();});this.controls.addEventListener('end',()=>{this.interacting=false;this.autoResumeAt=performance.now()+2800;});
       this.scene.add(new T.AmbientLight('#d5e6ff',2.1));const key=new T.DirectionalLight('#eff7ff',3);key.position.set(500,700,1000);this.scene.add(key);
@@ -78,7 +77,7 @@
     setMotionPaused(value){this.motionPaused=!!value;return this;}
     clearWorld(){
       this.world.traverse(o=>{o.geometry?.dispose();if(o.material){const list=Array.isArray(o.material)?o.material:[o.material];for(const m of list){m.map?.dispose();m.dispose();}}});
-      this.world.clear();this.leaderLayer.replaceChildren();this.labelLayer.replaceChildren(this.leaderLayer);this.objects=[];this.picks=[];this.labels=[];this.nebula.clear();
+      this.world.clear();this.labelLayer.replaceChildren();this.objects=[];this.picks=[];this.labels=[];this.nebula.clear();
     }
     visibleNodes(){
       if(this.collectionIds)return this.nodes.filter(n=>this.collectionIds.has(n.id));
@@ -98,8 +97,7 @@
       label.innerHTML=`<span style="color:${this.color(n)}">${escapeHTML(n.title)}</span>${subtitle?`<small>${subtitle}</small>`:''}`;
       label.title=n.title+(portal?'，来自 '+(this.map.get(n.parent)?.title||'其他系统'):'');label.dataset.nodeId=n.id;
       label.onclick=e=>{e.stopPropagation();this.opts.onSelect?.(n.id);};this.labelLayer.appendChild(label);
-      const leader=document.createElementNS('http://www.w3.org/2000/svg','line');leader.setAttribute('stroke',this.color(n));leader.setAttribute('stroke-opacity','.5');leader.setAttribute('stroke-width','1');leader.style.display='none';this.leaderLayer.appendChild(leader);
-      this.labels.push({n,element:label,leader,position:position.clone(),portal,radius,width:label.offsetWidth,height:label.offsetHeight,priority:portal?1:n.id===this.selectedId?0:n.depth});
+      this.labels.push({n,element:label,position:position.clone(),portal,radius,width:label.offsetWidth,height:label.offsetHeight,priority:n.id===this.selectedId?0:portal?1:n.depth});
       return mesh;
     }
     curve(a,b,c,opacity=.3,dashed=false){this.nebula.filament(a,b,c,opacity);}
@@ -167,28 +165,22 @@
     }
     screenPosition(id){const o=this.objects.find(o=>o.n.id===id&&!o.portal);if(!o)return null;const p=o.mesh.position.clone().project(this.camera);return{x:(p.x+1)/2*this.widthPx,y:(1-p.y)/2*this.heightPx,z:p.z};}
     positionLabels(){
-      const used=[];const focus=this.map.get(this.focusId);const pvec=new T.Vector3();
+      const used=[];const pvec=new T.Vector3();
       for(const label of this.labels){
         pvec.copy(label.position).project(this.camera);const x=(pvec.x+1)*this.widthPx/2,y=(1-pvec.y)*this.heightPx/2;
         const selected=label.n.id===this.selectedId;const important=label.n.depth===1||label.portal||selected||label.n.parent===this.focusId;
         const distance=this.camera.position.distanceTo(label.position),pixelRadius=label.radius*this.heightPx/(distance*2*Math.tan(T.MathUtils.degToRad(47/2)));
         const available=important||pixelRadius>3.1;
-        const offset=Math.max(12,pixelRadius+5);const w=label.width||label.n.title.length*12+16,h=label.height||24;
-        const labelY=important?T.MathUtils.clamp(y+offset,190,this.heightPx-110-h):y+offset;
-        let box={x:x-w/2,y:labelY,w,h};
+        const w=label.width||label.n.title.length*12+16,h=label.height||24;
+        // Keep every label inside its own stellar glow, at the projected anchor.
+        // Occluded labels yield locally rather than drifting away from their cloud.
+        const box={x:x-w/2,y:y-h/2+(label.n.depth===1?0:6),w,h};
         const clear=b=>b.x>=8&&b.x+b.w<=this.widthPx-8&&b.y>=185&&b.y+b.h<this.heightPx-103&&!used.some(u=>b.x<u.x+u.w+4&&b.x+b.w+4>u.x&&b.y<u.y+u.h+3&&b.y+b.h+3>u.y);
-        if(important&&!clear(box)){
-          const candidates=[[0,0],[0,28],[0,-h-offset*2],[0,56],[w*.65,0],[-w*.65,0],[w*.65,40],[-w*.65,40],[0,-80],[w,0],[-w,0]];
-          let replacement=candidates.map(([dx,dy])=>({x:T.MathUtils.clamp(x-w/2+dx,8,this.widthPx-w-8),y:T.MathUtils.clamp(labelY+dy,190,this.heightPx-h-110),w,h})).find(clear);
-          if(!replacement){for(let yy=190;yy<this.heightPx-h-110&&!replacement;yy+=h+7)for(const xx of [12,this.widthPx-w-12,(this.widthPx-w)/2]){const candidate={x:xx,y:yy,w,h};if(clear(candidate)){replacement=candidate;break;}}}
-          if(replacement)box=replacement;
-        }
         const inFrame=pvec.z>-1&&pvec.z<1&&x>0&&x<this.widthPx&&y>125&&y<this.heightPx-65;
         const contextual=this.focusId!=='universe'||label.n.depth===1||label.portal||selected;const show=contextual&&available&&inFrame&&clear(box);
-        label.element.hidden=!show;label.leader.style.display='none';
+        label.element.hidden=!show;
         if(show){
           label.element.style.left=(box.x+w/2)+'px';label.element.style.top=box.y+'px';used.push(box);
-          if(Math.abs(box.x+w/2-x)>8||Math.abs(box.y-(y+offset))>8){const l=label.leader;l.setAttribute('x1',x);l.setAttribute('y1',y);l.setAttribute('x2',box.x+w/2);l.setAttribute('y2',box.y>y?box.y:box.y+h);l.style.display='';}
         }
       }
     }
