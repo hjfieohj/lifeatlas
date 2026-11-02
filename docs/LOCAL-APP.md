@@ -4,7 +4,7 @@
 
 ## 日常使用
 
-程序交付在 `LifeAtlas本地程序`，个人资料独立保存在同级 `LifeAtlas本地资料`。双击 `打开LifeAtlas.vbs` 进入知识宇宙；有 Edge/Chrome 时打开独立应用窗口，否则使用默认浏览器。关闭窗口后后台服务仍在，再次打开即可继续；`停止LifeAtlas.vbs` 结束该服务。默认地址为 `http://localhost:5173/#knowledge`，服务只绑定 `127.0.0.1`，不开放局域网、不注册系统服务或开机启动。
+本机正式安装在 `%LOCALAPPDATA%/LifeAtlas/程序`，个人资料独立保存在 `%LOCALAPPDATA%/LifeAtlas/LifeAtlas本地资料`；免安装包解压为 `LifeAtlas本地程序` 时，仍使用程序旁的同名资料目录。双击桌面 LifeAtlas 或 `打开LifeAtlas.vbs` 进入知识宇宙；有 Edge/Chrome 时打开独立应用窗口，否则使用默认浏览器。关闭窗口后后台服务仍在，再次打开即可继续；`停止LifeAtlas.vbs` 结束该服务。默认地址为 `http://localhost:5173/#knowledge`，服务只绑定 `127.0.0.1`，不开放局域网、不注册系统服务或开机启动。
 
 升级前先备份并停止程序，再只替换程序目录，保留资料目录。启动异常先查看资料目录里的 `application.log`，检查是否有旧服务占用端口；不要删除数据库来解决启动问题。
 
@@ -61,4 +61,4 @@ node scripts/install-local.mjs 'C:/absolute/path/LifeAtlas本地程序'
 
 安装脚本包含当前 Node 可执行文件，版本固定 24.13.0，官方该版本许可证随包在 `licenses/Node-LICENSE.txt`。`local/lifeatlas.ico` 派生于既有 `public/favicon.svg`，重建脚本 `scripts/build-local-icon.py` 的 Pillow 只用于构建，运行不需 Python。现有字标、字体和 Uiverse 的开源来源保持，无新增运行时字体或图片请求。
 
-本地化实现验证：76 项测试、类型检查和本地构建通过；本地行为检查使用独立资料目录。本地设置表面说明为 `../.impeccable/surfaces/local-entry-ts.md`，迁移和最终安装检查按实际结果另记。
+本地化实现验证：77 项测试、类型检查和本地构建通过；本地行为检查使用独立资料目录。本地设置表面说明为 `../.impeccable/surfaces/local-entry-ts.md`。固定目录安装已完成，成长资料逐行核对通过，具体报告保留在本机。

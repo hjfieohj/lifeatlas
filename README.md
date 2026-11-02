@@ -4,7 +4,7 @@
 
 ## 本地程序：日常打开与备份
 
-安装目录：`C:/Users/zzb01/Documents/Codex/2026-11-02/new-chat/outputs/LifeAtlas本地程序`。
+本机固定安装目录：`%LOCALAPPDATA%/LifeAtlas/程序`。桌面和开始菜单的 LifeAtlas 指向这里，不依赖聊天结果文件夹；免安装包作为备用副本。
 
 1. 双击 **打开LifeAtlas.vbs**，或指向它的桌面快捷方式。检测到 Edge/Chrome 时打开独立应用窗口，否则使用默认浏览器。
 2. 成长记录仍需明确保存；知识笔记、收藏与偏好同步到本机。等待「已保存到本机」后关闭窗口。
@@ -18,7 +18,7 @@
 
 当前成长服务使用稳定本机身份和 SQLite，无需在线登录。真实 Gmail 尚未配置和完成真实账户联调，仍是独立在线功能；今日、邮件整理仍为虚构演示，环境分析是既有规则辅助，投资/新闻/AI 不因本地化获得新能力。核心运行不消耗模型额度、不自动调用付费 API，使用本机 CPU/GPU、内存和磁盘。
 
-详见 [本地程序说明](docs/LOCAL-APP.md)。本地构建为 `npm run build:local`；安装为 `node scripts/install-local.mjs 'C:/absolute/path/LifeAtlas本地程序'`。日常使用上面的启动脚本；`npm run dev` 是原框架开发入口。2026-11-03 本地化验证：76 项测试、类型检查与本地构建通过；这不表示真实 Gmail 已联调或所有旧数据已经迁移。
+详见 [本地程序说明](docs/LOCAL-APP.md)。本地构建为 `npm run build:local`；安装为 `node scripts/install-local.mjs 'C:/absolute/path/LifeAtlas本地程序'`。日常使用上面的启动脚本；`npm run dev` 是原框架开发入口。2026-11-03 本地化验证：77 项测试、类型检查与本地构建通过；原成长资料的本次迁移已逐行核对，旧知识页仍需按来源边界导入。真实 Gmail 尚未联调。
 
 ## 以下为旧版开发与设计历史
 
