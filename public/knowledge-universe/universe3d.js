@@ -22,7 +22,7 @@
       const rim=new T.DirectionalLight('#7388ce',1.7);rim.position.set(-700,0,-500);this.scene.add(rim);
       this.world=new T.Group();this.scene.add(this.world);this.nebula=new NebulaField(this.world);this.addStars();
       this.ray=new T.Raycaster();this.pointer=new T.Vector2();this.down=null;this.tooltip=document.querySelector('#graph-tooltip');
-      this.renderer.domElement.addEventListener('pointerdown',e=>{this.down={x:e.clientX,y:e.clientY,time:performance.now()};});
+      this.renderer.domElement.addEventListener('pointerdown',e=>{this.down={x:e.clientX,y:e.clientY,time:performance.now()};if(this.tooltip)this.tooltip.hidden=true;});
       this.renderer.domElement.addEventListener('pointerup',e=>{
         const down=this.down;this.down=null;if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>6)return;
         const hit=this.hit(e);if(hit)this.opts.onSelect?.(hit.userData.id);
@@ -93,8 +93,7 @@
       mesh.position.copy(position);mesh.userData={id:n.id,portal};this.world.add(mesh);this.picks.push(mesh);this.objects.push({n,mesh,portal,radius});
       this.nebula.beacon(position,this.color(n),radius,n.id===this.selectedId||portal);
       const label=document.createElement('button');label.className='planet-label'+(n.depth===1?' galaxy-label':'')+(portal?' portal-label':'');
-      const subtitle=portal?'跨系跃迁':hasChildren&&n.depth>1?`${children.length} 个下级 · 点击深入`:'';
-      label.innerHTML=`<span style="color:${this.color(n)}">${escapeHTML(n.title)}</span>${subtitle?`<small>${subtitle}</small>`:''}`;
+      label.innerHTML=`<span style="color:${this.color(n)}">${escapeHTML(n.title)}</span>`;
       label.title=n.title+(portal?'，来自 '+(this.map.get(n.parent)?.title||'其他系统'):'');label.dataset.nodeId=n.id;
       label.onclick=e=>{e.stopPropagation();this.opts.onSelect?.(n.id);};this.labelLayer.appendChild(label);
       this.labels.push({n,element:label,position:position.clone(),portal,radius,width:label.offsetWidth,height:label.offsetHeight,priority:n.id===this.selectedId?0:portal?1:n.depth});
@@ -142,8 +141,10 @@
       const w=this.el.clientWidth,h=this.el.clientHeight;if(w!==this.widthPx||h!==this.heightPx){this.widthPx=w;this.heightPx=h;this.resize();}
       let list=this.visibleNodes();if(!list.length)list=[this.map.get('universe')];
       const bbox=new T.Box3();list.forEach(n=>bbox.expandByPoint(n.position));this.objects.filter(o=>o.portal).forEach(o=>bbox.expandByPoint(o.mesh.position));const center=bbox.getCenter(new T.Vector3()),size=bbox.getSize(new T.Vector3());
-      const radius=Math.max(48,size.length()/2),aspect=this.widthPx/this.heightPx;
+      const selected=this.objects.find(o=>o.n.id===this.selectedId&&!o.portal);if(selected)center.copy(selected.mesh.position);
+      const radius=selected?Math.max(48,...this.objects.map(o=>o.mesh.position.distanceTo(center))):Math.max(48,size.length()/2),aspect=this.widthPx/this.heightPx;
       const distance=radius/Math.sin(T.MathUtils.degToRad(47/2))*Math.max(1,1/Math.max(aspect,.35))*(this.focusId==='universe'?.80:1.18);
+      this.fittedDistance=distance;this.controls.minDistance=Math.max(28,distance*.13);this.controls.maxDistance=distance*5;
       const prior=this.camera.position.clone().sub(this.controls.target);const dir=prior.length()>1?prior.normalize():new T.Vector3(.36,.25,1).normalize();const end=center.clone().addScaledVector(dir,distance);
       this.fly(end,center,animate&&!reduced?800:0);return this;
     }
@@ -151,7 +152,7 @@
       if(!ms){this.camera.position.copy(position);this.controls.target.copy(target);this.controls.update();this.invalidate();return;}
       this.transition={start:performance.now(),ms,from:this.camera.position.clone(),to:position.clone(),fromTarget:this.controls.target.clone(),target:target.clone()};this.invalidate();
     }
-    zoomBy(factor){this.transition=null;const dir=this.camera.position.clone().sub(this.controls.target);const dist=T.MathUtils.clamp(dir.length()/factor,12,10000);this.camera.position.copy(this.controls.target).add(dir.normalize().multiplyScalar(dist));this.controls.update();this.invalidate();return this;}
+    zoomBy(factor){this.transition=null;const dir=this.camera.position.clone().sub(this.controls.target);const dist=T.MathUtils.clamp(dir.length()/factor,this.controls.minDistance,this.controls.maxDistance);this.camera.position.copy(this.controls.target).add(dir.normalize().multiplyScalar(dist));this.controls.update();this.invalidate();return this;}
     width(value){if(value===undefined)return this.widthPx;this.widthPx=value;this.resize();return this;}
     height(value){if(value===undefined)return this.heightPx;this.heightPx=value;this.resize();return this;}
     resize(){this.camera.aspect=this.widthPx/this.heightPx;this.camera.updateProjectionMatrix();this.controls.handleResize();this.renderer.setSize(this.widthPx,this.heightPx);for(const l of this.labels){const hidden=l.element.hidden;l.element.hidden=false;l.width=l.element.offsetWidth;l.height=l.element.offsetHeight;l.element.hidden=hidden;}this.invalidate();}
@@ -160,25 +161,33 @@
     hit(e){const r=this.renderer.domElement.getBoundingClientRect();this.pointer.set((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height)*2+1);this.ray.setFromCamera(this.pointer,this.camera);return this.ray.intersectObjects(this.picks,false)[0]?.object;}
     hover(e){
       if(this.down)return;const object=this.hit(e);this.el.style.cursor=object?'pointer':'grab';
+      if((this.zoomDetail||0)<.15){if(this.tooltip)this.tooltip.hidden=true;return;}
       if(!this.tooltip)return;if(!object){this.tooltip.hidden=true;return;}const n=this.map.get(object.userData.id),rect=this.el.getBoundingClientRect();
       this.tooltip.textContent=n.title+((this.children.get(n.id)||[]).length?' · 点击进入系统':' · 点击阅读');this.tooltip.style.left=Math.min(e.clientX-rect.left+14,this.widthPx-215)+'px';this.tooltip.style.top=Math.max(8,e.clientY-rect.top-38)+'px';this.tooltip.hidden=false;
     }
     screenPosition(id){const o=this.objects.find(o=>o.n.id===id&&!o.portal);if(!o)return null;const p=o.mesh.position.clone().project(this.camera);return{x:(p.x+1)/2*this.widthPx,y:(1-p.y)/2*this.heightPx,z:p.z};}
     positionLabels(){
-      const used=[];const pvec=new T.Vector3();
+      const used=[];const pvec=new T.Vector3(),view=new T.Vector3();
+      const zoom=(this.fittedDistance||1)/this.camera.position.distanceTo(this.controls.target);
+      this.zoomDetail=T.MathUtils.smoothstep(zoom,.98,1.45);
+      if(this.down||this.zoomDetail<.15){if(this.tooltip)this.tooltip.hidden=true;}
       for(const label of this.labels){
+        view.copy(label.position).applyMatrix4(this.camera.matrixWorldInverse);const depth=-view.z;
         pvec.copy(label.position).project(this.camera);const x=(pvec.x+1)*this.widthPx/2,y=(1-pvec.y)*this.heightPx/2;
-        const selected=label.n.id===this.selectedId;const important=label.n.depth===1||label.portal||selected||label.n.parent===this.focusId;
-        const distance=this.camera.position.distanceTo(label.position),pixelRadius=label.radius*this.heightPx/(distance*2*Math.tan(T.MathUtils.degToRad(47/2)));
-        const available=important||pixelRadius>3.1;
+        const selected=label.n.id===this.selectedId;
+        const diameter=label.radius*this.heightPx/(Math.max(1,depth)*Math.tan(T.MathUtils.degToRad(47/2)));
+        const clarity=label.n.depth===1?T.MathUtils.smoothstep(diameter,this.widthPx<640?3:5,this.widthPx<640?9:13):T.MathUtils.smoothstep(diameter,6,16);
+        const opacity=this.zoomDetail*clarity*T.MathUtils.smoothstep(depth,14,85);
+        const available=opacity>.12;
         const w=label.width||label.n.title.length*12+16,h=label.height||24;
         // Keep every label inside its own stellar glow, at the projected anchor.
         // Occluded labels yield locally rather than drifting away from their cloud.
-        const box={x:x-w/2,y:y-h/2+(label.n.depth===1?0:6),w,h};
+        const box={x:x-w/2,y:y-h/2,w,h};
         const clear=b=>b.x>=8&&b.x+b.w<=this.widthPx-8&&b.y>=185&&b.y+b.h<this.heightPx-103&&!used.some(u=>b.x<u.x+u.w+4&&b.x+b.w+4>u.x&&b.y<u.y+u.h+3&&b.y+b.h+3>u.y);
         const inFrame=pvec.z>-1&&pvec.z<1&&x>0&&x<this.widthPx&&y>125&&y<this.heightPx-65;
-        const contextual=this.focusId!=='universe'||label.n.depth===1||label.portal||selected;const show=contextual&&available&&inFrame&&clear(box);
+        const contextual=this.focusId!=='universe'||label.n.depth===1||label.portal||selected;const show=contextual&&available&&depth>14&&inFrame&&clear(box);
         label.element.hidden=!show;
+        label.element.style.opacity=String(opacity);
         if(show){
           label.element.style.left=(box.x+w/2)+'px';label.element.style.top=box.y+'px';used.push(box);
         }

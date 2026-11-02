@@ -120,7 +120,7 @@
     else if (scope==='learned') {$('#map-title').textContent='已经探索';$('#map-description').textContent='每一个理解，都是你走过的距离。';}
     else if (scope==='routes') {$('#map-title').textContent='给好奇心一条路线';$('#map-description').textContent='从一个问题出发，让理解逐步相连。';}
     else if (d) {$('#map-title').textContent=d.name;$('#map-description').textContent=d.description;}
-    else {$('#map-title').textContent='知识星云';$('#map-description').textContent='自由翻转，走进知识的深处。';}
+    else {$('#map-title').textContent='知识星云';$('#map-description').textContent='拖动翻转星云，放大后显示名称。';}
   }
   function setView(next) {
     if(next==='map'&&!graph)next='list';
@@ -221,7 +221,7 @@
   }
   function renderHelp() {
     exploreLayout(false);
-    setReader(`<div class="reader-inner"><div class="reader-topline"><span>使用指南</span><button class="text-button" data-home>回到探索 ${icon('close')}</button></div><h2>这是你的知识宇宙。</h2><p class="intro">六大星系和多层框架只是一个起点。让它慢慢长成你自己的知识版图。</p><ol class="help-list"><li>左键拖动自由翻转星云，滚轮或双指缩放，右键拖动平移。点击有下级的恒星进入系统；点击具体知识阅读。顶部路径与“上一层”可返回。</li><li>按 <kbd>/</kbd> 搜索。搜索框支持上下方向键和回车；“目录”提供所有节点的键盘入口。</li><li>点左侧星系进入大框架，再逐层进入子系统。“目录”保留完整包含树。星尘光带表示概念联系，跨系入口可跃迁到另一系统。</li><li>收藏、已读和笔记会自动保存在此浏览器。请定期导出JSON备份；清理浏览器数据或换浏览器时，需要重新导入。</li><li>点击“添加知识”创建节点，选择它与已有知识的联系。自建节点可以编辑或删除。</li><li>核心内容、图谱和字体已放在本机，断网可以使用。外部链接只在点击时访问。</li></ol><h3>运行与复用</h3><p class="node-detail">双击 index.html 即可使用。如果希望固定浏览器存储地址，可运行工程内的 启动本地服务.cmd，再访问 http://127.0.0.1:8765。不同访问地址的浏览器记录相互独立，迁移时使用导出和导入。</p><h3>内容说明</h3><p class="node-detail">这是带原创摘要与参考入口的知识索引。连线表示所写明的概念联系；未标注因果的连线不代表因果、等价或证实。当前版本不接实时行情，也不自动生成投资建议。</p><div class="backup-actions"><button data-backup>${icon('download')}导出我的数据</button><button data-import>${icon('upload')}导入备份</button></div><p class="reader-footer">本地依赖：Three.js（MIT）、Space Grotesk（OFL）。许可与来源在工程文件中。<br>版本 2.0 · 内容整理于 ${K.updated}</p></div>`);
+    setReader(`<div class="reader-inner"><div class="reader-topline"><span>使用指南</span><button class="text-button" data-home>回到探索 ${icon('close')}</button></div><h2>这是你的知识宇宙。</h2><p class="intro">六大星系和多层框架只是一个起点。让它慢慢长成你自己的知识版图。</p><ol class="help-list"><li>左键拖动自由翻转星云，滚轮或双指缩放，右键拖动平移。点击有下级的恒星进入系统；点击具体知识阅读。顶部路径与“上一层”可返回。</li><li>按 <kbd>/</kbd> 搜索。搜索框支持上下方向键和回车；“目录”提供所有节点的键盘入口。</li><li>点左侧星系进入大框架，再逐层进入子系统。“目录”保留完整包含树。弥散的星尘云雾表示概念联系，跨系入口可跃迁到另一系统。</li><li>收藏、已读和笔记会自动保存在此浏览器。请定期导出JSON备份；清理浏览器数据或换浏览器时，需要重新导入。</li><li>点击“添加知识”创建节点，选择它与已有知识的联系。自建节点可以编辑或删除。</li><li>核心内容、图谱和字体已放在本机，断网可以使用。外部链接只在点击时访问。</li></ol><h3>运行与复用</h3><p class="node-detail">双击 index.html 即可使用。如果希望固定浏览器存储地址，可运行工程内的 启动本地服务.cmd，再访问 http://127.0.0.1:8765。不同访问地址的浏览器记录相互独立，迁移时使用导出和导入。</p><h3>内容说明</h3><p class="node-detail">这是带原创摘要与参考入口的知识索引。连线表示所写明的概念联系；未标注因果的连线不代表因果、等价或证实。当前版本不接实时行情，也不自动生成投资建议。</p><div class="backup-actions"><button data-backup>${icon('download')}导出我的数据</button><button data-import>${icon('upload')}导入备份</button></div><p class="reader-footer">本地依赖：Three.js（MIT）、Space Grotesk（OFL）。许可与来源在工程文件中。<br>版本 2.0 · 内容整理于 ${K.updated}</p></div>`);
     mobileLabel('使用指南');openMobileReader();
   }
   let searchList=[],searchIndex=-1;

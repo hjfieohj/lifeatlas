@@ -18,7 +18,7 @@
   gl_PointSize=clamp(aSize*uViewport/max(4.0,-mv.z),uKind>.5?1.0:2.0,110.0);
   float depth=clamp((-mv.z-100.0)/2600.0,0.0,1.0);
   vColor=color*mix(1.05,.55,depth);
-  vOpacity=aOpacity*mix(1.0,.65,depth)*(uKind>.5?.75+.25*sin(aSeed*49.0+uTime*.45):.9+.1*breathe);
+  vOpacity=aOpacity*mix(1.0,.65,depth)*smoothstep(8.0,80.0,-mv.z)*(uKind>.5?.75+.25*sin(aSeed*49.0+uTime*.45):.9+.1*breathe);
   vSeed=aSeed;
  }`;
  const fragment=`
@@ -30,8 +30,6 @@
   float mask;
   if(uKind>.5){
    mask=exp(-r*r*5.5)*(1.0-smoothstep(.15,1.0,r));
-   float cross=max(exp(-abs(p.x)*100.0),exp(-abs(p.y)*100.0))*.12;
-   mask+=cross*(1.0-smoothstep(0.0,.95,r));
   }else{
    float a=vSeed*6.283;mat2 rot=mat2(cos(a),-sin(a),sin(a),cos(a));
    vec2 uv=rot*p+.5;mask=texture2D(uCloud,uv).a*(1.0-smoothstep(.2,1.0,r));
@@ -83,10 +81,19 @@
    this.points([position.x,position.y,position.z],[c.r,c.g,c.b],[radius*(selected?22:15)],[selected?.5:.28],[.7]).renderOrder=4;
   }
   filament(a,b,color,strength=.3){
-   const seed=Math.floor(Math.abs(a.x*13+b.z*17+a.y*3))+71,random=rng(seed),mid=a.clone().lerp(b,.5);mid.z+=a.distanceTo(b)*.16;
-   const path=new T.QuadraticBezierCurve3(a,mid,b),p=[],c=[],s=[],o=[],seedValues=[],tint=new T.Color(color),count=this.compact?100:180;
-   for(let i=0;i<count;i++){const t=i/count,v=path.getPoint(t),spread=3+Math.sin(t*Math.PI)*5;v.x+=normal(random)*spread;v.y+=normal(random)*spread;v.z+=normal(random)*spread;p.push(v.x,v.y,v.z);c.push(tint.r,tint.g,tint.b);s.push(1+random()*3);o.push(strength*(.35+random()*.6));seedValues.push(t);}
-   this.points(p,c,s,o,seedValues,{kind:1});
+   const seed=Math.floor(Math.abs(a.x*13+b.z*17+a.y*3))+71,random=rng(seed),distance=a.distanceTo(b),mid=a.clone().lerp(b,.5);mid.z+=distance*.16;
+   const path=new T.QuadraticBezierCurve3(a,mid,b),tint=new T.Color(color),width=Math.max(18,Math.min(65,distance*.13));
+   // An irregular, broad volume: random samples and transverse scatter never trace a centerline.
+   for(const mist of [true,false]){
+    const p=[],c=[],s=[],o=[],seeds=[],count=this.compact?(mist?48:100):(mist?90:180);
+    for(let i=0;i<count;i++){
+     const t=random(),v=path.getPoint(t),envelope=Math.pow(Math.sin(t*Math.PI),.7),spread=width*(.65+envelope*.65);
+     v.x+=normal(random)*spread;v.y+=normal(random)*spread;v.z+=normal(random)*spread;
+     p.push(v.x,v.y,v.z);c.push(tint.r,tint.g,tint.b);s.push(mist?width*(1.1+random()*1.7):1.4+random()*3.5);
+     o.push(strength*(mist?.032:.13)*envelope*(.4+random()*.6));seeds.push(random());
+    }
+    const field=this.points(p,c,s,o,seeds,{kind:mist?0:1});field.userData.effect=mist?'bridge-mist':'bridge-dust';field.userData.spread=width;
+   }
   }
   update(time,viewport){for(const m of this.materials){m.uniforms.uTime.value=time;m.uniforms.uViewport.value=viewport;}}
   dispose(){this.texture.dispose();this.clear();}
