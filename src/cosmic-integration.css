@@ -1,0 +1,37 @@
+/* One continuous deep sky, with opaque reading surfaces and familiar layouts. */
+:root,:root[data-skin="island"]{
+ color-scheme:dark;--paper:#030713;--nav:#101b30;--surface:#101b2ef5;--ink:#e4edf9;--muted:#aebed2;
+ --line:#314159;--wash:#1b2c45;--green:#b3cefa;--forest:#abc9f3;--forest-deep:#d1e4ff;--accent-ink:#142238;
+ --nav-active-bg:#263e5e;--secondary-border:#536b87;--focus:#bedcff;--rail-active:#29476b;--rail-ink:#e4edf9;
+ --amber:#ecd1a1;--amber-bg:#3c3124;--red:#f1b6b0;--red-bg:#3b252c;--shadow:0 12px 38px #01040b40;
+}
+:root[data-skin="observatory"]{
+ --paper:#060713;--nav:#1a1b30;--surface:#171d2cf5;--ink:#f0eaf2;--muted:#c2b9ca;--line:#464257;--wash:#292b40;
+ --green:#f2cca5;--forest:#efc39b;--forest-deep:#ffe3c6;--accent-ink:#2a1e21;--nav-active-bg:#393349;
+ --secondary-border:#74677b;--focus:#f6d7b8;--rail-active:#473b51;--rail-ink:#f0eaf2;
+}
+html,body{background:#030713}body{isolation:isolate}#app{position:relative;z-index:1}
+.life-atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;contain:strict;overflow:hidden}.cosmic-sky-canvas{display:block;width:100%;height:100%}
+#app>.workspace{isolation:auto;background:transparent}#app>.sidebar{background:#091224b8;border-right:1px solid #a8c6f222}
+[data-skin="observatory"] #app>.sidebar{background:#151023b8}
+#app .topbar,#app .prototype-notice,#app .workspace>footer{background:transparent}#app .prototype-notice{border-color:#c3d9ff24}
+#app .brief-section,#app .settings-section,#app .task-row,#app .mail-list,#app .empty,#app .investment-sheet,#app .life-sheet{background:var(--surface)}
+#app .brief-index{color:var(--muted)}#app .decision-line,#app .prepare-panel p,#app .growth-help{color:var(--muted)}
+#app .prepare-panel,#app .protection-note,#app .growth-continuation,#app .growth-start>div,#app .growth-start>div+div,#app .growth-compare-col,#app .growth-compare-col+section,#app .growth-moment details,#app .growth-compare-col>dl>dd{background:var(--wash);color:var(--ink)}
+#app .growth-compare-details dd{background:transparent}#app .growth-advisor-report,#app .growth-guidance-report,#app .growth-environment-panel,#app .guidance-subject-card{background:var(--surface);color:var(--ink)}
+#app input:not([type="checkbox"]):not([type="radio"]),#app textarea,#app select,dialog input:not([type="checkbox"]),dialog textarea,dialog select{background:#0b1526;color:var(--ink);border-color:var(--secondary-border)}
+#app .appearance-section .skin-control select{background:var(--wash)}#app .growth-topic-link.active{background:var(--nav-active-bg);color:var(--green)}
+#app .task-status,#app .category,#app .connection-label{color:var(--green)}#app .task-status.failed{color:var(--red)}
+#app .growth-content{background:var(--surface)}#app .growth-topics,#app .investment-plan,#app .life-side{background:transparent}
+#app .search{background:#101b2edb}#app .notice,#app .real-config-note{background:var(--wash);color:var(--ink)}
+dialog{background:#142036;color:var(--ink);border-color:#526782}dialog::backdrop{background:#020611bc}
+::selection{background:#37577c;color:#fff}::-webkit-scrollbar-thumb{background:#526b89}::-webkit-scrollbar-track{background:#0b1526}
+.knowledge-investment-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:-6px 0 25px}.knowledge-growth-link{grid-column:1/-1;display:inline-block;width:fit-content;color:var(--green);font-size:13px;padding:5px 0;text-decoration:underline;text-underline-offset:4px}
+#app[data-page="knowledge"] .prototype-notice,#app[data-page="knowledge"] .workspace>footer{display:none}
+#app[data-page="knowledge"]>.workspace>main{max-width:none;min-height:0;padding:0 18px 18px}
+.knowledge-module-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 12px 18px;min-height:94px}
+#app .knowledge-module-heading h1{font-size:22px}.knowledge-module-heading p{font-size:12px;color:var(--muted);margin-top:6px}
+.knowledge-context-links{display:flex;gap:17px;flex-shrink:0;color:var(--green);font-size:12px}.knowledge-context-links a:hover{text-decoration:underline;text-underline-offset:4px}
+#knowledge-universe-frame{display:block;width:100%;height:calc(100dvh - 112px);min-height:600px;background:transparent;border:1px solid #9bbfe536;border-radius:14px;overflow:hidden}
+@media(max-width:1050px){#app[data-page="knowledge"]>.workspace>main{padding:0 14px 14px}#knowledge-universe-frame{height:calc(100dvh - 235px);min-height:620px}.knowledge-module-heading{padding:18px 5px;min-height:88px}}
+@media(max-width:640px){#app[data-page="knowledge"]>.workspace>main{padding:0 8px 12px}.knowledge-module-heading{min-height:87px;padding:14px 8px;align-items:flex-start;gap:10px}.knowledge-module-heading p{display:none}#app .knowledge-module-heading h1{font-size:20px}.knowledge-context-links{gap:8px;flex-direction:column;align-items:flex-end;font-size:11px}#knowledge-universe-frame{height:calc(100dvh - 250px);min-height:650px;border-radius:10px}.knowledge-investment-links{gap:13px}.knowledge-investment-links .button{width:100%}}

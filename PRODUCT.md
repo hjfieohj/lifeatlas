@@ -67,3 +67,8 @@ Real OAuth project and test account configuration, data retention, model provide
 
 
 2026-10-31 optional modules: Investment and 人生丰富度 have independent browser-local switches inside Settings → 外观与动态, next to appearance preferences. Default on; closed routes return to Settings without deleting records. Core destinations remain visible; navigation has 5–7 visible items and adapts its columns. The colorful-life heading carries the exact user motto “人的创造性是本质的，人的社会化是必然的。” and four initial content directions, with no recording feature yet. See docs/OPTIONAL-MODULES.md.
+
+
+## 2026-11-02 confirmed integration
+
+The user requested merging LifeAtlas with the offline3D knowledge universe and a global animated cosmic sky. Knowledge is a core navigation module; all existing routes, optional investment/life toggles, authentication boundaries and data stores remain. Six separate knowledge domains include mathematics and physics independently. The global sky is generated locally, spans navigation and the transparent same-origin knowledge frame, and pauses during editing, backgrounding or reduced-motion. No paid API, cloud GPU or OS startup registration. Reference: docs/KNOWLEDGE-UNIVERSE.md.

@@ -1,3 +1,4 @@
+import {knowledgePage,mountKnowledge} from './knowledge';
 import {colorfulLifePage} from './life';
 import {moduleStorageKey,parseModulePreferences,moduleEnabled,moduleRoute,moduleSettings,type ModulePreferences} from './module-preferences';
 import { investmentPage } from './investment';
@@ -13,6 +14,7 @@ export function mountLifeAtlas() {
 const appearance = mountAppearance();
 let modules:ModulePreferences=parseModulePreferences(null),moduleStorageFailed=false;
 try{modules=parseModulePreferences(localStorage.getItem(moduleStorageKey));}catch{moduleStorageFailed=true;}
+let knowledgeCleanup:(()=>void)|undefined;
 let realCleanup: (() => void) | undefined;
 let growth: ReturnType<typeof mountGrowth> | undefined;
 const lifetime = new AbortController();
@@ -29,6 +31,7 @@ const root = document.querySelector<HTMLDivElement>('#app')!;
 const dialog = document.querySelector<HTMLDialogElement>('#modal')!;
 const esc = (s: string | number) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
 const icons: Record<string, string> = {
+  knowledge: '<circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="11" ry="5" transform="rotate(-35 12 12)"/>',
   life: '<path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6 2.1-2.1"/><circle cx="12" cy="12" r="3"/>',
   investment: '<path d="M4 4v16h16M7 14l4-4 4 3 5-7"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/>',
@@ -53,7 +56,7 @@ function toast(text: string) { const el = document.querySelector<HTMLDivElement>
 function date() { return new Intl.DateTimeFormat('zh-CN', { timeZone: store.preferences.timezone, month: 'long', day: 'numeric', weekday: 'long' }).format(new Date()); }
 function nav(id: string, label: string, name: string) { return `<a href="#${id}" data-route="${id}" aria-label="${label}" class="nav-item ${page === id ? 'active' : ''}" ${page === id ? 'aria-current="page"' : ''}>${icon(name)}<span class="nav-title">${id==='growth'?'<span class="nav-title-primary">个人成长</span><span class="nav-title-detail"><span class="nav-title-slash"> / </span>环境感知</span>':id==='life'?'<span class="nav-title-primary">人生</span><span class="nav-title-detail">丰富度</span>':label}</span>${id === 'mail' ? `<span class="nav-count">${store.connected ? store.mails.filter(isEligible).length : '—'}</span>` : ''}</a>`; }
 function shell(content: string) {
-  return `<aside class="sidebar"><a href="#today" class="brand" aria-label="LifeAtlas · 生活全图，回到今日">${lifeAtlasWordmark}<small>生活全图</small></a><nav aria-label="主导航">${nav('today', '今日', 'sun')}${nav('growth', growthModuleLabel, 'leaf')}${nav('investment', '投资', 'investment')}${nav('life', '人生丰富度', 'life')}${nav('mail', '邮箱整理', 'mail')}${nav('history', '任务记录', 'clock')}${nav('settings', '偏好设置', 'settings')}</nav><div class="sidebar-bottom"><div class="quiet">${icon('leaf')}<span>给重要的事，留一点空。</span></div><div class="profile"><span class="avatar">我</span><div>我的生活空间<small>个人试用 · 交互原型</small></div></div></div></aside><div class="workspace">${page === 'settings' ? `<header class="topbar"><span class="breadcrumb">我的空间 <span>/</span> ${{ today: '今日', mail: '邮箱整理', growth: growthModuleLabel, history: '任务记录', settings: '偏好设置' }[page]}</span><span class="demo-badge"><span></span>演示数据</span></header>` : ''}<div class="prototype-notice">${page === 'life' ? '人生丰富度：从兴趣、创作、体验与连接开始。内容逐步完善中。' : page === 'investment' ? '投资板块建设中：面向国际市场的研究与记录，尚未接入行情或交易。' : page === 'growth' ? '个人成长与环境感知保存你的观察、理解和选择；每次保存保留版本，收起后可恢复。' : '简报与归档仍为演示模式；真实邮箱可在设置中单独连接和只读预览。<a href="#settings">查看连接状态</a>'}</div>${storageWarning ? `<div role="alert" class="notice error">${esc(storageWarning)}</div>` : ''}<main id="main" tabindex="-1">${content}</main><footer>LifeAtlas · 生活全图<span>主动准备，由你决定。</span></footer></div>`;
+  return `<aside class="sidebar"><a href="#today" class="brand" aria-label="LifeAtlas · 生活全图，回到今日">${lifeAtlasWordmark}<small>生活全图</small></a><nav aria-label="主导航">${nav('today', '今日', 'sun')}${nav('growth', growthModuleLabel, 'leaf')}${nav('knowledge','知识宇宙','knowledge')}${nav('investment', '投资', 'investment')}${nav('life', '人生丰富度', 'life')}${nav('mail', '邮箱整理', 'mail')}${nav('history', '任务记录', 'clock')}${nav('settings', '偏好设置', 'settings')}</nav><div class="sidebar-bottom"><div class="quiet">${icon('leaf')}<span>给重要的事，留一点空。</span></div><div class="profile"><span class="avatar">我</span><div>我的生活空间<small>个人试用 · 交互原型</small></div></div></div></aside><div class="workspace">${page === 'settings' ? `<header class="topbar"><span class="breadcrumb">我的空间 <span>/</span> ${{ today: '今日', mail: '邮箱整理', growth: growthModuleLabel, history: '任务记录', settings: '偏好设置' }[page]}</span><span class="demo-badge"><span></span>演示数据</span></header>` : ''}<div class="prototype-notice">${page === 'knowledge' ? '知识宇宙：从大框架进入子系统，沿跨领域联系继续探索。' : page === 'life' ? '人生丰富度：从兴趣、创作、体验与连接开始。内容逐步完善中。' : page === 'investment' ? '投资板块建设中：面向国际市场的研究与记录，尚未接入行情或交易。' : page === 'growth' ? '个人成长与环境感知保存你的观察、理解和选择；每次保存保留版本，收起后可恢复。' : '简报与归档仍为演示模式；真实邮箱可在设置中单独连接和只读预览。<a href="#settings">查看连接状态</a>'}</div>${storageWarning ? `<div role="alert" class="notice error">${esc(storageWarning)}</div>` : ''}<main id="main" tabindex="-1">${content}</main><footer>LifeAtlas · 生活全图<span>主动准备，由你决定。</span></footer></div>`;
 }
 function disconnected() { return `<div class="empty"><span class="empty-icon">${icon('link')}</span><h2>演示邮箱已断开</h2><p>重新启用虚构邮件，即可继续体验简报与整理流程。</p><button class="button primary" data-action="connect">启用演示邮箱 ${icon('arrow')}</button></div>`; }
 function today() {
@@ -91,9 +94,9 @@ function settings() {
 function syncModules(){
   root.querySelectorAll<HTMLElement>('[data-route]').forEach(el=>{el.hidden=!moduleEnabled(el.dataset.route!,modules);});
   root.querySelectorAll<HTMLInputElement>('[data-module]').forEach(el=>{el.checked=modules[el.dataset.module as 'investment'|'life'];});
-  const count=5+Number(modules.investment)+Number(modules.life);
+  const count=6+Number(modules.investment)+Number(modules.life);
   root.style.setProperty('--nav-count',String(count));
-  root.style.setProperty('--nav-phone-columns',String(count===7?4:count===6?3:5));
+  root.style.setProperty('--nav-phone-columns',String(count>=7?4:count===6?3:5));
   const status=root.querySelector('[data-module-status]');if(status)status.textContent=moduleStorageFailed?'浏览器未能保存模块选择，本次切换仍然生效。':'模块选择会自动保存；关闭模块不会删除内容。';
 }
 listen(root,'change',event=>{
@@ -106,15 +109,17 @@ listen(window,'storage',event=>{const ev=event as StorageEvent;if(ev.key!==modul
 function render() {
   if(!moduleEnabled(page,modules)){page='settings';window.history.replaceState(null,'','#settings');}
   if(page==='settings'&&['#investment','#life'].includes(location.hash))window.history.replaceState(null,'','#settings');
+  knowledgeCleanup?.();knowledgeCleanup=undefined;
   growth?.destroy(); growth = undefined;
   realCleanup?.(); realCleanup = undefined;
-  root.innerHTML = shell(page === 'today' ? today() : page === 'mail' ? mail() : page === 'growth' ? '<div id="growth-panel"></div>' : page === 'investment' ? investmentPage() : page === 'life' ? colorfulLifePage() : page === 'history' ? history() : settings());
+  root.innerHTML = shell(page === 'today' ? today() : page === 'mail' ? mail() : page === 'growth' ? '<div id="growth-panel"></div>' : page === 'investment' ? investmentPage() : page === 'life' ? colorfulLifePage() : page === 'knowledge' ? knowledgePage() : page === 'history' ? history() : settings());
   root.querySelector('.workspace')?.insertAdjacentHTML('afterbegin', '<div class="scene-banner" aria-hidden="true"></div>');
   root.dataset.page = page;
   if (page === 'settings') {root.querySelector('#main .page-heading')?.insertAdjacentHTML('afterend', appearanceSettings());root.querySelector('.appearance-section')?.insertAdjacentHTML('beforeend',moduleSettings());}
   appearance.sync();
   syncModules();
-  if (page === 'growth') growth = mountGrowth(root.querySelector<HTMLElement>('#growth-panel')!);
+  if(page==='knowledge')knowledgeCleanup=mountKnowledge(root,editing=>appearance.setModuleEditing(editing));
+  if (page === 'growth') {growth = mountGrowth(root.querySelector<HTMLElement>('#growth-panel')!);}
   if (page === 'settings') {
     const section = document.createElement('div'); section.id = 'real-gmail-panel';
     const grid = root.querySelector<HTMLElement>('#main .settings-grid');
@@ -191,5 +196,5 @@ const skip = document.querySelector<HTMLAnchorElement>('.skip')!;
 listen(skip, 'click', ev => { ev.preventDefault(); document.querySelector<HTMLElement>('#main')?.focus(); });
 listen(window, 'hashchange', () => { if (page === 'growth' && growth && !growth.canLeave()) { window.history.replaceState(null, '', '#growth'); return; } page = moduleRoute(location.hash.slice(1),modules); selected.clear(); render(); window.scrollTo(0, 0); document.querySelector<HTMLElement>('#main')?.focus({ preventScroll: true }); });
 render();
-return () => { lifetime.abort(); appearance.destroy(); growth?.destroy(); realCleanup?.(); clearTimeout(toastTimer); if (dialog.open) dialog.close(); };
+return () => { lifetime.abort();knowledgeCleanup?.(); appearance.destroy(); growth?.destroy(); realCleanup?.(); clearTimeout(toastTimer); if (dialog.open) dialog.close(); };
 }

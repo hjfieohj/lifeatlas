@@ -18,14 +18,15 @@ export function parseAppearance(raw: string | null): Appearance {
   return { version: 2, skin: 'island', particles: true };
 }
 export function appearanceControls() {
-  return `<div class="appearance-controls"><label class="skin-control"><span>皮肤</span><select data-appearance="skin" aria-label="选择皮肤">${skins.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></label><label class="particle-control"><input type="checkbox" data-appearance="particles"><span class="la-switch-track" aria-hidden="true"><span class="la-switch-knob"></span></span><span>粒子动态</span></label></div>`;
+  return `<div class="appearance-controls"><label class="skin-control"><span>皮肤</span><select data-appearance="skin" aria-label="选择皮肤">${skins.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></label><label class="particle-control"><input type="checkbox" data-appearance="particles"><span class="la-switch-track" aria-hidden="true"><span class="la-switch-knob"></span></span><span>动态星空</span></label></div>`;
 }
 export function appearanceSettings() {
-  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">光屿的清晨，与对页的回望。选择适合此刻的阅读空间。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">细小粒子汇成流动的背景，延伸至导航栏。输入时光景静止，也遵循系统的减少动态设置。外观偏好保存在这台浏览器。</p></section>`;
+  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">同一片深空，两种阅读色调。星云缓慢流动，星光轻轻闪烁。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">全局星空由本机代码绘制，无需下载视频或连接付费服务。输入时暂停，关闭动态后保留静态星空，也遵循系统减少动态设置。偏好保存在此浏览器。</p></section>`;
 }
 export function mountAppearance() {
   let preferences: Appearance;
   let storageFailed = false;
+  let moduleEditing=false;
   try { preferences = parseAppearance(localStorage.getItem(storageKey)); }
   catch { preferences = parseAppearance(null); storageFailed = true; }
   const controller = new AbortController();
@@ -41,14 +42,12 @@ export function mountAppearance() {
   }
   function sync() {
     document.documentElement.dataset.skin = preferences.skin;
-    const workspace = document.querySelector<HTMLElement>('.workspace');
-    if (workspace && atmosphere.parentElement !== workspace) workspace.insertBefore(atmosphere, workspace.firstChild);
-    atmosphere.hidden = !preferences.particles;
-    atmosphere.dataset.paused = String(reduced.matches || document.hidden || editing());
-    landscape.update({ enabled: preferences.particles, paused: atmosphere.dataset.paused === 'true', skin: preferences.skin });
+    atmosphere.hidden=false;
+    atmosphere.dataset.paused = String(reduced.matches || document.hidden || editing() || moduleEditing || !preferences.particles);
+    landscape.update({ enabled: true, paused: atmosphere.dataset.paused === 'true', skin: preferences.skin });
     document.querySelectorAll('[data-appearance="skin"]').forEach(node => { (node as unknown as HTMLSelectElement).value = preferences.skin; });
     document.querySelectorAll<HTMLInputElement>('[data-appearance="particles"]').forEach(el => { el.checked = preferences.particles; });
-    const message = storageFailed ? '浏览器未能保存外观偏好，本次切换仍然生效。' : reduced.matches && preferences.particles ? '系统已启用减少动态，粒子保持静止。' : preferences.particles ? '粒子动态已开启；输入时暂时静止。' : '粒子背景已关闭。';
+    const message = storageFailed ? '浏览器未能保存外观偏好，本次切换仍然生效。' : reduced.matches && preferences.particles ? '系统已启用减少动态，星空保持静止。' : preferences.particles ? '动态星空已开启；输入时暂时静止。' : '动态已关闭，保留静态星空。';
     document.querySelectorAll<HTMLElement>('[data-appearance-status]').forEach(el => { el.textContent = message; });
   }
   function save() {
@@ -72,5 +71,5 @@ export function mountAppearance() {
   document.addEventListener('visibilitychange', sync, { signal: controller.signal });
   reduced.addEventListener('change', sync, { signal: controller.signal });
   sync();
-  return { sync, destroy() { controller.abort(); atmosphere.remove(); } };
+  return { sync, setModuleEditing(value:boolean){moduleEditing=value;sync();}, destroy() { controller.abort(); atmosphere.remove(); } };
 }

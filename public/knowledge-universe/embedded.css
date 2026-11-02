@@ -1,0 +1,17 @@
+/* The module uses the parent application's continuous sky in embedded mode. */
+.space-backdrop{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.space-backdrop canvas{width:100%;height:100%;display:block}
+body{background:#030713}.workspace{background:transparent}.catalog{background:#0d1726f2}.topbar{background:#10151ff2}.sidebar{background:#111823e8}.reader{background:#141c29f5}
+html[data-embedded=true],html[data-embedded=true] body{background:transparent!important}
+[data-embedded=true] .sidebar,[data-embedded=true] .brand{display:none!important}
+[data-embedded=true] .topbar{height:104px;padding:9px 14px;gap:7px 12px;flex-wrap:wrap;background:#0e1828ed;border-radius:14px 14px 0 0}
+[data-embedded=true] .search-wrap{flex:1;max-width:none;order:0;min-width:140px;height:36px}
+[data-embedded=true] .top-actions{margin-left:0;height:36px;gap:5px}
+[data-embedded=true] .top-actions .local-status{display:none}[data-embedded=true] .top-actions #help{display:flex}
+[data-embedded=true] .top-actions .button{padding:7px 10px;height:34px;width:auto}[data-embedded=true] .top-actions .button span{display:inline}
+.embed-tools{display:flex;align-items:center;gap:15px;width:100%;order:3;min-height:30px;color:#bfd0e4;font-size:11px}
+.embed-tools button{padding:4px 0;font-size:11px}.embed-tools button:hover{color:white;text-decoration:underline;text-underline-offset:3px}
+.embed-domain-label{display:flex;align-items:center;gap:7px;margin-right:auto}.embed-tools select{font-size:11px;background:#1a2b42;border:1px solid #50667d;color:#dfebf7;border-radius:6px;padding:4px 6px;min-width:115px}
+[data-embedded=true] .workspace{left:0;top:104px;bottom:0}[data-embedded=true] .reader{top:104px;bottom:0}
+[data-embedded=true] .map-heading{top:20px}[data-embedded=true] .map-heading h1{font-size:24px}
+[data-embedded=true] .hierarchy-toolbar{top:139px}[data-embedded=true] .map-bottom{bottom:19px}
+@media(max-width:620px){[data-embedded=true] .topbar{height:108px;padding:8px 11px;gap:8px}[data-embedded=true] .search-wrap{flex-basis:calc(100% - 95px);min-width:0}[data-embedded=true] .top-actions .button span{display:none}[data-embedded=true] .top-actions .button{width:33px;padding:0}.embed-tools{gap:12px;overflow-x:auto;white-space:nowrap}.embed-domain-label{gap:4px}.embed-tools select{min-width:100px}[data-embedded=true] .workspace{top:108px;bottom:50px}[data-embedded=true] .reader{top:auto;bottom:50px}[data-embedded=true] .mobile-reader{bottom:0}[data-embedded=true] .map-heading{left:17px;right:14px}[data-embedded=true] .map-heading h1{font-size:24px}[data-embedded=true] .map-heading p{max-width:260px}[data-embedded=true] .hierarchy-toolbar{left:17px;right:14px}.embed-tools button{font-size:11px}[data-embedded=true] .reader:not(.open){visibility:hidden}}

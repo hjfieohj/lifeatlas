@@ -1,0 +1,3010 @@
+{
+  "version": 2,
+  "updated": "2026-11-02",
+  "domains": [
+    {
+      "id": "market",
+      "name": "股市与交易",
+      "en": "MARKETS",
+      "color": "#78d9ad",
+      "description": "理解价格、概率与交易中的人性。先理解风险，再研究方法。",
+      "wiki": "Stock_market"
+    },
+    {
+      "id": "mind",
+      "name": "心理学",
+      "en": "PSYCHOLOGY",
+      "color": "#eac17b",
+      "description": "研究感知、记忆、情绪与行为，理解我们如何作出判断。",
+      "wiki": "Psychology"
+    },
+    {
+      "id": "philosophy",
+      "name": "哲学",
+      "en": "PHILOSOPHY",
+      "color": "#b6a0ed",
+      "description": "追问知识、存在、价值与意义，也追问问题本身。",
+      "wiki": "Philosophy"
+    },
+    {
+      "id": "cosmos",
+      "name": "宇宙天文学",
+      "en": "COSMOS",
+      "color": "#7dcce8",
+      "description": "从太阳系到宇宙尺度，用观测检验我们对时空的想象。",
+      "wiki": "Astronomy"
+    },
+    {
+      "id": "math",
+      "name": "数学",
+      "en": "MATHEMATICS",
+      "color": "#eea193",
+      "description": "从概率、变化到抽象结构，建立可推理、可计算的语言。",
+      "wiki": "Mathematics"
+    },
+    {
+      "id": "physics",
+      "name": "物理",
+      "en": "PHYSICS",
+      "color": "#96b4ff",
+      "description": "从力、热、光到时空和量子，用可检验的规律理解自然。",
+      "wiki": "Physics"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "market",
+      "title": "股市与交易",
+      "domain": "market",
+      "kind": "领域",
+      "wiki": "Stock_market",
+      "summary": "理解价格、概率与交易中的人性。先理解风险，再研究方法。",
+      "detail": "理解价格、概率与交易中的人性。先理解风险，再研究方法。 这里的节点是入门知识索引；从你关心的问题出发，阅读解释，再沿着标明理由的关系继续探索。",
+      "example": "选择一个节点，读完后写下一句自己的理解；也可以从学习路线开始。",
+      "root": true,
+      "parent": "universe",
+      "depth": 1
+    },
+    {
+      "id": "quant",
+      "title": "量化交易",
+      "domain": "market",
+      "kind": "方法",
+      "wiki": "Quantitative_analysis_(finance)",
+      "summary": "把交易想法写成可检验的规则。",
+      "detail": "量化研究把数据、信号、仓位和执行连接起来。一个完整策略需要先限定可交易资产、数据时点和交易成本，再用历史样本及样本外数据检验。能写成代码不代表存在优势；研究流程比某条神奇指标更重要。",
+      "example": "把“上涨就买”改写为：过去20日收益为正时，下一交易日按规则建立有限仓位。先说明何时得到价格，何时能成交。",
+      "root": false,
+      "parent": "market",
+      "depth": 2
+    },
+    {
+      "id": "backtest",
+      "title": "回测与样本外检验",
+      "domain": "market",
+      "kind": "方法",
+      "wiki": "Backtesting",
+      "summary": "在过去的数据中模拟一套明确规则。",
+      "detail": "回测需要复现当时能知道的信息，处理复权、退市、停牌、佣金和滑点。研究阶段用训练数据形成假设，再在没有参与调参的数据上测试；滚动验证可观察不同时期的稳定性。样本外表现仍不能保证未来收益。",
+      "example": "如果每天用当天收盘价计算信号，又假定自己按这个收盘价无成本成交，结果可能过于乐观。",
+      "root": false,
+      "parent": "strategy-research",
+      "depth": 4
+    },
+    {
+      "id": "overfit",
+      "title": "过拟合与数据泄漏",
+      "domain": "market",
+      "kind": "概念",
+      "wiki": "Overfitting",
+      "summary": "模型可能记住噪声，甚至偷看答案。",
+      "detail": "不断更换参数直到回测漂亮，会把偶然波动当成规律。数据泄漏则把未来才能获得的信息放进过去的决策。控制尝试次数、保留独立测试集、记录失败实验，都有助于发现这种错觉。",
+      "example": "用未来一年才公布的财报数据挑选今年的股票，是时间上的数据泄漏。",
+      "root": false,
+      "parent": "strategy-research",
+      "depth": 4
+    },
+    {
+      "id": "factor",
+      "title": "因子投资",
+      "domain": "market",
+      "kind": "方法",
+      "wiki": "Factor_investing",
+      "summary": "用可测量的特征研究收益差异。",
+      "detail": "价值、动量、规模和质量等因子是描述资产特征的研究框架。因子暴露可能来自风险补偿、行为偏差或样本选择。检验时要区分总收益、相对基准收益与行业暴露，并计入换手和拥挤交易的影响。",
+      "example": "低估值组合的收益，可能同时受行业周期影响；需要检查是否只是集中持有某个行业。",
+      "root": false,
+      "parent": "strategy-research",
+      "depth": 4
+    },
+    {
+      "id": "momentum",
+      "title": "动量与趋势跟随",
+      "domain": "market",
+      "kind": "方法",
+      "wiki": "Momentum_(finance)",
+      "summary": "研究价格走势是否会在一定时期延续。",
+      "detail": "时间序列动量关心一个资产相对自己的过去表现，横截面动量关心资产之间的相对排名。趋势策略可能经历震荡期的连续损失，也可能在市场快速反转时回吐收益。具体规则、频率和成本决定结果。",
+      "example": "同样是“趋势”，20日均线和12个月动量可能给出完全不同的信号。",
+      "root": false,
+      "parent": "factor",
+      "depth": 5
+    },
+    {
+      "id": "reversion",
+      "title": "均值回归",
+      "domain": "market",
+      "kind": "概念",
+      "wiki": "Mean_reversion_(finance)",
+      "summary": "偏离某个参考水平后可能向其靠近。",
+      "detail": "均值回归必须回答：什么均值、何种时间尺度、为什么应当回归？价格下跌本身不是回归的证据，资产的基本面和数据生成过程都可能发生变化。相关统计特征需要经过稳定性与成本检验。",
+      "example": "一家公司经营恶化时，历史平均市盈率未必仍是有效的回归目标。",
+      "root": false,
+      "parent": "factor",
+      "depth": 5
+    },
+    {
+      "id": "risk",
+      "title": "风险与仓位管理",
+      "domain": "market",
+      "kind": "方法",
+      "wiki": "Financial_risk_management",
+      "summary": "决定承受多少不确定性，以及何时停止。",
+      "detail": "风险既包含波动，也包含流动性、杠杆、集中度和极端损失。仓位设计应先考虑组合整体以及最坏情景。止损只能设定触发规则，跳空和流动性不足可能使实际损失超过预期。",
+      "example": "如果每笔交易计划承担账户1%的损失，多笔高度相关的仓位仍可能同时亏损。",
+      "root": false,
+      "parent": "portfolio",
+      "depth": 3
+    },
+    {
+      "id": "drawdown",
+      "title": "最大回撤",
+      "domain": "market",
+      "kind": "指标",
+      "wiki": "Drawdown_(economics)",
+      "summary": "衡量资产净值从历史高点跌落的幅度。",
+      "detail": "在一条净值路径上，回撤等于当前净值相对此前峰值的下降比例，最大回撤取其最大值。它依赖所选时间区间，并不等于未来损失上限。还应关注恢复时间与投资者能否坚持策略。",
+      "example": "净值从100涨到120后跌到90，相对峰值的回撤为25%。",
+      "root": false,
+      "parent": "risk",
+      "depth": 4
+    },
+    {
+      "id": "sharpe",
+      "title": "夏普比率",
+      "domain": "market",
+      "kind": "指标",
+      "wiki": "Sharpe_ratio",
+      "summary": "用波动率衡量超额收益的代价。",
+      "detail": "夏普比率通常用平均超额收益除以收益标准差。比较时要统一频率、无风险收益口径和年化方法。存在序列相关、厚尾或短样本时，单一数值可能误导；高夏普也可能来自估值平滑或隐藏尾部风险。",
+      "example": "月度收益存在明显相关时，直接乘以√12年化可能失真。",
+      "root": false,
+      "parent": "strategy-research",
+      "depth": 4
+    },
+    {
+      "id": "portfolio",
+      "title": "分散化与资产组合",
+      "domain": "market",
+      "kind": "方法",
+      "wiki": "Diversification_(finance)",
+      "summary": "关注资产一起波动的方式。",
+      "detail": "分散化的关键是风险来源和相关性，而非持仓数量。多个高度相关的股票可能仍是同一项押注。组合理论在假设下描述收益与风险的权衡，实际使用还要考虑估计误差、流动性和市场状态变化。",
+      "example": "同时持有很多同一产业的公司，对该产业共同冲击的防御仍然有限。",
+      "root": false,
+      "parent": "market",
+      "depth": 2
+    },
+    {
+      "id": "cost",
+      "title": "交易成本与滑点",
+      "domain": "market",
+      "kind": "概念",
+      "wiki": "Transaction_cost",
+      "summary": "信号的收益与最终能得到的收益之间有距离。",
+      "detail": "除了佣金和税费，还可能存在买卖价差、市场冲击、延迟与借券成本。频繁交易和容量较大的策略尤其需要谨慎估计。纸面收益应与扣除可实现成本后的结果分开查看。",
+      "example": "每次换仓损失很小，但高换手可能在一年中累积为显著的收益侵蚀。",
+      "root": false,
+      "parent": "execution",
+      "depth": 4
+    },
+    {
+      "id": "chan",
+      "title": "缠论",
+      "domain": "market",
+      "kind": "理论体系",
+      "wiki": "Technical_analysis",
+      "summary": "以分型、笔、线段和中枢组织价格走势。",
+      "detail": "缠论通常指“缠中说禅”提出的技术分析体系。学习时要先约定K线包含关系的处理、分型确认、笔和线段的定义，再讨论中枢、背驰与买卖点。不同实现可能存在分歧；它不是经普遍验证的获利定律。",
+      "example": "先用固定规则标注一段历史走势，再逐根推进K线，检查当时能否确认同样的结构。",
+      "root": false,
+      "parent": "market",
+      "depth": 2
+    },
+    {
+      "id": "fractal",
+      "title": "分型与笔",
+      "domain": "market",
+      "kind": "缠论结构",
+      "wiki": "Technical_analysis",
+      "summary": "把局部转折组织成更长的走势结构。",
+      "detail": "在缠论语境中，顶底分型描述处理包含关系后的局部高低点结构，“笔”连接符合规则的相邻顶底分型。新笔、旧笔等划分口径可能不同，确认也存在延迟。该语境的分型不等于严格数学意义的分形。",
+      "example": "做程序标注前，先把包含处理、最少K线数量和端点更新条件写成清晰规则。",
+      "root": false,
+      "parent": "chan-structure",
+      "depth": 4
+    },
+    {
+      "id": "zhongshu",
+      "title": "中枢与级别",
+      "domain": "market",
+      "kind": "缠论结构",
+      "wiki": "Technical_analysis",
+      "summary": "用重叠区间讨论走势的组织层次。",
+      "detail": "缠论中枢通常以至少三个连续次级别走势类型的重叠区间为基础，不能直接等同于任意三根K线的重叠。级别是递归走势结构的一部分，也不宜简单等同于图表周期。使用时需固定采用的原文定义和实现口径。",
+      "example": "把5分钟图的整理区直接叫作“5分钟中枢”前，要先说明次级别结构如何划分。",
+      "root": false,
+      "parent": "chan-structure",
+      "depth": 4
+    },
+    {
+      "id": "divergence",
+      "title": "背驰与确认",
+      "domain": "market",
+      "kind": "缠论结构",
+      "wiki": "Technical_analysis",
+      "summary": "在指定结构中比较走势力度。",
+      "detail": "缠论背驰涉及同方向走势在特定结构中的力度比较，与普通指标背离并非完全同义。MACD面积等常被用作辅助，但具体判断依赖走势划分。事后看见的转折，未必在当时已经可以确认。",
+      "example": "逐根播放行情，比一次性看完整张图更能揭示“信号确认”与实际成交之间的差距。",
+      "root": false,
+      "parent": "chan-signal",
+      "depth": 4
+    },
+    {
+      "id": "livermore",
+      "title": "杰西·利弗莫尔",
+      "domain": "market",
+      "kind": "人物",
+      "wiki": "Jesse_Livermore",
+      "summary": "围绕趋势、时机、纪律与投机心理的交易经验。",
+      "detail": "利弗莫尔是历史上的美国投机者。学习他的思想时，可关注耐心等待、顺势、控制损失与观察价格行为。埃德温·勒费弗的《股票作手回忆录》是以其经历为重要素材的文学化叙述，不应把每句话都当成利弗莫尔本人可验证的原话。",
+      "example": "阅读一个交易故事时，分开记录事实、作者叙述、自己的推论和可以实际检验的交易规则。",
+      "root": false,
+      "parent": "market",
+      "depth": 2
+    },
+    {
+      "id": "pivot",
+      "title": "关键点与突破",
+      "domain": "market",
+      "kind": "交易思想",
+      "wiki": "Breakout_(technical_analysis)",
+      "summary": "在重要价格区域观察市场如何回应。",
+      "detail": "“关键点”可以指前高、前低、整理区域或交易者预先界定的重要位置。突破规则必须说明价格阈值、确认时间、成交方式与退出条件。假突破、跳空和拥挤交易都会改变策略表现。",
+      "example": "如果要求收盘后确认突破，就不应在回测里假设提前按盘中最低价完成买入。",
+      "root": false,
+      "parent": "livermore",
+      "depth": 3
+    },
+    {
+      "id": "discipline",
+      "title": "交易纪律与复盘",
+      "domain": "market",
+      "kind": "方法",
+      "wiki": "Trading_strategy",
+      "summary": "把执行、情绪和策略结果分别记录。",
+      "detail": "纪律不是盲目坚持亏损规则，而是遵守预先写明的研究、执行与复核流程。交易日志可记录当时的信息、计划仓位、实际成交、情绪和偏离原因。评估过程质量时，应避免只根据一次盈亏下结论。",
+      "example": "一次按规则执行的亏损，与一次违背规则却侥幸盈利的交易，需要不同的复盘评价。",
+      "root": false,
+      "parent": "livermore",
+      "depth": 3
+    },
+    {
+      "id": "kelly",
+      "title": "凯利准则",
+      "domain": "market",
+      "kind": "模型",
+      "wiki": "Kelly_criterion",
+      "summary": "在严格假设下最大化长期对数财富增长。",
+      "detail": "凯利准则依赖收益概率及赔率的已知或可靠估计。简单二项情形的最优比例为f*=(bp−q)/b，b是净赔率，q=1−p。实际收益分布、估计误差和约束更复杂，直接全凯利可能承受很大回撤。",
+      "example": "胜率55%、盈亏比1:1的理想独立重复赌局，公式给出10%；这不能直接变成真实股票的仓位建议。",
+      "root": false,
+      "parent": "risk",
+      "depth": 4
+    },
+    {
+      "id": "efficiency",
+      "title": "有效市场假说",
+      "domain": "market",
+      "kind": "理论",
+      "wiki": "Efficient-market_hypothesis",
+      "summary": "讨论价格在何种程度上反映可获得信息。",
+      "detail": "弱式、半强式和强式有效性对信息集合有不同要求。它们是可讨论和检验的理论框架，不表示价格永远正确。检验异常收益时，也依赖所选风险模型，因此很难把市场效率与模型正确性完全分开。",
+      "example": "发现某指标与过去收益相关，还需要检验是否可交易、能否覆盖成本，以及样本外是否存在。",
+      "root": false,
+      "parent": "market",
+      "depth": 2
+    },
+    {
+      "id": "mind",
+      "title": "心理学",
+      "domain": "mind",
+      "kind": "领域",
+      "wiki": "Psychology",
+      "summary": "研究感知、记忆、情绪与行为，理解我们如何作出判断。",
+      "detail": "研究感知、记忆、情绪与行为，理解我们如何作出判断。 这里的节点是入门知识索引；从你关心的问题出发，阅读解释，再沿着标明理由的关系继续探索。",
+      "example": "选择一个节点，读完后写下一句自己的理解；也可以从学习路线开始。",
+      "root": true,
+      "parent": "universe",
+      "depth": 1
+    },
+    {
+      "id": "bias",
+      "title": "认知偏差",
+      "domain": "mind",
+      "kind": "概念",
+      "wiki": "Cognitive_bias",
+      "summary": "判断会以某些系统性方式偏离理想基准。",
+      "detail": "认知偏差是描述一类判断模式的总称。理解偏差可以帮助设计决策流程，但不能仅凭结果不好就给人贴标签。同一个心理机制在某些环境下可能高效，在另一些环境下却产生错误。",
+      "example": "先写下预测和理由，再查看结果，可以减少事后把自己记成“早就知道”的倾向。",
+      "root": false,
+      "parent": "cognition",
+      "depth": 3
+    },
+    {
+      "id": "loss",
+      "title": "损失厌恶",
+      "domain": "mind",
+      "kind": "概念",
+      "wiki": "Loss_aversion",
+      "summary": "相对参照点，损失可能比同额收益更有心理分量。",
+      "detail": "损失厌恶常与前景理论一起讨论，其表现会受情境、参照点与任务设计影响。它不是每个人在所有条件下都具有的固定倍数，也不等于风险厌恶。现实行为还受经验、激励和社会关系影响。",
+      "example": "持有亏损头寸迟迟不卖，可能与避免确认损失有关，也可能有税务或其他理性原因。",
+      "root": false,
+      "parent": "bias",
+      "depth": 4
+    },
+    {
+      "id": "prospect",
+      "title": "前景理论",
+      "domain": "mind",
+      "kind": "理论",
+      "wiki": "Prospect_theory",
+      "summary": "用价值函数和决策权重描述风险选择。",
+      "detail": "前景理论强调参照点依赖、对收益和损失的非对称评价以及概率权重。它是一种描述性模型，与“理性上应如何决策”的规范模型不同。应用前应明确研究对象、任务和模型版本。",
+      "example": "面对确定的小额收益与概率性的大额收益，人们的选择可能随着表述方式改变。",
+      "root": false,
+      "parent": "bias",
+      "depth": 4
+    },
+    {
+      "id": "confirmation",
+      "title": "确认偏误",
+      "domain": "mind",
+      "kind": "概念",
+      "wiki": "Confirmation_bias",
+      "summary": "更容易寻找、解释或记住支持已有信念的信息。",
+      "detail": "确认偏误不仅出现在阅读新闻时，也可能出现在实验设计、数据筛选和人际判断中。实用的改进是预先规定什么证据会使自己改变观点，并主动寻找最强的反例。",
+      "example": "看好一家公司时，除了搜利好，也列出三项可能推翻自己投资逻辑的证据。",
+      "root": false,
+      "parent": "bias",
+      "depth": 4
+    },
+    {
+      "id": "dual",
+      "title": "双加工理论",
+      "domain": "mind",
+      "kind": "理论",
+      "wiki": "Dual_process_theory",
+      "summary": "区分较快、自动的加工与较慢、需要控制的加工。",
+      "detail": "“系统1/系统2”是常见的教学表达，并不意味着大脑内存在两块独立开关。快速直觉有时来自专业经验，慢思考也可能为错误结论辩护。判断可靠性取决于反馈、训练和所处环境。",
+      "example": "熟练棋手可能瞬间识别局面；在缺少稳定反馈的市场里，类似的直觉未必同样可靠。",
+      "root": false,
+      "parent": "cognition",
+      "depth": 3
+    },
+    {
+      "id": "conditioning",
+      "title": "学习与条件作用",
+      "domain": "mind",
+      "kind": "机制",
+      "wiki": "Operant_conditioning",
+      "summary": "行为会受到后果和情境线索的塑造。",
+      "detail": "经典条件作用关注刺激之间的关联，操作性条件作用关注行为及其后果。强化提高行为再发生的概率，惩罚降低它；“负强化”是移除厌恶刺激，不是惩罚的同义词。",
+      "example": "完成专注工作后得到即时反馈，可能强化继续工作的行为；反馈的时机也有影响。",
+      "root": false,
+      "parent": "learning",
+      "depth": 3
+    },
+    {
+      "id": "memory",
+      "title": "记忆与提取练习",
+      "domain": "mind",
+      "kind": "方法",
+      "wiki": "Testing_effect",
+      "summary": "主动回忆常能改善之后的记忆表现。",
+      "detail": "记忆涉及编码、储存与提取。阅读时的熟悉感不等于能独立回忆或迁移使用。提取练习强调在看答案前尝试回忆，并结合反馈纠正错误；效果取决于材料与练习设计。",
+      "example": "关掉笔记后，用自己的话解释贝叶斯公式，再对照原文找遗漏。",
+      "root": false,
+      "parent": "learning",
+      "depth": 3
+    },
+    {
+      "id": "spacing",
+      "title": "间隔学习",
+      "domain": "mind",
+      "kind": "方法",
+      "wiki": "Spacing_effect",
+      "summary": "把复习分散到多个时间点。",
+      "detail": "间隔效应指在许多学习任务中，分散练习比等总时长的集中练习更利于长期保持。合适间隔依赖目标保留时长、材料难度和已有掌握程度，并不存在对所有人通用的唯一时间表。",
+      "example": "今天学完一个概念，隔天和下周分别尝试回忆，而不是当晚反复读十遍。",
+      "root": false,
+      "parent": "memory",
+      "depth": 4
+    },
+    {
+      "id": "metacognition",
+      "title": "元认知",
+      "domain": "mind",
+      "kind": "概念",
+      "wiki": "Metacognition",
+      "summary": "观察和调整自己的认知过程。",
+      "detail": "元认知包含对自己知道什么的监控，以及对学习策略的控制。主观自信与实际正确率可能分离。用预测、测试和反馈建立校准，比笼统地提醒自己“更自信”或“别自信”更有信息。",
+      "example": "给十次预测分别写下概率，再检查声称80%把握的事件是否大致八成发生。",
+      "root": false,
+      "parent": "learning",
+      "depth": 3
+    },
+    {
+      "id": "emotion",
+      "title": "情绪调节",
+      "domain": "mind",
+      "kind": "方法",
+      "wiki": "Emotional_self-regulation",
+      "summary": "识别情绪，并选择适合情境的应对方式。",
+      "detail": "情绪调节可以发生在情境选择、注意分配、解释事件和行为反应等环节。重新评价、表达、休息与寻求支持各有适用场景。知识学习可以帮助理解体验，但不能据此给自己或他人作临床诊断。",
+      "example": "冲动交易前先暂停，记录触发事件、身体感受和想采取的行动，再重新判断。",
+      "root": false,
+      "parent": "social-emotion",
+      "depth": 3
+    },
+    {
+      "id": "herd",
+      "title": "从众与社会影响",
+      "domain": "mind",
+      "kind": "机制",
+      "wiki": "Conformity",
+      "summary": "他人的判断会改变我们的选择。",
+      "detail": "从众可能源于希望被接纳的规范性影响，也可能源于把他人行为当作信息。在不确定情境中依赖群体有时有效，但群体成员信息高度相关时，人数并不等于独立证据数量。",
+      "example": "一百篇引用同一条未经核实消息的帖子，仍然可能只对应一个信息源。",
+      "root": false,
+      "parent": "social-emotion",
+      "depth": 3
+    },
+    {
+      "id": "sunk",
+      "title": "沉没成本效应",
+      "domain": "mind",
+      "kind": "概念",
+      "wiki": "Sunk_cost",
+      "summary": "已经付出的成本可能影响后续决策。",
+      "detail": "不可收回的既有投入通常不应单独决定下一步，决策应关注未来的边际成本与收益。但放弃项目也可能涉及信誉、合同或转移成本，不能把所有坚持都简单归为偏差。",
+      "example": "因为一本书已经读了200页就必须读完，与判断剩下的内容是否值得时间，是两个问题。",
+      "root": false,
+      "parent": "bias",
+      "depth": 4
+    },
+    {
+      "id": "attention",
+      "title": "注意与有限资源",
+      "domain": "mind",
+      "kind": "概念",
+      "wiki": "Attention",
+      "summary": "我们只能选择性处理一部分信息。",
+      "detail": "注意包含选择、维持和切换等过程。频繁切换任务往往带来额外成本，但其大小依赖任务复杂性与熟练程度。设计学习环境时，可以减少无关刺激，并把需要深度理解的工作留在完整时间段。",
+      "example": "读一段证明时不断查看行情，会增加重新定位推理链条的负担。",
+      "root": false,
+      "parent": "cognition",
+      "depth": 3
+    },
+    {
+      "id": "bayesbrain",
+      "title": "预测加工",
+      "domain": "mind",
+      "kind": "理论",
+      "wiki": "Predictive_coding",
+      "summary": "用预测与误差更新理解感知的一类框架。",
+      "detail": "预测加工把大脑描述为利用内部模型预测输入，并据误差调整模型的系统。这是一组研究框架和具体模型，不是已经解释全部心理现象的统一定论。“贝叶斯大脑”也不等于人每次判断都遵守贝叶斯公式。",
+      "example": "在模糊图像中先看到自己期待的形状，提示知觉既受输入影响，也受先验背景影响。",
+      "root": false,
+      "parent": "cognition",
+      "depth": 3
+    },
+    {
+      "id": "growth",
+      "title": "成长型思维",
+      "domain": "mind",
+      "kind": "研究主题",
+      "wiki": "Mindset",
+      "summary": "把能力视为可以通过学习发展的一种信念。",
+      "detail": "成长型思维研究关注能力信念与应对挑战之间的关系。干预的平均效果及其适用条件存在讨论，不能用一句“努力就行”替代教学、资源和环境支持。可行动的反馈应指出策略和改进方向。",
+      "example": "解题出错后，检查是概念、步骤还是练习类型出了问题，再选择新的学习方法。",
+      "root": false,
+      "parent": "learning",
+      "depth": 3
+    },
+    {
+      "id": "philosophy",
+      "title": "哲学",
+      "domain": "philosophy",
+      "kind": "领域",
+      "wiki": "Philosophy",
+      "summary": "追问知识、存在、价值与意义，也追问问题本身。",
+      "detail": "追问知识、存在、价值与意义，也追问问题本身。 这里的节点是入门知识索引；从你关心的问题出发，阅读解释，再沿着标明理由的关系继续探索。",
+      "example": "选择一个节点，读完后写下一句自己的理解；也可以从学习路线开始。",
+      "root": true,
+      "parent": "universe",
+      "depth": 1
+    },
+    {
+      "id": "epistemology",
+      "title": "认识论",
+      "domain": "philosophy",
+      "kind": "分支",
+      "wiki": "Epistemology",
+      "summary": "我们凭什么说自己知道？",
+      "detail": "认识论讨论知识、信念、证据与正当性。一个结论恰好为真，不一定说明得到它的过程可靠。“有根据的真信念”也受到盖梯尔问题等挑战。学习它可以帮助区分事实、推断、确信程度和证据来源。",
+      "example": "一位分析者凭幸运猜中行情，和凭可靠方法作出有校准的预测，并不是同一种认知成就。",
+      "root": false,
+      "parent": "knowledge-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "ontology",
+      "title": "本体论",
+      "domain": "philosophy",
+      "kind": "分支",
+      "wiki": "Ontology",
+      "summary": "什么存在，存在者如何分类？",
+      "detail": "本体论研究对象、性质、关系和存在方式。它既涉及实体与过程等传统问题，也影响知识组织中的分类选择。一个图谱采用的类别是组织信息的方案，未必对应世界唯一正确的划分。",
+      "example": "“风险”是客观存在的性质、主观感受，还是对未来可能性的数学描述？不同用法需要分开。",
+      "root": false,
+      "parent": "being-mind",
+      "depth": 3
+    },
+    {
+      "id": "logic",
+      "title": "逻辑与论证",
+      "domain": "philosophy",
+      "kind": "方法",
+      "wiki": "Logic",
+      "summary": "检查结论是否由前提以适当方式得到。",
+      "detail": "演绎有效性关注：如果前提都真，结论是否必然真。一个形式有效的论证仍可能使用错误前提。归纳和溯因推理则具有不同的评价方式。先重建对方最强的论证，再判断它，往往比寻找话术更有用。",
+      "example": "“所有恒星都发光，太阳是恒星，所以太阳发光”与“发光的都是恒星”是不同的推理。",
+      "root": false,
+      "parent": "knowledge-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "falsify",
+      "title": "可证伪性",
+      "domain": "philosophy",
+      "kind": "科学哲学",
+      "wiki": "Falsifiability",
+      "summary": "理论应说明哪些观测会与它冲突。",
+      "detail": "波普尔把可证伪性视为区分科学与非科学的重要标准。真实检验通常还涉及测量、辅助假设和统计误差；一次不符结果不总能独立判定核心理论错误。它是重要讨论起点，而非科学实践的全部规则。",
+      "example": "若一个交易说法能把上涨、下跌和横盘都解释为自己正确，就需要追问它承担了什么预测风险。",
+      "root": false,
+      "parent": "knowledge-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "induction",
+      "title": "归纳问题",
+      "domain": "philosophy",
+      "kind": "问题",
+      "wiki": "Problem_of_induction",
+      "summary": "过去的重复为什么能支持未来？",
+      "detail": "休谟提出，对未来类似过去的信念难以仅靠演绎证明。经验科学仍可运用归纳、统计与模型，但需要承认结论的可修正性。认识到归纳问题不等于所有预测都同样没有根据。",
+      "example": "某策略连续三年有效，能提供证据，但不能逻辑保证第四年仍然有效。",
+      "root": false,
+      "parent": "knowledge-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "causality",
+      "title": "因果与相关",
+      "domain": "philosophy",
+      "kind": "概念",
+      "wiki": "Causality",
+      "summary": "一起变化，不足以证明一方造成另一方。",
+      "detail": "共同原因、选择偏差与反向因果都可能产生相关。识别因果关系通常需要研究设计、干预或明确假设下的模型。观察性数据可以提供线索，但从相关走到因果必须补充理由。",
+      "example": "冰淇淋销量与溺水事件可能共同受气温影响，不能据此推断吃冰淇淋导致溺水。",
+      "root": false,
+      "parent": "knowledge-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "stoic",
+      "title": "斯多葛哲学",
+      "domain": "philosophy",
+      "kind": "学派",
+      "wiki": "Stoicism",
+      "summary": "以德性与理性判断理解如何生活。",
+      "detail": "斯多葛传统强调德性、判断和行动，并区分自身可支配的部分与外部条件。它不等于压抑情绪或对社会问题无动于衷。爱比克泰德、塞涅卡与马可·奥勒留等人的写作各有背景。",
+      "example": "面对市场波动，可以控制自己的仓位和流程，却不能命令价格按计划运行。",
+      "root": false,
+      "parent": "life-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "existential",
+      "title": "存在主义",
+      "domain": "philosophy",
+      "kind": "传统",
+      "wiki": "Existentialism",
+      "summary": "关注具体个体的处境、选择与责任。",
+      "detail": "存在主义涵盖多位立场不尽相同的思想家，常涉及自由、焦虑、真实性和意义。萨特关于存在与本质的命题不能替代整个传统，也不表示人能摆脱身体、社会和历史的所有限制。",
+      "example": "当没有现成答案替你决定职业方向时，如何在现实约束中选择并承担后果？",
+      "root": false,
+      "parent": "life-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "ethics",
+      "title": "伦理学",
+      "domain": "philosophy",
+      "kind": "分支",
+      "wiki": "Ethics",
+      "summary": "讨论什么值得追求，以及我们应如何行动。",
+      "detail": "伦理学包括规范伦理、元伦理和应用伦理。行为后果、规则义务、品格和关系都可能是评价视角。现实问题中，先澄清谁受到影响、哪些事实尚未知以及价值之间的冲突，比立即贴流派标签更有效。",
+      "example": "一个预测模型提高平均效率，却给少数人带来明显不公平的后果，应该如何评价？",
+      "root": false,
+      "parent": "life-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "utility",
+      "title": "功利主义",
+      "domain": "philosophy",
+      "kind": "伦理理论",
+      "wiki": "Utilitarianism",
+      "summary": "以福祉等后果的总体改善评价行动。",
+      "detail": "功利主义内部对福祉、规则、行为和聚合方式存在不同主张。其优势是重视所有受影响者的后果，难点包括衡量、比较、权利与分配。它不等于只要多数满意就可以任意伤害少数。",
+      "example": "比较公共政策时，除了总收益，还要说明如何估计伤害、如何分配，以及不确定性有多大。",
+      "root": false,
+      "parent": "ethics",
+      "depth": 4
+    },
+    {
+      "id": "kant",
+      "title": "康德与义务论",
+      "domain": "philosophy",
+      "kind": "人物与理论",
+      "wiki": "Immanuel_Kant",
+      "summary": "行动的准则与对人的尊重具有道德地位。",
+      "detail": "康德伦理学强调理性、自律与义务，定言令式有多种表述，包括可普遍化的准则与把人作为目的。康德的认识论又涉及经验的条件，两部分不能简单混为一句口号。",
+      "example": "即使欺骗能带来短期收益，也应问：我是否愿意所有人都以同一准则行事？",
+      "root": false,
+      "parent": "ethics",
+      "depth": 4
+    },
+    {
+      "id": "virtue",
+      "title": "德性伦理",
+      "domain": "philosophy",
+      "kind": "伦理传统",
+      "wiki": "Virtue_ethics",
+      "summary": "关注一个人如何形成良好的品格与实践智慧。",
+      "detail": "德性伦理强调品格、习惯、情境判断以及好的生活。亚里士多德传统的“中道”不是机械取平均，而是结合对象与处境判断恰当反应。规则和后果仍可成为实践智慧所考虑的内容。",
+      "example": "勇敢既不是完全不害怕，也不是一味冒险，而是在适当理由和情境下行动。",
+      "root": false,
+      "parent": "ethics",
+      "depth": 4
+    },
+    {
+      "id": "tao",
+      "title": "道家与《庄子》",
+      "domain": "philosophy",
+      "kind": "思想传统",
+      "wiki": "Zhuangzi_(book)",
+      "summary": "通过变化、视角与语言反思固定判断。",
+      "detail": "《庄子》借寓言讨论物化、是非、知识和生命体验。道家内部有不同文本与解释传统。“无为”不能简单等同于什么都不做；具体含义应结合篇章与注释阅读。",
+      "example": "用另一个生命或处境的视角看同一件事，会怎样改变自己习以为常的分类？",
+      "root": false,
+      "parent": "life-philosophy",
+      "depth": 3
+    },
+    {
+      "id": "freewill",
+      "title": "自由意志",
+      "domain": "philosophy",
+      "kind": "问题",
+      "wiki": "Free_will",
+      "summary": "行动的自由与因果条件如何相容？",
+      "detail": "相容论认为某些形式的自由可以与决定论共存，不相容论则否认这种共存。争论涉及行动控制、责任与“本可以做别的”的含义。量子随机性本身并不会自动赋予主体可负责的自由。",
+      "example": "即使习惯和环境影响了选择，我们仍需讨论哪些条件使一个人可以对行动负责。",
+      "root": false,
+      "parent": "being-mind",
+      "depth": 3
+    },
+    {
+      "id": "conscious",
+      "title": "意识与身心问题",
+      "domain": "philosophy",
+      "kind": "问题",
+      "wiki": "Hard_problem_of_consciousness",
+      "summary": "主观体验如何与物理过程联系？",
+      "detail": "意识研究跨越哲学与神经科学。描述感知、报告和注意的机制，与解释为何存在主观感受，可能是不同层次的问题。物理主义、二元论和其他方案各有论证，尚不存在各方一致接受的完整答案。",
+      "example": "精确记录看到红色时的神经活动，是否已经回答“红色体验是什么”？",
+      "root": false,
+      "parent": "being-mind",
+      "depth": 3
+    },
+    {
+      "id": "cosmos",
+      "title": "宇宙天文学",
+      "domain": "cosmos",
+      "kind": "领域",
+      "wiki": "Astronomy",
+      "summary": "从太阳系到宇宙尺度，用观测检验我们对时空的想象。",
+      "detail": "从太阳系到宇宙尺度，用观测检验我们对时空的想象。 这里的节点是入门知识索引；从你关心的问题出发，阅读解释，再沿着标明理由的关系继续探索。",
+      "example": "选择一个节点，读完后写下一句自己的理解；也可以从学习路线开始。",
+      "root": true,
+      "parent": "universe",
+      "depth": 1
+    },
+    {
+      "id": "scale",
+      "title": "宇宙尺度与光年",
+      "domain": "cosmos",
+      "kind": "概念",
+      "wiki": "Light-year",
+      "summary": "光年是距离单位，也是理解观测过去的入口。",
+      "detail": "一光年是光在真空中一年传播的距离，约9.46万亿千米。看见遥远天体意味着接收到它过去发出的光。宇宙膨胀时，光行时间、共动距离与光度距离不同，不能都用简单的距离除以光速替代。",
+      "example": "看见约4光年外恒星的光，接收的是大约4年前发出的信号；宇宙学距离还需要模型。",
+      "root": false,
+      "parent": "cosmology",
+      "depth": 3
+    },
+    {
+      "id": "solar",
+      "title": "太阳系",
+      "domain": "cosmos",
+      "kind": "系统",
+      "wiki": "Solar_System",
+      "summary": "恒星、行星与小天体组成我们最近的天文环境。",
+      "detail": "太阳占据太阳系绝大部分质量，行星、卫星、小行星和彗星在引力作用下演化。太阳系的研究结合轨道动力学、光谱和探测器数据。示意图通常不能同时真实呈现天体大小与轨道距离比例。",
+      "example": "若把太阳缩小到一颗球，地球的尺寸与它到太阳的间隔会落在非常不同的尺度上。",
+      "root": false,
+      "parent": "galaxy",
+      "depth": 3
+    },
+    {
+      "id": "stars",
+      "title": "恒星演化",
+      "domain": "cosmos",
+      "kind": "过程",
+      "wiki": "Stellar_evolution",
+      "summary": "恒星的质量深刻影响它的生命轨迹。",
+      "detail": "恒星在引力与压力的平衡中演化，核聚变改变内部成分与能量来源。不同初始质量、金属丰度及伴星环境，会通向白矮星、中子星或黑洞等不同结局。太阳不会以核心坍缩超新星的方式结束。",
+      "example": "主序星越大质量，通常消耗燃料越快，因此寿命不一定越长。",
+      "root": false,
+      "parent": "celestial",
+      "depth": 3
+    },
+    {
+      "id": "galaxy",
+      "title": "银河系与星系",
+      "domain": "cosmos",
+      "kind": "结构",
+      "wiki": "Galaxy",
+      "summary": "恒星、气体、尘埃和暗物质构成大尺度系统。",
+      "detail": "星系可呈旋涡、椭圆或不规则形态，并通过形成恒星、吸积和并合演化。银河系是包含太阳系的棒旋星系。夜空中的恒星大多属于银河系，其他星系则是更遥远的独立系统。",
+      "example": "仙女座星系不是银河系里的一团星云，而是另一个庞大的恒星系统。",
+      "root": false,
+      "parent": "cosmos",
+      "depth": 2
+    },
+    {
+      "id": "blackhole",
+      "title": "黑洞与事件视界",
+      "domain": "cosmos",
+      "kind": "天体",
+      "wiki": "Black_hole",
+      "summary": "存在一片连光也不能逃向远方的区域。",
+      "detail": "在广义相对论中，黑洞由其时空的因果结构刻画，事件视界是一种全局边界。吸积盘和周围热气体可以非常明亮，但不是光从视界内部逃出来。黑洞阴影的图像也不是直接拍到中心奇点。",
+      "example": "远离黑洞时，绕它运行的轨道由质量等参数决定；黑洞不会无条件把整个星系吸进去。",
+      "root": false,
+      "parent": "celestial",
+      "depth": 3
+    },
+    {
+      "id": "relcos",
+      "title": "时空与引力",
+      "domain": "cosmos",
+      "kind": "理论",
+      "wiki": "General_relativity",
+      "summary": "引力可以理解为时空几何的表现。",
+      "detail": "广义相对论把物质能量与时空曲率联系起来，自由落体沿相应的测地线运动。它在许多观测中得到检验，也预言黑洞和引力波。极端尺度下如何与量子理论统一，仍是开放研究问题。",
+      "example": "大质量天体附近的光线路径偏折，会使背景星系出现弧形或多个像。",
+      "root": false,
+      "parent": "celestial",
+      "depth": 3
+    },
+    {
+      "id": "expansion",
+      "title": "宇宙膨胀与红移",
+      "domain": "cosmos",
+      "kind": "过程",
+      "wiki": "Expansion_of_the_universe",
+      "summary": "大尺度空间的演化会拉长传播中的光波。",
+      "detail": "在均匀各向同性的宇宙模型中，尺度因子随时间变化，宇宙学红移与其比值相关。星系的局部运动也会产生多普勒红移，不能把所有红移都当成宇宙膨胀。被引力束缚的系统不会按同样方式随整体膨胀。",
+      "example": "遥远星系的谱线整体偏向较长波长，可以成为研究宇宙演化的观测证据。",
+      "root": false,
+      "parent": "cosmology",
+      "depth": 3
+    },
+    {
+      "id": "bigbang",
+      "title": "热大爆炸模型",
+      "domain": "cosmos",
+      "kind": "模型",
+      "wiki": "Big_Bang",
+      "summary": "描述宇宙曾处于更热、更密状态的演化图景。",
+      "detail": "宇宙膨胀、轻元素丰度和宇宙微波背景是热大爆炸模型的重要证据。模型描述早期热宇宙的演化，不等于已经解释了绝对起源、为何存在宇宙或最初时刻的全部物理。",
+      "example": "“大爆炸”不是在一个预先存在的空房间里，由中心向四周炸开的普通爆炸。",
+      "root": false,
+      "parent": "cosmology",
+      "depth": 3
+    },
+    {
+      "id": "cmb",
+      "title": "宇宙微波背景",
+      "domain": "cosmos",
+      "kind": "观测",
+      "wiki": "Cosmic_microwave_background",
+      "summary": "早期宇宙留下的近乎各向同性的微波辐射。",
+      "detail": "宇宙微波背景与早期宇宙变得足够透明、光子开始自由传播有关。其温度微小起伏保留早期扰动的信息，研究者用统计模型比较观测与宇宙学参数。把图上的颜色理解为实际肉眼颜色会产生误会。",
+      "example": "微波背景图的不同颜色通常放大了微小温差，帮助我们看见早期结构的种子。",
+      "root": false,
+      "parent": "cosmology",
+      "depth": 3
+    },
+    {
+      "id": "darkmatter",
+      "title": "暗物质",
+      "domain": "cosmos",
+      "kind": "研究对象",
+      "wiki": "Dark_matter",
+      "summary": "由引力证据推断、微观身份尚待确定的成分。",
+      "detail": "星系旋转、引力透镜和宇宙大尺度结构等观测支持额外引力来源的存在。标准宇宙学使用暗物质成分统一解释多种证据，但其粒子身份尚未确认，也存在替代引力模型等研究方向。",
+      "example": "看不见不是唯一理由；关键是一个解释能否同时符合多类独立观测。",
+      "root": false,
+      "parent": "cosmology",
+      "depth": 3
+    },
+    {
+      "id": "darkenergy",
+      "title": "暗能量",
+      "domain": "cosmos",
+      "kind": "模型成分",
+      "wiki": "Dark_energy",
+      "summary": "用于描述宇宙加速膨胀的一类成分或机制。",
+      "detail": "遥远超新星以及其他宇宙学观测共同约束膨胀历史。宇宙常数是最简单的暗能量模型之一，但“暗能量”并不表示已知道它的微观本质。不同观测与模型假设下的参数解释需要谨慎比较。",
+      "example": "知道宇宙膨胀在加速，与知道造成这种加速的根本机制，是不同层次的结论。",
+      "root": false,
+      "parent": "cosmology",
+      "depth": 3
+    },
+    {
+      "id": "gw",
+      "title": "引力波",
+      "domain": "cosmos",
+      "kind": "现象",
+      "wiki": "Gravitational_wave",
+      "summary": "加速的质量分布可以产生传播的时空扰动。",
+      "detail": "广义相对论预言引力波，双黑洞或双中子星并合能产生可测信号。激光干涉仪比较极微小的相对臂长变化，并用多台仪器及统计方法排除噪声。引力波提供了与电磁观测互补的天文窗口。",
+      "example": "一次双中子星并合可以同时产生引力波和电磁信号，使不同信使相互校验。",
+      "root": false,
+      "parent": "celestial",
+      "depth": 3
+    },
+    {
+      "id": "exoplanet",
+      "title": "系外行星与宜居性",
+      "domain": "cosmos",
+      "kind": "研究对象",
+      "wiki": "Exoplanet",
+      "summary": "太阳系外的行星能以多种间接方法被发现。",
+      "detail": "凌日法测量恒星亮度的周期性下降，视向速度法测量恒星谱线因运动产生的变化。处于宜居带通常只说明在某些条件下可能存在表面液态水，不等于已经发现生命或适合人类居住。",
+      "example": "一次亮度下降也可能来自双星或仪器效应，因此需要后续观测与排除替代解释。",
+      "root": false,
+      "parent": "celestial",
+      "depth": 3
+    },
+    {
+      "id": "spectra",
+      "title": "光谱与天文观测",
+      "domain": "cosmos",
+      "kind": "方法",
+      "wiki": "Astronomical_spectroscopy",
+      "summary": "把光分解，读取成分、温度与运动的线索。",
+      "detail": "不同原子与分子的能级会产生特征谱线。研究者结合辐射理论、仪器校准和模型推断天体性质。观测受到信噪比、分辨率、选择效应与模型简并影响，漂亮图像不是天文证据的全部。",
+      "example": "同一组元素谱线的位置整体偏移，可用于估计视向运动或宇宙学红移。",
+      "root": false,
+      "parent": "celestial",
+      "depth": 3
+    },
+    {
+      "id": "fermi",
+      "title": "费米悖论",
+      "domain": "cosmos",
+      "kind": "问题",
+      "wiki": "Fermi_paradox",
+      "summary": "如果生命可能广泛存在，为什么尚未发现明确证据？",
+      "detail": "费米悖论将对文明数量和扩张可能性的某些估计，与目前缺乏公认外星文明证据并置。其力度依赖生命出现概率、技术寿命、探测方式和搜索范围等未知量。各种“大过滤器”叙事属于假说。",
+      "example": "在有限时间和波段里没有收到信号，不能直接推出整个宇宙没有其他生命。",
+      "root": false,
+      "parent": "celestial",
+      "depth": 3
+    },
+    {
+      "id": "math",
+      "title": "数学",
+      "domain": "math",
+      "kind": "领域",
+      "wiki": "Mathematics",
+      "summary": "从概率、变化到抽象结构，建立可推理、可计算的语言。",
+      "detail": "从概率、变化到抽象结构，建立可推理、可计算的语言。",
+      "example": "选择一个节点，读完后写下一句自己的理解；也可以从学习路线开始。",
+      "root": true,
+      "parent": "universe",
+      "depth": 1
+    },
+    {
+      "id": "probability",
+      "title": "概率与条件概率",
+      "domain": "math",
+      "kind": "概念",
+      "wiki": "Conditional_probability",
+      "summary": "在给定信息后，重新描述不确定性。",
+      "detail": "条件概率P(A∣B)=P(A∩B)/P(B)，要求P(B)>0。它与P(B∣A)通常不同。概率模型需要说明样本空间与事件，现实频率估计还受数据量和采样方式影响。",
+      "example": "某检测阳性后患病的概率，还取决于基础患病率，不能只看检测灵敏度。",
+      "root": false,
+      "parent": "probability-statistics",
+      "depth": 3
+    },
+    {
+      "id": "bayes",
+      "title": "贝叶斯定理",
+      "domain": "math",
+      "kind": "定理",
+      "wiki": "Bayes%27_theorem",
+      "summary": "让先验信念与新证据以明确规则结合。",
+      "detail": "贝叶斯定理写为P(H∣E)=P(E∣H)P(H)/P(E)。先验不是任意想象的许可证，似然也必须符合数据过程。实际应用需检查模型假设、先验敏感性及是否重复使用了同一份证据。",
+      "example": "若某病患病率1%、灵敏度99%、假阳性率5%，阳性后患病概率约为16.7%，不是99%。",
+      "root": false,
+      "parent": "probability",
+      "depth": 4
+    },
+    {
+      "id": "expectation",
+      "title": "期望与方差",
+      "domain": "math",
+      "kind": "概念",
+      "wiki": "Expected_value",
+      "summary": "同时描述平均结果与结果的分散程度。",
+      "detail": "离散变量的期望是Σpᵢxᵢ，方差是E[(X−E[X])²]。相同期望的方案可能具有很不同的风险，某些厚尾分布甚至不存在有限期望或方差。长期平均也不等于一次试验必然得到的结果。",
+      "example": "一个各半概率赚10元或亏10元的游戏，期望为0，但单次结果从来不是0。",
+      "root": false,
+      "parent": "probability-statistics",
+      "depth": 3
+    },
+    {
+      "id": "statistics",
+      "title": "统计推断",
+      "domain": "math",
+      "kind": "方法",
+      "wiki": "Statistical_inference",
+      "summary": "从有限样本对总体或模型作带不确定性的判断。",
+      "detail": "估计、区间和假设检验都依赖采样或数据生成假设。p值是在特定零假设等条件下观察到同样或更极端数据的概率，不是“零假设为真的概率”。应一起考虑效应大小、区间、设计和多重检验。",
+      "example": "测试一百个没有真实作用的指标，也可能偶然得到少数很小的p值。",
+      "root": false,
+      "parent": "probability-statistics",
+      "depth": 3
+    },
+    {
+      "id": "lln",
+      "title": "大数定律",
+      "domain": "math",
+      "kind": "定理",
+      "wiki": "Law_of_large_numbers",
+      "summary": "在适当条件下，样本平均趋近总体期望。",
+      "detail": "大数定律有不同版本，通常要求独立性或其他适当条件，并对可积性作要求。它描述样本规模增加时的平均行为，不表示输几次后下一次就更容易赢，也不保证短期损失可承受。",
+      "example": "公平硬币连续出现五次反面，并不会让第六次正面的概率因此超过二分之一。",
+      "root": false,
+      "parent": "probability-statistics",
+      "depth": 3
+    },
+    {
+      "id": "stochastic",
+      "title": "随机过程",
+      "domain": "math",
+      "kind": "数学对象",
+      "wiki": "Stochastic_process",
+      "summary": "描述随时间变化的一族随机变量。",
+      "detail": "随机游走、马尔可夫链与布朗运动提供不同的随机演化模型。使用时必须区分模型假设与真实数据的性质。金融价格可能有跳跃、波动聚集和非平稳性，简单随机过程往往只是近似。",
+      "example": "抛硬币决定每步向左或向右形成随机游走，但现实价格的步长和概率未必固定。",
+      "root": false,
+      "parent": "systems-math",
+      "depth": 3
+    },
+    {
+      "id": "calculus",
+      "title": "微积分",
+      "domain": "math",
+      "kind": "分支",
+      "wiki": "Calculus",
+      "summary": "研究局部变化与整体累积。",
+      "detail": "导数刻画函数在一点附近的变化率，积分描述累积量。微积分基本定理在相应条件下把两者联系起来。学习时既要掌握运算，也要理解连续、可导和收敛等适用条件。",
+      "example": "速度随时间的积分给出位移；速度曲线下面积的正负代表运动方向。",
+      "root": false,
+      "parent": "math-tools",
+      "depth": 3
+    },
+    {
+      "id": "linear",
+      "title": "线性代数",
+      "domain": "math",
+      "kind": "分支",
+      "wiki": "Linear_algebra",
+      "summary": "用向量、矩阵与线性变换组织多维问题。",
+      "detail": "线性代数研究向量空间、线性映射和相关结构。矩阵是线性映射在选定基底下的表示。特征向量、正交分解和最小二乘为物理、统计与机器学习提供共同语言。",
+      "example": "把多个资产的收益写成向量，用协方差矩阵描述它们共同变化的方式。",
+      "root": false,
+      "parent": "math-tools",
+      "depth": 3
+    },
+    {
+      "id": "optimization",
+      "title": "优化与约束",
+      "domain": "math",
+      "kind": "方法",
+      "wiki": "Mathematical_optimization",
+      "summary": "在明确目标与约束下寻找较好的解。",
+      "detail": "优化问题包括目标函数、可行域和求解方法。局部最优未必是全局最优，目标函数也未必表达真正关心的价值。现实应用需要检查解对参数误差的敏感性，以及约束是否符合可执行条件。",
+      "example": "组合收益最大化若没有风险、仓位和流动性约束，可能产生无法承受的集中配置。",
+      "root": false,
+      "parent": "math-tools",
+      "depth": 3
+    },
+    {
+      "id": "information",
+      "title": "信息论与熵",
+      "domain": "math",
+      "kind": "概念",
+      "wiki": "Information_theory",
+      "summary": "用概率分布量化不确定性与编码需求。",
+      "detail": "香农熵H(X)=−Σp(x)log p(x)，对数底决定单位。它衡量给定分布的不确定性，不直接等于语义、智慧或知识价值。互信息描述统计依赖，但自身不能确定因果方向。",
+      "example": "一枚公平硬币每次有1比特熵；几乎总出正面的硬币，单次结果的不确定性更低。",
+      "root": false,
+      "parent": "systems-math",
+      "depth": 3
+    },
+    {
+      "id": "entropy",
+      "title": "热力学与熵",
+      "domain": "physics",
+      "kind": "物理概念",
+      "wiki": "Entropy",
+      "summary": "在热力学约束下理解能量分散与过程方向。",
+      "detail": "热力学第二定律表述孤立系统总熵不会自发减少，局部熵可以通过与环境交换而降低。统计物理把熵与微观状态数或概率联系起来。“熵等于混乱”只是有限类比，需要明确系统边界。",
+      "example": "冰箱让内部降温并不违反第二定律，因为它消耗电能，向环境排放更多热量。",
+      "root": false,
+      "parent": "classical-physics",
+      "depth": 3
+    },
+    {
+      "id": "newton",
+      "title": "牛顿力学",
+      "domain": "physics",
+      "kind": "理论",
+      "wiki": "Newton%27s_laws_of_motion",
+      "summary": "用力与运动的关系描述宏观物体。",
+      "detail": "在惯性参考系中，牛顿第二定律用动量变化率联系合外力；质量不变时常写作F=ma。它在低速、弱引力和适当尺度下非常成功，接近光速或量子尺度时需要更一般的理论。",
+      "example": "匀速直线运动不要求持续存在合外力；需要力的是改变速度。",
+      "root": false,
+      "parent": "classical-physics",
+      "depth": 3
+    },
+    {
+      "id": "electro",
+      "title": "电磁学与光",
+      "domain": "physics",
+      "kind": "理论",
+      "wiki": "Electromagnetism",
+      "summary": "电与磁共同构成光及许多日常现象的基础。",
+      "detail": "麦克斯韦方程组统一描述经典电磁场，预言电磁波。在真空中，电磁波速度由真空介电常数与磁导率关系给出。微观物质与光的相互作用，在许多情形下还需要量子理论。",
+      "example": "无线电、可见光和X射线都是电磁辐射，主要区别之一是频率范围。",
+      "root": false,
+      "parent": "classical-physics",
+      "depth": 3
+    },
+    {
+      "id": "relativity",
+      "title": "狭义相对论",
+      "domain": "physics",
+      "kind": "理论",
+      "wiki": "Special_relativity",
+      "summary": "不同惯性系中的时空测量服从一致的变换。",
+      "detail": "狭义相对论以物理定律在惯性系中的一致性和真空光速不变等原则建立。时间膨胀、长度收缩与同时性的相对性彼此关联。它不意味着所有观点都同样正确，也不是主观主义的物理证明。",
+      "example": "两位相对运动的观察者可以对事件间时间间隔给出不同数值，却遵守同样的时空关系。",
+      "root": false,
+      "parent": "modern-physics",
+      "depth": 3
+    },
+    {
+      "id": "quantum",
+      "title": "量子力学",
+      "domain": "physics",
+      "kind": "理论",
+      "wiki": "Quantum_mechanics",
+      "summary": "用量子态与概率规则描述微观测量。",
+      "detail": "量子理论用态、算符与动力学描述系统，并给出测量结果的概率。叠加和纠缠有精确数学含义，不能直接推成“意识随意创造现实”。理论的实验成功与不同诠释之间的讨论需要分开。",
+      "example": "电子的干涉分布不能简单解释成一颗经典小球只是藏在某条我们不知道的路径上。",
+      "root": false,
+      "parent": "modern-physics",
+      "depth": 3
+    },
+    {
+      "id": "uncertainty",
+      "title": "不确定性原理",
+      "domain": "physics",
+      "kind": "原理",
+      "wiki": "Uncertainty_principle",
+      "summary": "某些观测量在同一量子态中的分散存在下界。",
+      "detail": "位置与动量的标准差满足ΔxΔp≥ℏ/2。这不是单纯因为仪器不够精密，也不等于任何知识都不可能精确。它反映相关算符不对易以及量子态的数学结构。",
+      "example": "把粒子态限制在更窄的空间范围内，通常会使其动量分布更宽。",
+      "root": false,
+      "parent": "quantum",
+      "depth": 4
+    },
+    {
+      "id": "chaos",
+      "title": "混沌与非线性",
+      "domain": "math",
+      "kind": "概念",
+      "wiki": "Chaos_theory",
+      "summary": "确定性系统也可能对初始条件极其敏感。",
+      "detail": "混沌系统由确定规则演化，却可能让微小初值误差随时间放大，限制长期预测。非线性不一定混沌，混沌也不等于毫无结构的随机。能否预测取决于系统性质、观测精度和预测时距。",
+      "example": "天气动力学遵循物理规律，但这不意味着可以无限精确预测很久以后的具体天气。",
+      "root": false,
+      "parent": "systems-math",
+      "depth": 3
+    },
+    {
+      "id": "symmetry",
+      "title": "对称性与守恒",
+      "domain": "physics",
+      "kind": "概念",
+      "wiki": "Noether%27s_theorem",
+      "summary": "在特定条件下，连续对称性对应守恒量。",
+      "detail": "诺特定理在相应变分原理与条件下，将连续对称性与守恒流联系起来。时间平移对称与能量守恒、空间平移对称与动量守恒是常见例子。应用时需要说明系统与边界条件。",
+      "example": "一个实验在今天和明天遵守同样动力学形式，与能量守恒之间有深刻联系。",
+      "root": false,
+      "parent": "classical-physics",
+      "depth": 3
+    },
+    {
+      "id": "model",
+      "title": "模型与近似",
+      "domain": "math",
+      "kind": "方法",
+      "wiki": "Scientific_modelling",
+      "summary": "主动舍弃部分细节，换取可理解和可检验的描述。",
+      "detail": "模型可以是方程、算法、图示或实验系统。好模型不必复制现实全部细节，但要说明目的、假设、误差和失效边界。同一对象可能需要多个互补模型。图谱中的连线也只是明确关系的表达。",
+      "example": "把行星当作质点适合许多轨道计算，但不适合研究它的地形和内部结构。",
+      "root": false,
+      "parent": "math-tools",
+      "depth": 3
+    },
+    {
+      "id": "complex",
+      "title": "复杂系统与涌现",
+      "domain": "math",
+      "kind": "概念",
+      "wiki": "Complex_system",
+      "summary": "整体行为可能来自许多个体之间的相互作用。",
+      "detail": "复杂系统研究相互作用、反馈、网络与适应。涌现描述集体层面的模式如何从局部规则中出现，并不是不可解释的神秘力量。跨领域类比有启发性，但必须检验机制与尺度是否真正对应。",
+      "example": "交通拥堵可能在没有事故的情况下，由驾驶者之间的反馈形成；市场也有反馈，但机制并不相同。",
+      "root": false,
+      "parent": "systems-math",
+      "depth": 3
+    },
+    {
+      "id": "physics",
+      "title": "物理",
+      "domain": "physics",
+      "kind": "领域",
+      "wiki": "Physics",
+      "summary": "从力、热、光到时空和量子，用可检验的规律理解自然。",
+      "detail": "从力、热、光到时空和量子，用可检验的规律理解自然。",
+      "example": "选择经典物理或现代物理，再逐步深入具体理论。",
+      "root": true,
+      "parent": "universe",
+      "depth": 1
+    },
+    {
+      "id": "universe",
+      "title": "知识宇宙",
+      "domain": "universe",
+      "parent": null,
+      "kind": "宇宙",
+      "summary": "把大框架、分支体系与具体知识组织成可以进入的立体宇宙。",
+      "detail": "这里的包含层级是一种学习组织方式；跨系统连线表示各节点注明的知识联系。空间位置和轨道是导航示意，不是天体比例或物理模拟。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 0
+    },
+    {
+      "id": "strategy-research",
+      "title": "策略研究",
+      "domain": "market",
+      "parent": "quant",
+      "kind": "知识框架",
+      "summary": "从研究假设、因子到历史检验，形成可复现的研究链条。",
+      "detail": "先明确可观测信息和假设，再设计信号、测试方案及评估口径。这个框架把量化交易的方法与具体检验步骤组织在一起。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 3
+    },
+    {
+      "id": "execution",
+      "title": "交易执行",
+      "domain": "market",
+      "parent": "quant",
+      "kind": "知识框架",
+      "summary": "从信号走向真实可实现的成交。",
+      "detail": "成交时点、费用、价差、滑点和流动性共同决定一个信号最终如何转变为组合收益。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 3
+    },
+    {
+      "id": "chan-structure",
+      "title": "走势结构",
+      "domain": "market",
+      "parent": "chan",
+      "kind": "知识框架",
+      "summary": "以统一口径理解分型、笔与中枢。",
+      "detail": "先说明定义和确认条件，再逐根K线构建结构，避免用事后完整走势代替当时信息。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 3
+    },
+    {
+      "id": "chan-signal",
+      "title": "力度与信号",
+      "domain": "market",
+      "parent": "chan",
+      "kind": "知识框架",
+      "summary": "在明确结构中讨论背驰及其确认。",
+      "detail": "在明确结构中讨论背驰及其确认。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 3
+    },
+    {
+      "id": "cognition",
+      "title": "认知与判断",
+      "domain": "mind",
+      "parent": "mind",
+      "kind": "知识框架",
+      "summary": "研究感知、注意和思考如何形成判断。",
+      "detail": "研究感知、注意和思考如何形成判断。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "learning",
+      "title": "学习与记忆",
+      "domain": "mind",
+      "parent": "mind",
+      "kind": "知识框架",
+      "summary": "把知识编码、提取和反馈组织成学习过程。",
+      "detail": "把知识编码、提取和反馈组织成学习过程。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "social-emotion",
+      "title": "情绪与社会",
+      "domain": "mind",
+      "parent": "mind",
+      "kind": "知识框架",
+      "summary": "理解情绪调节及他人如何影响行动。",
+      "detail": "理解情绪调节及他人如何影响行动。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "knowledge-philosophy",
+      "title": "知识与科学",
+      "domain": "philosophy",
+      "parent": "philosophy",
+      "kind": "知识框架",
+      "summary": "讨论证据、推理、归纳与科学解释。",
+      "detail": "讨论证据、推理、归纳与科学解释。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "life-philosophy",
+      "title": "人生与伦理",
+      "domain": "philosophy",
+      "parent": "philosophy",
+      "kind": "知识框架",
+      "summary": "在行动、品格、选择与生活意义之间建立联系。",
+      "detail": "在行动、品格、选择与生活意义之间建立联系。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "being-mind",
+      "title": "存在与心灵",
+      "domain": "philosophy",
+      "parent": "philosophy",
+      "kind": "知识框架",
+      "summary": "追问存在、意识与自由意志。",
+      "detail": "追问存在、意识与自由意志。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "cosmology",
+      "title": "宇宙学",
+      "domain": "cosmos",
+      "parent": "cosmos",
+      "kind": "知识框架",
+      "summary": "从宇宙的整体结构出发研究起源与演化。",
+      "detail": "从宇宙的整体结构出发研究起源与演化。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "celestial",
+      "title": "天体与观测",
+      "domain": "cosmos",
+      "parent": "cosmos",
+      "kind": "知识框架",
+      "summary": "从天体性质和观测方法理解遥远世界。",
+      "detail": "从天体性质和观测方法理解遥远世界。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "probability-statistics",
+      "title": "概率与统计",
+      "domain": "math",
+      "parent": "math",
+      "kind": "知识框架",
+      "summary": "用概率描述不确定性，用统计从样本学习。",
+      "detail": "用概率描述不确定性，用统计从样本学习。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "math-tools",
+      "title": "分析与代数",
+      "domain": "math",
+      "parent": "math",
+      "kind": "知识框架",
+      "summary": "用微积分、向量和矩阵描述变化与结构。",
+      "detail": "用微积分、向量和矩阵描述变化与结构。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "systems-math",
+      "title": "系统与信息",
+      "domain": "math",
+      "parent": "math",
+      "kind": "知识框架",
+      "summary": "研究随机、信息、反馈及非线性。",
+      "detail": "研究随机、信息、反馈及非线性。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "classical-physics",
+      "title": "经典物理",
+      "domain": "physics",
+      "parent": "physics",
+      "kind": "知识框架",
+      "summary": "在适当尺度下研究运动、场与热现象。",
+      "detail": "在适当尺度下研究运动、场与热现象。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "modern-physics",
+      "title": "现代物理",
+      "domain": "physics",
+      "parent": "physics",
+      "kind": "知识框架",
+      "summary": "探索时空与微观世界的基本结构。",
+      "detail": "探索时空与微观世界的基本结构。",
+      "example": "",
+      "wiki": "",
+      "root": false,
+      "depth": 2
+    },
+    {
+      "id": "earth",
+      "title": "地球",
+      "domain": "cosmos",
+      "parent": "solar",
+      "kind": "天体",
+      "summary": "太阳系中的岩质行星，也是目前已知拥有生命的世界。",
+      "detail": "地球绕太阳公转，同时自转。它拥有大气、液态水和持续变化的地质与生态系统。在这幅知识图中，地球位于太阳系内；空间布局和大小为导航示意，不按真实比例。",
+      "example": "",
+      "wiki": "Earth",
+      "root": false,
+      "depth": 4
+    },
+    {
+      "id": "moon",
+      "title": "月球",
+      "domain": "cosmos",
+      "parent": "earth",
+      "kind": "天体",
+      "summary": "地球的天然卫星，连接轨道、潮汐和天体演化问题。",
+      "detail": "月球绕地球运行，对地球潮汐有重要影响。月相来自日地月相对几何关系，月食则要求特定对齐条件。本图轨道仅表示包含关系。",
+      "example": "",
+      "wiki": "Moon",
+      "root": false,
+      "depth": 5
+    },
+    {
+      "id": "sun",
+      "title": "太阳",
+      "domain": "cosmos",
+      "parent": "solar",
+      "kind": "天体",
+      "summary": "以核聚变为主要能量来源的恒星，是太阳系的中心天体。",
+      "detail": "太阳的引力主导太阳系的大部分轨道结构。它的辐射连接恒星物理、电磁学与地球气候等知识。",
+      "example": "",
+      "wiki": "Sun",
+      "root": false,
+      "depth": 4
+    },
+    {
+      "id": "mars",
+      "title": "火星",
+      "domain": "cosmos",
+      "parent": "solar",
+      "kind": "天体",
+      "summary": "太阳系中的岩质行星，是行星演化研究的重要对象。",
+      "detail": "火星表面的地貌和矿物记录让研究者讨论它过去的水活动与环境变化。发现适合研究生命的条件，并不等于已经发现生命。",
+      "example": "",
+      "wiki": "Mars",
+      "root": false,
+      "depth": 4
+    }
+  ],
+  "links": [
+    {
+      "source": "universe",
+      "target": "market",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识宇宙 → 股市与交易"
+    },
+    {
+      "source": "market",
+      "target": "quant",
+      "kind": "hierarchy",
+      "reason": "包含层级：股市与交易 → 量化交易"
+    },
+    {
+      "source": "strategy-research",
+      "target": "backtest",
+      "kind": "hierarchy",
+      "reason": "包含层级：策略研究 → 回测与样本外检验"
+    },
+    {
+      "source": "strategy-research",
+      "target": "overfit",
+      "kind": "hierarchy",
+      "reason": "包含层级：策略研究 → 过拟合与数据泄漏"
+    },
+    {
+      "source": "strategy-research",
+      "target": "factor",
+      "kind": "hierarchy",
+      "reason": "包含层级：策略研究 → 因子投资"
+    },
+    {
+      "source": "factor",
+      "target": "momentum",
+      "kind": "hierarchy",
+      "reason": "包含层级：因子投资 → 动量与趋势跟随"
+    },
+    {
+      "source": "factor",
+      "target": "reversion",
+      "kind": "hierarchy",
+      "reason": "包含层级：因子投资 → 均值回归"
+    },
+    {
+      "source": "portfolio",
+      "target": "risk",
+      "kind": "hierarchy",
+      "reason": "包含层级：分散化与资产组合 → 风险与仓位管理"
+    },
+    {
+      "source": "risk",
+      "target": "drawdown",
+      "kind": "hierarchy",
+      "reason": "包含层级：风险与仓位管理 → 最大回撤"
+    },
+    {
+      "source": "strategy-research",
+      "target": "sharpe",
+      "kind": "hierarchy",
+      "reason": "包含层级：策略研究 → 夏普比率"
+    },
+    {
+      "source": "market",
+      "target": "portfolio",
+      "kind": "hierarchy",
+      "reason": "包含层级：股市与交易 → 分散化与资产组合"
+    },
+    {
+      "source": "execution",
+      "target": "cost",
+      "kind": "hierarchy",
+      "reason": "包含层级：交易执行 → 交易成本与滑点"
+    },
+    {
+      "source": "market",
+      "target": "chan",
+      "kind": "hierarchy",
+      "reason": "包含层级：股市与交易 → 缠论"
+    },
+    {
+      "source": "chan-structure",
+      "target": "fractal",
+      "kind": "hierarchy",
+      "reason": "包含层级：走势结构 → 分型与笔"
+    },
+    {
+      "source": "chan-structure",
+      "target": "zhongshu",
+      "kind": "hierarchy",
+      "reason": "包含层级：走势结构 → 中枢与级别"
+    },
+    {
+      "source": "chan-signal",
+      "target": "divergence",
+      "kind": "hierarchy",
+      "reason": "包含层级：力度与信号 → 背驰与确认"
+    },
+    {
+      "source": "market",
+      "target": "livermore",
+      "kind": "hierarchy",
+      "reason": "包含层级：股市与交易 → 杰西·利弗莫尔"
+    },
+    {
+      "source": "livermore",
+      "target": "pivot",
+      "kind": "hierarchy",
+      "reason": "包含层级：杰西·利弗莫尔 → 关键点与突破"
+    },
+    {
+      "source": "livermore",
+      "target": "discipline",
+      "kind": "hierarchy",
+      "reason": "包含层级：杰西·利弗莫尔 → 交易纪律与复盘"
+    },
+    {
+      "source": "risk",
+      "target": "kelly",
+      "kind": "hierarchy",
+      "reason": "包含层级：风险与仓位管理 → 凯利准则"
+    },
+    {
+      "source": "market",
+      "target": "efficiency",
+      "kind": "hierarchy",
+      "reason": "包含层级：股市与交易 → 有效市场假说"
+    },
+    {
+      "source": "universe",
+      "target": "mind",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识宇宙 → 心理学"
+    },
+    {
+      "source": "cognition",
+      "target": "bias",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知与判断 → 认知偏差"
+    },
+    {
+      "source": "bias",
+      "target": "loss",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知偏差 → 损失厌恶"
+    },
+    {
+      "source": "bias",
+      "target": "prospect",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知偏差 → 前景理论"
+    },
+    {
+      "source": "bias",
+      "target": "confirmation",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知偏差 → 确认偏误"
+    },
+    {
+      "source": "cognition",
+      "target": "dual",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知与判断 → 双加工理论"
+    },
+    {
+      "source": "learning",
+      "target": "conditioning",
+      "kind": "hierarchy",
+      "reason": "包含层级：学习与记忆 → 学习与条件作用"
+    },
+    {
+      "source": "learning",
+      "target": "memory",
+      "kind": "hierarchy",
+      "reason": "包含层级：学习与记忆 → 记忆与提取练习"
+    },
+    {
+      "source": "memory",
+      "target": "spacing",
+      "kind": "hierarchy",
+      "reason": "包含层级：记忆与提取练习 → 间隔学习"
+    },
+    {
+      "source": "learning",
+      "target": "metacognition",
+      "kind": "hierarchy",
+      "reason": "包含层级：学习与记忆 → 元认知"
+    },
+    {
+      "source": "social-emotion",
+      "target": "emotion",
+      "kind": "hierarchy",
+      "reason": "包含层级：情绪与社会 → 情绪调节"
+    },
+    {
+      "source": "social-emotion",
+      "target": "herd",
+      "kind": "hierarchy",
+      "reason": "包含层级：情绪与社会 → 从众与社会影响"
+    },
+    {
+      "source": "bias",
+      "target": "sunk",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知偏差 → 沉没成本效应"
+    },
+    {
+      "source": "cognition",
+      "target": "attention",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知与判断 → 注意与有限资源"
+    },
+    {
+      "source": "cognition",
+      "target": "bayesbrain",
+      "kind": "hierarchy",
+      "reason": "包含层级：认知与判断 → 预测加工"
+    },
+    {
+      "source": "learning",
+      "target": "growth",
+      "kind": "hierarchy",
+      "reason": "包含层级：学习与记忆 → 成长型思维"
+    },
+    {
+      "source": "universe",
+      "target": "philosophy",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识宇宙 → 哲学"
+    },
+    {
+      "source": "knowledge-philosophy",
+      "target": "epistemology",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识与科学 → 认识论"
+    },
+    {
+      "source": "being-mind",
+      "target": "ontology",
+      "kind": "hierarchy",
+      "reason": "包含层级：存在与心灵 → 本体论"
+    },
+    {
+      "source": "knowledge-philosophy",
+      "target": "logic",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识与科学 → 逻辑与论证"
+    },
+    {
+      "source": "knowledge-philosophy",
+      "target": "falsify",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识与科学 → 可证伪性"
+    },
+    {
+      "source": "knowledge-philosophy",
+      "target": "induction",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识与科学 → 归纳问题"
+    },
+    {
+      "source": "knowledge-philosophy",
+      "target": "causality",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识与科学 → 因果与相关"
+    },
+    {
+      "source": "life-philosophy",
+      "target": "stoic",
+      "kind": "hierarchy",
+      "reason": "包含层级：人生与伦理 → 斯多葛哲学"
+    },
+    {
+      "source": "life-philosophy",
+      "target": "existential",
+      "kind": "hierarchy",
+      "reason": "包含层级：人生与伦理 → 存在主义"
+    },
+    {
+      "source": "life-philosophy",
+      "target": "ethics",
+      "kind": "hierarchy",
+      "reason": "包含层级：人生与伦理 → 伦理学"
+    },
+    {
+      "source": "ethics",
+      "target": "utility",
+      "kind": "hierarchy",
+      "reason": "包含层级：伦理学 → 功利主义"
+    },
+    {
+      "source": "ethics",
+      "target": "kant",
+      "kind": "hierarchy",
+      "reason": "包含层级：伦理学 → 康德与义务论"
+    },
+    {
+      "source": "ethics",
+      "target": "virtue",
+      "kind": "hierarchy",
+      "reason": "包含层级：伦理学 → 德性伦理"
+    },
+    {
+      "source": "life-philosophy",
+      "target": "tao",
+      "kind": "hierarchy",
+      "reason": "包含层级：人生与伦理 → 道家与《庄子》"
+    },
+    {
+      "source": "being-mind",
+      "target": "freewill",
+      "kind": "hierarchy",
+      "reason": "包含层级：存在与心灵 → 自由意志"
+    },
+    {
+      "source": "being-mind",
+      "target": "conscious",
+      "kind": "hierarchy",
+      "reason": "包含层级：存在与心灵 → 意识与身心问题"
+    },
+    {
+      "source": "universe",
+      "target": "cosmos",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识宇宙 → 宇宙天文学"
+    },
+    {
+      "source": "cosmology",
+      "target": "scale",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙学 → 宇宙尺度与光年"
+    },
+    {
+      "source": "galaxy",
+      "target": "solar",
+      "kind": "hierarchy",
+      "reason": "包含层级：银河系与星系 → 太阳系"
+    },
+    {
+      "source": "celestial",
+      "target": "stars",
+      "kind": "hierarchy",
+      "reason": "包含层级：天体与观测 → 恒星演化"
+    },
+    {
+      "source": "cosmos",
+      "target": "galaxy",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙天文学 → 银河系与星系"
+    },
+    {
+      "source": "celestial",
+      "target": "blackhole",
+      "kind": "hierarchy",
+      "reason": "包含层级：天体与观测 → 黑洞与事件视界"
+    },
+    {
+      "source": "celestial",
+      "target": "relcos",
+      "kind": "hierarchy",
+      "reason": "包含层级：天体与观测 → 时空与引力"
+    },
+    {
+      "source": "cosmology",
+      "target": "expansion",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙学 → 宇宙膨胀与红移"
+    },
+    {
+      "source": "cosmology",
+      "target": "bigbang",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙学 → 热大爆炸模型"
+    },
+    {
+      "source": "cosmology",
+      "target": "cmb",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙学 → 宇宙微波背景"
+    },
+    {
+      "source": "cosmology",
+      "target": "darkmatter",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙学 → 暗物质"
+    },
+    {
+      "source": "cosmology",
+      "target": "darkenergy",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙学 → 暗能量"
+    },
+    {
+      "source": "celestial",
+      "target": "gw",
+      "kind": "hierarchy",
+      "reason": "包含层级：天体与观测 → 引力波"
+    },
+    {
+      "source": "celestial",
+      "target": "exoplanet",
+      "kind": "hierarchy",
+      "reason": "包含层级：天体与观测 → 系外行星与宜居性"
+    },
+    {
+      "source": "celestial",
+      "target": "spectra",
+      "kind": "hierarchy",
+      "reason": "包含层级：天体与观测 → 光谱与天文观测"
+    },
+    {
+      "source": "celestial",
+      "target": "fermi",
+      "kind": "hierarchy",
+      "reason": "包含层级：天体与观测 → 费米悖论"
+    },
+    {
+      "source": "universe",
+      "target": "math",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识宇宙 → 数学"
+    },
+    {
+      "source": "probability-statistics",
+      "target": "probability",
+      "kind": "hierarchy",
+      "reason": "包含层级：概率与统计 → 概率与条件概率"
+    },
+    {
+      "source": "probability",
+      "target": "bayes",
+      "kind": "hierarchy",
+      "reason": "包含层级：概率与条件概率 → 贝叶斯定理"
+    },
+    {
+      "source": "probability-statistics",
+      "target": "expectation",
+      "kind": "hierarchy",
+      "reason": "包含层级：概率与统计 → 期望与方差"
+    },
+    {
+      "source": "probability-statistics",
+      "target": "statistics",
+      "kind": "hierarchy",
+      "reason": "包含层级：概率与统计 → 统计推断"
+    },
+    {
+      "source": "probability-statistics",
+      "target": "lln",
+      "kind": "hierarchy",
+      "reason": "包含层级：概率与统计 → 大数定律"
+    },
+    {
+      "source": "systems-math",
+      "target": "stochastic",
+      "kind": "hierarchy",
+      "reason": "包含层级：系统与信息 → 随机过程"
+    },
+    {
+      "source": "math-tools",
+      "target": "calculus",
+      "kind": "hierarchy",
+      "reason": "包含层级：分析与代数 → 微积分"
+    },
+    {
+      "source": "math-tools",
+      "target": "linear",
+      "kind": "hierarchy",
+      "reason": "包含层级：分析与代数 → 线性代数"
+    },
+    {
+      "source": "math-tools",
+      "target": "optimization",
+      "kind": "hierarchy",
+      "reason": "包含层级：分析与代数 → 优化与约束"
+    },
+    {
+      "source": "systems-math",
+      "target": "information",
+      "kind": "hierarchy",
+      "reason": "包含层级：系统与信息 → 信息论与熵"
+    },
+    {
+      "source": "classical-physics",
+      "target": "entropy",
+      "kind": "hierarchy",
+      "reason": "包含层级：经典物理 → 热力学与熵"
+    },
+    {
+      "source": "classical-physics",
+      "target": "newton",
+      "kind": "hierarchy",
+      "reason": "包含层级：经典物理 → 牛顿力学"
+    },
+    {
+      "source": "classical-physics",
+      "target": "electro",
+      "kind": "hierarchy",
+      "reason": "包含层级：经典物理 → 电磁学与光"
+    },
+    {
+      "source": "modern-physics",
+      "target": "relativity",
+      "kind": "hierarchy",
+      "reason": "包含层级：现代物理 → 狭义相对论"
+    },
+    {
+      "source": "modern-physics",
+      "target": "quantum",
+      "kind": "hierarchy",
+      "reason": "包含层级：现代物理 → 量子力学"
+    },
+    {
+      "source": "quantum",
+      "target": "uncertainty",
+      "kind": "hierarchy",
+      "reason": "包含层级：量子力学 → 不确定性原理"
+    },
+    {
+      "source": "systems-math",
+      "target": "chaos",
+      "kind": "hierarchy",
+      "reason": "包含层级：系统与信息 → 混沌与非线性"
+    },
+    {
+      "source": "classical-physics",
+      "target": "symmetry",
+      "kind": "hierarchy",
+      "reason": "包含层级：经典物理 → 对称性与守恒"
+    },
+    {
+      "source": "math-tools",
+      "target": "model",
+      "kind": "hierarchy",
+      "reason": "包含层级：分析与代数 → 模型与近似"
+    },
+    {
+      "source": "systems-math",
+      "target": "complex",
+      "kind": "hierarchy",
+      "reason": "包含层级：系统与信息 → 复杂系统与涌现"
+    },
+    {
+      "source": "universe",
+      "target": "physics",
+      "kind": "hierarchy",
+      "reason": "包含层级：知识宇宙 → 物理"
+    },
+    {
+      "source": "quant",
+      "target": "strategy-research",
+      "kind": "hierarchy",
+      "reason": "包含层级：量化交易 → 策略研究"
+    },
+    {
+      "source": "quant",
+      "target": "execution",
+      "kind": "hierarchy",
+      "reason": "包含层级：量化交易 → 交易执行"
+    },
+    {
+      "source": "chan",
+      "target": "chan-structure",
+      "kind": "hierarchy",
+      "reason": "包含层级：缠论 → 走势结构"
+    },
+    {
+      "source": "chan",
+      "target": "chan-signal",
+      "kind": "hierarchy",
+      "reason": "包含层级：缠论 → 力度与信号"
+    },
+    {
+      "source": "mind",
+      "target": "cognition",
+      "kind": "hierarchy",
+      "reason": "包含层级：心理学 → 认知与判断"
+    },
+    {
+      "source": "mind",
+      "target": "learning",
+      "kind": "hierarchy",
+      "reason": "包含层级：心理学 → 学习与记忆"
+    },
+    {
+      "source": "mind",
+      "target": "social-emotion",
+      "kind": "hierarchy",
+      "reason": "包含层级：心理学 → 情绪与社会"
+    },
+    {
+      "source": "philosophy",
+      "target": "knowledge-philosophy",
+      "kind": "hierarchy",
+      "reason": "包含层级：哲学 → 知识与科学"
+    },
+    {
+      "source": "philosophy",
+      "target": "life-philosophy",
+      "kind": "hierarchy",
+      "reason": "包含层级：哲学 → 人生与伦理"
+    },
+    {
+      "source": "philosophy",
+      "target": "being-mind",
+      "kind": "hierarchy",
+      "reason": "包含层级：哲学 → 存在与心灵"
+    },
+    {
+      "source": "cosmos",
+      "target": "cosmology",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙天文学 → 宇宙学"
+    },
+    {
+      "source": "cosmos",
+      "target": "celestial",
+      "kind": "hierarchy",
+      "reason": "包含层级：宇宙天文学 → 天体与观测"
+    },
+    {
+      "source": "math",
+      "target": "probability-statistics",
+      "kind": "hierarchy",
+      "reason": "包含层级：数学 → 概率与统计"
+    },
+    {
+      "source": "math",
+      "target": "math-tools",
+      "kind": "hierarchy",
+      "reason": "包含层级：数学 → 分析与代数"
+    },
+    {
+      "source": "math",
+      "target": "systems-math",
+      "kind": "hierarchy",
+      "reason": "包含层级：数学 → 系统与信息"
+    },
+    {
+      "source": "physics",
+      "target": "classical-physics",
+      "kind": "hierarchy",
+      "reason": "包含层级：物理 → 经典物理"
+    },
+    {
+      "source": "physics",
+      "target": "modern-physics",
+      "kind": "hierarchy",
+      "reason": "包含层级：物理 → 现代物理"
+    },
+    {
+      "source": "solar",
+      "target": "earth",
+      "kind": "hierarchy",
+      "reason": "包含层级：太阳系 → 地球"
+    },
+    {
+      "source": "earth",
+      "target": "moon",
+      "kind": "hierarchy",
+      "reason": "包含层级：地球 → 月球"
+    },
+    {
+      "source": "solar",
+      "target": "sun",
+      "kind": "hierarchy",
+      "reason": "包含层级：太阳系 → 太阳"
+    },
+    {
+      "source": "solar",
+      "target": "mars",
+      "kind": "hierarchy",
+      "reason": "包含层级：太阳系 → 火星"
+    },
+    {
+      "source": "math",
+      "target": "entropy",
+      "reason": "领域归属：数学与物理",
+      "kind": "relation"
+    },
+    {
+      "source": "math",
+      "target": "newton",
+      "reason": "领域归属：数学与物理",
+      "kind": "relation"
+    },
+    {
+      "source": "math",
+      "target": "electro",
+      "reason": "领域归属：数学与物理",
+      "kind": "relation"
+    },
+    {
+      "source": "math",
+      "target": "relativity",
+      "reason": "领域归属：数学与物理",
+      "kind": "relation"
+    },
+    {
+      "source": "math",
+      "target": "quantum",
+      "reason": "领域归属：数学与物理",
+      "kind": "relation"
+    },
+    {
+      "source": "math",
+      "target": "uncertainty",
+      "reason": "领域归属：数学与物理",
+      "kind": "relation"
+    },
+    {
+      "source": "math",
+      "target": "symmetry",
+      "reason": "领域归属：数学与物理",
+      "kind": "relation"
+    },
+    {
+      "source": "quant",
+      "target": "backtest",
+      "reason": "量化规则需要通过可复现的回测检验",
+      "kind": "relation"
+    },
+    {
+      "source": "backtest",
+      "target": "overfit",
+      "reason": "过拟合和泄漏会让回测失去解释力",
+      "kind": "relation"
+    },
+    {
+      "source": "quant",
+      "target": "factor",
+      "reason": "因子是构建和检验量化假设的一种方式",
+      "kind": "relation"
+    },
+    {
+      "source": "factor",
+      "target": "momentum",
+      "reason": "动量是常见的因子研究主题",
+      "kind": "relation"
+    },
+    {
+      "source": "momentum",
+      "target": "reversion",
+      "reason": "两者对不同时间尺度的价格延续有不同假设",
+      "kind": "relation"
+    },
+    {
+      "source": "risk",
+      "target": "drawdown",
+      "reason": "回撤描述已发生的路径损失",
+      "kind": "relation"
+    },
+    {
+      "source": "risk",
+      "target": "portfolio",
+      "reason": "组合层面需要管理共同风险暴露",
+      "kind": "relation"
+    },
+    {
+      "source": "backtest",
+      "target": "cost",
+      "reason": "可实现的回测必须考虑成本",
+      "kind": "relation"
+    },
+    {
+      "source": "sharpe",
+      "target": "drawdown",
+      "reason": "两项指标描述不同的风险侧面",
+      "kind": "relation"
+    },
+    {
+      "source": "chan",
+      "target": "fractal",
+      "reason": "分型与笔是理解缠论结构的基础",
+      "kind": "relation"
+    },
+    {
+      "source": "fractal",
+      "target": "zhongshu",
+      "reason": "局部结构与更高层走势划分需要统一口径",
+      "kind": "relation"
+    },
+    {
+      "source": "zhongshu",
+      "target": "divergence",
+      "reason": "背驰判断依赖具体的走势结构",
+      "kind": "relation"
+    },
+    {
+      "source": "chan",
+      "target": "divergence",
+      "reason": "背驰属于缠论中的力度分析",
+      "kind": "relation"
+    },
+    {
+      "source": "chan",
+      "target": "backtest",
+      "reason": "把结构变为规则后才能逐时点检验",
+      "kind": "relation"
+    },
+    {
+      "source": "livermore",
+      "target": "pivot",
+      "reason": "关键位置与时机是相关交易思想的主题",
+      "kind": "relation"
+    },
+    {
+      "source": "livermore",
+      "target": "discipline",
+      "reason": "耐心和执行是学习其交易思想的重要切面",
+      "kind": "relation"
+    },
+    {
+      "source": "pivot",
+      "target": "momentum",
+      "reason": "突破可被操作化为趋势类信号",
+      "kind": "relation"
+    },
+    {
+      "source": "kelly",
+      "target": "risk",
+      "reason": "最优增长模型不等于可承受的实际风险",
+      "kind": "relation"
+    },
+    {
+      "source": "efficiency",
+      "target": "factor",
+      "reason": "因子研究需要区分风险补偿与定价异常",
+      "kind": "relation"
+    },
+    {
+      "source": "efficiency",
+      "target": "backtest",
+      "reason": "异常收益需要可交易性及样本外检验",
+      "kind": "relation"
+    },
+    {
+      "source": "bias",
+      "target": "confirmation",
+      "reason": "确认偏误是一类判断偏差",
+      "kind": "relation"
+    },
+    {
+      "source": "bias",
+      "target": "loss",
+      "reason": "损失厌恶影响相对参照点的价值判断",
+      "kind": "relation"
+    },
+    {
+      "source": "loss",
+      "target": "prospect",
+      "reason": "损失厌恶常在前景理论框架下研究",
+      "kind": "relation"
+    },
+    {
+      "source": "dual",
+      "target": "attention",
+      "reason": "受控制的加工常依赖有限注意资源",
+      "kind": "relation"
+    },
+    {
+      "source": "conditioning",
+      "target": "discipline",
+      "reason": "反馈与后果会塑造执行习惯",
+      "kind": "relation"
+    },
+    {
+      "source": "memory",
+      "target": "spacing",
+      "reason": "间隔安排与提取练习可以组合使用",
+      "kind": "relation"
+    },
+    {
+      "source": "memory",
+      "target": "metacognition",
+      "reason": "测试能帮助校准对掌握程度的判断",
+      "kind": "relation"
+    },
+    {
+      "source": "emotion",
+      "target": "discipline",
+      "reason": "情绪记录帮助识别偏离交易计划的原因",
+      "kind": "relation"
+    },
+    {
+      "source": "herd",
+      "target": "confirmation",
+      "reason": "群体意见可能强化已有信念",
+      "kind": "relation"
+    },
+    {
+      "source": "sunk",
+      "target": "loss",
+      "reason": "放弃既有投入可能被体验为确认损失",
+      "kind": "relation"
+    },
+    {
+      "source": "growth",
+      "target": "metacognition",
+      "reason": "策略调整需要识别自己的理解缺口",
+      "kind": "relation"
+    },
+    {
+      "source": "bayesbrain",
+      "target": "dual",
+      "reason": "两者都研究认知加工，但不是同一种理论",
+      "kind": "relation"
+    },
+    {
+      "source": "epistemology",
+      "target": "logic",
+      "reason": "知识论证需要说明推理形式与前提",
+      "kind": "relation"
+    },
+    {
+      "source": "epistemology",
+      "target": "falsify",
+      "reason": "科学知识的评价涉及理论如何面对反例",
+      "kind": "relation"
+    },
+    {
+      "source": "falsify",
+      "target": "induction",
+      "reason": "可证伪性回应了经验支持的某些难题",
+      "kind": "relation"
+    },
+    {
+      "source": "causality",
+      "target": "induction",
+      "reason": "从观察推到一般机制需要额外论证",
+      "kind": "relation"
+    },
+    {
+      "source": "stoic",
+      "target": "virtue",
+      "reason": "斯多葛传统把德性置于良好生活的核心",
+      "kind": "relation"
+    },
+    {
+      "source": "ethics",
+      "target": "utility",
+      "reason": "功利主义是一种规范伦理理论",
+      "kind": "relation"
+    },
+    {
+      "source": "ethics",
+      "target": "kant",
+      "reason": "康德提供义务论的重要思想资源",
+      "kind": "relation"
+    },
+    {
+      "source": "ethics",
+      "target": "virtue",
+      "reason": "德性伦理关注品格与实践智慧",
+      "kind": "relation"
+    },
+    {
+      "source": "existential",
+      "target": "freewill",
+      "reason": "自由、选择与责任是重要交叉问题",
+      "kind": "relation"
+    },
+    {
+      "source": "ontology",
+      "target": "conscious",
+      "reason": "意识的存在方式属于身心问题的一部分",
+      "kind": "relation"
+    },
+    {
+      "source": "tao",
+      "target": "epistemology",
+      "reason": "庄子对视角和知识界限提出反思",
+      "kind": "relation"
+    },
+    {
+      "source": "scale",
+      "target": "solar",
+      "reason": "太阳系可作为理解天文距离的近处起点",
+      "kind": "relation"
+    },
+    {
+      "source": "solar",
+      "target": "stars",
+      "reason": "太阳是一颗恒星",
+      "kind": "relation"
+    },
+    {
+      "source": "stars",
+      "target": "galaxy",
+      "reason": "星系包含大量恒星及其他成分",
+      "kind": "relation"
+    },
+    {
+      "source": "stars",
+      "target": "blackhole",
+      "reason": "某些大质量恒星演化可产生恒星级黑洞",
+      "kind": "relation"
+    },
+    {
+      "source": "blackhole",
+      "target": "relcos",
+      "reason": "黑洞由广义相对论的时空结构刻画",
+      "kind": "relation"
+    },
+    {
+      "source": "relcos",
+      "target": "gw",
+      "reason": "引力波是广义相对论的重要预言",
+      "kind": "relation"
+    },
+    {
+      "source": "expansion",
+      "target": "bigbang",
+      "reason": "膨胀观测是热大爆炸模型的证据之一",
+      "kind": "relation"
+    },
+    {
+      "source": "bigbang",
+      "target": "cmb",
+      "reason": "微波背景保存早期热宇宙的信息",
+      "kind": "relation"
+    },
+    {
+      "source": "darkmatter",
+      "target": "galaxy",
+      "reason": "星系动力学提供暗物质相关证据",
+      "kind": "relation"
+    },
+    {
+      "source": "darkenergy",
+      "target": "expansion",
+      "reason": "暗能量模型描述加速膨胀",
+      "kind": "relation"
+    },
+    {
+      "source": "spectra",
+      "target": "expansion",
+      "reason": "谱线红移为膨胀研究提供观测输入",
+      "kind": "relation"
+    },
+    {
+      "source": "spectra",
+      "target": "stars",
+      "reason": "恒星光谱提供成分与温度线索",
+      "kind": "relation"
+    },
+    {
+      "source": "exoplanet",
+      "target": "fermi",
+      "reason": "行星研究影响对生命可能环境的讨论",
+      "kind": "relation"
+    },
+    {
+      "source": "probability",
+      "target": "bayes",
+      "reason": "贝叶斯定理由条件概率关系推出",
+      "kind": "relation"
+    },
+    {
+      "source": "probability",
+      "target": "expectation",
+      "reason": "期望由概率分布加权计算",
+      "kind": "relation"
+    },
+    {
+      "source": "statistics",
+      "target": "lln",
+      "reason": "大数定律为部分估计方法提供理论基础",
+      "kind": "relation"
+    },
+    {
+      "source": "statistics",
+      "target": "probability",
+      "reason": "统计推断以概率模型表达不确定性",
+      "kind": "relation"
+    },
+    {
+      "source": "stochastic",
+      "target": "probability",
+      "reason": "随机过程把概率模型扩展到时间演化",
+      "kind": "relation"
+    },
+    {
+      "source": "calculus",
+      "target": "newton",
+      "reason": "运动方程用变化率描述动力学",
+      "kind": "relation"
+    },
+    {
+      "source": "linear",
+      "target": "optimization",
+      "reason": "许多优化问题依赖矩阵与向量工具",
+      "kind": "relation"
+    },
+    {
+      "source": "information",
+      "target": "probability",
+      "reason": "信息熵是概率分布的函数",
+      "kind": "relation"
+    },
+    {
+      "source": "information",
+      "target": "entropy",
+      "reason": "两种熵有数学联系，但物理含义需明确",
+      "kind": "relation"
+    },
+    {
+      "source": "newton",
+      "target": "relativity",
+      "reason": "牛顿力学在相应低速条件下近似成立",
+      "kind": "relation"
+    },
+    {
+      "source": "electro",
+      "target": "relativity",
+      "reason": "光速与电磁理论是相对论的重要背景",
+      "kind": "relation"
+    },
+    {
+      "source": "quantum",
+      "target": "uncertainty",
+      "reason": "不确定性关系来自量子态与算符结构",
+      "kind": "relation"
+    },
+    {
+      "source": "quantum",
+      "target": "linear",
+      "reason": "量子态与算符采用线性代数语言",
+      "kind": "relation"
+    },
+    {
+      "source": "chaos",
+      "target": "model",
+      "reason": "混沌揭示确定模型的预测时距限制",
+      "kind": "relation"
+    },
+    {
+      "source": "symmetry",
+      "target": "newton",
+      "reason": "守恒律帮助简化力学分析",
+      "kind": "relation"
+    },
+    {
+      "source": "complex",
+      "target": "chaos",
+      "reason": "部分复杂系统具有非线性与混沌动力学",
+      "kind": "relation"
+    },
+    {
+      "source": "bayes",
+      "target": "epistemology",
+      "reason": "贝叶斯更新是讨论证据与信念的形式工具",
+      "kind": "relation"
+    },
+    {
+      "source": "bayes",
+      "target": "bayesbrain",
+      "reason": "预测加工中的部分模型使用贝叶斯推断",
+      "kind": "relation"
+    },
+    {
+      "source": "expectation",
+      "target": "kelly",
+      "reason": "凯利模型优化期望对数增长",
+      "kind": "relation"
+    },
+    {
+      "source": "statistics",
+      "target": "backtest",
+      "reason": "历史策略评估属于带选择偏差的统计推断",
+      "kind": "relation"
+    },
+    {
+      "source": "overfit",
+      "target": "confirmation",
+      "reason": "研究者可能选择性保留支持自己想法的实验",
+      "kind": "relation"
+    },
+    {
+      "source": "prospect",
+      "target": "market",
+      "reason": "风险选择的描述模型能帮助理解市场参与者",
+      "kind": "relation"
+    },
+    {
+      "source": "herd",
+      "target": "market",
+      "reason": "社会影响可能参与市场中的群体行为",
+      "kind": "relation"
+    },
+    {
+      "source": "loss",
+      "target": "discipline",
+      "reason": "不愿确认损失可能干扰预定退出规则",
+      "kind": "relation"
+    },
+    {
+      "source": "stoic",
+      "target": "emotion",
+      "reason": "两者可共同启发对判断与反应的反思，不能相互替代",
+      "kind": "relation"
+    },
+    {
+      "source": "induction",
+      "target": "efficiency",
+      "reason": "过去的价格规律不能逻辑保证未来持续",
+      "kind": "relation"
+    },
+    {
+      "source": "falsify",
+      "target": "quant",
+      "reason": "可检验规则应说明什么结果会削弱研究假设",
+      "kind": "relation"
+    },
+    {
+      "source": "causality",
+      "target": "factor",
+      "reason": "因子相关收益不自动证明因果机制",
+      "kind": "relation"
+    },
+    {
+      "source": "entropy",
+      "target": "cosmos",
+      "reason": "宇宙演化涉及系统边界与热力学问题",
+      "kind": "relation"
+    },
+    {
+      "source": "relativity",
+      "target": "relcos",
+      "reason": "广义相对论把局域相对论扩展到引力情境",
+      "kind": "relation"
+    },
+    {
+      "source": "electro",
+      "target": "spectra",
+      "reason": "光谱观测依赖光与物质相互作用的物理",
+      "kind": "relation"
+    },
+    {
+      "source": "quantum",
+      "target": "stars",
+      "reason": "原子与核过程是理解恒星辐射和能量的基础",
+      "kind": "relation"
+    },
+    {
+      "source": "statistics",
+      "target": "exoplanet",
+      "reason": "行星探测需要从噪声中评估信号",
+      "kind": "relation"
+    },
+    {
+      "source": "model",
+      "target": "ontology",
+      "reason": "模型中的分类与对象选择包含本体论承诺",
+      "kind": "relation"
+    },
+    {
+      "source": "complex",
+      "target": "market",
+      "reason": "市场是由参与者互动形成反馈的研究对象",
+      "kind": "relation"
+    },
+    {
+      "source": "chaos",
+      "target": "market",
+      "reason": "非线性可启发市场建模，但不能直接推出可预测收益",
+      "kind": "relation"
+    },
+    {
+      "source": "information",
+      "target": "memory",
+      "reason": "信息编码提供研究记忆的部分形式工具",
+      "kind": "relation"
+    },
+    {
+      "source": "uncertainty",
+      "target": "freewill",
+      "reason": "量子随机性不自动解决自由意志问题",
+      "kind": "relation"
+    },
+    {
+      "source": "conscious",
+      "target": "mind",
+      "reason": "意识问题连接哲学讨论与心理研究",
+      "kind": "relation"
+    },
+    {
+      "source": "sun",
+      "target": "stars",
+      "reason": "太阳是一颗恒星；恒星演化提供理解它的物理框架",
+      "kind": "relation"
+    },
+    {
+      "source": "moon",
+      "target": "newton",
+      "reason": "月球轨道可用引力与运动定律作近似描述",
+      "kind": "relation"
+    },
+    {
+      "source": "earth",
+      "target": "entropy",
+      "reason": "地球与太阳及太空交换能量，需说明热力学系统边界",
+      "kind": "relation"
+    },
+    {
+      "source": "sun",
+      "target": "electro",
+      "reason": "太阳辐射属于电磁辐射，连接恒星与电磁学",
+      "kind": "relation"
+    }
+  ],
+  "routes": [
+    {
+      "id": "quant-path",
+      "title": "从概率到量化",
+      "description": "先理解不确定性，再检验交易想法。",
+      "domain": "market",
+      "nodes": [
+        "probability",
+        "expectation",
+        "statistics",
+        "quant",
+        "backtest",
+        "overfit",
+        "cost",
+        "risk"
+      ]
+    },
+    {
+      "id": "chan-path",
+      "title": "缠论的结构与检验",
+      "description": "统一结构定义，避免事后看图的错觉。",
+      "domain": "market",
+      "nodes": [
+        "chan",
+        "fractal",
+        "zhongshu",
+        "divergence",
+        "backtest",
+        "discipline"
+      ]
+    },
+    {
+      "id": "livermore-path",
+      "title": "利弗莫尔与交易心理",
+      "description": "从历史经验走向可记录的决策过程。",
+      "domain": "market",
+      "nodes": [
+        "livermore",
+        "pivot",
+        "momentum",
+        "loss",
+        "risk",
+        "discipline"
+      ]
+    },
+    {
+      "id": "mind-path",
+      "title": "更清醒地认识自己",
+      "description": "发现判断偏差，建立学习与反馈循环。",
+      "domain": "mind",
+      "nodes": [
+        "dual",
+        "bias",
+        "confirmation",
+        "metacognition",
+        "memory",
+        "spacing"
+      ]
+    },
+    {
+      "id": "philosophy-path",
+      "title": "我凭什么相信它",
+      "description": "沿着证据、推理与科学方法追问。",
+      "domain": "philosophy",
+      "nodes": [
+        "epistemology",
+        "logic",
+        "induction",
+        "falsify",
+        "causality",
+        "bayes"
+      ]
+    },
+    {
+      "id": "cosmos-path",
+      "title": "从太阳系到宇宙",
+      "description": "把熟悉的夜空放进更大的时空尺度。",
+      "domain": "cosmos",
+      "nodes": [
+        "scale",
+        "solar",
+        "stars",
+        "galaxy",
+        "expansion",
+        "bigbang",
+        "cmb"
+      ]
+    },
+    {
+      "id": "physics-path",
+      "title": "自然的数学语言",
+      "description": "从变化与守恒走向相对论和量子。",
+      "domain": "physics",
+      "nodes": [
+        "calculus",
+        "linear",
+        "newton",
+        "symmetry",
+        "electro",
+        "relativity",
+        "quantum"
+      ]
+    },
+    {
+      "id": "solar-path",
+      "title": "银河系里的家",
+      "description": "从银河系走进太阳系，再到地球与月球。",
+      "domain": "cosmos",
+      "nodes": [
+        "galaxy",
+        "solar",
+        "sun",
+        "earth",
+        "moon"
+      ]
+    }
+  ],
+  "sources": {
+    "market": [
+      {
+        "title": "Investor.gov · 资产配置与分散化",
+        "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+      },
+      {
+        "title": "Qlib · 开源量化研究平台",
+        "url": "https://github.com/microsoft/qlib"
+      },
+      {
+        "title": "CZSC · 缠论技术分析工具与定义实现",
+        "url": "https://github.com/waditu/czsc"
+      }
+    ],
+    "mind": [
+      {
+        "title": "OpenStax · Psychology 2e 开放教材",
+        "url": "https://openstax.org/details/books/psychology-2e"
+      }
+    ],
+    "philosophy": [
+      {
+        "title": "Stanford Encyclopedia of Philosophy",
+        "url": "https://plato.stanford.edu/contents.html"
+      },
+      {
+        "title": "SEP · 认识论",
+        "url": "https://plato.stanford.edu/entries/epistemology/"
+      }
+    ],
+    "cosmos": [
+      {
+        "title": "NASA Science · 宇宙",
+        "url": "https://science.nasa.gov/universe/"
+      },
+      {
+        "title": "NASA · 黑洞介绍",
+        "url": "https://www.nasa.gov/universe/what-are-black-holes/"
+      }
+    ],
+    "math": [
+      {
+        "title": "MIT OCW · 概率与统计公开课",
+        "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
+      },
+      {
+        "title": "OpenStax · University Physics",
+        "url": "https://openstax.org/subjects/science"
+      }
+    ],
+    "physics": [
+      {
+        "title": "OpenStax · University Physics",
+        "url": "https://openstax.org/subjects/science"
+      }
+    ]
+  }
+}

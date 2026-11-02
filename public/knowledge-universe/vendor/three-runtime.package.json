@@ -1,0 +1,12 @@
+{
+  "name": "three-runtime",
+  "threeVersion": "0.187.0",
+  "license": "MIT",
+  "repository": "https://github.com/mrdoob/three.js",
+  "exports": [
+    "THREE",
+    "OrbitControls"
+  ],
+  "format": "iife",
+  "localBundleSha256": "c33ae5a8a5d7c973894b145e5b1d805ced46d43e6c393920d03f443b331a1b39"
+}

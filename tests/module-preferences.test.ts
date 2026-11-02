@@ -11,7 +11,8 @@ test('invalid optional preferences recover without coercing strings or hiding co
   for(const raw of [null,'bad','null','[]','{"version":99}','{"version":1,"investment":"false","life":0}'])assert.deepEqual(parseModulePreferences(raw),{version:1,investment:true,life:true});
   const prefs=parseModulePreferences('{"version":1,"investment":true,"life":false}');
   assert.equal(moduleRoute('investment',prefs),'investment');assert.equal(moduleRoute('life',prefs),'settings');assert.equal(moduleRoute('unexpected',prefs),'today');
-  for(const route of ['today','growth','mail','history','settings'])assert.equal(moduleRoute(route,prefs),route);
+  for(const route of ['today','growth','knowledge','mail','history','settings'])assert.equal(moduleRoute(route,prefs),route);
+  assert.equal(moduleRoute('knowledge:market',prefs),'knowledge');
 });
 test('colorful life preserves the user motto and marks its initial content scope',()=>{
   const html=colorfulLifePage();assert.ok(html.includes('人的创造性是本质的，人的社会化是必然的。'));assert.match(html,/内容待完善/);assert.match(html,/自己的节奏/);
