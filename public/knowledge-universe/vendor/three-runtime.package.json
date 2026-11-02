@@ -5,8 +5,9 @@
   "repository": "https://github.com/mrdoob/three.js",
   "exports": [
     "THREE",
-    "OrbitControls"
+    "OrbitControls",
+    "TrackballControls"
   ],
   "format": "iife",
-  "localBundleSha256": "c33ae5a8a5d7c973894b145e5b1d805ced46d43e6c393920d03f443b331a1b39"
+  "localBundleSha256": "9a6f480331f91a506263cb7b37a80f7cc1bf62da10b069f4a4ceca2aec9b20f3"
 }

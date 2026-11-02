@@ -64,6 +64,7 @@
   let graph, selected = null, activeDomain = 'all', scope = 'all', view = 'map', routeId = null, hovered = null, editingId = null;
   let toastTimer;
   let focusId='universe';
+  function exploreLayout(value){document.body.classList.toggle('nebula-explore',value);$('#toggle-reading')?.setAttribute('aria-pressed',String(!value));requestAnimationFrame(()=>{const space=$('#workspace');graph?.width(space.clientWidth).height(space.clientHeight);});}
   const childrenOf = id => nodes.filter(n=>n.parent===id);
   const pathOf = id => {const path=[];let n=byId.get(id),seen=new Set();while(n&&!seen.has(n.id)){seen.add(n.id);path.unshift(n);n=byId.get(n.parent);}return path;};
   const descendantOf = (id,parent) => pathOf(id).some(n=>n.id===parent);
@@ -119,7 +120,7 @@
     else if (scope==='learned') {$('#map-title').textContent='已经探索';$('#map-description').textContent='每一个理解，都是你走过的距离。';}
     else if (scope==='routes') {$('#map-title').textContent='给好奇心一条路线';$('#map-description').textContent='从一个问题出发，让理解逐步相连。';}
     else if (d) {$('#map-title').textContent=d.name;$('#map-description').textContent=d.description;}
-    else {$('#map-title').innerHTML='万象有序，<br><span>层层相连。</span>';$('#map-description').textContent='六大星系，从大框架走到每一颗知识星球。';}
+    else {$('#map-title').textContent='知识星云';$('#map-description').textContent='自由翻转，走进知识的深处。';}
   }
   function setView(next) {
     if(next==='map'&&!graph)next='list';
@@ -168,10 +169,10 @@
     $('#catalog').innerHTML=`<div class="catalog-header"><span>${list.length} 个知识节点</span><span>点击开始阅读</span></div>`+(list.length?list.map(n=>`<button class="catalog-row" data-node="${n.id}">${dot(n.domain)}<div><strong>${esc(n.title)}</strong><p>${esc(n.summary)}</p></div><small>${saved.learned.includes(n.id)?'已读':esc(n.kind)}</small>${icon('arrow')}</button>`).join(''):`<div class="empty-state"><strong>这里还有无限可能。</strong>${scope==='favorites'?'点击节点里的“收藏”，把想深入的知识留在这里。':'阅读一个节点，标记已读，记录你的第一步。'}<br><br><button class="button" data-home>去探索星系 ${icon('arrow')}</button></div>`);
   }
   function setReader(html) {$('#reader-content').innerHTML=html;$('#reader').scrollTop=0;}
-  function openMobileReader() {if(innerWidth<=620){$('#reader').classList.add('open');$('#mobile-reader').setAttribute('aria-expanded','true');}}
+  function openMobileReader() {if(innerWidth<=620){$('#reader').classList.add('open');$('#mobile-reader').setAttribute('aria-expanded','true');$('#toggle-reading').setAttribute('aria-pressed','true');}}
   function mobileLabel(text='展开阅读面板') {$('#mobile-reader').innerHTML=esc(text)+icon('arrow');}
   function renderWelcome(title='今天，向哪里出发？',intro='让知识成为星球，让好奇成为航线。选择一个节点，看看它如何连接更大的世界。') {
-    selected=null;
+    selected=null;exploreLayout(true);
     setReader(`<div class="reader-inner"><div class="welcome-art" aria-hidden="true"><svg viewBox="0 0 250 140"><ellipse cx="125" cy="70" rx="99" ry="36" transform="rotate(-25 125 70)"/><ellipse cx="125" cy="70" rx="99" ry="36" transform="rotate(35 125 70)"/><ellipse cx="125" cy="70" rx="48" ry="60" transform="rotate(-25 125 70)"/><circle cx="125" cy="70" r="10" class="center-star"/><circle cx="207" cy="23" r="4" class="orbit-star"/><circle cx="51" cy="102" r="3" class="center-star"/><path d="M18 37h8m-4-4v8m192 62h8m-4-4v8"/></svg></div><h2>${esc(title)}</h2><p class="intro">${esc(intro)}</p><h3>从一份好奇开始</h3><button class="suggestion" data-route="quant-path">${icon('route')}<span><strong>从概率到量化</strong><small>让交易想法经得起检验 · 8 个节点</small></span>${icon('arrow')}</button><button class="suggestion" data-route="cosmos-path">${icon('orbit')}<span><strong>从太阳系到宇宙</strong><small>在时空中找到我们的位置 · 7 个节点</small></span>${icon('arrow')}</button><button class="suggestion" data-route="mind-path">${icon('spark')}<span><strong>更清醒地认识自己</strong><small>理解判断、记忆与学习 · 6 个节点</small></span>${icon('arrow')}</button><div class="connection-feature"><h3>一条意想不到的联系</h3><div class="pair">${dot('math')}贝叶斯定理 ${icon('arrow')} ${dot('philosophy')}认识论</div><p>当新的证据到来，我们应该怎样改变自己的相信？一个数学公式，也是一种思考方式。</p><button class="text-button" data-node="bayes">沿着这条联系出发 ${icon('arrow')}</button></div><p class="reader-footer">ATLAS 2.0 · 3D · 知识内容可离线阅读<br>外部资料需要联网。<br>你的笔记与轨迹保存在此浏览器，建议定期导出。<br><button class="text-button" data-backup>导出备份</button> · <button class="text-button" data-import>导入备份</button><br><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener noreferrer">由开源 Three.js 驱动</a></p></div>`);
     mobileLabel();
   }
@@ -180,12 +181,12 @@
   }
   function renderNode(id, mobile=true) {
     const n=byId.get(id);if(!n)return;
-    selected=id;const d=domainInfo(n.domain);const route=K.routes.find(r=>r.id===routeId);const step=route?.nodes.indexOf(id)??-1;
+    exploreLayout(false);selected=id;const d=domainInfo(n.domain);const route=K.routes.find(r=>r.id===routeId);const step=route?.nodes.indexOf(id)??-1;
     const favorite=saved.favorites.includes(id), learned=saved.learned.includes(id);
     let related=connected(id).filter(x=>x.kind==='relation').sort((a,b)=>Number(a.node.root)-Number(b.node.root)||Number(a.node.domain===n.domain)-Number(b.node.domain===n.domain));
     const wikiURL=n.wiki?`https://en.wikipedia.org/wiki/${n.wiki}`:'';
     const sources=n.custom?(n.url?[{title:'你添加的参考资料',url:n.url}]:[]):(K.sources[n.domain]||[]);
-    setReader(`<article class="reader-inner" style="--domain-color:${d.color}"><div class="reader-topline"><span>${dot(n.domain)}${esc(d.name)}</span><button class="text-button" data-home>回到全景 ${icon('close')}</button></div>${route&&step>=0?`<div class="route-context"><button class="text-button" data-route="${route.id}">${esc(route.title)}</button> · ${step+1}/${route.nodes.length}<div>${step>0?`<button class="button" data-step="${route.nodes[step-1]}">上一个</button>`:''}${step<route.nodes.length-1?`<button class="button" data-step="${route.nodes[step+1]}">下一个 ${icon('arrow')}</button>`:'<span>你到达了路线终点</span>'}</div></div>`:''}<div class="node-location">${pathOf(id).map(x=>`<button data-focus="${x.id}">${esc(x.id==='universe'?'宇宙':x.title)}</button>`).join('<span>/</span>')}</div><h2>${esc(n.title)}</h2><p class="node-summary">${esc(n.summary)}</p><div class="node-actions"><button class="button ${favorite?'on':''}" id="toggle-favorite" aria-pressed="${favorite}">${icon('bookmark')}${favorite?'已收藏':'收藏'}</button><button class="button ${learned?'on':''}" id="toggle-learned" aria-pressed="${learned}">${icon('check')}${learned?'已经探索':'标记已读'}</button></div>${childrenOf(id).length?`<section class="subsystems"><h3>这个系统包含</h3>${childrenOf(id).map(c=>`<button data-node="${c.id}" class="subsystem-row">${dot(c.domain)}<span><strong>${esc(c.title)}</strong><small>${childrenOf(c.id).length?childrenOf(c.id).length+' 个下级节点':'知识星球'}</small></span>${icon('arrow')}</button>`).join('')}</section>`:''}<div class="node-detail">${esc(n.detail||n.summary)}</div>${n.example?`<div class="example"><strong>用一个例子理解</strong>${esc(n.example)}</div>`:''}<h3>跨系统与概念联系 <span class="relation-label">${related.length} 条</span></h3>${related.map(x=>`<button class="related-item" data-node="${x.node.id}"><span class="related-title">${dot(x.node.domain)}${esc(x.node.title)} ${icon('arrow')}</span><small>${esc(x.reason)}</small></button>`).join('')||'<p class="muted">添加一个关联，让这颗星和其他知识相遇。</p>'}<h3>我的理解</h3><textarea class="note-area" id="node-note" maxlength="20000" placeholder="试着不用原文，写一句自己的理解…" aria-label="${esc(n.title)}的个人笔记">${esc(saved.notes[id]||'')}</textarea><span id="note-status" class="note-status">${saved.notes[id]?'已保存在此浏览器':'输入后自动保存在此浏览器'}</span><h3>继续阅读</h3>${wikiURL?`<a class="source-link" href="${esc(wikiURL)}" target="_blank" rel="noopener noreferrer"><span>Wikipedia · ${esc(n.wiki.replaceAll('_',' '))}${['chan','fractal','zhongshu','divergence'].includes(id)?'（技术分析背景）':''}</span>${icon('external')}</a>`:''}${sources.map(s=>`<a class="source-link" href="${esc(safeURL(s.url))}" target="_blank" rel="noopener noreferrer"><span>${esc(s.title)}</span>${icon('external')}</a>`).join('')}<p class="reference-note">外部链接是延伸阅读，需联网；并非每个链接都对应本节点的全部表述。节点内容为本地原创入门摘要。${n.domain==='market'?'交易方法的效果需要独立检验，历史表现不能保证未来结果。':''}</p>${n.custom?'<div class="node-edit-actions"><button class="text-button" id="edit-node">编辑知识</button><button class="text-button danger" id="delete-node">删除此节点</button></div>':''}</article>`);
+    setReader(`<article class="reader-inner" style="--domain-color:${d.color}"><div class="reader-topline"><span>${dot(n.domain)}${esc(d.name)}</span><button class="text-button" data-home>回到全景 ${icon('close')}</button></div>${route&&step>=0?`<div class="route-context"><button class="text-button" data-route="${route.id}">${esc(route.title)}</button> · ${step+1}/${route.nodes.length}<div>${step>0?`<button class="button" data-step="${route.nodes[step-1]}">上一个</button>`:''}${step<route.nodes.length-1?`<button class="button" data-step="${route.nodes[step+1]}">下一个 ${icon('arrow')}</button>`:'<span>你到达了路线终点</span>'}</div></div>`:''}<div class="node-location">${pathOf(id).map(x=>`<button data-focus="${x.id}">${esc(x.id==='universe'?'宇宙':x.title)}</button>`).join('<span>/</span>')}</div><h2>${esc(n.title)}</h2><p class="node-summary">${esc(n.summary)}</p><div class="node-actions"><button class="button ${favorite?'on':''}" id="toggle-favorite" aria-pressed="${favorite}">${icon('bookmark')}${favorite?'已收藏':'收藏'}</button><button class="button ${learned?'on':''}" id="toggle-learned" aria-pressed="${learned}">${icon('check')}${learned?'已经探索':'标记已读'}</button></div>${childrenOf(id).length?`<section class="subsystems"><h3>这个系统包含</h3>${childrenOf(id).map(c=>`<button data-node="${c.id}" class="subsystem-row">${dot(c.domain)}<span><strong>${esc(c.title)}</strong><small>${childrenOf(c.id).length?childrenOf(c.id).length+' 个下级节点':'知识恒星'}</small></span>${icon('arrow')}</button>`).join('')}</section>`:''}<div class="node-detail">${esc(n.detail||n.summary)}</div>${n.example?`<div class="example"><strong>用一个例子理解</strong>${esc(n.example)}</div>`:''}<h3>跨系统与概念联系 <span class="relation-label">${related.length} 条</span></h3>${related.map(x=>`<button class="related-item" data-node="${x.node.id}"><span class="related-title">${dot(x.node.domain)}${esc(x.node.title)} ${icon('arrow')}</span><small>${esc(x.reason)}</small></button>`).join('')||'<p class="muted">添加一个关联，让这颗星和其他知识相遇。</p>'}<h3>我的理解</h3><textarea class="note-area" id="node-note" maxlength="20000" placeholder="试着不用原文，写一句自己的理解…" aria-label="${esc(n.title)}的个人笔记">${esc(saved.notes[id]||'')}</textarea><span id="note-status" class="note-status">${saved.notes[id]?'已保存在此浏览器':'输入后自动保存在此浏览器'}</span><h3>继续阅读</h3>${wikiURL?`<a class="source-link" href="${esc(wikiURL)}" target="_blank" rel="noopener noreferrer"><span>Wikipedia · ${esc(n.wiki.replaceAll('_',' '))}${['chan','fractal','zhongshu','divergence'].includes(id)?'（技术分析背景）':''}</span>${icon('external')}</a>`:''}${sources.map(s=>`<a class="source-link" href="${esc(safeURL(s.url))}" target="_blank" rel="noopener noreferrer"><span>${esc(s.title)}</span>${icon('external')}</a>`).join('')}<p class="reference-note">外部链接是延伸阅读，需联网；并非每个链接都对应本节点的全部表述。节点内容为本地原创入门摘要。${n.domain==='market'?'交易方法的效果需要独立检验，历史表现不能保证未来结果。':''}</p>${n.custom?'<div class="node-edit-actions"><button class="text-button" id="edit-node">编辑知识</button><button class="text-button danger" id="delete-node">删除此节点</button></div>':''}</article>`);
     $('#toggle-favorite').onclick=()=>toggleRecord('favorites',id);
     $('#toggle-learned').onclick=()=>toggleRecord('learned',id);
     $('#node-note').addEventListener('input',e=>{saved.notes[id]=e.target.value;const success=persist();$('#note-status').textContent=success?'已保存在此浏览器':'保存失败，请立即导出备份';});
@@ -211,6 +212,7 @@
     routeId=null;scope='routes';activeDomain='all';selected=null;setNav();setHeading();setView('list');updateCounters();renderWelcome('一个问题，一段旅程。','选择一条路线，从基础走到关联。标记已读之后，进度会保存在这里。');
   }
   function renderRoute(id) {
+    exploreLayout(false);
     const r=K.routes.find(x=>x.id===id);if(!r)return;
     routeId=id;selected=null;
     const done=r.nodes.filter(x=>saved.learned.includes(x)).length;
@@ -218,7 +220,8 @@
     mobileLabel(r.title);openMobileReader();
   }
   function renderHelp() {
-    setReader(`<div class="reader-inner"><div class="reader-topline"><span>使用指南</span><button class="text-button" data-home>回到探索 ${icon('close')}</button></div><h2>这是你的知识宇宙。</h2><p class="intro">六大星系和多层框架只是一个起点。让它慢慢长成你自己的知识版图。</p><ol class="help-list"><li>左键拖动旋转3D宇宙，滚轮或双指缩放，右键拖动平移。点击有下级的星球进入系统；点击具体知识阅读。顶部路径与“上一层”可返回。</li><li>按 <kbd>/</kbd> 搜索。搜索框支持上下方向键和回车；“目录”提供所有节点的键盘入口。</li><li>点左侧星系进入大框架，再逐层进入子系统。“目录”保留完整包含树。虚线表示概念联系，跨系入口可跃迁到另一系统。</li><li>收藏、已读和笔记会自动保存在此浏览器。请定期导出JSON备份；清理浏览器数据或换浏览器时，需要重新导入。</li><li>点击“添加知识”创建节点，选择它与已有知识的联系。自建节点可以编辑或删除。</li><li>核心内容、图谱和字体已放在本机，断网可以使用。外部链接只在点击时访问。</li></ol><h3>运行与复用</h3><p class="node-detail">双击 index.html 即可使用。如果希望固定浏览器存储地址，可运行工程内的 启动本地服务.cmd，再访问 http://127.0.0.1:8765。不同访问地址的浏览器记录相互独立，迁移时使用导出和导入。</p><h3>内容说明</h3><p class="node-detail">这是带原创摘要与参考入口的知识索引。连线表示所写明的概念联系；未标注因果的连线不代表因果、等价或证实。当前版本不接实时行情，也不自动生成投资建议。</p><div class="backup-actions"><button data-backup>${icon('download')}导出我的数据</button><button data-import>${icon('upload')}导入备份</button></div><p class="reader-footer">本地依赖：Three.js（MIT）、Space Grotesk（OFL）。许可与来源在工程文件中。<br>版本 2.0 · 内容整理于 ${K.updated}</p></div>`);
+    exploreLayout(false);
+    setReader(`<div class="reader-inner"><div class="reader-topline"><span>使用指南</span><button class="text-button" data-home>回到探索 ${icon('close')}</button></div><h2>这是你的知识宇宙。</h2><p class="intro">六大星系和多层框架只是一个起点。让它慢慢长成你自己的知识版图。</p><ol class="help-list"><li>左键拖动自由翻转星云，滚轮或双指缩放，右键拖动平移。点击有下级的恒星进入系统；点击具体知识阅读。顶部路径与“上一层”可返回。</li><li>按 <kbd>/</kbd> 搜索。搜索框支持上下方向键和回车；“目录”提供所有节点的键盘入口。</li><li>点左侧星系进入大框架，再逐层进入子系统。“目录”保留完整包含树。星尘光带表示概念联系，跨系入口可跃迁到另一系统。</li><li>收藏、已读和笔记会自动保存在此浏览器。请定期导出JSON备份；清理浏览器数据或换浏览器时，需要重新导入。</li><li>点击“添加知识”创建节点，选择它与已有知识的联系。自建节点可以编辑或删除。</li><li>核心内容、图谱和字体已放在本机，断网可以使用。外部链接只在点击时访问。</li></ol><h3>运行与复用</h3><p class="node-detail">双击 index.html 即可使用。如果希望固定浏览器存储地址，可运行工程内的 启动本地服务.cmd，再访问 http://127.0.0.1:8765。不同访问地址的浏览器记录相互独立，迁移时使用导出和导入。</p><h3>内容说明</h3><p class="node-detail">这是带原创摘要与参考入口的知识索引。连线表示所写明的概念联系；未标注因果的连线不代表因果、等价或证实。当前版本不接实时行情，也不自动生成投资建议。</p><div class="backup-actions"><button data-backup>${icon('download')}导出我的数据</button><button data-import>${icon('upload')}导入备份</button></div><p class="reader-footer">本地依赖：Three.js（MIT）、Space Grotesk（OFL）。许可与来源在工程文件中。<br>版本 2.0 · 内容整理于 ${K.updated}</p></div>`);
     mobileLabel('使用指南');openMobileReader();
   }
   let searchList=[],searchIndex=-1;
@@ -236,7 +239,7 @@
     if(e.key==='ArrowDown'||e.key==='ArrowUp') {e.preventDefault();if(!searchList.length)return;searchIndex=(searchIndex+(e.key==='ArrowDown'?1:-1)+searchList.length)%searchList.length;$$('.search-result').forEach((el,i)=>{el.classList.toggle('keyboard-active',i===searchIndex);el.setAttribute('aria-selected',String(i===searchIndex));});const el=$(`#search-option-${searchIndex}`);el?.scrollIntoView({block:'nearest'});$('#search').setAttribute('aria-activedescendant',`search-option-${searchIndex}`);}
     if(e.key==='Enter'&&searchList.length){e.preventDefault();selectNode(searchList[Math.max(searchIndex,0)].id);$('#reader').focus();}
   });
-  document.addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!$('#node-dialog').open){e.preventDefault();$('#search').focus();}if(e.key==='Escape'&&!$('#node-dialog').open){$('#reader').classList.remove('open');$('#mobile-reader').setAttribute('aria-expanded','false');}});
+  document.addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!$('#node-dialog').open){e.preventDefault();$('#search').focus();}if(e.key==='Escape'&&!$('#node-dialog').open){$('#reader').classList.remove('open');$('#mobile-reader').setAttribute('aria-expanded','false');$('#toggle-reading').setAttribute('aria-pressed','false');}});
   document.addEventListener('click',e=>{
     const b=e.target.closest('button');
     if(!e.target.closest('.search-wrap')){$('#search-results').hidden=true;$('#search').setAttribute('aria-expanded','false');}
@@ -245,7 +248,7 @@
     else if(b.dataset.node)selectNode(b.dataset.node);
     else if(b.dataset.step)selectNode(b.dataset.step,true);
     else if(b.dataset.route)renderRoute(b.dataset.route);
-    else if(b.hasAttribute('data-home')){setDomain('all');$('#reader').classList.remove('open');$('#mobile-reader').setAttribute('aria-expanded','false');}
+    else if(b.hasAttribute('data-home')){setDomain('all');$('#reader').classList.remove('open');$('#mobile-reader').setAttribute('aria-expanded','false');$('#toggle-reading').setAttribute('aria-pressed','false');}
     else if(b.hasAttribute('data-routes'))showRoutes();
     else if(b.hasAttribute('data-backup'))exportData();
     else if(b.hasAttribute('data-import'))$('#import-file').click();
@@ -296,21 +299,22 @@
   });
   $('#domain-nav').innerHTML=K.domains.map(d=>`<button class="nav-item" data-domain="${d.id}">${dot(d.id)}<span>${esc(d.name)}</span><small></small></button>`).join('');
   $$('[data-domain]').forEach(b=>b.onclick=()=>setDomain(b.dataset.domain));
-  $('#home').onclick=()=>{setView('map');setDomain('all');$('#reader').classList.remove('open');$('#mobile-reader').setAttribute('aria-expanded','false');};
+  $('#home').onclick=()=>{setView('map');setDomain('all');$('#reader').classList.remove('open');$('#mobile-reader').setAttribute('aria-expanded','false');$('#toggle-reading').setAttribute('aria-pressed','false');};
   $('#show-routes small').textContent=K.routes.length;
   $('#show-routes').onclick=showRoutes;$('#show-favorites').onclick=()=>showCollection('favorites');$('#show-learned').onclick=()=>showCollection('learned');
   $('#map-view').onclick=()=>{if(scope==='routes'){scope='all';setNav();setHeading();}setView('map');if(scope==='all')graph?.focus(focusId,selected,true);else graph?.setCollection(visibleNodes().map(n=>n.id));};$('#list-view').onclick=()=>setView('list');
   $('#add-node').onclick=()=>openEditor();$('#close-dialog').onclick=()=>$('#node-dialog').close();
-  $('#help').onclick=renderHelp;$('#export-data').onclick=exportData;$('#import-data').onclick=()=>$('#import-file').click();
+  $('#help').onclick=renderHelp;$('#toggle-reading').onclick=()=>{if(innerWidth<=620){const open=$('#reader').classList.toggle('open');$('#mobile-reader').setAttribute('aria-expanded',String(open));$('#toggle-reading').setAttribute('aria-pressed',String(open));}else exploreLayout(!document.body.classList.contains('nebula-explore'));};$('#export-data').onclick=exportData;$('#import-data').onclick=()=>$('#import-file').click();
   $('#zoom-in').onclick=()=>graph?.zoomBy(1.35);$('#zoom-out').onclick=()=>graph?.zoomBy(1/1.35);$('#reset-map').onclick=resetMap;
   $('#up-level').onclick=()=>enterSystem(byId.get(focusId)?.parent||'universe');
   $('#show-bridges').onchange=e=>graph?.setBridges(e.target.checked);
   $('#auto-orbit').onchange=e=>graph?.setAutoRotate(e.target.checked);
-  $('#mobile-reader').onclick=()=>{const open=$('#reader').classList.toggle('open');$('#mobile-reader').setAttribute('aria-expanded',String(open));};
+  $('#mobile-reader').onclick=()=>{const open=$('#reader').classList.toggle('open');$('#mobile-reader').setAttribute('aria-expanded',String(open));$('#toggle-reading').setAttribute('aria-pressed',String(open));};
   if(embedded){
     const tools=document.createElement('div');tools.className='embed-tools';tools.innerHTML=`<label class="embed-domain-label">星系<select id="embed-domain" aria-label="选择知识星系"><option value="all">全部六大星系</option>${K.domains.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('')}</select></label><button id="embed-routes">学习路线</button><button id="embed-favorites">收藏</button><button id="embed-backup">导出</button><button id="embed-import">导入</button>`;$('.topbar').appendChild(tools);
     $('#embed-domain').onchange=e=>setDomain(e.target.value);$('#embed-routes').onclick=showRoutes;$('#embed-favorites').onclick=()=>showCollection('favorites');$('#embed-backup').onclick=exportData;$('#embed-import').onclick=()=>$('#import-file').click();
-    const notifyEditing=()=>{const el=document.activeElement;parent.postMessage({type:'atlas:editing',editing:el instanceof HTMLElement&&el.matches('input:not([type=checkbox]),textarea,select')},location.origin);};
+    const notifyEditing=()=>{const el=document.activeElement;graph?.setMotionPaused(el instanceof HTMLElement&&el.matches('input:not([type=checkbox]),textarea,select'));parent.postMessage({type:'atlas:editing',editing:el instanceof HTMLElement&&el.matches('input:not([type=checkbox]),textarea,select')},location.origin);};
+    window.addEventListener('message',e=>{if(e.source===parent&&e.origin===location.origin&&e.data?.type==='lifeatlas:sky-preference'&&typeof e.data.particles==='boolean')graph?.setMotionAllowed(e.data.particles);});
     document.addEventListener('focusin',notifyEditing);document.addEventListener('focusout',()=>queueMicrotask(notifyEditing));
   }
   let skyController;
@@ -324,6 +328,7 @@
     updateHierarchyUI();
   }
   initGraph();
+  document.addEventListener("focusin",()=>graph?.setMotionPaused(!!document.activeElement?.matches("input:not([type=checkbox]),textarea,select")));document.addEventListener("focusout",()=>queueMicrotask(()=>graph?.setMotionPaused(!!document.activeElement?.matches("input:not([type=checkbox]),textarea,select"))));
   const initialNode=new URLSearchParams(location.search).get("node");if(initialNode&&byId.has(initialNode))selectNode(initialNode);
 
   let resizeTimer;

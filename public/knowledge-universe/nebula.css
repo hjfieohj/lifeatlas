@@ -1,0 +1,11 @@
+/* The volume leads; reading unfolds only when a star is selected. */
+.planet-label{background:transparent!important;border:0!important;border-radius:5px;font-size:12px;text-shadow:0 1px 5px #000,0 1px 12px #020611}
+.planet-label.galaxy-label{font-size:15px;letter-spacing:.06em;font-weight:500}.planet-label small{color:#c4d2e3;font-size:11px}
+.planet-label.portal-label{background:#07112170!important}.planet-label:hover{background:#081426c9!important;outline:1px solid #88a9ce60}
+.map-heading h1{font-size:24px;line-height:1.4}.map-heading p{color:#b2c5dc}.map-caption{color:#bdcee4}.map-controls{background:#101d31c7}
+.nebula-explore .reader{visibility:hidden;pointer-events:none;transform:translateX(100%)}
+.nebula-explore .workspace{right:0!important}.nebula-explore .map-heading{pointer-events:none}.nebula-explore .map-heading h1{font-size:24px;font-weight:400}
+.nebula-explore .hierarchy-toolbar{top:112px}.nebula-explore .reader .note-area{pointer-events:none}
+.nebula-explore #toggle-reading{color:#d5e7fa;background:#2b456260}.nebula-explore .universe-options{background:transparent}
+@media(max-width:620px){.planet-label.galaxy-label{font-size:13px}.nebula-explore .reader{transform:translateY(calc(100% + 1px))}.nebula-explore .reader.open{visibility:visible;pointer-events:auto;transform:translateY(0)}.nebula-explore .reader.open .note-area{pointer-events:auto}.nebula-explore .map-heading h1{font-size:23px}.nebula-explore .hierarchy-toolbar{top:119px}}
+@media(prefers-reduced-motion:reduce){.reader{transition:none!important}}

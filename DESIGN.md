@@ -49,6 +49,10 @@ colors:
   knowledge-accent: "#b9deeb"
   knowledge-ink: "#edf1f5"
   knowledge-panel: "#141c29f5"
+  knowledge-label-detail: "#c4d2e3"
+  knowledge-label-hover-bg: "#081426c9"
+  knowledge-portal-label-bg: "#07112170"
+  knowledge-label-hover-outline: "#88a9ce60"
 typography:
   headline:
     fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
@@ -92,13 +96,31 @@ typography:
     fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
     fontSize: "24px"
     fontWeight: 400
-    lineHeight: 1.45
+    lineHeight: 1.4
+  knowledge-node-label:
+    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+    lineHeight: 1.5
+  knowledge-domain-label:
+    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "15px"
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: ".06em"
+  knowledge-domain-label-mobile:
+    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "13px"
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: ".06em"
 rounded:
   control: "12px"
   navigation: "9px"
   filter: "10px"
   comparison: "12px"
   sheet: "14px"
+  knowledge-label: "5px"
 spacing:
   control: "10px 16px"
   sheet: "26px 28px"
@@ -162,6 +184,19 @@ components:
     backgroundColor: "{colors.island-wash}"
     rounded: "{rounded.comparison}"
     padding: "{spacing.comparison}"
+  knowledge-node-label:
+    backgroundColor: "transparent"
+    rounded: "{rounded.knowledge-label}"
+    typography: "{typography.knowledge-node-label}"
+  knowledge-domain-label:
+    backgroundColor: "transparent"
+    rounded: "{rounded.knowledge-label}"
+    typography: "{typography.knowledge-domain-label}"
+  knowledge-portal-label:
+    backgroundColor: "{colors.knowledge-portal-label-bg}"
+    rounded: "{rounded.knowledge-label}"
+  knowledge-node-label-hover:
+    backgroundColor: "{colors.knowledge-label-hover-bg}"
 ---
 
 # Design System: LifeAtlas
@@ -194,6 +229,8 @@ Island uses pale blue actions and focus against midnight-blue surfaces. Observat
 
 The knowledge module retains its own pale cyan accent and categorical domain colors. Those identify knowledge domains and relationships rather than task completion or personal evaluation. Its local palette does not replace host semantic controls.
 
+The nebula refinement is scoped to `public/knowledge-universe/nebula.css`, loaded after the embedded styles. Its label-detail, portal-label and hover tokens apply only to projected map labels; shader gas and stellar tints derive from the existing domain colors and do not add a host palette.
+
 ### Neutral
 
 The shared ground is midnight dark. A translucent rail lets the same stars continue beneath navigation; reading sheets and detail panels use near-opaque night surfaces. Muted text, lines and wash remain distinct roles. Growth comparison periods now both use the active wash and keep written earlier/later labels. Fields have a darker fixed ground. Amber and red remain explicit pending/error treatments; Observatory inherits those status values from the root palette.
@@ -208,17 +245,19 @@ Host module titles use the headline role; growth titles reduce to the mobile rol
 
 The host knowledge-module heading is 22px, or 20px on phones. Inside the frame the embedded map heading uses the knowledge-heading role and the detail title is 25px/1.5 at weight 500. This scoped difference preserves the imported module’s character without changing the host font system.
 
+Projected node labels use the knowledge-node-label role; the six domain labels use knowledge-domain-label, switching to knowledge-domain-label-mobile at ≤620px. Their small secondary lines remain 11px. These local roles describe nebula navigation, not reading-body typography.
+
 ## Layout
 
 The desktop app rail remains fixed at 208px and the workspace retains that offset. Ordinary main content is capped at 1600px with 36px side padding. Only Settings retains its context/status topbar, with a 64px minimum height. Growth places a transparent 186px topic index beside a flexible continuous reading sheet, separated by 26px. The sheet uses its spacing token; dated records, versions and secondary tools stay in ruled sections and native disclosures.
 
 At ≥1500px, main/utility side padding is 46px, topic index width is 208px, the gap is 32px and sheet padding is 30px 36px. At 1051–1200px, the index is 170px with a 20px gap and 26px main side padding. At ≤1050px, the rail becomes a horizontal top shell, the workspace offset clears and main side padding is 24px. At ≤820px, growth, Today and Settings stack into one column and navigation uses the actual visible destination count. At ≤640px, main padding is 20px 16px 36px, sheet padding uses the mobile token, paired forms and comparison stack, and navigation uses three columns for six visible entries or four for seven/eight. Knowledge is core: six core destinations plus two optional ones give six to eight visible routes.
 
-Knowledge fills the available workspace rather than the ordinary content cap. Its host main uses 18px horizontal padding on desktop, 14px below the top-shell breakpoint and 8px on phones. A compact heading precedes a same-origin iframe with rounded border and transparent background. Desktop frame height is `calc(100dvh - 112px)` with 600px minimum; top-shell and phone layouts retain explicit 620px/650px minima for usable exploration. The embedded toolbar is 104px tall, 108px at ≤620px, with search, add, domain selector, routes, bookmarks and import/export. Duplicate module branding and sidebar are hidden. The detail reader stays beside the map on wider frames and becomes a bottom drawer at ≤620px, with a 50px reader launcher.
+Knowledge fills the available workspace rather than the ordinary content cap. Its host main uses 18px horizontal padding on desktop, 14px below the top-shell breakpoint and 8px on phones. A compact heading precedes a same-origin iframe with rounded border and transparent background. Desktop frame height is `calc(100dvh - 112px)` with 600px minimum; top-shell and phone layouts retain explicit 620px/650px minima for usable exploration. The embedded toolbar is 104px tall, 108px at ≤620px, with search, add, domain selector, routes, bookmarks and import/export. Duplicate module branding and sidebar are hidden. Universe overview collapses the reader so the nebula fills the map; selecting a node restores reading. The open detail reader sits beside the map on wider frames and becomes a bottom drawer at ≤620px, with a 50px reader launcher.
 
 ## Elevation & Depth
 
-The shared procedural sky provides atmospheric depth, while dark reading surfaces, fine rules and restrained shadows keep text stable. Sheets use the current dark ambient shadow; dialogs use a stronger overlay shadow and dark backdrop. No white-paper sheet remains normative. The 3D knowledge map uses a perspective camera and alpha-enabled WebGL with a null scene background, allowing the parent sky to continue behind orbital bodies and relationship lines.
+The shared procedural sky provides atmospheric depth, while dark reading surfaces, fine rules and restrained shadows keep text stable. Sheets use the current dark ambient shadow; dialogs use a stronger overlay shadow and dark backdrop. No white-paper sheet remains normative. The 3D knowledge map uses a perspective camera (47°) and alpha-enabled WebGL with a null scene background, allowing the parent sky to continue behind organic XYZ gas volumes, dense stellar fields, dark dust and semantic filament streams. Domain volumes and descendants occupy three dimensions; luminous stellar beacons identify selectable nodes, with invisible sphere meshes used only as hit targets. Depth attenuation, overlapping gas and stellar parallax supply volume rather than visible planets or orbital guides.
 
 **The Continuous Sky Rule.** Use one body-level sky behind navigation and modules; the embedded knowledge renderer stays transparent rather than painting a second sky.
 
@@ -228,7 +267,7 @@ The sky is produced locally by `src/cosmic-background.ts`: an offscreen four-oct
 
 ## Shapes
 
-Continuous sheets and dialogs retain the sheet radius; native buttons, fields and appearance selects retain the control radius. Rail selection uses the navigation radius; topic selection uses the control radius. Filters use 10px and comparisons 12px. At the top-shell breakpoint, app navigation retains its rounded tab silhouette. Knowledge adds circular orbital forms inside its map, fine dashed cross-domain portals, compact rounded toolbar segments and a 14px iframe boundary, reduced to 10px on phones. These map shapes do not replace host control geometry.
+Continuous sheets and dialogs retain the sheet radius; native buttons, fields and appearance selects retain the control radius. Rail selection uses the navigation radius; topic selection uses the control radius. Filters use 10px and comparisons 12px. At the top-shell breakpoint, app navigation retains its rounded tab silhouette. Knowledge uses irregular translucent gas, stellar beacons and curved point-stream filaments inside its map, compact rounded toolbar segments and a 14px iframe boundary, reduced to 10px on phones. Projected map labels use the local knowledge-label radius, transparent unbordered resting surfaces and a faint portal or hover wash. Their dark text shadow preserves legibility over luminous gas; the hover outline remains local to the map. These map shapes do not replace host control geometry.
 
 ## Components
 
@@ -246,7 +285,9 @@ Core destinations are Today, Personal Growth / Environmental Awareness, Knowledg
 
 ### Knowledge universe
 
-The same-origin `public/knowledge-universe/index.html?embedded=1` module retains six separate domains: stocks, psychology, philosophy, astronomy, mathematics and physics. Its 113 nodes, 218 total links, eight routes and maximum five-level hierarchy are content facts, not reusable layout tokens. Native toolbar controls expose domains, routes, bookmarks and backup import/export. Perspective bodies, orbital guides, labels and cross-domain portals share the transparent map; the adjacent reader carries long text, notes and relationship explanations. Existing local Space Grotesk and Chinese OS fonts remain scoped to this module. Module detail and behavior are recorded in `docs/KNOWLEDGE-UNIVERSE.md`.
+The same-origin `public/knowledge-universe/index.html?embedded=1` module retains six separate domains: stocks, psychology, philosophy, astronomy, mathematics and physics. Its 113 nodes, 218 total links, eight routes and maximum five-level hierarchy are content facts, not reusable layout tokens. Native toolbar controls expose domains, routes, bookmarks and backup import/export. Shader-rendered gas, dark dust, stellar beacons, projected labels and cross-domain filament streams share the transparent map; selecting a node restores the reader for long text, notes and relationship explanations. Existing local Space Grotesk and Chinese OS fonts remain scoped to this module. Module detail and behavior are recorded in `docs/KNOWLEDGE-UNIVERSE.md`.
+
+TrackballControls support palm-like rotation with unrestricted roll, inertial settling, pan and zoom. Rotation speed is 2.1, zoom speed 1.1, pan speed 0.6 and damping 0.13. Manual interaction interrupts camera flight; automatic orbit waits 2800ms after release and runs only when the local toggle, global motion preference, editing state and reduced-motion setting permit it. Hidden documents stop the render loop. Gas breathing and stellar twinkle share the same motion gate; manual exploration remains available. The compact field uses fewer gas, star and filament points below 640px; the measured desktop overview's 19,002 field points are an implementation observation, not a density token.
 
 ### Appearance and live work
 

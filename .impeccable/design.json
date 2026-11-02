@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-02T12:11:09.265315+00:00",
+  "generatedAt": "2026-11-02T12:59:55.473019+00:00",
   "title": "Design System: LifeAtlas",
   "extensions": {
     "colorMeta": {
@@ -661,6 +661,62 @@
           "oklch(83.57% 0.02813 259.92)",
           "oklch(95.00% 0.02813 259.92)"
         ]
+      },
+      "knowledge-label-detail": {
+        "role": "neutral",
+        "displayName": "Knowledge label secondary text",
+        "tonalRamp": [
+          "oklch(15.00% 0.02812 253.25)",
+          "oklch(26.43% 0.02812 253.25)",
+          "oklch(37.86% 0.02812 253.25)",
+          "oklch(49.29% 0.02812 253.25)",
+          "oklch(60.71% 0.02812 253.25)",
+          "oklch(72.14% 0.02812 253.25)",
+          "oklch(83.57% 0.02812 253.25)",
+          "oklch(95.00% 0.02812 253.25)"
+        ]
+      },
+      "knowledge-label-hover-bg": {
+        "role": "neutral",
+        "displayName": "Knowledge label hover wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.04070 258.11)",
+          "oklch(26.43% 0.04070 258.11)",
+          "oklch(37.86% 0.04070 258.11)",
+          "oklch(49.29% 0.04070 258.11)",
+          "oklch(60.71% 0.04070 258.11)",
+          "oklch(72.14% 0.04070 258.11)",
+          "oklch(83.57% 0.04070 258.11)",
+          "oklch(95.00% 0.04070 258.11)"
+        ]
+      },
+      "knowledge-portal-label-bg": {
+        "role": "neutral",
+        "displayName": "Knowledge portal label wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.03665 258.88)",
+          "oklch(26.43% 0.03665 258.88)",
+          "oklch(37.86% 0.03665 258.88)",
+          "oklch(49.29% 0.03665 258.88)",
+          "oklch(60.71% 0.03665 258.88)",
+          "oklch(72.14% 0.03665 258.88)",
+          "oklch(83.57% 0.03665 258.88)",
+          "oklch(95.00% 0.03665 258.88)"
+        ]
+      },
+      "knowledge-label-hover-outline": {
+        "role": "neutral",
+        "displayName": "Knowledge label hover outline",
+        "tonalRamp": [
+          "oklch(15.00% 0.06523 251.61)",
+          "oklch(26.43% 0.06523 251.61)",
+          "oklch(37.86% 0.06523 251.61)",
+          "oklch(49.29% 0.06523 251.61)",
+          "oklch(60.71% 0.06523 251.61)",
+          "oklch(72.14% 0.06523 251.61)",
+          "oklch(83.57% 0.06523 251.61)",
+          "oklch(95.00% 0.06523 251.61)"
+        ]
       }
     },
     "typographyMeta": {
@@ -699,6 +755,18 @@
       "knowledge-heading": {
         "displayName": "Knowledge map heading",
         "purpose": "Local Space Grotesk (Atlas) with OS Chinese fallbacks, scoped to the embedded map."
+      },
+      "knowledge-node-label": {
+        "displayName": "Knowledge stellar node label",
+        "purpose": "12px projected labels, scoped to the final nebula.css cascade."
+      },
+      "knowledge-domain-label": {
+        "displayName": "Knowledge domain label",
+        "purpose": "15px, weight 500, .06em tracking for the six projected domain labels."
+      },
+      "knowledge-domain-label-mobile": {
+        "displayName": "Knowledge domain label on phones",
+        "purpose": "13px at max-width 620px within the iframe; host typography is unchanged."
       }
     },
     "shadows": [
@@ -711,6 +779,11 @@
         "name": "dialog",
         "value": "0 24px 80px #172b4b38",
         "purpose": "Inherited host modal elevation above the dark backdrop."
+      },
+      {
+        "name": "knowledge-label-text",
+        "value": "0 1px 5px #000, 0 1px 12px #020611",
+        "purpose": "Local projected label shadow from nebula.css. Title spans retain the inherited 0 2px 8px #020610 shadow from style.css."
       }
     ],
     "motion": [
@@ -728,6 +801,16 @@
         "name": "controls",
         "value": "180ms button, field, topic and segmented-view state feedback; CTA expanding layer 240ms and existing arrow shift 180ms; particle track/knob 180ms; Settings knob 180ms and inherited track color 150ms; app nav none; toast 200ms; reduced motion suppresses transitions and animations",
         "purpose": "State feedback without entrance animation."
+      },
+      {
+        "name": "knowledge-trackball",
+        "value": "TrackballControls: rotateSpeed 2.1, zoomSpeed 1.1, panSpeed 0.6, dynamicDampingFactor 0.13, staticMoving false, multiTouchRoll true; automatic orbit resumes 2800ms after manual release at 0.035 radians/second.",
+        "purpose": "Free palm-like roll, rotation, inertial settling, pan and zoom. Interaction interrupts camera flight. Automatic orbit requires the local toggle; automatic orbit and shader time also obey global motion, editing and reduced-motion gates. Hidden documents stop rendering."
+      },
+      {
+        "name": "knowledge-focus-flight",
+        "value": "800ms quartic ease-out (1 - (1 - p)^4); immediate under reduced motion.",
+        "purpose": "Fit a selected hierarchy scope while preserving the current viewing direction."
       }
     ],
     "breakpoints": [
@@ -784,9 +867,20 @@
     "cosmicIntegration": {
       "authority": "src/cosmic-integration.css, imported last by app/layout.tsx",
       "sky": "src/cosmic-background.ts",
-      "knowledge": "public/knowledge-universe/embedded.css",
-      "rendering": "Alpha-enabled WebGL, scene.background=null; embedded body and workspace transparent; one parent sky.",
-      "historical": "Earlier light palette and landscape descriptions are superseded by the November 2 integration."
+      "knowledge": "public/knowledge-universe/embedded.css, followed by public/knowledge-universe/nebula.css for local label and exploration overrides",
+      "rendering": "Alpha-enabled WebGL, scene.background=null; embedded body and workspace transparent. The parent sky continues behind local XYZ gas/star/dust volumes and semantic filament streams.",
+      "historical": "Earlier light palette and landscape descriptions are superseded by the November 2 integration.",
+      "knowledgeVolume": {
+        "sources": [
+          "public/knowledge-universe/nebula-field.js",
+          "public/knowledge-universe/universe3d.js",
+          "public/knowledge-universe/app.js"
+        ],
+        "camera": "47-degree perspective",
+        "selection": "Luminous stellar beacons; sphere meshes have zero opacity and serve only as hit targets.",
+        "layout": "Overview collapses reading; selecting a node restores the reader. Mathematics and physics remain separate among six domains.",
+        "density": "Desktop overview observed at 19,002 field points, not a reusable token. Gas/star populations and filament counts are reduced below 640px; pixel ratio caps at 1 mobile and 1.3 desktop."
+      }
     }
   },
   "components": [
@@ -868,6 +962,14 @@
       "description": "Compact module toolbar under the host LifeAtlas heading; no duplicate brand or sidebar. Real map and backup behavior remain in the application.",
       "html": "<div class=\"ds-knowledge-tools\"><label>星系 <select aria-label=\"星系\"><option>六大星系</option><option>数学</option><option>物理</option></select></label><button>学习路线</button><button>收藏</button><button>导出</button><button>导入</button></div>",
       "css": ".ds-knowledge-tools{display:flex;align-items:center;gap:15px;padding:9px 14px;min-height:30px;background:#0e1828ed;color:#bfd0e4;font:11px/1.6 Atlas,\"Microsoft YaHei\",\"PingFang SC\",sans-serif;overflow-x:auto;white-space:nowrap}.ds-knowledge-tools label{display:flex;align-items:center;gap:7px;margin-right:auto}.ds-knowledge-tools select{font:inherit;background:#1a2b42;border:1px solid #50667d;color:#dfebf7;border-radius:6px;padding:4px 6px;min-width:115px}.ds-knowledge-tools button{border:0;background:transparent;color:inherit;font:inherit;padding:4px 0;cursor:pointer}.ds-knowledge-tools button:hover{color:white;text-decoration:underline;text-underline-offset:3px}.ds-knowledge-tools button:focus-visible,.ds-knowledge-tools select:focus-visible{outline:3px solid #b9deeb;outline-offset:3px}"
+    },
+    {
+      "name": "Nebula stellar label",
+      "kind": "custom",
+      "refersTo": "knowledge-domain-label",
+      "description": "A projected domain-label button over the volume. Mathematics uses its existing domain tint; the application supplies selection, hierarchy and collision-aware positioning. The snippet only demonstrates the local shape and states.",
+      "html": "<button class=\"ds-nebula-label\"><span>数学</span></button>",
+      "css": ".ds-nebula-label{display:block;border:0;border-radius:5px;background:transparent;padding:3px 7px;text-align:center;white-space:nowrap;font:500 15px/1.5 Atlas,\"Microsoft YaHei\",\"PingFang SC\",sans-serif;letter-spacing:.06em;text-shadow:0 1px 5px #000,0 1px 12px #020611;cursor:pointer}.ds-nebula-label span{color:#eea193;text-shadow:0 2px 8px #020610}.ds-nebula-label:hover{background:#081426c9;outline:1px solid #88a9ce60}.ds-nebula-label:focus-visible{outline:2px solid #b9deeb;outline-offset:4px}@media(max-width:620px){.ds-nebula-label{font-size:13px}}"
     }
   ],
   "narrative": {
