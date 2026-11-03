@@ -9,6 +9,7 @@ import '../src/investment.css';
 import '../src/optional-modules.css';
 import '../src/cosmic-integration.css';
 import './workspace.css';
+import '../src/inline-ai.css';
 import {workspacePage,mountWorkspace,initializeWorkspace} from './workspace';
 import {mountLifeAtlas} from '../src/main';
 import {initializeStorage,download} from './storage';

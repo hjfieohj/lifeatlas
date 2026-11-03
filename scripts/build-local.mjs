@@ -27,6 +27,7 @@ fs.copyFileSync(path.join(root,'scripts/install-local-shortcuts.ps1'),path.join(
 fs.writeFileSync(path.join(out,'Install-Desktop-Shortcut.cmd'),'@echo off\r\npowershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File "%~dp0Install-Desktop-Shortcut.ps1" -ApplicationDirectory "%~dp0."\r\n','ascii');
 fs.copyFileSync(path.join(root,'docs/LOCAL-WORKSPACE.md'),path.join(out,'本地功能与连接指南.md'));
 fs.copyFileSync(path.join(root,'docs/DOWNLOADS.md'),path.join(out,'使用说明.md'));
-const knowledge=path.join(out,'web/knowledge-universe/index.html');fs.writeFileSync(knowledge,fs.readFileSync(knowledge,'utf8').replace('<head>','<head>\n<script src="/local-bootstrap.js" defer></script>'));
+fs.copyFileSync(path.join(root,'src/inline-ai.css'),path.join(out,'web/knowledge-universe/inline-ai.css'));
+const knowledge=path.join(out,'web/knowledge-universe/index.html');fs.writeFileSync(knowledge,fs.readFileSync(knowledge,'utf8').replace('<head>','<head>\n<link rel="stylesheet" href="inline-ai.css"><script src="/local-bootstrap.js" defer></script>'));
 fs.writeFileSync(path.join(out,'web/index.html'),'<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LifeAtlas · 本地生活全图</title><link rel="icon" href="/favicon.svg?v=atlas-orbit-v2"><link rel="stylesheet" href="/assets/app.css"><script type="module" src="/assets/app.js"></script></head><body><a class="skip" href="#main">跳到主要内容</a><div id="app"></div><dialog id="modal" aria-labelledby="dialog-title"></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>');
 console.log('Built self-contained local application: '+out);

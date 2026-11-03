@@ -2,10 +2,27 @@
 version: 1
 slug: "src-growth-ts"
 primary_target: "src/growth.ts"
-related_targets: ["src/reading-room.css","src/uiverse-system.css","src/appearance.ts","src/growth-presentation.ts","src/main.ts","src/skins.css"]
+related_targets: ["src/reading-room.css","src/uiverse-system.css","src/appearance.ts","src/growth-presentation.ts","src/main.ts","src/skins.css","src/inline-ai.ts","src/inline-ai.css","src/ai-context.ts","src/growth-ai.ts","src/growth-ai-context.ts","local/workspace.css","local/integrations.mjs"]
 ---
 
 # LifeAtlas / 生活阅览室
+
+## Current ordinary extension · inline AI · 2026-11-03
+
+Mode: Operate. The owner's code-led local extension places assistance after each growth writing block, each of the five environment groups, whole forms and saved topic/experience/loaded-trajectory surfaces. Empty content offers “引导我开始”; authored content offers “总结与扩展”. Keep the LifeAtlas shell, independent growth index, Chinese sans/native fields, continuous reading sheet, explicit saving and immutable earlier revisions. The current two skins are 深空 · 暗色 (`island`) and 晴空 · 亮色 (`observatory`) as established in `docs/LOCAL-WORKSPACE.md`; prior white-sheet/two-night-palette commitments below are historical.
+
+The compact source-attached row expands an editable question and reference preview, identifies the endpoint/model, and sends only through the explicit “发送以上内容并…” button. A field scope includes its own content and current topic identity; related environment inputs remain grouped. Whole topic/experience contexts use canonical formatting in saved and editing views, so source fingerprints identify actual changes rather than display-only title differences. Trajectory help clearly states that only currently loaded records are included. No other topic, mailbox or entire knowledge library is gathered automatically. Results stay inline with generated-result provenance, copy, original question/references and a stale-source notice when appropriate; they never overwrite original writing. The existing bounded rule reports remain separate.
+
+`src/inline-ai.ts/css`, `src/ai-context.ts`, `src/growth-ai.ts` and `src/growth-ai-context.ts` reuse existing controls, semantic color roles and native disclosures. Each source scope has recent-30 history, with all saved analyses retained in SQLite/backups through `local/integrations.mjs`. Pending, completed and failed request state broadcasts across a growth view remount, including saving while a request runs. The removed AI navigation destination is replaced by source-attached actions; old standalone history is in Settings. Current local mobile navigation is four columns. Ordinary wrapping/stacking extends the established small-screen reading layout; no global type, palette, asset or motion replacement is introduced.
+
+Evidence: the documenter opened all eight `.impeccable/review/inline-ai/*.png` captures. The four `growth-{island,observatory}-{desktop,mobile}` captures show growth at 1450px/390px in both skins, including preview/result and an empty field action; the other four show investment record/editor results in both skins. Source comparison included the final inline/growth context files and local workspace/integration service against `DESIGN.md` and `.impeccable/design.json`. Both system files remain preserved because this is an ordinary extension. Their older standalone-AI/five-column navigation/six-domain composition descriptions do not override the current product and surface contracts.
+
+The parent reports 89 passing unit tests, typecheck, local build and focused simulated source/staleness/remount checks. The final reviewer returned **ship / pass limited to F1/F2**, both resolved: false source title/staleness and delayed results lost through save. This is not renewed whole-surface certification. The single supplied detector run has zero primary findings and three advisories (two fallback border colors; preexisting 10px mobile detail label); none authorizes a redesign or a warning-free claim. No real API/mail account was used. Captures and source checks do not establish real model quality or exhaustive keyboard/optional-hook coverage. Current product/storage/cost boundaries are in `PRODUCT.md` and `docs/LOCAL-WORKSPACE.md`.
+
+## Historical reading-room record · through 2026-10-31
+
+> The original direction, extensions and evidence below are preserved as historical records. Current local appearance, navigation and inline AI behavior are governed by the November 3 contract above and `.impeccable/surfaces/local-workspace-ts.md`.
+
 Mode: Operate + Read. Owner and later individual users recording lived experience and understanding their environment. Scope: shared shell, growth, mail, history, settings and Today. Keep real data, native interactions, two selectable skins and the existing particle renderer.
 
 ## Direction contract

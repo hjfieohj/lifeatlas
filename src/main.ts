@@ -94,7 +94,7 @@ function settings() {
 function syncModules(){
   root.querySelectorAll<HTMLElement>('[data-route]').forEach(el=>{el.hidden=!moduleEnabled(el.dataset.route!,modules);});
   root.querySelectorAll<HTMLInputElement>('[data-module]').forEach(el=>{el.checked=modules[el.dataset.module as 'investment'|'life'];});
-  const count=6+Number(modules.investment)+Number(modules.life)+Number(!!options.local);
+  const count=6+Number(modules.investment)+Number(modules.life);
   root.style.setProperty('--nav-count',String(count));
   root.style.setProperty('--nav-phone-columns',String(count>=7?4:count===6?3:5));
   const status=root.querySelector('[data-module-status]');if(status)status.textContent=moduleStorageFailed?'浏览器未能保存模块选择，本次切换仍然生效。':'模块选择会自动保存；关闭模块不会删除内容。';
@@ -129,7 +129,6 @@ function render() {
   if(options.local){
     root.querySelector('.prototype-notice')?.remove();root.querySelector('.demo-badge')?.remove();
     const mailNav=root.querySelector('[data-route="mail"]');mailNav?.querySelector('.nav-count')?.remove();
-    mailNav?.insertAdjacentHTML('beforebegin','<a href="#ai" class="nav-item '+(page==='ai'?'active':'')+'" data-route="ai">'+icon('knowledge')+'<span>AI 分析</span></a>');
     root.classList.add('local-workspace');
   }
   options.onRender?.();

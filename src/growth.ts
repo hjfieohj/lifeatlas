@@ -7,6 +7,7 @@ import {advisorForm,readGuidance,guidanceReportMarkup,guidanceReading,syncGuidan
 import {growthPageHeader,growthPaths} from './growth-presentation';
 import {blankSubject,blankRelationship,importGuidanceEnvironment,maxSubjects,maxRelationships} from './environment-subjects';
 import {syncSubjectLabels,syncSubjectControls} from './guidance-subjects-ui';
+import {mountGrowthAI} from './growth-ai';
 
 const esc=(s:unknown)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const stamp=(t:number)=>new Intl.DateTimeFormat('zh-CN',{dateStyle:'medium',timeStyle:'short'}).format(t);
@@ -16,6 +17,7 @@ type RevisionPage={items:GrowthRevision[];next:number|null};
 class ApiError extends Error{constructor(message:string,public status:number){super(message);}}
 export function mountGrowth(panel:HTMLElement){
   const lifetime=new AbortController();
+  let cleanupAI=()=>{};
   const storagePlace=window.lifeAtlasLocal?'这台电脑': ['127.0.0.1','localhost','[::1]'].includes(location.hostname)?'本机测试数据库':'当前生活空间的云端';
   let topics:GrowthTopic[]=[],topic:GrowthTopic|null=null,moments:GrowthMoment[]=[],bounds:GrowthMoment[]=[],cursor:string|null=null;
   let loading=true,busy=false,dirty=false,showArchived=false,view:'timeline'|'compare'|'archive'=document.documentElement.dataset.skin==='observatory'?'compare':'timeline';
@@ -102,9 +104,10 @@ export function mountGrowth(panel:HTMLElement){
     (attempts.length?attempts.slice(0,4).map(m=>'<section class="growth-attempt"><p>'+esc(m.action)+'</p><p class="growth-help">'+esc(m.occurredOn)+' · 已有 '+m.feedbackCount+' 条关联反馈</p>'+
       (topic?.deleted?'':'<button class="text-button" data-growth="respond-moment" data-id="'+m.id+'">回应这次尝试</button>')+'</section>').join(''):'<p>写下一个想尝试的小行动，之后回来记录结果。</p>')+
     '<p class="growth-help continuation-note">这里只展示近期尝试。更早的尝试可在记录中查找并回应；有反馈不代表已经完成或有效。</p></aside>';}
-  function render(){if(lifetime.signal.aborted)return;
+  function render(){if(lifetime.signal.aborted)return;cleanupAI();
     panel.innerHTML=`${growthPageHeader(!loading&&!editor&&!signIn&&!topic?.deleted?(topic?'moment':'topic'):null,storagePlace==='本机测试数据库')}${controls()}${loading?'<section class="growth-loading" aria-busy="true"><h2>正在读取成长主题…</h2><p>读取完成后，可以继续上一次的观察。</p></section>':signIn&&!topics.length?'<section class="growth-empty"><h2>从你的真实生活开始</h2><p>登录后可建立自己的主题，持续记录和回看；这里不会填入虚构的个人经历。</p></section>':`<div class="growth-layout"><aside class="growth-topics" aria-label="成长主题"><div class="section-heading"><h2>成长主题</h2><button class="text-button" data-growth="new-topic">新建</button></div><label class="growth-show-archived"><input type="checkbox" id="growth-show-archived" ${showArchived?'checked':''}> 显示收起的主题</label><nav aria-label="选择成长主题">${topics.filter(t=>showArchived||!t.deleted).map(t=>`<button class="growth-topic-link ${topic?.id===t.id?'active':''}" ${topic?.id===t.id?'aria-current="true"':''} data-growth="select-topic" data-id="${t.id}">${esc(t.title)}${t.deleted?'<span>已收起</span>':''}</button>`).join('')||'<p class="growth-help">还没有主题。选一个值得长期观察的问题，就可以开始。</p>'}</nav><p class="growth-help">不必急着证明成长。保留当时的理解，让之后的经历有机会回答它。</p><button class="text-button" data-growth="reload">重新读取</button></aside><div class="growth-content">${editor==='topic'?topicForm():editor==='environment'?environmentForm():editor==='advisor'?advisorForm(advisorDraft,advisorDay,!!environmentOf(topic?.environmentProfile)):editor==='moment'?momentForm():detail()}</div>${!editor&&topic?continuation():''}</div>`}`;
     if(busy)panel.querySelectorAll<HTMLButtonElement>('button').forEach(b=>b.disabled=true);else{const form=panel.querySelector<HTMLFormElement>('#growth-advisor-form');if(form)syncSubjectControls(form,!!environmentOf(topic?.environmentProfile));}
+    if(!loading&&!signIn)cleanupAI=mountGrowthAI(panel,{topic,moments,draftId,editingTopic,editingMoment});
   }
   async function loadTopics(){const data=await api<{items:GrowthTopic[]}>('topics');topics=data.items;}
   function momentQuery(id:string,cursorValue?:string,selection:GrowthFilters=filters) {
@@ -191,5 +194,5 @@ if(!topic||topic.deleted)return;editor='environment';dirty=false;feedback('');re
   });
   const unload=(ev:BeforeUnloadEvent)=>{if(dirty||busy){ev.preventDefault();ev.returnValue='';}};window.addEventListener('beforeunload',unload,{signal:lifetime.signal});
   render();void task(async()=>{await loadTopics();const t=topics.find(t=>!t.deleted);if(t)await loadTopic(t);else{editor='topic';draftId=crypto.randomUUID();}}).finally(()=>{loading=false;render();});
-  return {canLeave,destroy:()=>{lifetime.abort();moments=[];topics=[];bounds=[];panel.replaceChildren();}};
+  return {canLeave,destroy:()=>{cleanupAI();lifetime.abort();moments=[];topics=[];bounds=[];panel.replaceChildren();}};
 }
