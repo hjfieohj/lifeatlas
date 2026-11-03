@@ -2,12 +2,26 @@
 version: 1
 slug: "src-growth-ts"
 primary_target: "src/growth.ts"
-related_targets: ["src/reading-room.css","src/uiverse-system.css","src/appearance.ts","src/growth-presentation.ts","src/main.ts","src/skins.css","src/inline-ai.ts","src/inline-ai.css","src/ai-context.ts","src/growth-ai.ts","src/growth-ai-context.ts","local/workspace.css","local/integrations.mjs"]
+related_targets: ["src/reading-room.css","src/uiverse-system.css","src/appearance.ts","src/growth-presentation.ts","src/main.ts","src/skins.css","src/inline-ai.ts","src/inline-ai.css","src/ai-context.ts","src/growth-ai.ts","src/growth-ai-context.ts","local/application.ts","local/workspace.css","local/integrations.mjs"]
 ---
 
 # LifeAtlas / 生活阅览室
 
-## Current ordinary extension · inline AI · 2026-11-03
+## Current production refinement · 2026-11-03
+
+Mode: Operate; the daily local application now mounts growth through `local/application.ts`, preserving its independent topic index, continuous reading, native Chinese inputs, explicit save and immutable formal revisions. The disclosure identifies local personal records and manual saving accurately. Dark stars and light clouds, wordmark, controls and 3D knowledge remain the incumbent system. `DESIGN.md` and `.impeccable/design.json` are unchanged. `docs/DAILY-USE.md` and `docs/LOCAL-WORKSPACE.md` govern current runtime/retention limits.
+
+Visible source-scoped assistance restores its latest saved analysis and pages through all history in batches of 30. Empty guidance, current-block reference isolation, canonical saved/editing source context and pending/completed/failed remount behavior remain. A preview binds the service/model so another window’s destination change requires a fresh preview. Internal automatic record-draft checkpoints do not replace growth’s explicit saving or prune formal growth revisions. Fresh installs contain no personal sample topics; cleaning the owner’s specifically identified old test topics belongs only to a separately backed-up authorized local upgrade, with no public title-based deletion.
+
+The documenter opened `.impeccable/review/production/light-growth-mobile.png` at 390px, plus Settings/Investment/Knowledge desktop and Mail mobile. The parent and reviewer inspected all ten production captures, including `dark-growth-desktop.png` at 1450px. Current code comparison covered the official shell, growth disclosure and inline latest/history handling. The 95-test log and three production verification JSONs pass; typecheck/build success is parent-reported. The final reviewer’s **ship** is **limited to production F1/F2**, both **Resolved** (independent AI/mail configuration drafts and late typing; new record draft A retained while saving existing B). These are local-workspace draft fixes, not new growth findings or whole-product certification. The older inline-AI review below used the same finding labels for different issues.
+
+The single production detector has zero primary findings and three advisories, with no rerun or warning-free claim. All checks/captures use local simulations and fixture data, with zero real-provider calls; they do not establish real mail/provider connectivity, model quality or exhaustive input paths. Existing Platform prose schema drift is reported without repair.
+
+## Historical inline-AI increment · 2026-11-03
+
+> The following ordinary extension and evidence are retained for their earlier increment. Latest-30-only wording and earlier test/reviewer claims are superseded by current production authority above.
+
+## Ordinary extension · inline AI · 2026-11-03
 
 Mode: Operate. The owner's code-led local extension places assistance after each growth writing block, each of the five environment groups, whole forms and saved topic/experience/loaded-trajectory surfaces. Empty content offers “引导我开始”; authored content offers “总结与扩展”. Keep the LifeAtlas shell, independent growth index, Chinese sans/native fields, continuous reading sheet, explicit saving and immutable earlier revisions. The current two skins are 深空 · 暗色 (`island`) and 晴空 · 亮色 (`observatory`) as established in `docs/LOCAL-WORKSPACE.md`; prior white-sheet/two-night-palette commitments below are historical.
 

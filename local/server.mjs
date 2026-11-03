@@ -4,7 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomUUID,randomBytes,timingSafeEqual} from 'node:crypto';
 import {DatabaseSync} from 'node:sqlite';
-import {GrowthService,GrowthRepository,GmailService,D1Repository} from './services.mjs';
+import {GrowthService,GrowthRepository} from './services.mjs';
 import {openDatabase,adapter,atomicJson,stateSnapshot,initializeState,saveState,backupDatabase,validateBackup} from './database.mjs';
 import {createIntegrations,initializeIntegrations} from './integrations.mjs';
 const args=process.argv.slice(2),arg=(name,fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[i+1];};
@@ -65,7 +65,7 @@ const server=http.createServer(async(req,res)=>{
    send(res,404,{error:{message:'没有这个本地入口。'}});return;
   }
   const request=new Request(url,{method:req.method,headers:req.headers,...(!['GET','HEAD'].includes(req.method)?{body:await body(req)}:{})}),user={userId:settings.owner,email:'local@localhost'},binding=adapter(db);
-  const service=url.pathname.startsWith('/api/growth/')?new GrowthService(new GrowthRepository(binding)):url.pathname.startsWith('/api/gmail/')?new GmailService({origin,...settings.google,database:true},new D1Repository(binding)):null;
+  const service=url.pathname.startsWith('/api/growth/')?new GrowthService(new GrowthRepository(binding)):null;
   if(!service){send(res,404,{error:{message:'没有这个入口。'}});return;}const response=await service.handle(request,user);send(res,response.status,Buffer.from(await response.arrayBuffer()),Object.fromEntries(response.headers));return;
  }
  if(!['GET','HEAD'].includes(req.method)){send(res,405,'Method not allowed');return;}

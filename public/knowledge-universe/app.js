@@ -352,6 +352,6 @@
   document.fonts?.ready.then(()=>graph?.refresh?.());
   document.addEventListener('visibilitychange',()=>{if(document.hidden)graph?.pauseAnimation();else if(view==='map')graph?.resumeAnimation();});
   if(importWarning)toast(importWarning);
-  window.ATLAS={get nodes(){return nodes;},get links(){return links;},get saved(){return saved;},get domains(){return K.domains;},validateBackup,selectNode,enterSystem,get focusId(){return focusId;},childrenOf,get graph(){return graph;},async updateSaved(next){const cleaned=validateBackup(next);if(JSON.stringify(cleaned).length>3_800_000)throw new Error('宇宙记录已接近容量上限，请先导出并整理。');saved=cleaned;if(!persist())throw new Error('保存失败，请立即导出备份。');rebuild();setDomain('all');await window.lifeAtlasLocal?.flush();}};
+  window.ATLAS={get nodes(){return nodes;},get links(){return links;},get saved(){return saved;},get domains(){return K.domains;},validateBackup,selectNode,enterSystem,get focusId(){return focusId;},childrenOf,get graph(){return graph;},async updateSaved(next){const cleaned=validateBackup(next);if(new TextEncoder().encode(JSON.stringify(cleaned)).byteLength>3_800_000)throw new Error('宇宙记录已接近容量上限，请先导出并整理。');saved=cleaned;if(!persist())throw new Error('保存失败，请立即导出备份。');rebuild();setDomain('all');await window.lifeAtlasLocal?.flush();}};
   window.mountAtlasLibrary?.(window.ATLAS);
 })();

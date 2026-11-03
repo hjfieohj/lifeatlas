@@ -1,18 +1,16 @@
 {
-  "name": "lifeatlas-prototype",
-  "version": "0.3.0",
+  "name": "lifeatlas",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/run-framework.mjs dev",
-    "build": "node scripts/run-framework.mjs build",
+    "dev": "node scripts/develop-local.mjs",
+    "build": "npm run build:local",
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "test": "node --experimental-transform-types --test tests/*.test.ts",
     "build:sky": "node scripts/build-cosmic-background.mjs",
-    "build:local": "node scripts/build-cosmic-background.mjs && node scripts/build-local.mjs",
-    "predev": "npm run build:sky",
-    "prebuild": "npm run build:sky"
+    "build:local": "node scripts/build-cosmic-background.mjs && node scripts/build-local.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",

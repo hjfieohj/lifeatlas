@@ -2,14 +2,38 @@
 version: 1
 slug: "local-workspace-ts"
 primary_target: "local/workspace.ts"
-related_targets: ["local/workspace.css", "local/entry.ts", "local/integrations.mjs", "local/bootstrap.ts", "src/inline-ai.ts", "src/inline-ai.css", "src/ai-context.ts", "src/growth-ai.ts", "src/growth-ai-context.ts", "src/appearance.ts", "src/cosmic-background.ts", "src/main.ts", "public/knowledge-universe/library.js", "public/knowledge-universe/library.css", "public/knowledge-universe/app.js"]
+related_targets: ["local/application.ts", "local/workspace.css", "local/entry.ts", "local/integrations.mjs", "local/bootstrap.ts", "src/inline-ai.ts", "src/inline-ai.css", "src/ai-context.ts", "src/growth-ai.ts", "src/growth-ai-context.ts", "src/appearance.ts", "src/cosmic-background.ts", "src/main.ts", "public/knowledge-universe/library.js", "public/knowledge-universe/library.css", "public/knowledge-universe/app.js"]
 ---
 
-# LifeAtlas / 本地工作空间 · 0.3
+# LifeAtlas / 本地工作空间 · 0.4
 
-Mode: Operate. Pinned user direction, ordinary code-led local extension; no comp or visual-system change. Current capability authority is `docs/LOCAL-WORKSPACE.md` and `PRODUCT.md`; incumbent visual tokens remain in `DESIGN.md` and `.impeccable/design.json`. Current composition below supersedes earlier standalone-AI and navigation descriptions. Earlier implementation/evidence records remain historical.
+Mode: Operate. Pinned user direction, ordinary code-led local extension; no comp or visual-system change. Current daily-use and capability authority is `docs/DAILY-USE.md`, `docs/LOCAL-WORKSPACE.md` and `PRODUCT.md`; incumbent visual tokens remain in `DESIGN.md` and `.impeccable/design.json`. Current composition below supersedes earlier standalone-AI and navigation descriptions. Earlier implementation/evidence records remain historical.
 
-## Current direction contract · inline AI · 2026-11-03
+## Current production direction · daily local use · 2026-11-03
+
+THESIS: Let the owner return each day to their own records, locate the next task, edit without losing another draft, and recover saved work through explicit backup and restore.
+
+OWN-WORLD: Operate, ordinary refinement. Preserve the LifeAtlas wordmark, Chinese/native controls, established shell, growth index, dark stars/light clouds and deep-space 3D knowledge viewport. No visual-system change; `DESIGN.md` and `.impeccable/design.json` stay unchanged.
+
+STORY: Today shows real pending tasks and recent records. Search/category/task-status filters narrow lists in batches of 20 without replacing the editor. Recycle-bin removal can restore the same record and analysis identity; confirmed permanent clearing leaves saved analyses retained. New record A survives editing and saving existing B through separate draft slots. Record drafts are retained automatically, while formal growth content still needs explicit saving and keeps its revision history. No personal examples are seeded. Only the owner’s explicitly identified test records are eligible for the separately backed-up installation cleanup; public upgrades do not guess titles for deletion.
+
+FIRST VIEWPORT: `local/application.ts` supplies eight named destinations, with Investment and Life independently optional and AI attached to content. Phone navigation uses four columns for seven/eight visible destinations and three for six. Settings adds a native anchored directory for appearance/modules, backup, AI, mail and originals; secondary explanations remain in disclosures. Growth states local storage/manual saving accurately. Mail disables sync when unconfigured while cached bodies remain readable. Default development/build run the full local application; the production bundle excludes prototype controllers and the service excludes hosted OAuth routes.
+
+FORM: Keep the incumbent reading surfaces, corners, native inputs, wrapped action rows and written status. Visible AI surfaces restore their latest source-scoped analysis; history loads 30 at a time and retains all saved analyses. Request previews bind the destination/model and block changed destinations until re-previewed. AI/mail forms track unsaved input and revisions separately: cross-form saves/removals and late responses preserve current typing. Connection secrets never enter automatic record drafts. Coalesced input writes retain immediate browser recovery; explicit backup waits for synchronization. Internal state checkpoints are bounded per key to one per minute, 16 entries and 12MB; formal revisions, AI history and complete backups are not pruned by that policy. UTF-8 byte checks enforce state capacity.
+
+## Current production evidence and limits · 2026-11-03
+
+Ten full-page captures in `.impeccable/review/production` cover `dark-today-desktop`, `dark-investment-desktop`, `dark-growth-desktop`, `dark-knowledge-desktop`, `dark-settings-mobile`, `light-today-mobile`, `light-investment-mobile`, `light-growth-mobile`, `light-mail-mobile` and `light-settings-desktop` (1450px / 390px). The documenter opened light Settings, dark Investment and Knowledge desktop plus light Growth and Mail mobile. The parent and reviewer inspected all ten. These are isolated test records, local simulated model output and cached fixture mail, never shipped personal examples.
+
+Source/document comparison covered the official shell/entry, workspace, build exclusion guard, package commands and inline-AI latest/history handling, along with `docs/DAILY-USE.md` and `docs/LOCAL-WORKSPACE.md`. The supplied test log records 95 passes; the parent reports successful typecheck/build. The three `work/qa/{production,production-regression,production-fixes}/verification.json` files report passing daily-use, inline-regression and focused draft checks, zero real-provider calls and no errors. The final reviewer returned **ship, limited to production F1/F2**, both **Resolved**: F1 is cross-form/late-response connection draft preservation; F2 is new draft A retained while saving existing B. This scoped verdict does not certify the whole product, real providers or all interaction paths. It is distinct from the older inline-AI F1/F2 below.
+
+The single `work/production-detect.json` output has zero primary findings and three advisories (two fallback border colors; preexisting 10px mobile detail text). No rerun or zero-advisory claim. Existing Platform prose schema drift remains reported without schema repair. Product/security/cost/retention limits remain in the current product and daily-use contracts.
+
+## Historical inline-AI increment · 0.3 · 2026-11-03
+
+> The following inline-AI direction and evidence are preserved for that increment. Its latest-30-only phrasing and earlier test/review claims are superseded by the production contract above.
+
+## Direction contract · inline AI · 2026-11-03
 
 THESIS: Let the owner ask for help where they are writing or reading, review exactly what will be sent, and retain the result beside its source without replacing their own words.
 
@@ -21,7 +45,7 @@ FIRST VIEWPORT: Keep the existing heading, honest local-save status, record list
 
 FORM: `src/inline-ai.css` supplies wrapped action rows, ordinary editable textareas, ruled result sections, native disclosures/history and written status. Mobile helper text moves beneath actions; action groups stack and long content wraps. The implementation reuses semantic colors and the existing reading surfaces. Appearance changes preserve live input; no authored content is auto-filled or overwritten. Missing AI configuration points to Settings while local recording remains available. Reference preview is capped at 60000 characters with a truncation notice.
 
-## Current evidence and limits · inline AI · 2026-11-03
+## Evidence and limits · inline AI · 2026-11-03
 
 The documenter opened all eight supplied recaptured PNGs in `.impeccable/review/inline-ai`: `island-desktop`, `island-mobile`, `observatory-desktop`, `observatory-mobile`, `growth-island-desktop`, `growth-island-mobile`, `growth-observatory-desktop` and `growth-observatory-mobile`. Desktop captures are 1450px and phone captures 390px. Investment shows source-attached results/history in editor and saved record; growth shows an editable reference preview, inline result and empty-block opening action. Both skins preserve the incumbent shell and reading geometry. Captures use isolated records and a clearly labelled local simulation.
 

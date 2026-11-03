@@ -1,0 +1,10 @@
+import {execFileSync,spawn} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=fileURLToPath(new URL('../',import.meta.url)),args=process.argv.slice(2),at=args.indexOf('--port'),port=at>=0?args[at+1]:'5174';
+if(!/^\d+$/.test(port)||Number(port)<1024||Number(port)>65535)throw new Error('请使用 1024—65535 范围内的本机端口。');
+execFileSync(process.execPath,[path.join(root,'scripts/build-cosmic-background.mjs')],{cwd:root,stdio:'inherit',windowsHide:true});
+execFileSync(process.execPath,[path.join(root,'scripts/build-local.mjs')],{cwd:root,stdio:'inherit',windowsHide:true});
+const server=spawn(process.execPath,[path.join(root,'dist-local/runtime/server.mjs'),'--port',port,'--data-dir',path.join(root,'.local-data')],{cwd:root,stdio:'inherit',windowsHide:true});
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>server.kill(signal));
+server.on('exit',code=>process.exit(code??0));

@@ -1,4 +1,5 @@
 .inline-ai{margin:12px 0 22px;min-width:0;color:var(--text,#dce5f3);font-size:14px;line-height:1.65}
+.inline-ai[hidden],.inline-ai [hidden]{display:none!important}
 .inline-ai-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 0;border-bottom:1px solid var(--border,#5a718748)}
 .inline-ai-bar>span{font-size:12px;color:var(--muted,#a5b6c9);flex:1;min-width:140px}
 .inline-ai .text-button{font:inherit;color:var(--accent,#b5cff3);background:none;border:0;padding:6px 0;cursor:pointer;text-align:left;min-height:32px}
@@ -17,5 +18,6 @@
 .inline-ai-actions details{min-width:0;flex:1}
 .inline-ai summary{cursor:pointer;padding:6px 0}
 .inline-ai [data-inline-runs]{display:flex;flex-direction:column;gap:4px}
+.inline-ai [data-inline-pagination]{display:flex;gap:18px;flex-wrap:wrap}
 [data-skin="observatory"] .inline-ai{--text:#193249;--muted:#50697f;--accent:#205b86;--surface:#f4faff;--border:#a8c1d3}
 @media(max-width:640px){.inline-ai-bar>span{flex-basis:100%;order:3}.inline-ai-actions{flex-direction:column}.inline-ai-actions details{width:100%}.inline-ai .button{max-width:100%;white-space:normal}}
