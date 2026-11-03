@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#173e35"/><path d="M12 10v20h17M20 10v13h9" fill="none" stroke="#eddbaf" stroke-width="3"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="LifeAtlas：探索轨道">
+  <defs>
+    <linearGradient id="ground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop stop-color="#263753"/>
+      <stop offset="1" stop-color="#101827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="232" fill="url(#ground)"/>
+  <path d="M311 735 466 333Q512 232 558 333L713 735" fill="none" stroke="#F3F7FC" stroke-width="92" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M356 603C455 650 606 614 688 527" fill="none" stroke="#80DDCD" stroke-width="66" stroke-linecap="round"/>
+</svg>

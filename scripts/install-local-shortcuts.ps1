@@ -9,7 +9,7 @@ $shell=New-Object -ComObject WScript.Shell
 function New-LifeAtlasShortcut([string]$ShortcutFile,[string]$TargetFile,[string]$ShortcutArguments,[string]$Description){
  $link=$shell.CreateShortcut($ShortcutFile)
  $link.TargetPath=$TargetFile;$link.Arguments=$ShortcutArguments;$link.WorkingDirectory=$appDirectory
- $link.Description=$Description;$link.IconLocation=(Join-Path $appDirectory 'LifeAtlas.ico')+',0';$link.Save()
+ $link.Description=$Description;$link.IconLocation=(Join-Path $appDirectory 'LifeAtlas-Orbit-v2.ico')+',0';$link.Save()
 }
 $nativeLauncher=Join-Path $appDirectory 'LifeAtlas.exe'
 New-LifeAtlasShortcut (Join-Path $desktopDirectory 'LifeAtlas.lnk') $nativeLauncher '' 'LifeAtlas 本地生活全图'

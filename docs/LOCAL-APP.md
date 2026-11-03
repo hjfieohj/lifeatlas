@@ -61,6 +61,6 @@ node scripts/install-local.mjs 'C:/absolute/path/LifeAtlas本地程序'
 
 `local/entry.ts` 复用既有界面和全部样式，仅增加本地资料设置与状态提示。esbuild 生成静态界面和服务包，安装后不依赖 React/云框架。`local/database.mjs` 用 Node 内置 SQLite 兼容现有 D1 服务接口，成长与 Gmail 服务复用。
 
-安装脚本包含当前 Node 可执行文件，版本固定 24.13.0，官方该版本许可证随包在 `licenses/Node-LICENSE.txt`。`local/lifeatlas.ico` 派生于既有 `public/favicon.svg`，重建脚本 `scripts/build-local-icon.py` 的 Pillow 只用于构建，运行不需 Python。现有字标、字体和 Uiverse 的开源来源保持，无新增运行时字体或图片请求。
+安装脚本包含当前 Node 可执行文件，版本固定 24.13.0，官方该版本许可证随包在 `licenses/Node-LICENSE.txt`。桌面图标以 `public/brand/lifeatlas-app-icon.svg` 为单一来源，同步导出 `local/lifeatlas.ico`、PNG 与 favicon；版本化 ICO 路径用于刷新桌面快捷方式。重建脚本 `scripts/build-local-icon.py` 调用本机 Sharp 和 Pillow，仅用于构建，运行不需 Python。现有字标、字体和 Uiverse 的开源来源保持，无新增运行时字体或图片请求。
 
 本地化实现验证：77 项测试、类型检查和本地构建通过；本地行为检查使用独立资料目录。本地设置表面说明为 `../.impeccable/surfaces/local-entry-ts.md`。固定目录安装已完成，成长资料逐行核对通过，具体报告保留在本机。
