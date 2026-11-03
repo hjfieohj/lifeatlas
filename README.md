@@ -2,6 +2,20 @@
 
 供本人长期使用的 Windows 本地程序。核心功能无需打开 Codex、在线身份或外网。以下为当前日常使用入口；后面的旧版运行及设计记录仅供开发追溯。
 
+## 公开下载
+
+**[打开最新发布页](https://github.com/hjfieohj/lifeatlas/releases/latest)**
+
+| 下载 | 内容 |
+| --- | --- |
+| **[Windows x64 完整免安装版](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Windows-x64.zip)** | 推荐。包含原生 EXE、运行时、整个应用与本地资源；解压后运行 `LifeAtlas.exe` |
+| [完整源码包](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Source.zip) | 界面、服务端、数据库迁移、测试、构建脚本、图标源文件及文档 |
+| [独立知识宇宙离线版](https://github.com/hjfieohj/lifeatlas/releases/latest/download/Knowledge-Universe-Offline.zip) | 单独的六大领域知识星云；解压后打开 `index.html`，不是全程序 |
+| [图标资源包](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Icons.zip) | 原始 SVG、1024px PNG、多尺寸 ICO 与设计说明 |
+| [使用说明](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Readme.zh-CN.md) · [SHA-256 校验值](https://github.com/hjfieohj/lifeatlas/releases/latest/download/SHA256SUMS.txt) | 启动、保存、备份、升级与文件校验 |
+
+所有公开包均不携带个人成长记录、浏览器笔记、数据库、备份或密钥。源码依赖由 `package-lock.json` 锁定；运行包已包含所需本地运行资源。详情见 [下载与使用](docs/DOWNLOADS.md)、[发布与复现](docs/RELEASING.md)。
+
 ## 本地程序：日常打开与备份
 
 本机固定安装目录：`%LOCALAPPDATA%/LifeAtlas/程序`。桌面和开始菜单的 LifeAtlas 指向这里，不依赖聊天结果文件夹；免安装包作为备用副本。
