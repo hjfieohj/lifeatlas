@@ -2,6 +2,7 @@ import {build} from 'esbuild';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
 const root=fileURLToPath(new URL('../',import.meta.url)),out=path.join(root,'dist-local');
 fs.mkdirSync(path.join(out,'web/assets'),{recursive:true});fs.mkdirSync(path.join(out,'runtime'),{recursive:true});
 fs.cpSync(path.join(root,'public'),path.join(out,'web'),{recursive:true});fs.cpSync(path.join(root,'drizzle'),path.join(out,'migrations'),{recursive:true,filter:p=>!p.includes(path.sep+'meta')});
@@ -10,6 +11,7 @@ await build({absWorkingDir:root,entryPoints:['local/bootstrap.ts'],bundle:true,f
 await build({absWorkingDir:root,entryPoints:['local/services.ts'],bundle:true,format:'esm',platform:'node',target:'node24',outfile:path.join(out,'runtime/services.mjs')});
 for(const file of ['server.mjs','database.mjs','launcher.mjs'])if(fs.existsSync(path.join(root,'local',file)))fs.copyFileSync(path.join(root,'local',file),path.join(out,'runtime',file));
 if(fs.existsSync(path.join(root,'local/lifeatlas.ico')))fs.copyFileSync(path.join(root,'local/lifeatlas.ico'),path.join(out,'LifeAtlas.ico'));
+if(process.platform==='win32')execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',path.join(root,'scripts/build-local-launcher.ps1'),'-OutputDirectory',out],{stdio:'inherit',windowsHide:true});
 const knowledge=path.join(out,'web/knowledge-universe/index.html');fs.writeFileSync(knowledge,fs.readFileSync(knowledge,'utf8').replace('<head>','<head>\n<script src="/local-bootstrap.js" defer></script>'));
 fs.writeFileSync(path.join(out,'web/index.html'),'<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LifeAtlas · 本地生活全图</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/assets/app.css"><script type="module" src="/assets/app.js"></script></head><body><a class="skip" href="#main">跳到主要内容</a><div id="app"></div><dialog id="modal" aria-labelledby="dialog-title"></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>');
 console.log('Built self-contained local application: '+out);
