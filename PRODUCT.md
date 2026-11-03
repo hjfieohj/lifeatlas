@@ -3,6 +3,67 @@
 <!-- impeccable:product-schema 1 -->
 
 ## Platform
+
+Current product authority · 2026-11-03: a Chinese, desktop-first personal Windows application with a loopback browser UI. The owner is the first real tester. `docs/LOCAL-WORKSPACE.md` is the current direction and capability contract; the records below the historical divider preserve earlier decisions rather than override it.
+
+## Stack
+
+The local package bundles Node.js 24.13.0, a static TypeScript UI and a loopback-only SQLite service. `local/workspace.ts`, `local/workspace.css` and `local/integrations.mjs` extend the existing growth/knowledge application. Identity and records are local; the hosted Sites/Vinext/Cloudflare entry and its Gmail OAuth service remain in source as earlier implementation. Hosted D1 storage is not the installed program's storage.
+
+## Users
+
+A person who wants to connect daily tasks, experiences, environmental observations, knowledge, research and their own selected AI/mail services. No broader adoption, time-saved or customer-success claims have been validated.
+
+## Product Purpose
+
+Help the owner retain evidence, think and act with context. The growth loop remains experience → observation → reflection → experiment → observe again, preserving dated earlier words and uncertainty. The local workspace adds real record editing, knowledge import, explicit AI reference review and readonly mail. It does not infer a personal score or execute decisions for the owner.
+
+## Operating Context
+
+Core recording, saved knowledge and cached mail work locally without Codex. Investment/life records, tasks, growth history, uploaded originals/extracted text, mail caches and saved AI questions/references/results live in SQLite. Backups include these personal contents, excluding connection credentials. Program and personal data folders remain separate. Existing backup, restore, migration, version/conflict and growth-history boundaries remain in `docs/LOCAL-APP.md` and `docs/LOCAL-WORKSPACE.md`.
+
+API keys and mail authorization codes are stored separately in an AES-256-GCM vault with a same-machine key; this is not end-to-end encryption or protection against compromise of the local account. Real data, keys, caches, exports and runtime configuration never belong in the public source repository.
+
+## Capabilities and Constraints
+
+- Today shows the owner's pending tasks and recent investment/life records. Growth remains its own preserved history and rule-support workflow; it is not automatically synthesized into the daily brief.
+- Investment research and 人生丰富度 now have real local create/edit/delete/date/category records and JSON export. Investment has no live prices, broker connection, portfolio engine or automatic trading. Tasks can be completed/reopened and have recent operation records.
+- AI analysis uses an explicitly configured compatible `/chat/completions` endpoint or an already prepared local model. Local keyword retrieval previews up to eight source excerpts; it is not vector/semantic retrieval and does not guarantee complete coverage. Users can edit/clear references and must confirm the visible question/references before sending. Input, result, model, endpoint and time are saved. The UI shows the latest 100 analyses; older records remain in SQLite/backups. There are no autonomous tools, disk/mail access by the model, image input or Responses support.
+- Gmail, 163 and QQ each support one configured account through TLS IMAP with application passwords/client authorization codes. Manual synchronization reads the latest 50 inbox headers; opening a message fetches and caches text. The list shows the latest 200 cached messages. There is no sending, deletion, archive or marking as read; cached bodies can be read offline. The earlier Gmail OAuth service remains in source, without a new OAuth setup wizard in this local flow. Protocol tests used local simulated services; no successful login to the owner's real account is claimed.
+- Knowledge Universe keeps six built-in domains and supports up to 24 custom nebulae and 500 custom nodes. Uploaded material can form an independent/new nebula or join an existing one, with actual file-outline/excerpt hierarchy. UTF-8 TXT/Markdown/JSON/CSV, extractable-text PDF and DOCX are supported; scanned PDF needs prior OCR. No automatic semantic relationship generation is claimed. Originals and text are local. Limits and distinct original-file/nebula deletion behavior are documented in `docs/LOCAL-WORKSPACE.md`.
+- Growth retains explicit saving, immutable text revisions, dated environmental context, five nested scopes, frozen rule reports and feedback links. The existing bounded rules remain distinct from the optional user-configured AI flow.
+
+No automatic paid API invocation, paid plugin, cloud GPU or large-model download is added. Remote AI costs belong to the owner's configured provider and require explicit analysis submission; local parsing, rendering and model inference consume local compute, memory and disk. Saving connection settings does not perform synchronization or a model analysis.
+
+## Brand Commitments
+
+LifeAtlas / 生活全图 keeps plain Chinese, the outlined Alegreya LifeAtlas wordmark, established navigation and reading geometry, native controls and written states. Empty real modules stay honest rather than being filled with fictional mail or records. Sources, uncertainty, earlier words and explicit saving remain visible.
+
+The user explicitly superseded the earlier two-night-palette commitment on 2026-11-03: **深空 · 暗色** (`island`, default) and **晴空 · 亮色** (`observatory`). The storage identifiers remain for preference compatibility. Dark uses locally rendered stars; light uses locally rendered blue sky/clouds, pale navigation and reading surfaces. The knowledge 3D viewport keeps a deep-space ground in the light skin, while its surrounding toolbar, reader and library management follow the light skin. Switching appearance changes the document attribute and retains current work/input. Dynamics can be stopped and pause during editing, backgrounding and reduced motion. Appearance controls remain in Settings → 外观与动态. Current tokens are in `DESIGN.md`; local composition is in `.impeccable/surfaces/local-workspace-ts.md`.
+
+## Evidence on Hand
+
+Current code, the local workspace contract, simulated-service protocol/failure-path tests, and nine 1450px/390px desktop/mobile screenshots under `.impeccable/review/v020`. Captures include isolated test records and a clearly identified local simulation answer. They do not prove real credential connectivity, model quality or real-account success. Final runtime/package verification and the scoped visual verdict belong to the owning task; no new pass verdict is inferred here.
+
+## Product Principles
+
+- Preserve sources and distinguish authored records, model output, bounded rules and demonstrations.
+- Preview outgoing content and require specific confirmation before an AI request.
+- Make saving, failure, uncertainty, backup and recovery visible.
+- Keep mail access readonly and manual; keep credentials separate from exported records.
+- Favor a completed personal task over engagement, scores or streaks.
+
+## Open Decisions
+
+Actual owner mail/provider connectivity, chosen model and data terms, account/network policies, long-term retention preferences and broader user validation. Local simulations or screenshots do not silently certify these.
+
+---
+
+# Historical product record · through 2026-11-02
+
+> Historical record: earlier scope and approvals are preserved below. Current local-runtime, capability and appearance authority is the 2026-11-03 record above and docs/LOCAL-WORKSPACE.md. Cloud storage, demo-only investment/life modules, one Gmail account, no model calls, white sheets and two night palettes describe dated increments, not the current local release.
+
+## Platform
 Windows personal local application, using a loopback web UI; the earlier hosted web entry remains in source for development history.
 
 ## Stack

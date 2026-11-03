@@ -10,7 +10,7 @@ import {growthModuleLabel} from './growth-presentation';
 import { mountAppearance, appearanceSettings } from './appearance';
 import { lifeAtlasWordmark } from './wordmark';
 
-export function mountLifeAtlas(options:{onRender?:()=>void}={}) {
+export function mountLifeAtlas(options:{onRender?:()=>void;renderPage?:(page:string)=>string|undefined;local?:boolean}={}) {
 const appearance = mountAppearance();
 let modules:ModulePreferences=parseModulePreferences(null),moduleStorageFailed=false;
 try{modules=parseModulePreferences(localStorage.getItem(moduleStorageKey));}catch{moduleStorageFailed=true;}
@@ -94,7 +94,7 @@ function settings() {
 function syncModules(){
   root.querySelectorAll<HTMLElement>('[data-route]').forEach(el=>{el.hidden=!moduleEnabled(el.dataset.route!,modules);});
   root.querySelectorAll<HTMLInputElement>('[data-module]').forEach(el=>{el.checked=modules[el.dataset.module as 'investment'|'life'];});
-  const count=6+Number(modules.investment)+Number(modules.life);
+  const count=6+Number(modules.investment)+Number(modules.life)+Number(!!options.local);
   root.style.setProperty('--nav-count',String(count));
   root.style.setProperty('--nav-phone-columns',String(count>=7?4:count===6?3:5));
   const status=root.querySelector('[data-module-status]');if(status)status.textContent=moduleStorageFailed?'浏览器未能保存模块选择，本次切换仍然生效。':'模块选择会自动保存；关闭模块不会删除内容。';
@@ -112,21 +112,27 @@ function render() {
   knowledgeCleanup?.();knowledgeCleanup=undefined;
   growth?.destroy(); growth = undefined;
   realCleanup?.(); realCleanup = undefined;
-  root.innerHTML = shell(page === 'today' ? today() : page === 'mail' ? mail() : page === 'growth' ? '<div id="growth-panel"></div>' : page === 'investment' ? investmentPage() : page === 'life' ? colorfulLifePage() : page === 'knowledge' ? knowledgePage() : page === 'history' ? history() : settings());
+  root.innerHTML = shell(options.renderPage?.(page) ?? (page === 'today' ? today() : page === 'mail' ? mail() : page === 'growth' ? '<div id="growth-panel"></div>' : page === 'investment' ? investmentPage() : page === 'life' ? colorfulLifePage() : page === 'knowledge' ? knowledgePage() : page === 'history' ? history() : settings()));
   root.querySelector('.workspace')?.insertAdjacentHTML('afterbegin', '<div class="scene-banner" aria-hidden="true"></div>');
   root.dataset.page = page;
-  options.onRender?.();
   if (page === 'settings') {root.querySelector('#main .page-heading')?.insertAdjacentHTML('afterend', appearanceSettings());root.querySelector('.appearance-section')?.insertAdjacentHTML('beforeend',moduleSettings());}
   appearance.sync();
   syncModules();
   if(page==='knowledge')knowledgeCleanup=mountKnowledge(root,editing=>appearance.setModuleEditing(editing));
   if (page === 'growth') {growth = mountGrowth(root.querySelector<HTMLElement>('#growth-panel')!);}
-  if (page === 'settings') {
+  if (page === 'settings' && !options.local) {
     const section = document.createElement('div'); section.id = 'real-gmail-panel';
     const grid = root.querySelector<HTMLElement>('#main .settings-grid');
     if (grid?.parentNode) grid.parentNode.insertBefore(section, grid);
     realCleanup = mountRealGmailPanel(section);
   }
+  if(options.local){
+    root.querySelector('.prototype-notice')?.remove();root.querySelector('.demo-badge')?.remove();
+    const mailNav=root.querySelector('[data-route="mail"]');mailNav?.querySelector('.nav-count')?.remove();
+    mailNav?.insertAdjacentHTML('beforebegin','<a href="#ai" class="nav-item '+(page==='ai'?'active':'')+'" data-route="ai">'+icon('knowledge')+'<span>AI 分析</span></a>');
+    root.classList.add('local-workspace');
+  }
+  options.onRender?.();
 }
 function closeDialog() { if (!processing) dialog.close(); }
 function modal(html: string) { dialog.innerHTML = `<div class="dialog-inner">${html}</div>`; if (!dialog.open) dialog.showModal(); }

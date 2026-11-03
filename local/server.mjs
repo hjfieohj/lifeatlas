@@ -6,11 +6,14 @@ import {randomUUID,randomBytes,timingSafeEqual} from 'node:crypto';
 import {DatabaseSync} from 'node:sqlite';
 import {GrowthService,GrowthRepository,GmailService,D1Repository} from './services.mjs';
 import {openDatabase,adapter,atomicJson,stateSnapshot,initializeState,saveState,backupDatabase,validateBackup} from './database.mjs';
+import {createIntegrations,initializeIntegrations} from './integrations.mjs';
 const args=process.argv.slice(2),arg=(name,fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[i+1];};
 const appRoot=fileURLToPath(new URL('../',import.meta.url)),dataDir=path.resolve(arg('--data-dir',path.join(appRoot,path.basename(appRoot)==='dist-local'?'../.local-data':'../LifeAtlas本地资料'))),port=Number(arg('--port','5173'));
 if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('Invalid local port.');
 fs.mkdirSync(dataDir,{recursive:true});const configFile=path.join(dataDir,'settings.json'),dbFile=path.join(dataDir,'lifeatlas.sqlite'),migrations=path.join(appRoot,'migrations');
 let db=openDatabase(dbFile,migrations),settings;
+initializeIntegrations(db);
+const integrations=createIntegrations({getDb:()=>db,dataDir});
 if(fs.existsSync(configFile))settings=JSON.parse(fs.readFileSync(configFile,'utf8'));else{const owners=db.prepare('SELECT DISTINCT owner FROM growth_topics').all().map(x=>x.owner);settings={owner:owners.length===1?owners[0]:owners.includes('local_seedy')?'local_seedy':'local:'+randomUUID(),session:randomBytes(32).toString('hex')};atomicJson(configFile,settings);}
 if(!settings.owner||typeof settings.session!=='string')throw new Error('本地身份文件无效，请从备份恢复。');
 const storedOwner=db.prepare("SELECT value FROM local_meta WHERE key='owner'").get();if(storedOwner)settings.owner=storedOwner.value;else db.prepare("INSERT INTO local_meta VALUES ('owner',?)").run(settings.owner);
@@ -32,11 +35,23 @@ const server=http.createServer(async(req,res)=>{
   if(req.method!=='GET'&&(req.headers.origin!==origin||!(req.headers['content-type']||'').startsWith('application/json'))){send(res,403,{error:{message:'请在本地程序中提交操作。'}});return;}
   if(busy){send(res,503,{error:{message:'正在恢复备份，请稍后重试。'}});return;}
   if(url.pathname.startsWith('/api/local/')){
+   const localRoute=url.pathname.slice('/api/local/'.length);
+   if(/^(connections|ai|documents|mail)(\/|$)/.test(localRoute)){
+    initializeIntegrations(db);
+    if(url.pathname.startsWith('/api/local/documents/download/')&&req.method==='GET'){
+     const id=decodeURIComponent(url.pathname.split('/').pop()),doc=db.prepare('SELECT name,bytes FROM local_documents WHERE id=?').get(id);
+     if(!doc){send(res,404,{error:{message:'文件不存在。'}});return;}
+     send(res,200,doc.bytes,{'Content-Type':'application/octet-stream','Content-Disposition':"attachment; filename*=UTF-8''"+encodeURIComponent(doc.name)});return;
+    }
+    let input={};if(req.method==='POST')input=JSON.parse((await body(req,localRoute==='documents'?29*1024*1024:256*1024)).toString());
+    try{send(res,200,await integrations.handle(localRoute,req.method,input));}catch(error){send(res,400,{error:{message:['TimeoutError','AbortError'].includes(error.name)?'连接超时，请检查服务是否运行、网络或模型加载情况。':error.message}});}return;
+   }
    if(url.pathname==='/api/local/state'&&req.method==='GET'){send(res,200,{...stateSnapshot(db),dataDir});return;}
    if(url.pathname==='/api/local/initialize'&&req.method==='POST'){const b=JSON.parse((await body(req)).toString());send(res,200,initializeState(db,b.values||{}));return;}
    if(url.pathname==='/api/local/state'&&req.method==='POST'){const b=JSON.parse((await body(req)).toString());const value=saveState(db,b);send(res,value.ok?200:409,value);return;}
    if(url.pathname==='/api/local/backup'&&req.method==='POST'){const {payload}=backupDatabase(db,dataDir,settings.owner);send(res,200,payload,{'Content-Disposition':'attachment; filename="LifeAtlas-backup.json"'});return;}
    if(url.pathname==='/api/local/restore'&&req.method==='POST'){
+    if(integrations.isBusy()){send(res,409,{error:{message:'请等待正在进行的分析、文件解析或邮箱同步完成后，再恢复备份。'}});return;}
     const payload=JSON.parse((await body(req,145*1024*1024)).toString()),temp=path.join(dataDir,randomUUID()+'.restore.sqlite');busy=true;
     try{
      validateBackup(payload,temp);

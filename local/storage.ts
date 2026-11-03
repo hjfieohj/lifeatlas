@@ -1,4 +1,4 @@
-const keys=['atlas-knowledge-universe-v1','lifeatlas-demo-v1','lifeatlas-appearance-v1','lifeatlas-modules-v1'];
+const keys=['atlas-knowledge-universe-v1','lifeatlas-demo-v1','lifeatlas-appearance-v1','lifeatlas-modules-v1','lifeatlas-workspace-v1'];
 type Item={key:string;value:string|null;version:number};
 type Pending={value:string|null;version:number;mutation:string};
 type Snapshot={epoch:string;initialized:boolean;items:Item[];dataDir?:string};

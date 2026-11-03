@@ -1,8 +1,8 @@
 import { createAtmosphere } from './atmosphere.ts';
 
 export const skins = [
-  { id: 'island', name: '光屿工作台' },
-  { id: 'observatory', name: '对页观察室' },
+  { id: 'island', name: '深空 · 暗色' },
+  { id: 'observatory', name: '晴空 · 亮色' },
 ] as const;
 type Skin = typeof skins[number]['id'];
 export type Appearance = { version: 2; skin: Skin; particles: boolean };
@@ -18,10 +18,10 @@ export function parseAppearance(raw: string | null): Appearance {
   return { version: 2, skin: 'island', particles: true };
 }
 export function appearanceControls() {
-  return `<div class="appearance-controls"><label class="skin-control"><span>皮肤</span><select data-appearance="skin" aria-label="选择皮肤">${skins.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></label><label class="particle-control"><input type="checkbox" data-appearance="particles"><span class="la-switch-track" aria-hidden="true"><span class="la-switch-knob"></span></span><span>动态星空</span></label></div>`;
+  return `<div class="appearance-controls"><label class="skin-control"><span>皮肤</span><select data-appearance="skin" aria-label="选择皮肤">${skins.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></label><label class="particle-control"><input type="checkbox" data-appearance="particles"><span class="la-switch-track" aria-hidden="true"><span class="la-switch-knob"></span></span><span>动态背景</span></label></div>`;
 }
 export function appearanceSettings() {
-  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">同一片深空，两种阅读色调。星云缓慢流动，星光轻轻闪烁。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">全局星空由本机代码绘制，无需下载视频或连接付费服务。输入时暂停，关闭动态后保留静态星空，也遵循系统减少动态设置。偏好保存在此浏览器。</p></section>`;
+  return `<section class="settings-section appearance-section"><h2>外观与动态</h2><p class="muted">深空适合夜间沉浸，晴空以蓝天白云陪伴白天阅读。</p>${appearanceControls()}<p class="appearance-status" role="status" data-appearance-status></p><p class="growth-help">背景在本机绘制；输入时暂停，也遵循系统减少动态设置。切换皮肤保留当前工作和输入。</p></section>`;
 }
 export function mountAppearance() {
   let preferences: Appearance;
@@ -47,7 +47,7 @@ export function mountAppearance() {
     landscape.update({ enabled: true, paused: atmosphere.dataset.paused === 'true', skin: preferences.skin });
     document.querySelectorAll('[data-appearance="skin"]').forEach(node => { (node as unknown as HTMLSelectElement).value = preferences.skin; });
     document.querySelectorAll<HTMLInputElement>('[data-appearance="particles"]').forEach(el => { el.checked = preferences.particles; });
-    const message = storageFailed ? '浏览器未能保存外观偏好，本次切换仍然生效。' : reduced.matches && preferences.particles ? '系统已启用减少动态，星空保持静止。' : preferences.particles ? '动态星空已开启；输入时暂时静止。' : '动态已关闭，保留静态星空。';
+    const message = storageFailed ? '浏览器未能保存外观偏好，本次切换仍然生效。' : reduced.matches && preferences.particles ? '系统已启用减少动态，背景保持静止。' : preferences.particles ? '动态背景已开启；输入时暂时静止。' : '动态已关闭，保留静态背景。';
     document.querySelectorAll<HTMLElement>('[data-appearance-status]').forEach(el => { el.textContent = message; });
   }
   function save() {

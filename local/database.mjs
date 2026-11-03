@@ -2,7 +2,7 @@ import {DatabaseSync} from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
-export const stateKeys=['atlas-knowledge-universe-v1','lifeatlas-demo-v1','lifeatlas-appearance-v1','lifeatlas-modules-v1'];
+export const stateKeys=['atlas-knowledge-universe-v1','lifeatlas-demo-v1','lifeatlas-appearance-v1','lifeatlas-modules-v1','lifeatlas-workspace-v1'];
 export function atomicJson(file,value){const temp=file+'.'+randomUUID()+'.tmp';fs.writeFileSync(temp,JSON.stringify(value,null,2),{mode:0o600});fs.renameSync(temp,file);}
 export function openDatabase(file,migrations){
  const db=new DatabaseSync(file);db.exec('PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL; PRAGMA busy_timeout=5000;');

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-02T13:25:51+00:00",
+  "generatedAt": "2026-11-03T07:17:49.309622+00:00",
   "title": "Design System: LifeAtlas",
   "extensions": {
     "colorMeta": {
       "island-paper": {
         "role": "neutral",
-        "displayName": "Island Paper",
+        "displayName": "Deep Space Paper",
         "tonalRamp": [
           "oklch(15.00% 0.02938 262.90)",
           "oklch(26.43% 0.02938 262.90)",
@@ -20,7 +20,7 @@
       },
       "island-nav": {
         "role": "neutral",
-        "displayName": "Island Nav",
+        "displayName": "Deep Space Nav",
         "tonalRamp": [
           "oklch(15.00% 0.04419 262.40)",
           "oklch(26.43% 0.04419 262.40)",
@@ -34,7 +34,7 @@
       },
       "island-surface": {
         "role": "neutral",
-        "displayName": "Island Surface",
+        "displayName": "Deep Space Surface",
         "tonalRamp": [
           "oklch(15.00% 0.04065 260.82)",
           "oklch(26.43% 0.04065 260.82)",
@@ -48,7 +48,7 @@
       },
       "island-ink": {
         "role": "neutral",
-        "displayName": "Island Ink",
+        "displayName": "Deep Space Ink",
         "tonalRamp": [
           "oklch(15.00% 0.01887 255.53)",
           "oklch(26.43% 0.01887 255.53)",
@@ -62,7 +62,7 @@
       },
       "island-muted": {
         "role": "neutral",
-        "displayName": "Island Muted",
+        "displayName": "Deep Space Muted",
         "tonalRamp": [
           "oklch(15.00% 0.03345 254.03)",
           "oklch(26.43% 0.03345 254.03)",
@@ -76,7 +76,7 @@
       },
       "island-line": {
         "role": "neutral",
-        "displayName": "Island Line",
+        "displayName": "Deep Space Line",
         "tonalRamp": [
           "oklch(15.00% 0.04646 258.31)",
           "oklch(26.43% 0.04646 258.31)",
@@ -90,7 +90,7 @@
       },
       "island-wash": {
         "role": "neutral",
-        "displayName": "Island Wash",
+        "displayName": "Deep Space Wash",
         "tonalRamp": [
           "oklch(15.00% 0.05132 257.90)",
           "oklch(26.43% 0.05132 257.90)",
@@ -104,7 +104,7 @@
       },
       "island-green": {
         "role": "primary",
-        "displayName": "Island Green",
+        "displayName": "Deep Space Green",
         "tonalRamp": [
           "oklch(15.00% 0.06837 260.12)",
           "oklch(26.43% 0.06837 260.12)",
@@ -118,7 +118,7 @@
       },
       "island-forest": {
         "role": "primary",
-        "displayName": "Island Forest",
+        "displayName": "Deep Space Forest",
         "tonalRamp": [
           "oklch(15.00% 0.06765 256.83)",
           "oklch(26.43% 0.06765 256.83)",
@@ -132,7 +132,7 @@
       },
       "island-forest-deep": {
         "role": "primary",
-        "displayName": "Island Forest Deep",
+        "displayName": "Deep Space Forest Deep",
         "tonalRamp": [
           "oklch(15.00% 0.04225 257.13)",
           "oklch(26.43% 0.04225 257.13)",
@@ -146,7 +146,7 @@
       },
       "island-accent-ink": {
         "role": "primary",
-        "displayName": "Island Accent Ink",
+        "displayName": "Deep Space Accent Ink",
         "tonalRamp": [
           "oklch(15.00% 0.04629 259.13)",
           "oklch(26.43% 0.04629 259.13)",
@@ -160,7 +160,7 @@
       },
       "island-nav-active-bg": {
         "role": "neutral",
-        "displayName": "Island Nav Active Bg",
+        "displayName": "Deep Space Nav Active Bg",
         "tonalRamp": [
           "oklch(15.00% 0.06345 255.99)",
           "oklch(26.43% 0.06345 255.99)",
@@ -174,7 +174,7 @@
       },
       "island-secondary-border": {
         "role": "neutral",
-        "displayName": "Island Secondary Border",
+        "displayName": "Deep Space Secondary Border",
         "tonalRamp": [
           "oklch(15.00% 0.05293 252.66)",
           "oklch(26.43% 0.05293 252.66)",
@@ -188,7 +188,7 @@
       },
       "island-focus": {
         "role": "primary",
-        "displayName": "Island Focus",
+        "displayName": "Deep Space Focus",
         "tonalRamp": [
           "oklch(15.00% 0.05814 252.44)",
           "oklch(26.43% 0.05814 252.44)",
@@ -202,7 +202,7 @@
       },
       "island-rail-active": {
         "role": "neutral",
-        "displayName": "Island Rail Active",
+        "displayName": "Deep Space Rail Active",
         "tonalRamp": [
           "oklch(15.00% 0.07131 253.91)",
           "oklch(26.43% 0.07131 253.91)",
@@ -216,7 +216,7 @@
       },
       "island-rail-ink": {
         "role": "neutral",
-        "displayName": "Island Rail Ink",
+        "displayName": "Deep Space Rail Ink",
         "tonalRamp": [
           "oklch(15.00% 0.01887 255.53)",
           "oklch(26.43% 0.01887 255.53)",
@@ -230,7 +230,7 @@
       },
       "island-amber": {
         "role": "neutral",
-        "displayName": "Island Amber",
+        "displayName": "Deep Space Amber",
         "tonalRamp": [
           "oklch(15.00% 0.06947 81.79)",
           "oklch(26.43% 0.06947 81.79)",
@@ -244,7 +244,7 @@
       },
       "island-amber-bg": {
         "role": "neutral",
-        "displayName": "Island Amber Bg",
+        "displayName": "Deep Space Amber Bg",
         "tonalRamp": [
           "oklch(15.00% 0.02699 71.30)",
           "oklch(26.43% 0.02699 71.30)",
@@ -258,7 +258,7 @@
       },
       "island-red": {
         "role": "neutral",
-        "displayName": "Island Red",
+        "displayName": "Deep Space Red",
         "tonalRamp": [
           "oklch(15.00% 0.06953 25.29)",
           "oklch(26.43% 0.06953 25.29)",
@@ -272,7 +272,7 @@
       },
       "island-red-bg": {
         "role": "neutral",
-        "displayName": "Island Red Bg",
+        "displayName": "Deep Space Red Bg",
         "tonalRamp": [
           "oklch(15.00% 0.03509 358.79)",
           "oklch(26.43% 0.03509 358.79)",
@@ -286,287 +286,35 @@
       },
       "observatory-paper": {
         "role": "neutral",
-        "displayName": "Observatory Paper",
+        "displayName": "Blue Sky Paper",
         "tonalRamp": [
-          "oklch(15.00% 0.02717 277.57)",
-          "oklch(26.43% 0.02717 277.57)",
-          "oklch(37.86% 0.02717 277.57)",
-          "oklch(49.29% 0.02717 277.57)",
-          "oklch(60.71% 0.02717 277.57)",
-          "oklch(72.14% 0.02717 277.57)",
-          "oklch(83.57% 0.02717 277.57)",
-          "oklch(95.00% 0.02717 277.57)"
+          "oklch(15.00% 0.01932 240.73)",
+          "oklch(26.43% 0.01932 240.73)",
+          "oklch(37.86% 0.01932 240.73)",
+          "oklch(49.29% 0.01932 240.73)",
+          "oklch(60.71% 0.01932 240.73)",
+          "oklch(72.14% 0.01932 240.73)",
+          "oklch(83.57% 0.01932 240.73)",
+          "oklch(95.00% 0.01932 240.73)"
         ]
       },
       "observatory-nav": {
         "role": "neutral",
-        "displayName": "Observatory Nav",
+        "displayName": "Blue Sky Nav",
         "tonalRamp": [
-          "oklch(15.00% 0.04031 280.69)",
-          "oklch(26.43% 0.04031 280.69)",
-          "oklch(37.86% 0.04031 280.69)",
-          "oklch(49.29% 0.04031 280.69)",
-          "oklch(60.71% 0.04031 280.69)",
-          "oklch(72.14% 0.04031 280.69)",
-          "oklch(83.57% 0.04031 280.69)",
-          "oklch(95.00% 0.04031 280.69)"
+          "oklch(15.00% 0.00925 242.84)",
+          "oklch(26.43% 0.00925 242.84)",
+          "oklch(37.86% 0.00925 242.84)",
+          "oklch(49.29% 0.00925 242.84)",
+          "oklch(60.71% 0.00925 242.84)",
+          "oklch(72.14% 0.00925 242.84)",
+          "oklch(83.57% 0.00925 242.84)",
+          "oklch(95.00% 0.00925 242.84)"
         ]
       },
       "observatory-surface": {
         "role": "neutral",
-        "displayName": "Observatory Surface",
-        "tonalRamp": [
-          "oklch(15.00% 0.03051 267.26)",
-          "oklch(26.43% 0.03051 267.26)",
-          "oklch(37.86% 0.03051 267.26)",
-          "oklch(49.29% 0.03051 267.26)",
-          "oklch(60.71% 0.03051 267.26)",
-          "oklch(72.14% 0.03051 267.26)",
-          "oklch(83.57% 0.03051 267.26)",
-          "oklch(95.00% 0.03051 267.26)"
-        ]
-      },
-      "observatory-ink": {
-        "role": "neutral",
-        "displayName": "Observatory Ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.01240 317.74)",
-          "oklch(26.43% 0.01240 317.74)",
-          "oklch(37.86% 0.01240 317.74)",
-          "oklch(49.29% 0.01240 317.74)",
-          "oklch(60.71% 0.01240 317.74)",
-          "oklch(72.14% 0.01240 317.74)",
-          "oklch(83.57% 0.01240 317.74)",
-          "oklch(95.00% 0.01240 317.74)"
-        ]
-      },
-      "observatory-muted": {
-        "role": "neutral",
-        "displayName": "Observatory Muted",
-        "tonalRamp": [
-          "oklch(15.00% 0.02560 309.31)",
-          "oklch(26.43% 0.02560 309.31)",
-          "oklch(37.86% 0.02560 309.31)",
-          "oklch(49.29% 0.02560 309.31)",
-          "oklch(60.71% 0.02560 309.31)",
-          "oklch(72.14% 0.02560 309.31)",
-          "oklch(83.57% 0.02560 309.31)",
-          "oklch(95.00% 0.02560 309.31)"
-        ]
-      },
-      "observatory-line": {
-        "role": "neutral",
-        "displayName": "Observatory Line",
-        "tonalRamp": [
-          "oklch(15.00% 0.03547 293.43)",
-          "oklch(26.43% 0.03547 293.43)",
-          "oklch(37.86% 0.03547 293.43)",
-          "oklch(49.29% 0.03547 293.43)",
-          "oklch(60.71% 0.03547 293.43)",
-          "oklch(72.14% 0.03547 293.43)",
-          "oklch(83.57% 0.03547 293.43)",
-          "oklch(95.00% 0.03547 293.43)"
-        ]
-      },
-      "observatory-wash": {
-        "role": "neutral",
-        "displayName": "Observatory Wash",
-        "tonalRamp": [
-          "oklch(15.00% 0.03817 279.60)",
-          "oklch(26.43% 0.03817 279.60)",
-          "oklch(37.86% 0.03817 279.60)",
-          "oklch(49.29% 0.03817 279.60)",
-          "oklch(60.71% 0.03817 279.60)",
-          "oklch(72.14% 0.03817 279.60)",
-          "oklch(83.57% 0.03817 279.60)",
-          "oklch(95.00% 0.03817 279.60)"
-        ]
-      },
-      "observatory-green": {
-        "role": "primary",
-        "displayName": "Observatory Green",
-        "tonalRamp": [
-          "oklch(15.00% 0.06703 67.49)",
-          "oklch(26.43% 0.06703 67.49)",
-          "oklch(37.86% 0.06703 67.49)",
-          "oklch(49.29% 0.06703 67.49)",
-          "oklch(60.71% 0.06703 67.49)",
-          "oklch(72.14% 0.06703 67.49)",
-          "oklch(83.57% 0.06703 67.49)",
-          "oklch(95.00% 0.06703 67.49)"
-        ]
-      },
-      "observatory-forest": {
-        "role": "primary",
-        "displayName": "Observatory Forest",
-        "tonalRamp": [
-          "oklch(15.00% 0.07304 63.86)",
-          "oklch(26.43% 0.07304 63.86)",
-          "oklch(37.86% 0.07304 63.86)",
-          "oklch(49.29% 0.07304 63.86)",
-          "oklch(60.71% 0.07304 63.86)",
-          "oklch(72.14% 0.07304 63.86)",
-          "oklch(83.57% 0.07304 63.86)",
-          "oklch(95.00% 0.07304 63.86)"
-        ]
-      },
-      "observatory-forest-deep": {
-        "role": "primary",
-        "displayName": "Observatory Forest Deep",
-        "tonalRamp": [
-          "oklch(15.00% 0.04913 68.15)",
-          "oklch(26.43% 0.04913 68.15)",
-          "oklch(37.86% 0.04913 68.15)",
-          "oklch(49.29% 0.04913 68.15)",
-          "oklch(60.71% 0.04913 68.15)",
-          "oklch(72.14% 0.04913 68.15)",
-          "oklch(83.57% 0.04913 68.15)",
-          "oklch(95.00% 0.04913 68.15)"
-        ]
-      },
-      "observatory-accent-ink": {
-        "role": "primary",
-        "displayName": "Observatory Accent Ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.01939 1.97)",
-          "oklch(26.43% 0.01939 1.97)",
-          "oklch(37.86% 0.01939 1.97)",
-          "oklch(49.29% 0.01939 1.97)",
-          "oklch(60.71% 0.01939 1.97)",
-          "oklch(72.14% 0.01939 1.97)",
-          "oklch(83.57% 0.01939 1.97)",
-          "oklch(95.00% 0.01939 1.97)"
-        ]
-      },
-      "observatory-nav-active-bg": {
-        "role": "neutral",
-        "displayName": "Observatory Nav Active Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.03883 296.78)",
-          "oklch(26.43% 0.03883 296.78)",
-          "oklch(37.86% 0.03883 296.78)",
-          "oklch(49.29% 0.03883 296.78)",
-          "oklch(60.71% 0.03883 296.78)",
-          "oklch(72.14% 0.03883 296.78)",
-          "oklch(83.57% 0.03883 296.78)",
-          "oklch(95.00% 0.03883 296.78)"
-        ]
-      },
-      "observatory-secondary-border": {
-        "role": "neutral",
-        "displayName": "Observatory Secondary Border",
-        "tonalRamp": [
-          "oklch(15.00% 0.03449 313.86)",
-          "oklch(26.43% 0.03449 313.86)",
-          "oklch(37.86% 0.03449 313.86)",
-          "oklch(49.29% 0.03449 313.86)",
-          "oklch(60.71% 0.03449 313.86)",
-          "oklch(72.14% 0.03449 313.86)",
-          "oklch(83.57% 0.03449 313.86)",
-          "oklch(95.00% 0.03449 313.86)"
-        ]
-      },
-      "observatory-focus": {
-        "role": "primary",
-        "displayName": "Observatory Focus",
-        "tonalRamp": [
-          "oklch(15.00% 0.05371 67.05)",
-          "oklch(26.43% 0.05371 67.05)",
-          "oklch(37.86% 0.05371 67.05)",
-          "oklch(49.29% 0.05371 67.05)",
-          "oklch(60.71% 0.05371 67.05)",
-          "oklch(72.14% 0.05371 67.05)",
-          "oklch(83.57% 0.05371 67.05)",
-          "oklch(95.00% 0.05371 67.05)"
-        ]
-      },
-      "observatory-rail-active": {
-        "role": "neutral",
-        "displayName": "Observatory Rail Active",
-        "tonalRamp": [
-          "oklch(15.00% 0.03999 309.24)",
-          "oklch(26.43% 0.03999 309.24)",
-          "oklch(37.86% 0.03999 309.24)",
-          "oklch(49.29% 0.03999 309.24)",
-          "oklch(60.71% 0.03999 309.24)",
-          "oklch(72.14% 0.03999 309.24)",
-          "oklch(83.57% 0.03999 309.24)",
-          "oklch(95.00% 0.03999 309.24)"
-        ]
-      },
-      "observatory-rail-ink": {
-        "role": "neutral",
-        "displayName": "Observatory Rail Ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.01240 317.74)",
-          "oklch(26.43% 0.01240 317.74)",
-          "oklch(37.86% 0.01240 317.74)",
-          "oklch(49.29% 0.01240 317.74)",
-          "oklch(60.71% 0.01240 317.74)",
-          "oklch(72.14% 0.01240 317.74)",
-          "oklch(83.57% 0.01240 317.74)",
-          "oklch(95.00% 0.01240 317.74)"
-        ]
-      },
-      "observatory-amber": {
-        "role": "neutral",
-        "displayName": "Observatory Amber",
-        "tonalRamp": [
-          "oklch(15.00% 0.06947 81.79)",
-          "oklch(26.43% 0.06947 81.79)",
-          "oklch(37.86% 0.06947 81.79)",
-          "oklch(49.29% 0.06947 81.79)",
-          "oklch(60.71% 0.06947 81.79)",
-          "oklch(72.14% 0.06947 81.79)",
-          "oklch(83.57% 0.06947 81.79)",
-          "oklch(95.00% 0.06947 81.79)"
-        ]
-      },
-      "observatory-amber-bg": {
-        "role": "neutral",
-        "displayName": "Observatory Amber Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.02699 71.30)",
-          "oklch(26.43% 0.02699 71.30)",
-          "oklch(37.86% 0.02699 71.30)",
-          "oklch(49.29% 0.02699 71.30)",
-          "oklch(60.71% 0.02699 71.30)",
-          "oklch(72.14% 0.02699 71.30)",
-          "oklch(83.57% 0.02699 71.30)",
-          "oklch(95.00% 0.02699 71.30)"
-        ]
-      },
-      "observatory-red": {
-        "role": "neutral",
-        "displayName": "Observatory Red",
-        "tonalRamp": [
-          "oklch(15.00% 0.06953 25.29)",
-          "oklch(26.43% 0.06953 25.29)",
-          "oklch(37.86% 0.06953 25.29)",
-          "oklch(49.29% 0.06953 25.29)",
-          "oklch(60.71% 0.06953 25.29)",
-          "oklch(72.14% 0.06953 25.29)",
-          "oklch(83.57% 0.06953 25.29)",
-          "oklch(95.00% 0.06953 25.29)"
-        ]
-      },
-      "observatory-red-bg": {
-        "role": "neutral",
-        "displayName": "Observatory Red Bg",
-        "tonalRamp": [
-          "oklch(15.00% 0.03509 358.79)",
-          "oklch(26.43% 0.03509 358.79)",
-          "oklch(37.86% 0.03509 358.79)",
-          "oklch(49.29% 0.03509 358.79)",
-          "oklch(60.71% 0.03509 358.79)",
-          "oklch(72.14% 0.03509 358.79)",
-          "oklch(83.57% 0.03509 358.79)",
-          "oklch(95.00% 0.03509 358.79)"
-        ]
-      },
-      "navigation-selected-ink": {
-        "role": "neutral",
-        "displayName": "Navigation Selected Ink",
+        "displayName": "Blue Sky Surface",
         "tonalRamp": [
           "oklch(15.00% 0.00000 89.88)",
           "oklch(26.43% 0.00000 89.88)",
@@ -576,6 +324,244 @@
           "oklch(72.14% 0.00000 89.88)",
           "oklch(83.57% 0.00000 89.88)",
           "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "observatory-ink": {
+        "role": "neutral",
+        "displayName": "Blue Sky Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.05745 249.32)",
+          "oklch(26.43% 0.05745 249.32)",
+          "oklch(37.86% 0.05745 249.32)",
+          "oklch(49.29% 0.05745 249.32)",
+          "oklch(60.71% 0.05745 249.32)",
+          "oklch(72.14% 0.05745 249.32)",
+          "oklch(83.57% 0.05745 249.32)",
+          "oklch(95.00% 0.05745 249.32)"
+        ]
+      },
+      "observatory-muted": {
+        "role": "neutral",
+        "displayName": "Blue Sky Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.04843 242.58)",
+          "oklch(26.43% 0.04843 242.58)",
+          "oklch(37.86% 0.04843 242.58)",
+          "oklch(49.29% 0.04843 242.58)",
+          "oklch(60.71% 0.04843 242.58)",
+          "oklch(72.14% 0.04843 242.58)",
+          "oklch(83.57% 0.04843 242.58)",
+          "oklch(95.00% 0.04843 242.58)"
+        ]
+      },
+      "observatory-line": {
+        "role": "neutral",
+        "displayName": "Blue Sky Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.02560 240.69)",
+          "oklch(26.43% 0.02560 240.69)",
+          "oklch(37.86% 0.02560 240.69)",
+          "oklch(49.29% 0.02560 240.69)",
+          "oklch(60.71% 0.02560 240.69)",
+          "oklch(72.14% 0.02560 240.69)",
+          "oklch(83.57% 0.02560 240.69)",
+          "oklch(95.00% 0.02560 240.69)"
+        ]
+      },
+      "observatory-wash": {
+        "role": "neutral",
+        "displayName": "Blue Sky Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.01345 240.95)",
+          "oklch(26.43% 0.01345 240.95)",
+          "oklch(37.86% 0.01345 240.95)",
+          "oklch(49.29% 0.01345 240.95)",
+          "oklch(60.71% 0.01345 240.95)",
+          "oklch(72.14% 0.01345 240.95)",
+          "oklch(83.57% 0.01345 240.95)",
+          "oklch(95.00% 0.01345 240.95)"
+        ]
+      },
+      "observatory-green": {
+        "role": "primary",
+        "displayName": "Blue Sky Green",
+        "tonalRamp": [
+          "oklch(15.00% 0.10113 246.42)",
+          "oklch(26.43% 0.10113 246.42)",
+          "oklch(37.86% 0.10113 246.42)",
+          "oklch(49.29% 0.10113 246.42)",
+          "oklch(60.71% 0.10113 246.42)",
+          "oklch(72.14% 0.10113 246.42)",
+          "oklch(83.57% 0.10113 246.42)",
+          "oklch(95.00% 0.10113 246.42)"
+        ]
+      },
+      "observatory-forest": {
+        "role": "primary",
+        "displayName": "Blue Sky Forest",
+        "tonalRamp": [
+          "oklch(15.00% 0.10113 246.42)",
+          "oklch(26.43% 0.10113 246.42)",
+          "oklch(37.86% 0.10113 246.42)",
+          "oklch(49.29% 0.10113 246.42)",
+          "oklch(60.71% 0.10113 246.42)",
+          "oklch(72.14% 0.10113 246.42)",
+          "oklch(83.57% 0.10113 246.42)",
+          "oklch(95.00% 0.10113 246.42)"
+        ]
+      },
+      "observatory-forest-deep": {
+        "role": "primary",
+        "displayName": "Blue Sky Forest Deep",
+        "tonalRamp": [
+          "oklch(15.00% 0.08910 247.10)",
+          "oklch(26.43% 0.08910 247.10)",
+          "oklch(37.86% 0.08910 247.10)",
+          "oklch(49.29% 0.08910 247.10)",
+          "oklch(60.71% 0.08910 247.10)",
+          "oklch(72.14% 0.08910 247.10)",
+          "oklch(83.57% 0.08910 247.10)",
+          "oklch(95.00% 0.08910 247.10)"
+        ]
+      },
+      "observatory-accent-ink": {
+        "role": "primary",
+        "displayName": "Blue Sky Accent Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "observatory-nav-active-bg": {
+        "role": "neutral",
+        "displayName": "Blue Sky Nav Active Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.02386 244.14)",
+          "oklch(26.43% 0.02386 244.14)",
+          "oklch(37.86% 0.02386 244.14)",
+          "oklch(49.29% 0.02386 244.14)",
+          "oklch(60.71% 0.02386 244.14)",
+          "oklch(72.14% 0.02386 244.14)",
+          "oklch(83.57% 0.02386 244.14)",
+          "oklch(95.00% 0.02386 244.14)"
+        ]
+      },
+      "observatory-secondary-border": {
+        "role": "neutral",
+        "displayName": "Blue Sky Secondary Border",
+        "tonalRamp": [
+          "oklch(15.00% 0.04257 239.27)",
+          "oklch(26.43% 0.04257 239.27)",
+          "oklch(37.86% 0.04257 239.27)",
+          "oklch(49.29% 0.04257 239.27)",
+          "oklch(60.71% 0.04257 239.27)",
+          "oklch(72.14% 0.04257 239.27)",
+          "oklch(83.57% 0.04257 239.27)",
+          "oklch(95.00% 0.04257 239.27)"
+        ]
+      },
+      "observatory-focus": {
+        "role": "primary",
+        "displayName": "Blue Sky Focus",
+        "tonalRamp": [
+          "oklch(15.00% 0.11281 247.20)",
+          "oklch(26.43% 0.11281 247.20)",
+          "oklch(37.86% 0.11281 247.20)",
+          "oklch(49.29% 0.11281 247.20)",
+          "oklch(60.71% 0.11281 247.20)",
+          "oklch(72.14% 0.11281 247.20)",
+          "oklch(83.57% 0.11281 247.20)",
+          "oklch(95.00% 0.11281 247.20)"
+        ]
+      },
+      "observatory-rail-active": {
+        "role": "neutral",
+        "displayName": "Blue Sky Rail Active",
+        "tonalRamp": [
+          "oklch(15.00% 0.02804 243.11)",
+          "oklch(26.43% 0.02804 243.11)",
+          "oklch(37.86% 0.02804 243.11)",
+          "oklch(49.29% 0.02804 243.11)",
+          "oklch(60.71% 0.02804 243.11)",
+          "oklch(72.14% 0.02804 243.11)",
+          "oklch(83.57% 0.02804 243.11)",
+          "oklch(95.00% 0.02804 243.11)"
+        ]
+      },
+      "observatory-rail-ink": {
+        "role": "neutral",
+        "displayName": "Blue Sky Rail Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.06884 246.84)",
+          "oklch(26.43% 0.06884 246.84)",
+          "oklch(37.86% 0.06884 246.84)",
+          "oklch(49.29% 0.06884 246.84)",
+          "oklch(60.71% 0.06884 246.84)",
+          "oklch(72.14% 0.06884 246.84)",
+          "oklch(83.57% 0.06884 246.84)",
+          "oklch(95.00% 0.06884 246.84)"
+        ]
+      },
+      "observatory-amber": {
+        "role": "neutral",
+        "displayName": "Blue Sky Amber",
+        "tonalRamp": [
+          "oklch(15.00% 0.08793 69.86)",
+          "oklch(26.43% 0.08793 69.86)",
+          "oklch(37.86% 0.08793 69.86)",
+          "oklch(49.29% 0.08793 69.86)",
+          "oklch(60.71% 0.08793 69.86)",
+          "oklch(72.14% 0.08793 69.86)",
+          "oklch(83.57% 0.08793 69.86)",
+          "oklch(95.00% 0.08793 69.86)"
+        ]
+      },
+      "observatory-amber-bg": {
+        "role": "neutral",
+        "displayName": "Blue Sky Amber Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.02828 79.48)",
+          "oklch(26.43% 0.02828 79.48)",
+          "oklch(37.86% 0.02828 79.48)",
+          "oklch(49.29% 0.02828 79.48)",
+          "oklch(60.71% 0.02828 79.48)",
+          "oklch(72.14% 0.02828 79.48)",
+          "oklch(83.57% 0.02828 79.48)",
+          "oklch(95.00% 0.02828 79.48)"
+        ]
+      },
+      "observatory-red": {
+        "role": "neutral",
+        "displayName": "Blue Sky Red",
+        "tonalRamp": [
+          "oklch(15.00% 0.14585 21.19)",
+          "oklch(26.43% 0.14585 21.19)",
+          "oklch(37.86% 0.14585 21.19)",
+          "oklch(49.29% 0.14585 21.19)",
+          "oklch(60.71% 0.14585 21.19)",
+          "oklch(72.14% 0.14585 21.19)",
+          "oklch(83.57% 0.14585 21.19)",
+          "oklch(95.00% 0.14585 21.19)"
+        ]
+      },
+      "observatory-red-bg": {
+        "role": "neutral",
+        "displayName": "Blue Sky Red Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.01519 17.42)",
+          "oklch(26.43% 0.01519 17.42)",
+          "oklch(37.86% 0.01519 17.42)",
+          "oklch(49.29% 0.01519 17.42)",
+          "oklch(60.71% 0.01519 17.42)",
+          "oklch(72.14% 0.01519 17.42)",
+          "oklch(83.57% 0.01519 17.42)",
+          "oklch(95.00% 0.01519 17.42)"
         ]
       },
       "field-ground": {
@@ -594,7 +580,7 @@
       },
       "island-rail-ground": {
         "role": "neutral",
-        "displayName": "Island Rail Ground",
+        "displayName": "Deep Space Rail Ground",
         "tonalRamp": [
           "oklch(15.00% 0.03946 262.95)",
           "oklch(26.43% 0.03946 262.95)",
@@ -608,16 +594,16 @@
       },
       "observatory-rail-ground": {
         "role": "neutral",
-        "displayName": "Observatory Rail Ground",
+        "displayName": "Blue Sky Rail Ground",
         "tonalRamp": [
-          "oklch(15.00% 0.03812 294.61)",
-          "oklch(26.43% 0.03812 294.61)",
-          "oklch(37.86% 0.03812 294.61)",
-          "oklch(49.29% 0.03812 294.61)",
-          "oklch(60.71% 0.03812 294.61)",
-          "oklch(72.14% 0.03812 294.61)",
-          "oklch(83.57% 0.03812 294.61)",
-          "oklch(95.00% 0.03812 294.61)"
+          "oklch(15.00% 0.00925 242.84)",
+          "oklch(26.43% 0.00925 242.84)",
+          "oklch(37.86% 0.00925 242.84)",
+          "oklch(49.29% 0.00925 242.84)",
+          "oklch(60.71% 0.00925 242.84)",
+          "oklch(72.14% 0.00925 242.84)",
+          "oklch(83.57% 0.00925 242.84)",
+          "oklch(95.00% 0.00925 242.84)"
         ]
       },
       "knowledge-accent": {
@@ -664,7 +650,7 @@
       },
       "knowledge-label-detail": {
         "role": "neutral",
-        "displayName": "Knowledge label secondary text",
+        "displayName": "Knowledge Label Detail",
         "tonalRamp": [
           "oklch(15.00% 0.02812 253.25)",
           "oklch(26.43% 0.02812 253.25)",
@@ -678,7 +664,7 @@
       },
       "knowledge-label-hover-bg": {
         "role": "neutral",
-        "displayName": "Knowledge label hover wash",
+        "displayName": "Knowledge Label Hover Bg",
         "tonalRamp": [
           "oklch(15.00% 0.04070 258.11)",
           "oklch(26.43% 0.04070 258.11)",
@@ -692,7 +678,7 @@
       },
       "knowledge-portal-label-bg": {
         "role": "neutral",
-        "displayName": "Knowledge portal label wash",
+        "displayName": "Knowledge Portal Label Bg",
         "tonalRamp": [
           "oklch(15.00% 0.03665 258.88)",
           "oklch(26.43% 0.03665 258.88)",
@@ -706,7 +692,7 @@
       },
       "knowledge-label-hover-outline": {
         "role": "neutral",
-        "displayName": "Knowledge label hover outline",
+        "displayName": "Knowledge Label Hover Outline",
         "tonalRamp": [
           "oklch(15.00% 0.06523 251.61)",
           "oklch(26.43% 0.06523 251.61)",
@@ -716,6 +702,272 @@
           "oklch(72.14% 0.06523 251.61)",
           "oklch(83.57% 0.06523 251.61)",
           "oklch(95.00% 0.06523 251.61)"
+        ]
+      },
+      "observatory-field-ground": {
+        "role": "neutral",
+        "displayName": "Blue Sky Field Ground",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "observatory-selected-ink": {
+        "role": "neutral",
+        "displayName": "Blue Sky Selected Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.05745 249.32)",
+          "oklch(26.43% 0.05745 249.32)",
+          "oklch(37.86% 0.05745 249.32)",
+          "oklch(49.29% 0.05745 249.32)",
+          "oklch(60.71% 0.05745 249.32)",
+          "oklch(72.14% 0.05745 249.32)",
+          "oklch(83.57% 0.05745 249.32)",
+          "oklch(95.00% 0.05745 249.32)"
+        ]
+      },
+      "light-selection-bg": {
+        "role": "neutral",
+        "displayName": "Light Selection Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.04570 240.19)",
+          "oklch(26.43% 0.04570 240.19)",
+          "oklch(37.86% 0.04570 240.19)",
+          "oklch(49.29% 0.04570 240.19)",
+          "oklch(60.71% 0.04570 240.19)",
+          "oklch(72.14% 0.04570 240.19)",
+          "oklch(83.57% 0.04570 240.19)",
+          "oklch(95.00% 0.04570 240.19)"
+        ]
+      },
+      "light-selection-ink": {
+        "role": "neutral",
+        "displayName": "Light Selection Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.05782 243.34)",
+          "oklch(26.43% 0.05782 243.34)",
+          "oklch(37.86% 0.05782 243.34)",
+          "oklch(49.29% 0.05782 243.34)",
+          "oklch(60.71% 0.05782 243.34)",
+          "oklch(72.14% 0.05782 243.34)",
+          "oklch(83.57% 0.05782 243.34)",
+          "oklch(95.00% 0.05782 243.34)"
+        ]
+      },
+      "light-scroll-track": {
+        "role": "neutral",
+        "displayName": "Light Scroll Track",
+        "tonalRamp": [
+          "oklch(15.00% 0.01520 241.77)",
+          "oklch(26.43% 0.01520 241.77)",
+          "oklch(37.86% 0.01520 241.77)",
+          "oklch(49.29% 0.01520 241.77)",
+          "oklch(60.71% 0.01520 241.77)",
+          "oklch(72.14% 0.01520 241.77)",
+          "oklch(83.57% 0.01520 241.77)",
+          "oklch(95.00% 0.01520 241.77)"
+        ]
+      },
+      "light-scroll-thumb": {
+        "role": "neutral",
+        "displayName": "Light Scroll Thumb",
+        "tonalRamp": [
+          "oklch(15.00% 0.04031 233.80)",
+          "oklch(26.43% 0.04031 233.80)",
+          "oklch(37.86% 0.04031 233.80)",
+          "oklch(49.29% 0.04031 233.80)",
+          "oklch(60.71% 0.04031 233.80)",
+          "oklch(72.14% 0.04031 233.80)",
+          "oklch(83.57% 0.04031 233.80)",
+          "oklch(95.00% 0.04031 233.80)"
+        ]
+      },
+      "knowledge-custom-default": {
+        "role": "neutral",
+        "displayName": "Knowledge Custom Default",
+        "tonalRamp": [
+          "oklch(15.00% 0.07505 186.10)",
+          "oklch(26.43% 0.07505 186.10)",
+          "oklch(37.86% 0.07505 186.10)",
+          "oklch(49.29% 0.07505 186.10)",
+          "oklch(60.71% 0.07505 186.10)",
+          "oklch(72.14% 0.07505 186.10)",
+          "oklch(83.57% 0.07505 186.10)",
+          "oklch(95.00% 0.07505 186.10)"
+        ]
+      },
+      "knowledge-library-ground": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Ground",
+        "tonalRamp": [
+          "oklch(15.00% 0.03956 256.72)",
+          "oklch(26.43% 0.03956 256.72)",
+          "oklch(37.86% 0.03956 256.72)",
+          "oklch(49.29% 0.03956 256.72)",
+          "oklch(60.71% 0.03956 256.72)",
+          "oklch(72.14% 0.03956 256.72)",
+          "oklch(83.57% 0.03956 256.72)",
+          "oklch(95.00% 0.03956 256.72)"
+        ]
+      },
+      "knowledge-library-ink": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01600 253.90)",
+          "oklch(26.43% 0.01600 253.90)",
+          "oklch(37.86% 0.01600 253.90)",
+          "oklch(49.29% 0.01600 253.90)",
+          "oklch(60.71% 0.01600 253.90)",
+          "oklch(72.14% 0.01600 253.90)",
+          "oklch(83.57% 0.01600 253.90)",
+          "oklch(95.00% 0.01600 253.90)"
+        ]
+      },
+      "knowledge-library-border": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Border",
+        "tonalRamp": [
+          "oklch(15.00% 0.05355 251.69)",
+          "oklch(26.43% 0.05355 251.69)",
+          "oklch(37.86% 0.05355 251.69)",
+          "oklch(49.29% 0.05355 251.69)",
+          "oklch(60.71% 0.05355 251.69)",
+          "oklch(72.14% 0.05355 251.69)",
+          "oklch(83.57% 0.05355 251.69)",
+          "oklch(95.00% 0.05355 251.69)"
+        ]
+      },
+      "knowledge-library-muted": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.03135 249.73)",
+          "oklch(26.43% 0.03135 249.73)",
+          "oklch(37.86% 0.03135 249.73)",
+          "oklch(49.29% 0.03135 249.73)",
+          "oklch(60.71% 0.03135 249.73)",
+          "oklch(72.14% 0.03135 249.73)",
+          "oklch(83.57% 0.03135 249.73)",
+          "oklch(95.00% 0.03135 249.73)"
+        ]
+      },
+      "knowledge-library-line": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.04588 252.36)",
+          "oklch(26.43% 0.04588 252.36)",
+          "oklch(37.86% 0.04588 252.36)",
+          "oklch(49.29% 0.04588 252.36)",
+          "oklch(60.71% 0.04588 252.36)",
+          "oklch(72.14% 0.04588 252.36)",
+          "oklch(83.57% 0.04588 252.36)",
+          "oklch(95.00% 0.04588 252.36)"
+        ]
+      },
+      "knowledge-library-field": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Field",
+        "tonalRamp": [
+          "oklch(15.00% 0.03831 258.77)",
+          "oklch(26.43% 0.03831 258.77)",
+          "oklch(37.86% 0.03831 258.77)",
+          "oklch(49.29% 0.03831 258.77)",
+          "oklch(60.71% 0.03831 258.77)",
+          "oklch(72.14% 0.03831 258.77)",
+          "oklch(83.57% 0.03831 258.77)",
+          "oklch(95.00% 0.03831 258.77)"
+        ]
+      },
+      "knowledge-library-field-ink": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Field Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01486 251.16)",
+          "oklch(26.43% 0.01486 251.16)",
+          "oklch(37.86% 0.01486 251.16)",
+          "oklch(49.29% 0.01486 251.16)",
+          "oklch(60.71% 0.01486 251.16)",
+          "oklch(72.14% 0.01486 251.16)",
+          "oklch(83.57% 0.01486 251.16)",
+          "oklch(95.00% 0.01486 251.16)"
+        ]
+      },
+      "knowledge-library-field-border": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Field Border",
+        "tonalRamp": [
+          "oklch(15.00% 0.04089 250.97)",
+          "oklch(26.43% 0.04089 250.97)",
+          "oklch(37.86% 0.04089 250.97)",
+          "oklch(49.29% 0.04089 250.97)",
+          "oklch(60.71% 0.04089 250.97)",
+          "oklch(72.14% 0.04089 250.97)",
+          "oklch(83.57% 0.04089 250.97)",
+          "oklch(95.00% 0.04089 250.97)"
+        ]
+      },
+      "knowledge-library-placeholder": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Placeholder",
+        "tonalRamp": [
+          "oklch(15.00% 0.03194 249.76)",
+          "oklch(26.43% 0.03194 249.76)",
+          "oklch(37.86% 0.03194 249.76)",
+          "oklch(49.29% 0.03194 249.76)",
+          "oklch(60.71% 0.03194 249.76)",
+          "oklch(72.14% 0.03194 249.76)",
+          "oklch(83.57% 0.03194 249.76)",
+          "oklch(95.00% 0.03194 249.76)"
+        ]
+      },
+      "knowledge-library-light": {
+        "role": "neutral",
+        "displayName": "Knowledge Library Light",
+        "tonalRamp": [
+          "oklch(15.00% 0.00584 239.82)",
+          "oklch(26.43% 0.00584 239.82)",
+          "oklch(37.86% 0.00584 239.82)",
+          "oklch(49.29% 0.00584 239.82)",
+          "oklch(60.71% 0.00584 239.82)",
+          "oklch(72.14% 0.00584 239.82)",
+          "oklch(83.57% 0.00584 239.82)",
+          "oklch(95.00% 0.00584 239.82)"
+        ]
+      },
+      "knowledge-light-control": {
+        "role": "neutral",
+        "displayName": "Knowledge Light Control",
+        "tonalRamp": [
+          "oklch(15.00% 0.01691 242.43)",
+          "oklch(26.43% 0.01691 242.43)",
+          "oklch(37.86% 0.01691 242.43)",
+          "oklch(49.29% 0.01691 242.43)",
+          "oklch(60.71% 0.01691 242.43)",
+          "oklch(72.14% 0.01691 242.43)",
+          "oklch(83.57% 0.01691 242.43)",
+          "oklch(95.00% 0.01691 242.43)"
+        ]
+      },
+      "knowledge-light-summary": {
+        "role": "neutral",
+        "displayName": "Knowledge Light Summary",
+        "tonalRamp": [
+          "oklch(15.00% 0.08825 244.01)",
+          "oklch(26.43% 0.08825 244.01)",
+          "oklch(37.86% 0.08825 244.01)",
+          "oklch(49.29% 0.08825 244.01)",
+          "oklch(60.71% 0.08825 244.01)",
+          "oklch(72.14% 0.08825 244.01)",
+          "oklch(83.57% 0.08825 244.01)",
+          "oklch(95.00% 0.08825 244.01)"
         ]
       }
     },
@@ -767,13 +1019,25 @@
       "knowledge-domain-label-mobile": {
         "displayName": "Knowledge domain label on phones",
         "purpose": "13px at max-width 620px within the iframe; host typography is unchanged."
+      },
+      "work-subtitle": {
+        "displayName": "Work Subtitle",
+        "purpose": "Local record and editor subsection headings."
+      },
+      "supporting-small": {
+        "displayName": "Supporting Small",
+        "purpose": "Compact local navigation and library actions."
+      },
+      "library-heading-mobile": {
+        "displayName": "Library Heading Mobile",
+        "purpose": "Knowledge library modal title below 620px."
       }
     },
     "shadows": [
       {
         "name": "reading-sheet",
         "value": "0 12px 38px #01040b40",
-        "purpose": "Dark ambient elevation shared by both palettes."
+        "purpose": "Inherited growth reading-sheet elevation; local workspace editor surfaces use separate low ambient tokens."
       },
       {
         "name": "dialog",
@@ -784,12 +1048,22 @@
         "name": "knowledge-label-text",
         "value": "0 1px 5px #000, 0 1px 12px #020611",
         "purpose": "Local projected label shadow from nebula.css. Title spans retain the inherited 0 2px 8px #020610 shadow from style.css."
+      },
+      {
+        "name": "work-dark",
+        "value": "0 14px 36px #01040b26",
+        "purpose": "Local editor/start/settings-note surfaces in dark."
+      },
+      {
+        "name": "work-light",
+        "value": "0 14px 36px #31587b12",
+        "purpose": "Low local editor/start/settings-note elevation in light."
       }
     ],
     "motion": [
       {
         "name": "cosmic-sky",
-        "value": "One body canvas: local offscreen fBm nebula, drifting parallax stars and twinkle. Editing, hidden document and reduced motion pause animation; off retains a static sky. Embedded editing messages validate source and origin.",
+        "value": "One body canvas: local fBm stars/twinkle in dark; blue-white cloud field without stars in light. Editing, hidden document and reduced motion pause animation; off retains a static background. Embedded editing messages validate source and origin.",
         "purpose": "Continuous atmosphere below navigation and modules."
       },
       {
@@ -837,6 +1111,18 @@
       {
         "name": "knowledge-reader-drawer",
         "value": "max-width:620px within the iframe"
+      },
+      {
+        "name": "local-medium",
+        "value": "max-width:1100px"
+      },
+      {
+        "name": "local-stack",
+        "value": "max-width:760px"
+      },
+      {
+        "name": "local-five-column-navigation",
+        "value": "max-width:640px"
       }
     ],
     "brandAsset": {
@@ -865,11 +1151,11 @@
       "license": "public/licenses/Uiverse-Galaxy-MIT.txt"
     },
     "cosmicIntegration": {
-      "authority": "src/cosmic-integration.css, imported last by app/layout.tsx",
+      "authority": "local/entry.ts imports inherited cascade through src/cosmic-integration.css, then local/workspace.css; knowledge library.css follows nebula.css.",
       "sky": "src/cosmic-background.ts",
-      "knowledge": "public/knowledge-universe/embedded.css, followed by public/knowledge-universe/nebula.css for local label and exploration overrides",
-      "rendering": "Alpha-enabled WebGL, scene.background=null; embedded body and workspace transparent. The parent sky continues behind local XYZ gas/star/dust volumes and broad semantic dust-and-mist bridges.",
-      "historical": "Earlier light palette and landscape descriptions are superseded by the November 2 integration.",
+      "knowledge": "public/knowledge-universe/embedded.css, nebula.css and library.css",
+      "rendering": "Dark shell uses a shared star field; light shell uses blue sky/clouds. Alpha-enabled WebGL remains, with a deliberate deep-space knowledge viewport ground in light and skin-aware toolbar/reader/library.",
+      "historical": "October light reading-room concepts and November 2 two-night-palette commitment are historical; explicit November 3 user direction supersedes them.",
       "knowledgeVolume": {
         "sources": [
           "public/knowledge-universe/nebula-field.js",
@@ -884,6 +1170,16 @@
         "bridges": "Broad irregular XYZ mist and sparse round dust with faded ends represent semantic relations. Random samples and all-axis scatter avoid a narrow centerline; stellar shader marks are round rather than cross-shaped. Near-camera particle opacity fades.",
         "zoom": "Selecting a visible node targets its stellar core and fits its contents. Toolbar and wheel zoom share the scene-relative minimum and maximum distances."
       }
+    },
+    "localWorkspace": {
+      "direction": "docs/LOCAL-WORKSPACE.md",
+      "surface": ".impeccable/surfaces/local-workspace-ts.md",
+      "appearanceStorage": {
+        "island": "深空 · 暗色",
+        "observatory": "晴空 · 亮色"
+      },
+      "contrast": "Light sky-exposed small copy and light knowledge reader content use explicit ink overrides; interior muted text retains its semantic role.",
+      "geometry": "1440px local main; 38px desktop side padding; 760px stacking; 640px five-column local navigation. Scoped 9px fields, 6px chips, 16px library modal and 8px library fields are intentional."
     }
   },
   "components": [
@@ -904,20 +1200,20 @@
       "css": ".ds-subtle{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border:1px solid transparent;border-radius:12px;padding:10px 16px;font-size:13px;line-height:1.7;font-weight:500;cursor:pointer;transition:background-color 180ms,border-color 180ms,transform 180ms cubic-bezier(.2,.8,.2,1);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background:var(--surface,#101b2ef5);color:var(--ink,#e4edf9);border-color:var(--secondary-border,#536b87)}.ds-subtle:hover:not(:disabled){background:var(--wash,#1b2c45)}.ds-subtle:focus-visible{outline:3px solid var(--focus,#bedcff);outline-offset:4px}.ds-subtle:disabled{opacity:.45;cursor:not-allowed}.ds-subtle:active:not(:disabled){transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-subtle{transition:none}.ds-subtle:active:not(:disabled){transform:none}}"
     },
     {
-      "name": "Growth text field",
+      "name": "Local workspace field",
       "kind": "input",
-      "refersTo": "input",
-      "description": "Native text entry, with persistence supplied by the application.",
+      "refersTo": "local-input-island",
+      "description": "Native local record/AI field; skin-bound foreground and field ground, scoped nine-pixel corners.",
       "html": "<label class=\"ds-label\">下一步<textarea class=\"ds-input\" placeholder=\"写下一个可以尝试的小行动\"></textarea></label>",
-      "css": ".ds-label{display:block;font-size:14px;line-height:1.85;color:var(--ink,#e4edf9);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-input{display:block;width:100%;margin-top:8px;min-height:100px;border:1px solid var(--secondary-border,#536b87);border-radius:12px;padding:11px 12px;background:#0b1526;color:var(--ink,#e4edf9);font:15px/1.85 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;resize:vertical;transition:border-color 180ms,box-shadow 180ms;caret-color:var(--green,#b3cefa)}.ds-input::placeholder{color:var(--muted,#aebed2);opacity:1}.ds-input:focus-visible{outline:3px solid var(--focus,#bedcff);outline-offset:4px}@media(max-width:640px){.ds-input{font-size:16px}}@media(prefers-reduced-motion:reduce){.ds-input{transition:none}}"
+      "css": ".ds-label{display:block;font-size:14px;line-height:1.85;color:var(--ink,#e4edf9);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-input{display:block;width:100%;margin-top:8px;min-height:100px;border:1px solid var(--secondary-border,#536b87);border-radius:9px;padding:11px 12px;background:var(--work-field,#0b1526);color:var(--ink,#e4edf9);font:14px/1.8 'Microsoft YaHei','PingFang SC',system-ui,sans-serif;resize:vertical;transition:border-color 180ms,box-shadow 180ms;caret-color:var(--green,#b3cefa)}.ds-input::placeholder{color:var(--muted,#aebed2);opacity:1}.ds-input:focus-visible{outline:2px solid var(--focus,#bedcff);outline-offset:3px}@media(max-width:640px){.ds-input{font-size:16px}}@media(prefers-reduced-motion:reduce){.ds-input{transition:none}}"
     },
     {
       "name": "Shared app navigation",
       "kind": "nav",
       "refersTo": "navigation-active",
-      "description": "Six core destinations plus independently optional Investment and 人生丰富度. At 641–820px columns match the six to eight visible entries; phones use three columns for six or four for seven/eight.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"主导航\"><a href=\"#today\">今日</a><a href=\"#growth\" aria-current=\"page\">个人成长<br><small>环境感知</small></a><a href=\"#knowledge\">知识宇宙</a><a href=\"#mail\">邮箱整理</a><a href=\"#history\">任务记录</a><a href=\"#settings\">偏好设置</a></nav>",
-      "css": ".ds-nav{display:flex;flex-direction:column;gap:7px;width:176px;padding:16px;background:#091224b8;font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-nav a{display:block;min-height:49px;padding:12px;border-radius:9px;color:var(--rail-ink,#e4edf9);font-size:14px;line-height:1.6;text-decoration:none}.ds-nav small{font-size:12px;font-weight:400}.ds-nav a[aria-current]{color:#fff;background:var(--rail-active,#29476b);font-weight:600}.ds-nav a:hover:not([aria-current]){background:var(--rail-active,#29476b);color:#fff}.ds-nav a:focus-visible{outline:3px solid var(--focus,#bedcff);outline-offset:4px}@media(max-width:820px){.ds-nav{width:auto;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}.ds-nav a{font-size:12px;padding:10px 4px;text-align:center}}@media(max-width:640px){.ds-nav{grid-template-columns:repeat(3,minmax(0,1fr))}}"
+      "description": "Current local destinations, including optional Investment/Life and explicit AI Analysis; stored history route is Task Records. Inherits the skin-bound local rail and ink.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"主导航\"><a href=\"#today\">今日</a><a href=\"#growth\" aria-current=\"page\">个人成长<br><small>环境感知</small></a><a href=\"#knowledge\">知识宇宙</a><a href=\"#investment\">投资</a><a href=\"#life\">人生丰富度</a><a href=\"#ai\">AI 分析</a><a href=\"#mail\">邮箱整理</a><a href=\"#history\">任务记录</a><a href=\"#settings\">偏好设置</a></nav>",
+      "css": ".ds-nav{display:flex;flex-direction:column;gap:7px;width:176px;padding:16px;background:var(--work-rail,#091224e8);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-nav a{display:block;min-height:49px;padding:12px;border-radius:9px;color:var(--rail-ink,#e4edf9);font-size:14px;line-height:1.6;text-decoration:none}.ds-nav small{font-size:12px;font-weight:400}.ds-nav a[aria-current]{color:var(--ink,#e4edf9);background:var(--rail-active,#29476b);font-weight:600}.ds-nav a:hover:not([aria-current]){background:var(--rail-active,#29476b);color:var(--ink,#e4edf9)}.ds-nav a:focus-visible{outline:3px solid var(--focus,#bedcff);outline-offset:4px}@media(max-width:820px){.ds-nav{width:auto;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}.ds-nav a{font-size:12px;padding:10px 4px;text-align:center}}@media(max-width:640px){.ds-nav{grid-template-columns:repeat(5,minmax(0,1fr))}}@media(max-width:640px){.ds-nav a{min-height:64px;padding:6px 2px;font-size:11px}.ds-nav small{font-size:10px}}"
     },
     {
       "name": "Topic index selection",
@@ -948,21 +1244,21 @@
       "kind": "custom",
       "refersTo": "input",
       "description": "Settings-only native two-palette selector and dynamic-sky switch; the application supplies synchronization, static-off behavior and pause rules.",
-      "html": "<div class=\"ds-appearance\"><label>皮肤 <select aria-label=\"选择皮肤\"><option value=\"island\">光屿工作台</option><option value=\"observatory\">对页观察室</option></select></label><label class=\"ds-particle\"><input type=\"checkbox\" checked><span class=\"ds-track\" aria-hidden=\"true\"><span class=\"ds-knob\"></span></span><span>星空动态</span></label></div>",
+      "html": "<div class=\"ds-appearance\"><label>皮肤 <select aria-label=\"选择皮肤\"><option value=\"island\">深空 · 暗色</option><option value=\"observatory\">晴空 · 亮色</option></select></label><label class=\"ds-particle\"><input type=\"checkbox\" checked><span class=\"ds-track\" aria-hidden=\"true\"><span class=\"ds-knob\"></span></span><span>动态背景</span></label></div>",
       "css": ".ds-appearance{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;font-size:12px;font-family:\"Microsoft YaHei\",\"PingFang SC\",system-ui,sans-serif}.ds-appearance label{display:inline-flex;align-items:center;gap:8px;min-height:40px;color:var(--muted,#aebed2)}.ds-appearance select{max-width:100%;min-height:40px;border:1px solid var(--secondary-border,#536b87);border-radius:12px;padding:8px 30px 8px 12px;background:var(--surface,#101b2ef5);color:var(--ink,#e4edf9);font:inherit}.ds-appearance .ds-particle{position:relative;gap:10px;min-height:44px;cursor:pointer}.ds-particle>input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;z-index:1;cursor:pointer}.ds-track{position:relative;display:block;flex:none;width:44px;height:26px;border-radius:20px;background:var(--secondary-border,#536b87);transition:background-color 180ms;pointer-events:none}.ds-knob{position:absolute;left:3px;bottom:3px;height:20px;width:20px;border-radius:50%;background:var(--surface,#101b2ef5);box-shadow:0 2px 4px #253b5820;transition:transform 180ms cubic-bezier(.2,.8,.2,1)}.ds-particle>input:checked+.ds-track{background:var(--forest,#abc9f3)}.ds-particle>input:checked+.ds-track .ds-knob{transform:translateX(18px)}.ds-appearance select:focus-visible,.ds-particle>input:focus-visible+.ds-track{outline:3px solid var(--focus,#bedcff);outline-offset:4px}.ds-particle>input:disabled~span{opacity:.5}@media(max-width:640px){.ds-appearance{font-size:13px}.ds-appearance select{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-track,.ds-knob{transition:none}}@media(forced-colors:active){.ds-track{border:1px solid ButtonText}.ds-knob{background:ButtonText}}"
     },
     {
-      "name": "Facing periods",
+      "name": "Knowledge library management",
       "kind": "custom",
-      "refersTo": "comparison-cool",
-      "description": "Earlier/later labels only; real excerpts come from authored records.",
-      "html": "<div class=\"ds-compare\"><section><h3>较早记录</h3><p>经历与反省</p></section><section><h3>较近记录</h3><p>经历与反省</p></section></div>",
-      "css": ".ds-compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;color:var(--ink,#e4edf9);font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;}.ds-compare section{min-width:0;padding:20px;border-radius:12px;background:var(--wash,#1b2c45)}.ds-compare section+section{background:var(--wash,#1b2c45)}.ds-compare h3{font-size:14px;line-height:1.8;color:var(--green,#b3cefa);margin:0 0 12px}.ds-compare p{font-family:AtlasSerif,'Noto Serif SC',serif;font-size:18px;line-height:1.95;margin:0;overflow-wrap:anywhere}@media(max-width:640px){.ds-compare{grid-template-columns:1fr;gap:18px}.ds-compare section{padding:20px 16px}}"
+      "refersTo": "knowledge-library-dialog-observatory",
+      "description": "Light native-modal interior specimen for independent nebula and local-file controls. The application supplies extraction, persistence and confirmation.",
+      "html": "<section class=\"ds-library\"><h2>星云与知识库</h2><p>给一组知识一个独立的星云，也可以把新资料并入已有星云。</p><label>星云名称<input placeholder=\"例如：我的写作工作室\"></label><button>创建星云</button></section>",
+      "css": ".ds-library{max-width:620px;padding:28px;background:#f8fcff;color:#18334d;border:1px solid #8da9bd;border-radius:16px;font:14px/1.8 \"Microsoft YaHei\",\"PingFang SC\",sans-serif}.ds-library h2{font-size:24px;margin:0 0 16px}.ds-library p{color:#49657b;font-size:13px}.ds-library label{display:grid;gap:8px;margin:26px 0 18px;font-size:13px}.ds-library input{padding:10px 12px;border:1px solid #8da9bd;border-radius:8px;background:#fff;color:#18334d;font:inherit;min-width:0}.ds-library input::placeholder{color:#49657b}.ds-library button{width:100%;padding:10px 16px;border:0;border-radius:8px;background:#c2dfe8;color:#13212e;font:600 14px/1.4 \"Microsoft YaHei\",sans-serif;cursor:pointer}.ds-library button:hover{background:#e4f5fa}.ds-library button:focus-visible,.ds-library input:focus-visible{outline:2px solid #b9deeb;outline-offset:4px}"
     },
     {
       "name": "Embedded knowledge tools",
       "kind": "custom",
-      "description": "Compact module toolbar under the host LifeAtlas heading; no duplicate brand or sidebar. Real map and backup behavior remain in the application.",
+      "description": "Compact module toolbar. Dark default specimen; light library.css switches ground, field, border and text to the light knowledge palette. The 3D viewport stays deep-space.",
       "html": "<div class=\"ds-knowledge-tools\"><label>星系 <select aria-label=\"星系\"><option>六大星系</option><option>数学</option><option>物理</option></select></label><button>学习路线</button><button>收藏</button><button>导出</button><button>导入</button></div>",
       "css": ".ds-knowledge-tools{display:flex;align-items:center;gap:15px;padding:9px 14px;min-height:30px;background:#0e1828ed;color:#bfd0e4;font:11px/1.6 Atlas,\"Microsoft YaHei\",\"PingFang SC\",sans-serif;overflow-x:auto;white-space:nowrap}.ds-knowledge-tools label{display:flex;align-items:center;gap:7px;margin-right:auto}.ds-knowledge-tools select{font:inherit;background:#1a2b42;border:1px solid #50667d;color:#dfebf7;border-radius:6px;padding:4px 6px;min-width:115px}.ds-knowledge-tools button{border:0;background:transparent;color:inherit;font:inherit;padding:4px 0;cursor:pointer}.ds-knowledge-tools button:hover{color:white;text-decoration:underline;text-underline-offset:3px}.ds-knowledge-tools button:focus-visible,.ds-knowledge-tools select:focus-visible{outline:3px solid #b9deeb;outline-offset:3px}"
     },
@@ -977,13 +1273,13 @@
   ],
   "narrative": {
     "northStar": "生活阅览室 × 知识宇宙",
-    "overview": "LifeAtlas now joins its familiar reading layout to the user-requested 3D knowledge universe under one continuous cosmic sky. The outlined LifeAtlas wordmark, desktop rail, independent topic index and native controls remain the identity anchors. 光屿工作台 (Island, default) and 对页观察室 (Observatory) retain their names and shared geometry, with cool blue and warm violet/peach night palettes respectively.\n\nThe November 2 integration supersedes the earlier white-sheet palette and isolated landscape treatments. Reading remains calm and legible on near-opaque dark surfaces; the sky provides spatial continuity through the navigation and transparent knowledge scene. Knowledge is a core destination alongside the existing daily and personal modules. Appearance changes preserve live work; scenery and knowledge examples never become authored personal history.",
+    "overview": "LifeAtlas retains its outlined wordmark, app rail, independent topic index, continuous reading geometry and native controls. The current local workspace extends that world with real record forms, an AI question–references–confirmation–result sequence, readonly mail and local knowledge management. The user's November 3 direction explicitly replaces the earlier pair of night palettes with 深空 · 暗色 (Island, default) and 晴空 · 亮色 (Observatory); stored identifiers remain compatible.\n\nDark surrounds calm, near-opaque reading surfaces with locally rendered stars. Light surrounds pale navigation and reading surfaces with locally rendered blue sky and clouds. The knowledge map remains a deep-space volume inside light surroundings so stellar knowledge stays visible. This is a code-led expansion of the pinned direction; no new comp or identity replacement is asserted. October white-sheet/lake concepts and the November 2 two-night-palette description are historical, not current authority.",
     "keyCharacteristics": [
-      "One locally generated cosmic sky spans the shell and transparent knowledge scene.",
-      "A familiar LifeAtlas rail, flat topic index and continuous dark reading sheet.",
-      "Two named night palettes with native controls and explicit written states.",
-      "Chinese sans host UI, serif comparison excerpts, outlined wordmark and local Space Grotesk inside knowledge.",
-      "Real perspective 3D exploration with a readable detail panel and compact module toolbar."
+      "One locally generated atmospheric background: stars in dark, blue sky/clouds in light.",
+      "The established LifeAtlas lettering, rail, growth index and continuous reading geometry.",
+      "Real local lists and editors, explicit written states and honest empty views.",
+      "Chinese sans host UI, serif growth comparisons and local Space Grotesk inside knowledge.",
+      "A deep-space 3D knowledge viewport with skin-aware surrounding controls and reading panels."
     ],
     "rules": [
       {
@@ -992,8 +1288,8 @@
         "section": "colors"
       },
       {
-        "name": "The Continuous Sky Rule",
-        "body": "Use one body-level sky behind navigation and modules; the embedded knowledge renderer stays transparent rather than painting a second sky.",
+        "name": "The Continuous Atmosphere Rule",
+        "body": "Use one body-level atmosphere for the shell; preserve the deliberate dark knowledge viewport in the light skin and skin-aware surrounding reading controls.",
         "section": "elevation"
       },
       {
@@ -1008,20 +1304,19 @@
       }
     ],
     "dos": [
-      "Do use the active palette’s semantic CSS variables across all core and optional destinations.",
-      "Do preserve the LifeAtlas wordmark, native control semantics, explicit saving, visible keyboard focus and reduced-motion behavior.",
-      "Do keep topic lookup separate from continuous reading and secondary tools in native disclosures.",
-      "Do keep the knowledge scene transparent over the shared sky and reading panels sufficiently opaque for long text.",
-      "Do keep appearance and animation preferences exclusively in Settings → 外观与动态.",
-      "Do distinguish fictional demonstrations and static knowledge content from real authored records."
+      "Do use the active skin's semantic variables and the final local workspace cascade.",
+      "Do preserve LifeAtlas lettering, established reading geometry, native control semantics and explicit written states.",
+      "Do use ink for small text exposed directly to the light sky and explicit dark reader text on light knowledge surfaces.",
+      "Do keep the knowledge viewport deep-space in light mode while its toolbar, reader and library follow the selected skin.",
+      "Do keep appearance controls in Settings and honor editing, hidden-document and reduced-motion pauses.",
+      "Do distinguish authored local records, isolated test fixtures, bounded rules and user-requested model output."
     ],
     "donts": [
-      "Don't restore the superseded white-paper palettes, lake banner or horizontal Observatory desktop shell as current design authority.",
-      "Don't add retired skins or duplicate brand/navigation chrome inside the embedded knowledge module.",
-      "Don't remount the live route to change appearance.",
-      "Don't put long reading text directly on the animated star field.",
-      "Don't make editing, hidden-page or reduced-motion states keep animating the shared sky.",
-      "Don't turn examples, scenery, counts or unimplemented analysis into personal data or capability claims."
+      "Don't restore historical lake concepts, a horizontal Observatory desktop shell or the superseded two-dark-palette commitment as current authority.",
+      "Don't duplicate brand/navigation inside the knowledge frame or remount live work to change appearance.",
+      "Don't put long reading text directly on an animated background.",
+      "Don't claim real account success, semantic/vector retrieval, automatic tools, live markets or trading from these surfaces.",
+      "Don't treat a simulated analysis or protocol test as proof of a real provider or the owner's credentials."
     ]
   }
 }

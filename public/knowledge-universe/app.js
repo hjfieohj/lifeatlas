@@ -15,7 +15,8 @@
   const duration = reduced ? 0 : 650;
   const baseIds = new Set(K.nodes.map(n => n.id));
   const domainIds = new Set(K.domains.map(d => d.id));
-  let saved = {custom:[],favorites:[],learned:[],notes:{}};
+  const baseDomains=K.domains.map(d=>({...d}));
+  let saved = {galaxies:[],custom:[],favorites:[],learned:[],notes:{}};
   let storageAvailable = true;
   let importWarning = '';
   const safeURL = value => {
@@ -27,19 +28,24 @@
     if (raw.format && raw.format !== 'atlas-knowledge-universe') throw new Error('备份格式不受支持。');
     if (raw.version !== undefined && ![1,2].includes(raw.version)) throw new Error('备份版本不受支持，请使用第1版或第2版备份。');
     const custom = raw.custom ?? [];
+    const galaxies=raw.galaxies??[];
+    if(!Array.isArray(galaxies)||galaxies.length>24)throw new Error('最多可以创建24个独立星云。');
+    const galaxyIds=new Set();
+    const cleanGalaxies=galaxies.map(g=>{if(!g||typeof g.id!=='string'||!/^nebula-[a-z0-9-]{1,70}$/.test(g.id)||galaxyIds.has(g.id)||typeof g.name!=='string'||!g.name.trim()||g.name.length>80||typeof g.description!=='string'||g.description.length>300||!/^#[0-9a-fA-F]{6}$/.test(g.color))throw new Error('星云名称、编号或颜色格式无效。');galaxyIds.add(g.id);return {id:g.id,name:g.name.trim(),description:g.description,color:g.color};});
+    const validDomains=new Set([...domainIds,...galaxyIds]);
     if (!Array.isArray(custom) || custom.length > 500) throw new Error('自定义节点最多可导入500个。');
-    const ids = new Set(baseIds);
+    const ids = new Set([...baseIds,...galaxyIds]);
     const cleaned = custom.map(n => {
       if (!n || typeof n !== 'object' || typeof n.id !== 'string' || !/^custom-[a-z0-9-]{1,70}$/.test(n.id) || ids.has(n.id)) throw new Error('节点编号无效或重复。');
-      if (!domainIds.has(n.domain) || typeof n.title !== 'string' || !n.title.trim() || n.title.length > 80 || typeof n.summary !== 'string' || !n.summary.trim() || n.summary.length > 300) throw new Error('节点名称、说明或所属领域无效。');
+      if (!validDomains.has(n.domain) || typeof n.title !== 'string' || !n.title.trim() || n.title.length > 80 || typeof n.summary !== 'string' || !n.summary.trim() || n.summary.length > 300) throw new Error('节点名称、说明或所属领域无效。');
       if (n.detail != null && (typeof n.detail !== 'string' || n.detail.length > 8000)) throw new Error('节点详细内容超出限制。');
       if (n.url && (typeof n.url !== 'string' || n.url.length > 1200 || !safeURL(n.url))) throw new Error('参考链接需要使用 http 或 https。');
       if (n.related != null && (!Array.isArray(n.related) || n.related.length > 600 || n.related.some(id => typeof id !== 'string'))) throw new Error('关联节点格式不正确。');
       ids.add(n.id);
-      return {id:n.id,title:n.title.trim(),domain:n.domain,parent:typeof n.parent==='string'?n.parent:n.domain,summary:n.summary.trim(),detail:n.detail || '',url:n.url ? safeURL(n.url) : '',related:[...new Set(n.related || [])]};
+      return {id:n.id,title:n.title.trim(),domain:n.domain,parent:typeof n.parent==='string'?n.parent:n.domain,summary:n.summary.trim(),detail:n.detail || '',url:n.url ? safeURL(n.url) : '',documentId:typeof n.documentId==='string'&&/^doc-[a-f0-9-]{36}$/.test(n.documentId)?n.documentId:'',related:[...new Set(n.related || [])]};
     });
     for (const n of cleaned) if (n.related.some(id => !ids.has(id) || id === n.id)) throw new Error('备份中有不存在或指向自身的关联节点。');
-    const structure=new Map(K.nodes.concat(cleaned).map(n=>[n.id,n]));
+    const structure=new Map(K.nodes.concat(cleanGalaxies.map(g=>({id:g.id,domain:g.id,parent:'universe'})),cleaned).map(n=>[n.id,n]));
     for(const n of cleaned){
       if(!ids.has(n.parent)||n.parent===n.id||structure.get(n.parent)?.domain!==n.domain)throw new Error('父级框架需要属于同一星系，并且不能是节点本身。');
       let current=n,seen=new Set();while(current?.parent){if(seen.has(current.id))throw new Error('包含层级不能循环。');seen.add(current.id);current=structure.get(current.parent);if(seen.size>32)throw new Error('自定义层级不能超过32层。');}
@@ -57,7 +63,7 @@
       if (typeof note !== 'string' || note.length > 20000) throw new Error('单条笔记最多20,000字。');
       notes[id] = note;
     }
-    return {custom:cleaned,favorites:idList(raw.favorites),learned:idList(raw.learned),notes};
+    return {galaxies:cleanGalaxies,custom:cleaned,favorites:idList(raw.favorites),learned:idList(raw.learned),notes};
   }
   try { const raw = localStorage.getItem(storageKey); if (raw) saved = validateBackup(JSON.parse(raw)); }
   catch (error) { importWarning = `本地记录暂时无法读取：${error.message}。可尝试导入导出的JSON备份。`; }
@@ -70,14 +76,20 @@
   const pathOf = id => {const path=[];let n=byId.get(id),seen=new Set();while(n&&!seen.has(n.id)){seen.add(n.id);path.unshift(n);n=byId.get(n.parent);}return path;};
   const descendantOf = (id,parent) => pathOf(id).some(n=>n.id===parent);
   function rebuild() {
-    nodes=K.nodes.map(n=>({...n})).concat(saved.custom.map(n=>({...n,parent:n.parent||n.domain,kind:'我的知识',root:false,custom:true,example:''})));
+    K.domains.splice(0,K.domains.length,...baseDomains,...saved.galaxies);
+    const roots=saved.galaxies.map(g=>({id:g.id,title:g.name,summary:g.description||'我的独立知识星云',detail:g.description,parent:'universe',domain:g.id,depth:1,root:true,kind:'我的星云',wiki:''}));
+    nodes=K.nodes.map(n=>({...n})).concat(roots,saved.custom.map(n=>({...n,parent:n.parent||n.domain,kind:'我的知识',root:false,custom:true,example:''})));
     byId=new Map(nodes.map(n=>[n.id,n]));
     for(const n of nodes)if(n.custom)n.depth=pathOf(n.id).length-1;
     links=K.links.map(l=>({...l}));
+    for(const g of saved.galaxies)links.push({source:'universe',target:g.id,kind:'hierarchy',reason:'你创建的独立星云'});
     for(const n of saved.custom){links.push({source:n.parent||n.domain,target:n.id,kind:'hierarchy',reason:'你建立的包含层级'});for(const id of n.related)links.push({source:n.id,target:id,kind:'relation',reason:'你建立的知识联系'});}
     neighbors=new Map(nodes.map(n=>[n.id,new Set()]));
     for(const l of links){neighbors.get(l.source)?.add(l.target);neighbors.get(l.target)?.add(l.source);}
     if(graph)graph.setData(nodes,links);
+    $('#domain-nav').innerHTML=K.domains.map(d=>`<button class="nav-item" data-domain="${d.id}">${dot(d.id)}<span>${esc(d.name)}</span><small></small></button>`).join('');
+    $('#domain-nav').querySelectorAll('[data-domain]').forEach(b=>b.onclick=()=>setDomain(b.dataset.domain));
+    if($('#embed-domain'))$('#embed-domain').innerHTML='<option value="all">全部星云</option>'+K.domains.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('');
     updateCounters();
   }
 
@@ -169,7 +181,7 @@
     const list=visibleNodes();
     $('#catalog').innerHTML=`<div class="catalog-header"><span>${list.length} 个知识节点</span><span>点击开始阅读</span></div>`+(list.length?list.map(n=>`<button class="catalog-row" data-node="${n.id}">${dot(n.domain)}<div><strong>${esc(n.title)}</strong><p>${esc(n.summary)}</p></div><small>${saved.learned.includes(n.id)?'已读':esc(n.kind)}</small>${icon('arrow')}</button>`).join(''):`<div class="empty-state"><strong>这里还有无限可能。</strong>${scope==='favorites'?'点击节点里的“收藏”，把想深入的知识留在这里。':'阅读一个节点，标记已读，记录你的第一步。'}<br><br><button class="button" data-home>去探索星系 ${icon('arrow')}</button></div>`);
   }
-  function setReader(html) {$('#reader-content').innerHTML=html;$('#reader').scrollTop=0;}
+  function setReader(html) {$('#reader-content').innerHTML=window.lifeAtlasLocal?html.replaceAll('此浏览器','本机数据库'):html;$('#reader').scrollTop=0;}
   function openMobileReader() {if(innerWidth<=620){$('#reader').classList.add('open');$('#mobile-reader').setAttribute('aria-expanded','true');$('#toggle-reading').setAttribute('aria-pressed','true');}}
   function mobileLabel(text='展开阅读面板') {$('#mobile-reader').innerHTML=esc(text)+icon('arrow');}
   function renderWelcome(title='今天，向哪里出发？',intro='让知识成为星球，让好奇成为航线。选择一个节点，看看它如何连接更大的世界。') {
@@ -293,7 +305,8 @@
       if(file.size>4*1024*1024)throw new Error('文件太大，请选择4MB以内的宇宙JSON备份。');
       const incoming=validateBackup(JSON.parse(await file.text()));
       const current=new Map(saved.custom.map(n=>[n.id,n]));incoming.custom.forEach(n=>current.set(n.id,n));
-      const next={custom:[...current.values()],favorites:[...new Set([...saved.favorites,...incoming.favorites])],learned:[...new Set([...saved.learned,...incoming.learned])],notes:{...saved.notes,...incoming.notes}};
+      const galaxies=new Map(saved.galaxies.map(g=>[g.id,g]));incoming.galaxies.forEach(g=>galaxies.set(g.id,g));
+      const next={galaxies:[...galaxies.values()],custom:[...current.values()],favorites:[...new Set([...saved.favorites,...incoming.favorites])],learned:[...new Set([...saved.learned,...incoming.learned])],notes:{...saved.notes,...incoming.notes}};
       validateBackup(next);saved=next;persist();rebuild();setDomain('all');toast('备份已合并；同编号的节点和笔记使用导入版本');
     }catch(error){toast('导入失败：'+error.message);}
     e.target.value='';
@@ -337,5 +350,6 @@
   document.fonts?.ready.then(()=>graph?.refresh?.());
   document.addEventListener('visibilitychange',()=>{if(document.hidden)graph?.pauseAnimation();else if(view==='map')graph?.resumeAnimation();});
   if(importWarning)toast(importWarning);
-  window.ATLAS={get nodes(){return nodes;},get links(){return links;},get saved(){return saved;},validateBackup,selectNode,enterSystem,get focusId(){return focusId;},childrenOf,get graph(){return graph;}};
+  window.ATLAS={get nodes(){return nodes;},get links(){return links;},get saved(){return saved;},get domains(){return K.domains;},validateBackup,selectNode,enterSystem,get focusId(){return focusId;},childrenOf,get graph(){return graph;},async updateSaved(next){const cleaned=validateBackup(next);if(JSON.stringify(cleaned).length>3_800_000)throw new Error('宇宙记录已接近容量上限，请先导出并整理。');saved=cleaned;if(!persist())throw new Error('保存失败，请立即导出备份。');rebuild();setDomain('all');await window.lifeAtlasLocal?.flush();}};
+  window.mountAtlasLibrary?.(window.ATLAS);
 })();

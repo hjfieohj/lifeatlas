@@ -20,7 +20,7 @@ npm run build:local
 确认工作区干净、代码已提交后：
 
 ```powershell
-node scripts/package-release.mjs --version v0.1.0 --output-dir C:/absolute/path/release
+node scripts/package-release.mjs --version v0.2.0 --output-dir C:/absolute/path/release
 ```
 
 打包器使用全新暂存目录，重新整理免安装程序、独立知识宇宙、图标及指南，使用 `git archive HEAD` 生成源码包，并记录提交号与校验值。它拒绝发布目录内的数据库、备份、运行日志、密钥文件或符号链接。不要用含个人资料的安装目录打包。
@@ -32,3 +32,5 @@ node scripts/package-release.mjs --version v0.1.0 --output-dir C:/absolute/path/
 使用 GitHub Release 上传所有产物，包括 `SHA256SUMS.txt`；正文写清现有能力与限制。可先建立 draft 并上传检查，最后发布。发布后检查公开页面、附件状态以及匿名下载链接。
 
 不发布：个人资料目录、真实记录、浏览器导出、数据库、完整个人备份、OAuth 令牌、密钥及开发缓存。真实 Gmail 配置由使用者在本地自行提供。
+
+0.2 本地包还应包含 `runtime/integrations.mjs`、PDF.js 本地实现、`licenses/integrations/INDEX.json` 与对应依赖许可、`Install-Desktop-Shortcut.cmd/.ps1`、本地功能与连接指南。解析器构建须在不带 node_modules 的暂存包中验证。连接凭据文件 `connection-vault.key/.enc` 永远不进入公开包。

@@ -34,6 +34,15 @@ function createCosmicSky(host, signal) {
                 const band = Math.exp(-Math.pow((v - (.83 - u * .64 + Math.sin(u * 5) * .065)) / .16, 2)), cloud = Math.pow(Math.max(0, n - .29), 1.65) * band * 3.5;
                 const dust = Math.pow(Math.max(0, .58 - filament), 1.3) * band * .78, blue = Math.exp(-((u - .73) ** 2 + (v - .32) ** 2) / .14), violet = Math.exp(-((u - .3) ** 2 + (v - .64) ** 2) / .11);
                 const light = Math.max(0, cloud - dust), i = (y * nebula.width + x) * 4;
+                if (warm) {
+                    const clouds = Math.max(0, fbm(u * 4 + 8, v * 5) - .38) * Math.exp(-Math.pow((v - .42) / .40, 2)) * 3.5;
+                    const c = Math.min(.94, clouds);
+                    image.data[i] = 104 + v * 97 + c * (151 - v * 75);
+                    image.data[i + 1] = 174 + v * 56 + c * (81 - v * 32);
+                    image.data[i + 2] = 222 + v * 26 + c * (33 - v * 15);
+                    image.data[i + 3] = 255;
+                    continue;
+                }
                 image.data[i] = 3 + light * (warm ? 55 : 33) + violet * cloud * 28;
                 image.data[i + 1] = 7 + light * (warm ? 39 : 47) + blue * cloud * 12;
                 image.data[i + 2] = 17 + light * (warm ? 51 : 91) + violet * cloud * 19;
@@ -52,6 +61,11 @@ function createCosmicSky(host, signal) {
         ctx.fillStyle = '#030713';
         ctx.fillRect(0, 0, w, h);
         ctx.drawImage(nebula, -w * .08 + drift, -h * .08 + Math.cos(t * .012) * h * .018, w * 1.17, h * 1.17);
+        if (state.skin === 'observatory') {
+            ctx.globalAlpha = 1;
+            host.dataset.skyTime = t.toFixed(2);
+            return;
+        }
         const count = w < 640 ? 390 : stars.length;
         for (let i = 0; i < count; i++) {
             const s = stars[i], x = ((s.x * w + t * s.depth * 1.45) % (w + 12)) - 6, y = ((s.y * h + t * s.depth * .36) % (h + 12)) - 6;

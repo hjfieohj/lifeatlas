@@ -1,6 +1,6 @@
 ---
 name: "LifeAtlas"
-description: "LifeAtlas × 知识宇宙：continuous cosmic sky, familiar reading geometry, two selectable palettes"
+description: "LifeAtlas local workspace: deep-space dark and blue-sky light skins, familiar reading geometry"
 colors:
   island-paper: "#030713"
   island-nav: "#101b30"
@@ -22,30 +22,29 @@ colors:
   island-amber-bg: "#3c3124"
   island-red: "#f1b6b0"
   island-red-bg: "#3b252c"
-  observatory-paper: "#060713"
-  observatory-nav: "#1a1b30"
-  observatory-surface: "#171d2cf5"
-  observatory-ink: "#f0eaf2"
-  observatory-muted: "#c2b9ca"
-  observatory-line: "#464257"
-  observatory-wash: "#292b40"
-  observatory-green: "#f2cca5"
-  observatory-forest: "#efc39b"
-  observatory-forest-deep: "#ffe3c6"
-  observatory-accent-ink: "#2a1e21"
-  observatory-nav-active-bg: "#393349"
-  observatory-secondary-border: "#74677b"
-  observatory-focus: "#f6d7b8"
-  observatory-rail-active: "#473b51"
-  observatory-rail-ink: "#f0eaf2"
-  observatory-amber: "#ecd1a1"
-  observatory-amber-bg: "#3c3124"
-  observatory-red: "#f1b6b0"
-  observatory-red-bg: "#3b252c"
-  navigation-selected-ink: "#fff"
+  observatory-paper: "#e5f2fc"
+  observatory-nav: "#f3f9fe"
+  observatory-surface: "#ffffffed"
+  observatory-ink: "#18334d"
+  observatory-muted: "#49657b"
+  observatory-line: "#ccddea"
+  observatory-wash: "#eaf3fa"
+  observatory-green: "#205e8f"
+  observatory-forest: "#205e8f"
+  observatory-forest-deep: "#174b75"
+  observatory-accent-ink: "#fff"
+  observatory-nav-active-bg: "#dbeaf7"
+  observatory-secondary-border: "#8da9bd"
+  observatory-focus: "#1c639b"
+  observatory-rail-active: "#d7e9f8"
+  observatory-rail-ink: "#173c5b"
+  observatory-amber: "#795019"
+  observatory-amber-bg: "#f9edda"
+  observatory-red: "#a5363c"
+  observatory-red-bg: "#fbeded"
   field-ground: "#0b1526"
-  island-rail-ground: "#091224b8"
-  observatory-rail-ground: "#151023b8"
+  island-rail-ground: "#091224e8"
+  observatory-rail-ground: "#f3f9fef2"
   knowledge-accent: "#b9deeb"
   knowledge-ink: "#edf1f5"
   knowledge-panel: "#141c29f5"
@@ -53,6 +52,25 @@ colors:
   knowledge-label-hover-bg: "#081426c9"
   knowledge-portal-label-bg: "#07112170"
   knowledge-label-hover-outline: "#88a9ce60"
+  observatory-field-ground: "#fff"
+  observatory-selected-ink: "#18334d"
+  light-selection-bg: "#c0dff6"
+  light-selection-ink: "#12334b"
+  light-scroll-track: "#e5eff7"
+  light-scroll-thumb: "#91aebf"
+  knowledge-custom-default: "#85cfc6"
+  knowledge-library-ground: "#111e30"
+  knowledge-library-ink: "#e5edf7"
+  knowledge-library-border: "#526b87"
+  knowledge-library-muted: "#b9cadc"
+  knowledge-library-line: "#3c5067"
+  knowledge-library-field: "#091425"
+  knowledge-library-field-ink: "#e7eff8"
+  knowledge-library-field-border: "#70849a"
+  knowledge-library-placeholder: "#a6b7c9"
+  knowledge-library-light: "#f8fcff"
+  knowledge-light-control: "#e4eff8"
+  knowledge-light-summary: "#275e87"
 typography:
   headline:
     fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
@@ -114,7 +132,21 @@ typography:
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: ".06em"
+  work-subtitle:
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "17px"
+    lineHeight: 1.6
+  supporting-small:
+    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontSize: "11px"
+  library-heading-mobile:
+    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "21px"
 rounded:
+  local-field: "9px"
+  local-chip: "6px"
+  library-field: "8px"
+  library-dialog: "16px"
   control: "12px"
   navigation: "9px"
   filter: "10px"
@@ -122,6 +154,10 @@ rounded:
   sheet: "14px"
   knowledge-label: "5px"
 spacing:
+  local-editor: "24px"
+  local-record: "22px 24px"
+  local-mobile: "20px"
+  library-dialog: "28px"
   control: "10px 16px"
   sheet: "26px 28px"
   comparison: "20px"
@@ -158,7 +194,7 @@ components:
     typography: "{typography.editor}"
   navigation-active:
     backgroundColor: "{colors.island-rail-active}"
-    textColor: "{colors.navigation-selected-ink}"
+    textColor: "{colors.island-ink}"
     rounded: "{rounded.navigation}"
     padding: "12px"
   topic-active:
@@ -197,6 +233,51 @@ components:
     rounded: "{rounded.knowledge-label}"
   knowledge-node-label-hover:
     backgroundColor: "{colors.knowledge-label-hover-bg}"
+  button-subtle-observatory:
+    backgroundColor: "{colors.observatory-surface}"
+    textColor: "{colors.observatory-ink}"
+    rounded: "{rounded.control}"
+    padding: "{spacing.control}"
+  local-input-island:
+    backgroundColor: "{colors.field-ground}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.local-field}"
+    padding: "11px 12px"
+  local-input-observatory:
+    backgroundColor: "{colors.observatory-field-ground}"
+    textColor: "{colors.observatory-ink}"
+    rounded: "{rounded.local-field}"
+    padding: "11px 12px"
+  navigation-active-observatory:
+    backgroundColor: "{colors.observatory-rail-active}"
+    textColor: "{colors.observatory-selected-ink}"
+    rounded: "{rounded.navigation}"
+    padding: "12px"
+  local-record:
+    backgroundColor: "{colors.island-surface}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.control}"
+    padding: "{spacing.local-record}"
+  local-editor:
+    backgroundColor: "{colors.island-surface}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.sheet}"
+    padding: "{spacing.local-editor}"
+  local-chip:
+    backgroundColor: "{colors.island-wash}"
+    textColor: "{colors.island-green}"
+    rounded: "{rounded.local-chip}"
+    padding: "6px 10px"
+  knowledge-library-dialog:
+    backgroundColor: "{colors.knowledge-library-ground}"
+    textColor: "{colors.knowledge-library-ink}"
+    rounded: "{rounded.library-dialog}"
+    padding: "{spacing.library-dialog}"
+  knowledge-library-dialog-observatory:
+    backgroundColor: "{colors.knowledge-library-light}"
+    textColor: "{colors.observatory-ink}"
+    rounded: "{rounded.library-dialog}"
+    padding: "{spacing.library-dialog}"
 ---
 
 # Design System: LifeAtlas
@@ -205,103 +286,89 @@ components:
 
 **Creative North Star: "生活阅览室 × 知识宇宙"**
 
-LifeAtlas now joins its familiar reading layout to the user-requested 3D knowledge universe under one continuous cosmic sky. The outlined LifeAtlas wordmark, desktop rail, independent topic index and native controls remain the identity anchors. 光屿工作台 (Island, default) and 对页观察室 (Observatory) retain their names and shared geometry, with cool blue and warm violet/peach night palettes respectively.
+LifeAtlas retains its outlined wordmark, app rail, independent topic index, continuous reading geometry and native controls. The current local workspace extends that world with real record forms, an AI question–references–confirmation–result sequence, readonly mail and local knowledge management. The user's November 3 direction explicitly replaces the earlier pair of night palettes with 深空 · 暗色 (Island, default) and 晴空 · 亮色 (Observatory); stored identifiers remain compatible.
 
-The November 2 integration supersedes the earlier white-sheet palette and isolated landscape treatments. Reading remains calm and legible on near-opaque dark surfaces; the sky provides spatial continuity through the navigation and transparent knowledge scene. Knowledge is a core destination alongside the existing daily and personal modules. Appearance changes preserve live work; scenery and knowledge examples never become authored personal history.
+Dark surrounds calm, near-opaque reading surfaces with locally rendered stars. Light surrounds pale navigation and reading surfaces with locally rendered blue sky and clouds. The knowledge map remains a deep-space volume inside light surroundings so stellar knowledge stays visible. This is a code-led expansion of the pinned direction; no new comp or identity replacement is asserted. October white-sheet/lake concepts and the November 2 two-night-palette description are historical, not current authority.
 
 **Key Characteristics:**
 
-- One locally generated cosmic sky spans the shell and transparent knowledge scene.
-- A familiar LifeAtlas rail, flat topic index and continuous dark reading sheet.
-- Two named night palettes with native controls and explicit written states.
-- Chinese sans host UI, serif comparison excerpts, outlined wordmark and local Space Grotesk inside knowledge.
-- Real perspective 3D exploration with a readable detail panel and compact module toolbar.
+- One locally generated atmospheric background: stars in dark, blue sky/clouds in light.
+- The established LifeAtlas lettering, rail, growth index and continuous reading geometry.
+- Real local lists and editors, explicit written states and honest empty views.
+- Chinese sans host UI, serif growth comparisons and local Space Grotesk inside knowledge.
+- A deep-space 3D knowledge viewport with skin-aware surrounding controls and reading panels.
 
 ## Colors
 
-The installed local entry (`local/entry.ts`, November 3) imports the same existing style layers in the same order, with `src/cosmic-integration.css` last. It introduces no palette, type, spacing, radius or motion tokens; the frontmatter and existing sidecar remain normative for both entries.
-
-The normative palette is the final `src/cosmic-integration.css` cascade, imported last by `app/layout.tsx` after the inherited shell, growth, Uiverse and optional-module layers. Earlier light values in those files are historical fallbacks. Semantic names remain stable: `green` is the reading/selection accent; `forest` is the main action.
+The frontmatter records the shipped local program's final cascade: `local/entry.ts` imports inherited layers through `src/cosmic-integration.css`, then `local/workspace.css`. The latter overrides Observatory to light and supplies local fields/rail. `public/knowledge-universe/library.css`, loaded after the nebula layer, supplies light knowledge chrome, reader and management-dialog overrides. The retained hosted entry's earlier cascade is not the current installed program's palette authority.
 
 ### Primary
 
-Island uses pale blue actions and focus against midnight-blue surfaces. Observatory uses peach actions and focus against violet-charcoal surfaces. Main actions use the palette’s dark `accent-ink`; selected rail links retain white text. These are two color identities on the same layout, not additional skins.
+Island uses pale blue actions on midnight-blue surfaces; Observatory uses deep blue actions on pale surfaces. Main buttons use each skin's accent-ink, so dark actions have dark lettering and light actions have white lettering. Semantic CSS names `green` and `forest` retain compatibility; their names do not require a green hue. Local active navigation uses ink, including dark-blue ink on the light selected rail fill.
 
 ### Secondary
 
-The knowledge module retains its own pale cyan accent and categorical domain colors. Those identify knowledge domains and relationships rather than task completion or personal evaluation. Its local palette does not replace host semantic controls.
-
-The nebula refinement is scoped to `public/knowledge-universe/nebula.css`, loaded after the embedded styles. Its label-detail, portal-label and hover tokens apply only to projected map labels; shader gas and stellar tints derive from the existing domain colors and do not add a host palette.
+Knowledge keeps pale cyan and existing domain tints to identify content and relations. The mint custom-nebula default is an editable user-content color, not a third skin. Its map-local dark label/hover colors remain intentional in either skin.
 
 ### Neutral
 
-The shared ground is midnight dark. A translucent rail lets the same stars continue beneath navigation; reading sheets and detail panels use near-opaque night surfaces. Muted text, lines and wash remain distinct roles. Growth comparison periods now both use the active wash and keep written earlier/later labels. Fields have a darker fixed ground. Amber and red remain explicit pending/error treatments; Observatory inherits those status values from the root palette.
+Dark uses midnight ground and near-opaque blue reading panels; light uses blue-white ground, white fields and pale reading panels. Rail ground, muted text, lines and wash are distinct roles. Sky-exposed light introductory/help text, links, timestamps, footer and growth/AI sidebar text use ink where final scoped CSS needs stronger contrast; interior muted hierarchy remains. Knowledge light reader content and hover states also use explicit ink/deep-blue overrides rather than inherited pale dark-theme text. Amber and red are skin-specific written pending/error treatments. Selection and scrollbar colors are scoped light utilities, not new action roles.
 
 **The Textual State Rule.** Every consequential status has a written label; color is an additional cue.
 
 ## Typography
 
-**Display and body font:** Microsoft YaHei, PingFang SC, system sans. **Comparison font:** self-hosted AtlasSerif, Noto Serif SC, serif. **Knowledge font:** local Space Grotesk under the internal Atlas family name, with the same OS Chinese fallbacks. **Wordmark:** outlined Alegreya lettering, independent of page typography.
+**Display and body font:** Microsoft YaHei, PingFang SC, system sans. **Comparison font:** self-hosted AtlasSerif, Noto Serif SC, serif. **Knowledge font:** local Space Grotesk under the internal Atlas family name with Chinese OS fallbacks. **Wordmark:** outlined Alegreya lettering, independent of page typography.
 
-Host module titles use the headline role; growth titles reduce to the mobile role at ≤640px, while other host page titles use 26px/1.6. Topic titles reduce to 18px/1.8. Editor headings are 23px/1.6, or 22px on small screens. Events use the event role, with line-height 2 on small screens. Ordinary record fields use 14px/1.95, rising to 15px/2 on small screens. Authored line breaks remain; reading fields generally cap at 70ch. Comparison excerpts retain the serif role. Editor controls increase to 16px at ≤640px. Supporting text is 11–13px; dates and time use tabular numerals.
+Local module headings use the headline role; section headings are 20px/1.6, local record subtitles 17px/1.6 and empty-state subtitles 18px. Body inherits 14px/1.65, local prose reads at 1.9, record paragraphs at 1.85 and local textareas at 1.8. Reading text caps at 75ch; introductory copy at 70ch. Metadata is 12px; small navigation/library controls are 11px. The library heading is 24px, reducing to the documented 21px role at 620px. Dates use tabular numerals.
 
-The host knowledge-module heading is 22px, or 20px on phones. Inside the frame the embedded map heading uses the knowledge-heading role and the detail title is 25px/1.5 at weight 500. This scoped difference preserves the imported module’s character without changing the host font system.
-
-Projected node labels use the knowledge-node-label role; the six domain labels use knowledge-domain-label, switching to knowledge-domain-label-mobile at ≤620px. Each projected label carries only its node title. These local roles describe nebula navigation, not reading-body typography.
+Existing growth typography remains: topic titles, explicit event/reflection hierarchy, serif comparison excerpts, preserved line breaks and native editor fields. Its phone-specific type and reading treatment remain inherited. Projected knowledge labels keep one title centered on the stellar core, with existing 12px node and 15px/13px domain roles. These scoped steps describe actual functions rather than a new general type scale.
 
 ## Layout
 
-The desktop app rail remains fixed at 208px and the workspace retains that offset. Ordinary main content is capped at 1600px with 36px side padding. Only Settings retains its context/status topbar, with a 64px minimum height. Growth places a transparent 186px topic index beside a flexible continuous reading sheet, separated by 26px. The sheet uses its spacing token; dated records, versions and secondary tools stay in ruled sections and native disclosures.
+The desktop rail remains 208px; local main content is capped at 1440px with padding 34px 38px 60px. The inherited top-shell transition remains 1050px. Local records place a flexible list beside a 290–360px editor with a 38px gap. AI uses a flexible 26px-padded reading/form section and a 280px history column. Mail uses a 300px list, flexible text reader and 30px gap. Growth preserves its separate topic index and continuous reading sheet. Settings retains the existing two-column arrangement and ordinary sections.
 
-At ≥1500px, main/utility side padding is 46px, topic index width is 208px, the gap is 32px and sheet padding is 30px 36px. At 1051–1200px, the index is 170px with a 20px gap and 26px main side padding. At ≤1050px, the rail becomes a horizontal top shell, the workspace offset clears and main side padding is 24px. At ≤820px, growth, Today and Settings stack into one column and navigation uses the actual visible destination count. At ≤640px, main padding is 20px 16px 36px, sheet padding uses the mobile token, paired forms and comparison stack, and navigation uses three columns for six visible entries or four for seven/eight. Knowledge is core: six core destinations plus two optional ones give six to eight visible routes.
+At 1100px, local main padding becomes 26px 24px 45px, record/editor gap 24px and mail list/gap 250px/20px. At 760px, records, AI and mail stack; ordinary editor asides lead, while AI history follows the analysis. Main padding becomes 24px 18px 120px; editor/reader padding becomes 20px. Two paired local fields remain two columns. At 640px the local navigation uses five columns, 64px minimum items, 11px labels and 10px detail labels, accommodating actual visible destinations rather than the historical six/eight-route formula.
 
-Knowledge fills the available workspace rather than the ordinary content cap. Its host main uses 18px horizontal padding on desktop, 14px below the top-shell breakpoint and 8px on phones. A compact heading precedes a same-origin iframe with rounded border and transparent background. Desktop frame height is `calc(100dvh - 112px)` with 600px minimum; top-shell and phone layouts retain explicit 620px/650px minima for usable exploration. The embedded toolbar is 104px tall, 108px at ≤620px, with search, add, domain selector, routes, bookmarks and import/export. Duplicate module branding and sidebar are hidden. Universe overview collapses the reader so the nebula fills the map; selecting a node restores reading. The open detail reader sits beside the map on wider frames and becomes a bottom drawer at ≤620px, with a 50px reader launcher.
+Knowledge retains its dedicated full-width iframe and compact module toolbar, with inherited 600px desktop minimum and 620px/650px top-shell/phone minima. Selection opens a reader beside the map or a bottom drawer at the iframe's 620px breakpoint. Library management uses a native modal constrained to min(760px, viewport minus 28px), 88dvh maximum height and internal scrolling; padding changes from 28px to 20px at 620px. Long filenames, paths, references and record text wrap. The lower upload section may require scrolling; this is a scoped interaction limitation, not an instruction to invent a new global layout.
 
 ## Elevation & Depth
 
-The shared procedural sky provides atmospheric depth, while dark reading surfaces, fine rules and restrained shadows keep text stable. Sheets use the current dark ambient shadow; dialogs use a stronger overlay shadow and dark backdrop. No white-paper sheet remains normative. The 3D knowledge map uses a perspective camera (47°) and alpha-enabled WebGL with a null scene background, allowing the parent sky to continue behind organic XYZ gas volumes, dense stellar fields, dark dust and broad semantic dust-and-mist bridges. Domain volumes and descendants occupy three dimensions; luminous stellar beacons identify selectable nodes, with invisible sphere meshes used only as hit targets. Depth attenuation, overlapping gas and stellar parallax supply volume rather than visible planets or orbital guides.
+Atmospheric depth comes from the locally drawn sky and volumetric knowledge map; text uses stable reading surfaces. Local editors/start/settings-note surfaces have a low ambient shadow, different in dark and light. The inherited growth sheet shadow remains its own token; dialogs use a stronger overlay/backdrop. The map retains perspective (47°), transparent WebGL rendering, organic XYZ gas, stellar cores, dust and broad semantic bridges. In light mode its viewport has a deliberate deep-space ground while reader, toolbar and management surfaces become light.
 
-**The Continuous Sky Rule.** Use one body-level sky behind navigation and modules; the embedded knowledge renderer stays transparent rather than painting a second sky.
+**The Continuous Atmosphere Rule.** Use one body-level atmosphere for the shell; preserve the deliberate dark knowledge viewport in the light skin and skin-aware surrounding reading controls.
 
 **The Index and Sheet Rule.** The topic index locates; the near-opaque sheet carries reading. Use dividers and disclosures inside the sheet rather than another stack of equal-weight cards.
 
-The sky is produced locally by `src/cosmic-background.ts`: an offscreen four-octave fBm nebula, layered drifting stars, twinkle and sparse cross-shaped highlights. There is one fixed, pointer-transparent body canvas below the application. Active rendering caps at 24fps desktop and 20fps at widths below 640px, with an approximately 1.7-million-pixel bitmap cap. Editing, hidden documents and reduced-motion stop animation; disabling the existing dynamic preference retains a static star field. The embedded frame reports editing to the parent with source/origin validation. The independent 3D renderer caps near 30fps. No external media, paid API or cloud rendering is required.
+`src/cosmic-background.ts` generates the sky locally using offscreen noise: dark adds drifting stars/twinkle; light renders blue-white cloud color without stars. Rendering caps at 24fps desktop, 20fps below 640px and approximately 1.7 million bitmap pixels. Editing, hidden documents and reduced motion pause animation; switching dynamics off retains a static background. The knowledge renderer has its own approximately 30fps cap and shared motion gates. No image API, external footage or cloud renderer is needed.
 
 ## Shapes
 
-Continuous sheets and dialogs retain the sheet radius; native buttons, fields and appearance selects retain the control radius. Rail selection uses the navigation radius; topic selection uses the control radius. Filters use 10px and comparisons 12px. At the top-shell breakpoint, app navigation retains its rounded tab silhouette. Knowledge uses irregular translucent gas, stellar beacons and broad irregular dust-and-mist bridges inside its map, compact rounded toolbar segments and a 14px iframe boundary, reduced to 10px on phones. Projected map labels use the local knowledge-label radius, transparent unbordered resting surfaces and a faint portal or hover wash. Their dark text shadow preserves legibility over luminous gas; the hover outline remains local to the map. These map shapes do not replace host control geometry.
+Existing shared buttons retain 12px corners, active navigation 9px, growth filters 10px and reading sheets 14px. Local fields/status notices use 9px, local status chips 6px, records 12px and editor/AI/mail reading surfaces 14px. The scoped knowledge library modal uses 16px corners, with 8px fields/previews; projected labels retain 5px. These are intentional local roles rather than global replacement values. Custom nebulae continue existing irregular gas/stellar geometry rather than introducing card-shaped objects in the map.
 
 ## Components
 
-### Wordmark
+### Wordmark and application icon
 
-The original LifeAtlas outlined wordmark remains: true Alegreya italic 550 for “Life”, roman 500 for “Atlas”, matched cap heights, shared baseline and a 60-font-unit optical seam. `src/wordmark.ts` inherits rail ink through currentColor. Width remains 156px on desktop, 146px on the top shell and 138px at ≤640px. The existing Chinese subtitle is 12px and hides at the small-shell breakpoint. The home link retains “LifeAtlas · 生活全图，回到今日”. The source, standalone vector and SIL OFL provenance remain in `public/brand/`; no runtime font request is added.
-
-### Application icon
-
-Atlas Orbit is the desktop, executable and favicon identity asset. Its original SVG combines a soft white Atlas arch with one rising mint orbit on a gently shaded midnight tile. The arch supplies the A/gateway silhouette; the orbit supplies the exploration cue. One source supplies the PNG, multi-resolution ICO and favicon. It carries no text or starfield and retains transparent outer corners. Its asset-local colors and rounded tile geometry are specified in `public/brand/lifeatlas-app-icon.svg`; they do not redefine the host palette, component radius scale or navigation wordmark. The surface contract is `.impeccable/surfaces/app-icon.md`; exports, references and the versioned Windows icon resource are documented in `docs/APP-ICON.md`.
+The LifeAtlas outlined Alegreya wordmark remains true italic 550 “Life” and roman 500 “Atlas”, matched cap heights, baseline and optical seam. It inherits currentColor; widths remain 156px desktop, 146px top shell and 138px small shell. The home link retains its accessible Chinese name and small-shell subtitle behavior. The original Atlas Orbit app icon remains a packaging asset with its own colors and shape, documented in `docs/APP-ICON.md`; it does not redefine UI tokens. Source and OFL attribution remain in `public/brand/`.
 
 ### Buttons and fields
 
-Main actions bind to `forest`, hover to `forest-deep` and use dark `accent-ink`. Subtle actions use the surface with a secondary border and hover to wash. The existing Uiverse-derived CTA layer expands from the right over 240ms; its arrow shifts 3px over 180ms. Other button, field, topic and segmented-state feedback uses 180ms. Shared actions and growth analysis entries retain 44px minimum height; growth fields retain native semantics and 46px minimum height. Fields now use the fixed dark field ground, palette ink and secondary border. Visible keyboard focus remains palette-bound, with inherited 3px growth offsets. Disabled controls remain disabled. Reduced motion suppresses transitions and animations. Pinned Uiverse source and MIT attribution remain documented in `docs/UIVERSE-DESIGN.md`.
+Native main actions bind to forest/forest-deep and accent-ink. Subtle actions use surface, ink and secondary border; written disabled/loading states remain visible. Existing Uiverse-derived expanding CTA feedback is 240ms with a 180ms arrow shift; common feedback and switches use 180ms. Shared action targets retain 44px minimum height. Local field fill uses work-field, with a 9px corner and 11px 12px padding; inherited growth controls keep their own 12px geometry. Local keyboard focus is a 2px palette focus outline with 3px offset. Reduced motion suppresses transitions. Pinned source/MIT attribution remain in `docs/UIVERSE-DESIGN.md`.
 
 ### Navigation and reading
 
-Core destinations are Today, Personal Growth / Environmental Awareness, Knowledge Universe, Mail, History and Settings. Investment and 人生丰富度 are independently optional. Active rail entries use the palette’s rail-active fill and white text; hidden optional entries leave no focusable gaps. The separate growth index and continuous reading sheet retain one reading anchor. Both analysis entries precede tabs; event and reflection lead comparison while secondary fields stay expandable. Explicit pending/error text remains mandatory.
+The local workspace exposes Today, Growth, Knowledge, optional Investment and Life, AI Analysis, Mail, Task Records and Settings. Task Records reuses the history route identifier. Optional destination switches remain independent. The wordmark and existing rail/top-shell behavior remain; current local mobile navigation uses the scoped five-column treatment. Records use list + editor composition, AI uses question → editable references → destination confirmation → saved result, and mail uses list + text reading. Empty views explain the next useful action; saved history is not fabricated to fill space.
 
-### Knowledge universe
+### Knowledge and library management
 
-The same-origin `public/knowledge-universe/index.html?embedded=1` module retains six separate domains: stocks, psychology, philosophy, astronomy, mathematics and physics. Its 113 nodes, 218 total links, eight routes and maximum five-level hierarchy are content facts, not reusable layout tokens. Native toolbar controls expose domains, routes, bookmarks and backup import/export. Shader-rendered gas, dark dust, stellar beacons, projected labels and cross-domain dust-and-mist bridges share the transparent map; selecting a node restores the reader for long text, notes and relationship explanations. Existing local Space Grotesk and Chinese OS fonts remain scoped to this module. Module detail and behavior are recorded in `docs/KNOWLEDGE-UNIVERSE.md`.
+The six built-in domains remain distinct; content counts are not layout tokens. Users can create/rename/delete custom nebulae and upload into an independent/new or existing nebula. File outline/excerpts become real custom hierarchy, not inferred semantic links. The library modal is a native dialog with labelled inputs, close action, explicit extraction/preview and confirmation controls, written status and internal scrolling. Dark/light modal fields/reading text follow their scoped palette; knowledge actions retain the module's established accent. Original-file management belongs in Settings. Static file mode has narrower capabilities than the full local program; product limits are in `docs/LOCAL-WORKSPACE.md`.
 
-TrackballControls support palm-like rotation with unrestricted roll, inertial settling, pan and zoom. Rotation speed is 2.1, zoom speed 1.1, pan speed 0.6 and damping 0.13. Manual interaction interrupts camera flight; automatic orbit waits 2800ms after release and runs only when the local toggle, global motion preference, editing state and reduced-motion setting permit it. Hidden documents stop the render loop. Gas breathing and stellar twinkle share the same motion gate; manual exploration remains available. The compact field uses fewer gas, star and bridge points below 640px; field counts are implementation details, not density tokens. Selecting a visible node makes its stellar core the camera target, while the fitted radius encloses its contents. Toolbar and wheel zoom share scene-relative distance limits.
-
-The fitted and farther map views hide projected names; approaching a stellar cloud reveals a single title centered exactly on its projected core for every node type. Visibility combines distance relative to the fitted view, projected core size and positive camera depth. Selection has the highest visibility priority; lower-priority labels yield locally on overlap or reserved/offscreen bounds. Labels never relocate and have no leader lines. Hover text is also suppressed at a distance and during dragging. The native domain selector still exposes all six domains. Semantic bridges use broad, irregular XYZ mist and sparse round dust with faded ends, without a narrow centerline or cross-shaped stellar spikes; particles near the camera fade to avoid screen-filling artifacts.
+Existing trackball rotation/roll, pan, zoom, inertial settling, camera fit and map labels remain. Approaching reveals a title at the projected core; selected labels receive priority, local overlap culling does not relocate labels, and the domain selector stays usable. Long knowledge content is read in the reader rather than on gas. Nebula/bridge rendering remains governed by its source and sidecar motion metadata.
 
 ### Appearance and live work
 
-The local program adds “本地资料与备份” as an ordinary native Settings section. It uses the existing section surface, heading/body hierarchy, wrapping action row, primary backup button, subtle restore/draft buttons and hidden native file picker. Written disk status is also shown in the profile; saving failures use the existing error notice with `role="alert"`. Long data paths may wrap. Restore uses the browser's native confirmation rather than a new dialog style. This is a scoped component composition, not a new visual world; see `.impeccable/surfaces/local-entry-ts.md`.
-
-The native selector has exactly two choices: 光屿工作台 and 对页观察室. Appearance, dynamic sky and optional-module controls exist only in Settings → 外观与动态. Existing native checkbox semantics and saved preference migration remain. Switch knob movement uses 180ms; inherited Settings track-color feedback remains 150ms. The sky responds to the existing dynamic preference without deleting the static scene. Skin changes retain the view and live DOM. Original data stores, APIs and authentication boundaries are outside this visual integration and remain unchanged.
+The selector has exactly two current choices: 深空 · 暗色 and 晴空 · 亮色. The `island` and `observatory` identifiers preserve saved preference compatibility, not historical visual appearance. Settings → 外观与动态 is the only appearance/dynamics location. Local backup, AI/mail configuration and original-file management use ordinary Settings sections and labelled native controls, with explicit connection, persistence and failure messages.
 
 **The Live Task Rule.** Changing appearance preserves live input, focus, scroll and the current view by updating the document skin attribute.
 
@@ -309,18 +376,17 @@ The native selector has exactly two choices: 光屿工作台 and 对页观察室
 
 ### Do
 
-- Do use the active palette’s semantic CSS variables across all core and optional destinations.
-- Do preserve the LifeAtlas wordmark, native control semantics, explicit saving, visible keyboard focus and reduced-motion behavior.
-- Do keep topic lookup separate from continuous reading and secondary tools in native disclosures.
-- Do keep the knowledge scene transparent over the shared sky and reading panels sufficiently opaque for long text.
-- Do keep appearance and animation preferences exclusively in Settings → 外观与动态.
-- Do distinguish fictional demonstrations and static knowledge content from real authored records.
+- Do use the active skin's semantic variables and the final local workspace cascade.
+- Do preserve LifeAtlas lettering, established reading geometry, native control semantics and explicit written states.
+- Do use ink for small text exposed directly to the light sky and explicit dark reader text on light knowledge surfaces.
+- Do keep the knowledge viewport deep-space in light mode while its toolbar, reader and library follow the selected skin.
+- Do keep appearance controls in Settings and honor editing, hidden-document and reduced-motion pauses.
+- Do distinguish authored local records, isolated test fixtures, bounded rules and user-requested model output.
 
 ### Don't
 
-- Don't restore the superseded white-paper palettes, lake banner or horizontal Observatory desktop shell as current design authority.
-- Don't add retired skins or duplicate brand/navigation chrome inside the embedded knowledge module.
-- Don't remount the live route to change appearance.
-- Don't put long reading text directly on the animated star field.
-- Don't make editing, hidden-page or reduced-motion states keep animating the shared sky.
-- Don't turn examples, scenery, counts or unimplemented analysis into personal data or capability claims.
+- Don't restore historical lake concepts, a horizontal Observatory desktop shell or the superseded two-dark-palette commitment as current authority.
+- Don't duplicate brand/navigation inside the knowledge frame or remount live work to change appearance.
+- Don't put long reading text directly on an animated background.
+- Don't claim real account success, semantic/vector retrieval, automatic tools, live markets or trading from these surfaces.
+- Don't treat a simulated analysis or protocol test as proof of a real provider or the owner's credentials.

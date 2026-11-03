@@ -16,7 +16,7 @@ type RevisionPage={items:GrowthRevision[];next:number|null};
 class ApiError extends Error{constructor(message:string,public status:number){super(message);}}
 export function mountGrowth(panel:HTMLElement){
   const lifetime=new AbortController();
-  const storagePlace=['127.0.0.1','localhost','[::1]'].includes(location.hostname)?'本机测试数据库':'当前生活空间的云端';
+  const storagePlace=window.lifeAtlasLocal?'这台电脑': ['127.0.0.1','localhost','[::1]'].includes(location.hostname)?'本机测试数据库':'当前生活空间的云端';
   let topics:GrowthTopic[]=[],topic:GrowthTopic|null=null,moments:GrowthMoment[]=[],bounds:GrowthMoment[]=[],cursor:string|null=null;
   let loading=true,busy=false,dirty=false,showArchived=false,view:'timeline'|'compare'|'archive'=document.documentElement.dataset.skin==='observatory'?'compare':'timeline';
   let editor:'topic'|'moment'|'environment'|'advisor'|null=null,editingTopic:GrowthTopic|null=null,editingMoment:GrowthMoment|null=null;

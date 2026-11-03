@@ -8,6 +8,8 @@ import '../src/uiverse-system.css';
 import '../src/investment.css';
 import '../src/optional-modules.css';
 import '../src/cosmic-integration.css';
+import './workspace.css';
+import {workspacePage,mountWorkspace,initializeWorkspace} from './workspace';
 import {mountLifeAtlas} from '../src/main';
 import {initializeStorage,download} from './storage';
 const esc=(s:string)=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
@@ -26,4 +28,4 @@ function mountLocalSettings(){
  }
  updateStatus();
 }
-try{await initializeStorage();mountLifeAtlas({onRender:mountLocalSettings});window.addEventListener('lifeatlas-local-status',updateStatus);window.addEventListener('message',e=>{if(e.origin===location.origin&&e.source===document.querySelector<HTMLIFrameElement>('#knowledge-universe-frame')?.contentWindow&&e.data?.type==='lifeatlas:local-status')updateStatus();});}catch(error){document.querySelector('#app')!.innerHTML='<main style="padding:40px"><h1>本地资料暂不可用</h1><p>'+esc((error as Error).message)+'</p><p>请先启动桌面程序，再刷新此窗口。现有资料没有被清除。</p><button onclick="location.reload()">重试</button></main>';}
+try{await initializeStorage();initializeWorkspace();mountLifeAtlas({local:true,renderPage:workspacePage,onRender:()=>{mountWorkspace();mountLocalSettings();}});window.addEventListener('lifeatlas-local-status',updateStatus);window.addEventListener('message',e=>{if(e.origin===location.origin&&e.source===document.querySelector<HTMLIFrameElement>('#knowledge-universe-frame')?.contentWindow&&e.data?.type==='lifeatlas:local-status')updateStatus();});}catch(error){document.querySelector('#app')!.innerHTML='<main style="padding:40px"><h1>本地资料暂不可用</h1><p>'+esc((error as Error).message)+'</p><p>请先启动桌面程序，再刷新此窗口。现有资料没有被清除。</p><button onclick="location.reload()">重试</button></main>';}

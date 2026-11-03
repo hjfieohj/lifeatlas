@@ -1,6 +1,6 @@
 {
   "name": "lifeatlas-prototype",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,15 +15,16 @@
     "prebuild": "npm run build:sky"
   },
   "dependencies": {
+    "drizzle-orm": "0.45.2",
+    "imapflow": "^2.10.0",
+    "mailparser": "^3.14.1",
+    "mammoth": "^1.13.0",
     "next": "16.3.4",
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "drizzle-orm": "0.45.2"
+    "unpdf": "^2.1.0"
   },
   "devDependencies": {
-    "typescript": "5.9.3",
-    "vite": "8.0.13",
-    "vinext": "1.0.0-beta.5",
     "@cloudflare/vite-plugin": "1.37.1",
     "@cloudflare/workers-types": "4.20260515.1",
     "@types/node": "22.19.19",
@@ -31,11 +32,14 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
     "@vitejs/plugin-rsc": "0.5.26",
-    "wrangler": "4.92.0",
     "drizzle-kit": "0.31.10",
     "json-rpc-2.0": "1.7.1",
     "raw-body": "3.0.2",
-    "react-server-dom-webpack": "19.2.6"
+    "react-server-dom-webpack": "19.2.6",
+    "typescript": "5.9.3",
+    "vinext": "1.0.0-beta.5",
+    "vite": "8.0.13",
+    "wrangler": "4.92.0"
   },
   "overrides": {
     "miniflare": {
