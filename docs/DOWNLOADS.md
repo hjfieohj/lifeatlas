@@ -8,7 +8,7 @@
 
 - `LifeAtlas-Windows-x64.zip`：完整 Windows 本地程序，包含 Node 24.13.0、原生桌面入口、全部现有模块、知识星云、图标、字体和许可文件。不需要先安装 npm 或打开 Codex。
 - `LifeAtlas-Source.zip`：该版本的完整项目源码。也可以直接从仓库克隆或使用 GitHub 的 Code → Download ZIP。
-- `Knowledge-Universe-Offline.zip`：仅独立知识宇宙，包含六大领域、多层框架及跨领域联系。使用浏览器保存笔记，不包含完整程序的成长数据库服务。
+- `Knowledge-Universe-Offline.zip`：仅独立知识宇宙，包含政治与资本等七个领域、多层框架及跨领域联系。使用浏览器保存笔记，不包含完整程序的成长数据库服务。
 - `LifeAtlas-Icons.zip`：原创图标的 SVG、PNG、ICO、来源记录和设计说明。
 - `SHA256SUMS.txt`：以上下载文件的 SHA-256 校验值。
 

@@ -5,11 +5,13 @@ const data = JSON.parse(fs.readFileSync(file('knowledge.json'),'utf8'));
 if (!Array.isArray(data.nodes)||!Array.isArray(data.links)||!Array.isArray(data.domains)||!Array.isArray(data.routes)) throw new Error('Missing data arrays');
 const ids = new Set(data.nodes.map(n=>n.id));
 const domains = new Set(data.domains.map(d=>d.id));
+if(domains.size!==data.domains.length)throw new Error('Duplicate domain id');
 if(ids.size!==data.nodes.length)throw new Error('Duplicate node id');
 const byId=new Map(data.nodes.map(n=>[n.id,n]));
 for(const n of data.nodes){
   if(!/^[a-z0-9-]+$/.test(n.id)||(!domains.has(n.domain)&&n.id!=='universe')||!n.title||!n.summary)throw new Error('Invalid node: '+n.id);
   if(n.id!=='universe'&&!ids.has(n.parent))throw new Error('Missing parent: '+n.id);
+  if(n.sources!==undefined){if(!Array.isArray(n.sources)||n.sources.some(s=>!s.title||typeof s.url!=='string'||!/^https:\/\//.test(s.url)))throw new Error('Invalid node source: '+n.id);}
   let current=n,seen=new Set(),depth=0;
   while(current.parent){if(seen.has(current.id))throw new Error('Hierarchy cycle: '+n.id);seen.add(current.id);current=byId.get(current.parent);if(!current)throw new Error('Missing ancestor');depth++;}
   n.depth=depth;

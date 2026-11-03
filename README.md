@@ -10,11 +10,15 @@
 | --- | --- |
 | **[Windows x64 完整免安装版](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Windows-x64.zip)** | 推荐。包含原生 EXE、运行时、整个应用与本地资源；解压后运行 `LifeAtlas.exe` |
 | [完整源码包](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Source.zip) | 界面、服务端、数据库迁移、测试、构建脚本、图标源文件及文档 |
-| [独立知识宇宙离线版](https://github.com/hjfieohj/lifeatlas/releases/latest/download/Knowledge-Universe-Offline.zip) | 单独的六大领域知识星云；解压后打开 `index.html`，不是全程序 |
+| [独立知识宇宙离线版](https://github.com/hjfieohj/lifeatlas/releases/latest/download/Knowledge-Universe-Offline.zip) | 单独的七大领域知识星云；解压后打开 `index.html`，不是全程序 |
 | [图标资源包](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Icons.zip) | 原始 SVG、1024px PNG、多尺寸 ICO 与设计说明 |
 | [使用说明](https://github.com/hjfieohj/lifeatlas/releases/latest/download/LifeAtlas-Readme.zh-CN.md) · [SHA-256 校验值](https://github.com/hjfieohj/lifeatlas/releases/latest/download/SHA256SUMS.txt) | 启动、保存、备份、升级与文件校验 |
 
 所有公开包均不携带个人成长记录、浏览器笔记、数据库、备份或密钥。源码依赖由 `package-lock.json` 锁定；运行包已包含所需本地运行资源。详情见 [下载与使用](docs/DOWNLOADS.md)、[发布与复现](docs/RELEASING.md)。
+
+## 0.2.1 · 政治与资本星云
+
+新增一个主要星云：政治与资本。42个节点分别介绍政治家、资本家、目标与手段、两者关系、对大众生活的收益与代价，以及心理机制、世界观和价值观；另含人物研究模板、3条学习路线及与心理学、哲学、数学和股市的联系。新节点各附对应来源，正文可离线阅读。详见 [政治与资本星云](docs/POLITICS-CAPITAL.md)。
 
 ## 本地程序：日常打开与备份
 
@@ -30,11 +34,11 @@
 
 恢复会替换全部资料，选文件后需明确确认；程序校验备份，并在替换前备份当前资料。旧成长数据库的实际迁移以 `migration-report.json` 和迁移检查为准；旧 `file://` 知识页需先在旧页面导出 JSON，再到本机知识宇宙导入，不能自动跨来源扫描所有浏览器资料。
 
-当前本地版已提供真实投资研究日志、生活记录、待办、知识库上传和 AI 分析入口。六个内置星系之外可创建独立星云，导入 TXT/Markdown/JSON/CSV/PDF/DOCX 或并入已有星云；原文件保存在本机。AI 支持用户自己的兼容 API 或本机模型，发送前预览引用。Gmail、163、QQ 可用客户端授权码 / 应用密码进行 TLS IMAP 只读同步和正文缓存，真实账号需由用户自行配置验证。今日与邮箱本地页面已使用真实记录/缓存，不再显示虚构邮件。成长原有规则报告继续保留，AI 分析单独标明模型来源。
+当前本地版已提供真实投资研究日志、生活记录、待办、知识库上传和 AI 分析入口。七个内置星系之外可创建独立星云，导入 TXT/Markdown/JSON/CSV/PDF/DOCX 或并入已有星云；原文件保存在本机。AI 支持用户自己的兼容 API 或本机模型，发送前预览引用。Gmail、163、QQ 可用客户端授权码 / 应用密码进行 TLS IMAP 只读同步和正文缓存，真实账号需由用户自行配置验证。今日与邮箱本地页面已使用真实记录/缓存，不再显示虚构邮件。成长原有规则报告继续保留，AI 分析单独标明模型来源。
 
 皮肤为 **深空 · 暗色** 与 **晴空 · 亮色**（蓝天白云），在偏好设置中切换。核心记录和知识库解析无需外网；远程 API 与邮箱同步需要联网，本机模型需预先准备。不会自动调用付费服务或安装大型模型。详细步骤、容量限制与账号条件见 **[本地功能与连接指南](docs/LOCAL-WORKSPACE.md)**。
 
-本地构建为 `npm run build:local`；安装为 `node scripts/install-local.mjs 'C:/absolute/path/LifeAtlas本地程序'`。免安装包内的 `Install-Desktop-Shortcut.cmd` 可创建桌面和开始菜单图标。`npm run dev` 是保留的旧框架开发入口。本轮85项测试、类型检查与本地构建通过；完整流程用隔离资料和本机模拟模型/邮箱协议测试，不冒称已验证用户真实账号。旧知识页仍需按来源边界导入。早期本地化过程见 [本地程序说明](docs/LOCAL-APP.md)。
+本地构建为 `npm run build:local`；安装为 `node scripts/install-local.mjs 'C:/absolute/path/LifeAtlas本地程序'`。免安装包内的 `Install-Desktop-Shortcut.cmd` 可创建桌面和开始菜单图标。`npm run dev` 是保留的旧框架开发入口。当前86项测试、类型检查与本地构建通过；完整流程用隔离资料和本机模拟模型/邮箱协议测试，不冒称已验证用户真实账号。旧知识页仍需按来源边界导入。早期本地化过程见 [本地程序说明](docs/LOCAL-APP.md)。
 
 ## 以下为旧版开发与设计历史
 

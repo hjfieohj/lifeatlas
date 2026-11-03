@@ -20,7 +20,7 @@ npm run build:local
 确认工作区干净、代码已提交后：
 
 ```powershell
-node scripts/package-release.mjs --version v0.2.0 --output-dir C:/absolute/path/release
+node scripts/package-release.mjs --version v0.2.1 --output-dir C:/absolute/path/release
 ```
 
 打包器使用全新暂存目录，重新整理免安装程序、独立知识宇宙、图标及指南，使用 `git archive HEAD` 生成源码包，并记录提交号与校验值。它拒绝发布目录内的数据库、备份、运行日志、密钥文件或符号链接。不要用含个人资料的安装目录打包。

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "domains": [
     {
       "id": "market",
@@ -49,6 +49,14 @@
       "color": "#96b4ff",
       "description": "从力、热、光到时空和量子，用可检验的规律理解自然。",
       "wiki": "Physics"
+    },
+    {
+      "id": "politics-capital",
+      "name": "政治与资本",
+      "en": "POWER & CAPITAL",
+      "color": "#d6b481",
+      "description": "从政治家、资本家及其关系，理解权力、资源与日常生活。",
+      "wiki": "Political_economy"
     }
   ],
   "nodes": [
@@ -1520,6 +1528,928 @@
       "wiki": "Mars",
       "root": false,
       "depth": 4
+    },
+    {
+      "id": "politics-capital",
+      "title": "政治与资本",
+      "domain": "politics-capital",
+      "parent": "universe",
+      "summary": "理解公共权力、资本配置与大众生活之间的相互影响。",
+      "detail": "观察入口：政治家掌握或竞争公共决策权，资本所有者配置资产与组织生产。两者是本星云重点研究的影响力量。\n研究顺序：分别理解角色、目标和手段，再看合作、制约及利益冲突，最后追踪收益与代价怎样落到不同人身上。\n边界：两类群体内部并不一致，也不能涵盖全部社会力量。劳动者、公民组织、媒体、司法和专业共同体同样影响结果。\n阅读原则：把可核实事实、分析模型、价值判断与未知动机分开；研究社会角色不等于认定所有成员具有同一种人格。",
+      "example": "以一项产业补贴为例：谁有决策权，谁提供投资，谁承担成本，谁能监督结果？本星云的例子均为假想教学情景。",
+      "wiki": "",
+      "kind": "领域",
+      "root": true,
+      "sources": [
+        {
+          "title": "OpenStax · 政治的定义与规则",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-1-defining-politics-who-gets-what-when-where-how-and-why"
+        },
+        {
+          "title": "OpenStax · 企业、市场与经济制度",
+          "url": "https://openstax.org/books/introduction-business-2e/pages/1-3-how-business-and-economics-work"
+        },
+        {
+          "title": "Ostrom（2009）· 超越市场与国家：诺贝尔演讲",
+          "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/"
+        }
+      ],
+      "depth": 1
+    },
+    {
+      "id": "pc-politicians",
+      "title": "政治家与公共权力",
+      "domain": "politics-capital",
+      "parent": "politics-capital",
+      "summary": "从权力来源、公共使命和组织约束理解政治行动。",
+      "detail": "本分支使用工作定义：重点研究能够持续影响重大公共决策的政治领导人与政治行动者。\n先读身份、目标和手段，再比较收益、风险、世界观与价值排序。对具体人物的分析，需要另加职位、任期、国家制度和有日期的行动证据。",
+      "example": "同样是推动一项公共工程，行政领导、立法者和政党组织能够使用的权限不同。",
+      "wiki": "",
+      "kind": "框架",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 政治的定义与规则",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-1-defining-politics-who-gets-what-when-where-how-and-why"
+        },
+        {
+          "title": "OpenStax · 公共政策、公共利益与权力",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-2-public-policy-public-interest-and-power"
+        }
+      ],
+      "depth": 2
+    },
+    {
+      "id": "pc-political-role",
+      "title": "他们是谁：职位、授权与责任",
+      "domain": "politics-capital",
+      "parent": "pc-politicians",
+      "summary": "头衔、实际权限和受到的约束需要分别核实。",
+      "detail": "角色：政治家争取、行使或影响公共决策权；其来源可能包括选举、任命、政党组织和其他制度安排。\n识别：列明能决定什么、必须与谁协商、由谁监督、承担什么责任。不要把全部公务员或所有公共机构的行为归给一个领导人。\n影响取决于正式权限，也取决于组织、信息和执行条件。",
+      "example": "某人宣布要改变住房政策，不代表他能够单独决定土地、信贷和地方执行。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 政治的定义与规则",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-1-defining-politics-who-gets-what-when-where-how-and-why"
+        },
+        {
+          "title": "OpenStax · 公共政策、公共利益与权力",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-2-public-policy-public-interest-and-power"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-political-goals",
+      "title": "主要目的：公共目标与政治生存",
+      "domain": "politics-capital",
+      "parent": "pc-politicians",
+      "summary": "公共使命、理念实现和职位延续可能同时存在。",
+      "detail": "分析视角：可把公开政策目标、组织目标和个人职业目标分别记录。它们可能包括提供公共服务、推动理念、争取支持、维持联盟或留下政治业绩。\n张力：短期可见的成绩与长期效果、支持者诉求与整体利益可能不一致。\n这些是待检验的目标假设；一次决策结果或一段宣传不能直接证明某人的全部真实目的。",
+      "example": "一个方案可能同时改善交通与提升执政支持。应分别评价实际交通效果和政治回报。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 公共政策、公共利益与权力",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-2-public-policy-public-interest-and-power"
+        },
+        {
+          "title": "世界银行 · 2017世界发展报告：治理与法律",
+          "url": "https://www.worldbank.org/en/publication/wdr2017"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-political-means",
+      "title": "达成方式：规则、预算、组织与沟通",
+      "domain": "politics-capital",
+      "parent": "pc-politicians",
+      "summary": "把政治影响拆成可观察的决策工具。",
+      "detail": "工具：参与制定规则、安排预算、选择政策议题、任用与组织执行、建立联盟、开展公共沟通。具体可用手段取决于职位与制度。\n可能收益：协调分散行动、建设公共设施、回应公共风险。\n可能代价：信息选择性公开、目标替代或把资源优先分给特定支持者。判断须追踪决策过程与执行证据。",
+      "example": "核对一项教育承诺：预算是否通过、钱是否到校、谁负责执行、结果如何公开？",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 公共政策、公共利益与权力",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-2-public-policy-public-interest-and-power"
+        },
+        {
+          "title": "世界银行 · 2017世界发展报告：治理与法律",
+          "url": "https://www.worldbank.org/en/publication/wdr2017"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-political-benefits-risks",
+      "title": "对大众的好处与坏处：治理质量",
+      "domain": "politics-capital",
+      "parent": "pc-politicians",
+      "summary": "评价权力的公共效果，同时看分配和问责。",
+      "detail": "可能好处：组织公共服务、提供安全与基础规则、协调危机应对，使个人难以独立完成的事情成为可能。\n可能坏处：权力缺少制约时，可能出现排除异议、偏向少数利益、错误长期难以纠正。\n条件：不能只看政策名称；要看受益者、承担者、执行能力、申诉渠道和纠错速度。",
+      "example": "同一项搬迁工程可能改善基础设施，也可能让部分居民承担难以弥补的成本。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 公共政策、公共利益与权力",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-2-public-policy-public-interest-and-power"
+        },
+        {
+          "title": "诺贝尔奖委员会（2024）· 制度与繁荣：研究介绍",
+          "url": "https://www.nobelprize.org/uploads/2024/10/popular-economicsciencesprize2024.pdf"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-political-worldview",
+      "title": "政治家的世界观：多种治理想象",
+      "domain": "politics-capital",
+      "parent": "pc-politicians",
+      "summary": "不同政治理念对秩序、个人、国家和社会有不同理解。",
+      "detail": "分析轴：如何理解人的合作与冲突？把国家看作权利保障者、发展组织者、传统秩序维护者，还是利益协商的平台？\n自由主义、保守主义、社会民主主义及其他传统内部均有分歧，人物还可能混合多种主张。\n这些是比较思想的维度，不是根据职位就能确定的内心信念。",
+      "example": "比较同一个住房问题：有的主张增加市场供给，有的强调公共住房，有的优先维护既有社区。",
+      "wiki": "",
+      "kind": "思想视角",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 政治意识形态导论",
+          "url": "https://openstax.org/books/introduction-political-science/pages/3-introduction"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-political-values",
+      "title": "政治家的价值观：发生冲突时如何排序",
+      "domain": "politics-capital",
+      "parent": "pc-politicians",
+      "summary": "价值观需要通过持续选择与代价承担来研究。",
+      "detail": "常见价值议题包括自由、秩序、平等、效率、国家自主、公共责任与程序正当。\n关键问题：当这些价值冲突时，谁优先，谁可以被牺牲，限制是否同样适用于掌权者？\n区分规范性主张与实际表现；“重视公平”等口号不能代替可核实的分配与程序记录。",
+      "example": "评价紧急政策时，同时询问它解决了什么问题、限制是否必要、何时结束以及如何申诉。",
+      "wiki": "",
+      "kind": "价值讨论",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 政治意识形态导论",
+          "url": "https://openstax.org/books/introduction-political-science/pages/3-introduction"
+        },
+        {
+          "title": "SEP · 共和主义与不受任意支配的自由",
+          "url": "https://plato.stanford.edu/entries/republicanism/"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-political-profile",
+      "title": "人物研究卡：政治家",
+      "domain": "politics-capital",
+      "parent": "pc-politicians",
+      "summary": "为以后添加具体人物保留一套可核实的结构。",
+      "detail": "填写模板：\n1. 姓名、职位、任期与权力边界。\n2. 本人公开提出的目标，保留原话出处与日期。\n3. 可核实的决策、预算、投票或组织行动。\n4. 支持联盟、受到的约束与利益冲突。\n5. 不同群体受到的好处、成本及争议。\n6. 世界观与价值排序的证据，以及仍然未知的部分。\n不要把传闻、公开口号或研究者推断写成已证实的内心动机。",
+      "example": "可以在此框架下自建人物节点；同一个人的不同阶段分别记录，避免把后来结局倒推成最初目的。",
+      "wiki": "",
+      "kind": "研究模板",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 政治的定义与规则",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-1-defining-politics-who-gets-what-when-where-how-and-why"
+        },
+        {
+          "title": "OpenStax · 公共政策、公共利益与权力",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-2-public-policy-public-interest-and-power"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capitalists",
+      "title": "资本家与资本配置",
+      "domain": "politics-capital",
+      "parent": "politics-capital",
+      "summary": "从所有权、控制权和投资约束理解资本行动。",
+      "detail": "工作范围：这里重点讨论具有显著资产配置或企业控制能力的资本所有者。\n比较企业创办者、家族控制者、金融投资者、职业经理人与国家资本的不同角色，分别研究目标、方式和生活影响。拥有财富、管理企业与控制资本并非完全相同的身份。",
+      "example": "一家公司的创办人、基金受托管理者和受薪经理人，对同一投资可能有不同权限与责任。",
+      "wiki": "",
+      "kind": "框架",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 企业、市场与经济制度",
+          "url": "https://openstax.org/books/introduction-business-2e/pages/1-3-how-business-and-economics-work"
+        },
+        {
+          "title": "OECD · 公司董事会的职责（2023）",
+          "url": "https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en/full-report/component-8.html"
+        }
+      ],
+      "depth": 2
+    },
+    {
+      "id": "pc-capital-role",
+      "title": "他们是谁：所有权、控制权与经营权",
+      "domain": "politics-capital",
+      "parent": "pc-capitalists",
+      "summary": "先画清资产和决策链，再讨论谁在影响什么。",
+      "detail": "识别对象：谁拥有收益权，谁能投票或任命董事，谁实际决定投资、雇佣和经营？\n企业家可能同时是所有者与经营者；职业经理人未必是主要资本所有者。机构投资者还可能代表众多储蓄者。\n研究公众影响时，重点观察控制能力与责任链，而不是只按财富榜或职位名称归类。",
+      "example": "持有少量基金份额，与能决定一家企业投资方向，具有不同的控制程度。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OECD · 公司董事会的职责（2023）",
+          "url": "https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en/full-report/component-8.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capital-goals",
+      "title": "主要目的：收益、存续、控制与使命",
+      "domain": "politics-capital",
+      "parent": "pc-capitalists",
+      "summary": "资本行动常围绕回报与风险，也受到多重目标影响。",
+      "detail": "可检验的目标包括资本保值、获得收益、维持现金流、扩大市场、保持控制或实现产品使命。\n短期投资者、长期家族企业和受托机构的期限与约束可能不同。\n利润是重要经营信号，但不能凭群体标签认定所有行动都只为同一目的；应核对现金安排、治理文件和持续决策。",
+      "example": "选择较低的短期利润，可能服务于研发、长期竞争、控制权或其他目的，需找相应证据。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 企业、市场与经济制度",
+          "url": "https://openstax.org/books/introduction-business-2e/pages/1-3-how-business-and-economics-work"
+        },
+        {
+          "title": "OpenStax · 商业伦理与盈利",
+          "url": "https://openstax.org/books/business-ethics/pages/1-2-ethics-and-profitability"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capital-means",
+      "title": "达成方式：投资、组织、技术与议价",
+      "domain": "politics-capital",
+      "parent": "pc-capitalists",
+      "summary": "资本通过生产和交换影响资源与机会。",
+      "detail": "常见方式：融资和配置资产，组织生产与雇佣，开发技术和产品，经营渠道、品牌与合同关系。\n可能收益：形成新的产品、岗位与生产能力。\n可能代价：如果收益依赖排斥竞争、转嫁成本或信息优势，消费者、劳动者或社区可能承担损失。具体行为须独立检验。",
+      "example": "分析一家平台时，同时看它改善了什么服务，以及谁能决定收费、数据使用和工作条件。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 企业、市场与经济制度",
+          "url": "https://openstax.org/books/introduction-business-2e/pages/1-3-how-business-and-economics-work"
+        },
+        {
+          "title": "OpenStax · 利益相关者视角",
+          "url": "https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capital-benefits-risks",
+      "title": "对大众的好处与坏处：创造价值与分配",
+      "domain": "politics-capital",
+      "parent": "pc-capitalists",
+      "summary": "把企业创造的价值与其获取价值的方式分开观察。",
+      "detail": "可能好处：投资与组织活动可以扩大供给、改善技术和服务，并带来工作机会。\n可能坏处：市场力量、成本转嫁或不对称议价，可能使好处集中、风险外移。\n评价条件：看价格、质量、工资与安全、进入机会、公共成本；盈利、社会贡献与公平分配是不同的问题。",
+      "example": "一项新服务即使广受欢迎，也仍需分别核查劳动条件、消费者选择和社会成本。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OECD · 竞争、消费者与创新",
+          "url": "https://www.oecd.org/en/topics/competition.html"
+        },
+        {
+          "title": "OpenStax · 利益相关者视角",
+          "url": "https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capital-worldview",
+      "title": "资本家的世界观：市场逻辑与社会嵌入",
+      "domain": "politics-capital",
+      "parent": "pc-capitalists",
+      "summary": "关于市场、竞争与国家角色，资本所有者也会有不同看法。",
+      "detail": "可比较的观念包括：市场竞争是否能有效协调资源，创新由什么推动，国家应承担哪些职责，财富与社会贡献有什么关系。\n市场自由、产业协调、长期受托经营与社会责任等观点可能并存或冲突。\n资本主义本身也有多种定义和制度形态，不能用一种理论代替所有人的自我理解。",
+      "example": "有的所有者支持严格公平竞争，因为这有利于进入市场；既有大企业的诉求可能不同。",
+      "wiki": "",
+      "kind": "思想视角",
+      "root": false,
+      "sources": [
+        {
+          "title": "SEP · 资本主义的定义与规范性争论",
+          "url": "https://plato.stanford.edu/entries/capitalism/"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capital-values",
+      "title": "资本家的价值观：回报、责任与利益相关者",
+      "domain": "politics-capital",
+      "parent": "pc-capitalists",
+      "summary": "研究价值观，要看经营决策怎样对待不同利益。",
+      "detail": "价值议题：所有者回报、诚信、劳动尊严、创新、环境责任、代际传承与社会信任。\n可观察的问题：利润与安全冲突时如何决定？外部成本由谁承担？对股东、员工、顾客和社区的承诺是否有对应行动？\n社会责任声明和慈善支出可以作为线索，不能单独证明日常经营已经公平。",
+      "example": "一家企业捐款助学的同时，其工资、安全和税务安排仍应分别评价，不能相互抵消后停止核查。",
+      "wiki": "",
+      "kind": "价值讨论",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 商业伦理与盈利",
+          "url": "https://openstax.org/books/business-ethics/pages/1-2-ethics-and-profitability"
+        },
+        {
+          "title": "OpenStax · 利益相关者视角",
+          "url": "https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capital-profile",
+      "title": "人物研究卡：资本家",
+      "domain": "politics-capital",
+      "parent": "pc-capitalists",
+      "summary": "让人物介绍连接到资产、决策与可验证影响。",
+      "detail": "填写模板：\n1. 人物与企业、持股、投票权和任职关系。\n2. 公开经营目标、期限和风险约束。\n3. 主要投资、产品、雇佣及治理决策。\n4. 政策依赖、公共关系与利益冲突。\n5. 对员工、顾客、供应商和社区的影响证据。\n6. 世界观和价值观的公开表述、实际选择与未知部分。\n财富变化本身不足以说明道德品质、真实动机或社会贡献。",
+      "example": "人物退任经营职位但仍保留控制权时，要更新经营权与控制权两条记录。",
+      "wiki": "",
+      "kind": "研究模板",
+      "root": false,
+      "sources": [
+        {
+          "title": "OECD · 公司董事会的职责（2023）",
+          "url": "https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en/full-report/component-8.html"
+        },
+        {
+          "title": "OpenStax · 利益相关者视角",
+          "url": "https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-relations",
+      "title": "政治与资本之间的关系",
+      "domain": "politics-capital",
+      "parent": "politics-capital",
+      "summary": "关系可以是合作、谈判、竞争，也可能出现俘获与利益冲突。",
+      "detail": "先寻找机制：谁提供什么资源，交换什么承诺，谁能拒绝，谁监督结果？\n合作并不自动意味着公共利益受损，冲突也不自动意味着某一方代表全体公众。判断依赖具体安排与可核实影响。",
+      "example": "同一企业可能支持基础设施合作，却反对某项税收或竞争政策；两者应分开研究。",
+      "wiki": "",
+      "kind": "框架",
+      "root": false,
+      "sources": [
+        {
+          "title": "世界银行 · 2017世界发展报告：治理与法律",
+          "url": "https://www.worldbank.org/en/publication/wdr2017"
+        },
+        {
+          "title": "OECD · 游说、透明度与政策影响（2024）",
+          "url": "https://www.oecd.org/en/publications/anti-corruption-and-integrity-outlook-2024_968587cd-en/full-report/component-7.html"
+        }
+      ],
+      "depth": 2
+    },
+    {
+      "id": "pc-cooperation",
+      "title": "合作：公共目标与私人组织能力",
+      "domain": "politics-capital",
+      "parent": "pc-relations",
+      "summary": "制度与投资可以形成互补，也需要明确风险分担。",
+      "detail": "可能机制：公共机构提出服务目标和规则，企业提供资金、技术或组织能力。\n可能好处：把公共需求与实施能力连接起来。\n可能风险：需求估计失真、成本不透明或把失败损失转给公众。\n检查问题：目标、绩效、风险与退出条件是否公开，其他参与者是否能提出异议？",
+      "example": "假想交通项目既要看能否建成，也要看长期收费、维护义务和亏损责任。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "世界银行 · 2017世界发展报告：治理与法律",
+          "url": "https://www.worldbank.org/en/publication/wdr2017"
+        },
+        {
+          "title": "Ostrom（2009）· 超越市场与国家：诺贝尔演讲",
+          "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-bargaining",
+      "title": "谈判与相互依赖：投资、税收和规则",
+      "domain": "politics-capital",
+      "parent": "pc-relations",
+      "summary": "双方拥有不同资源，也受到彼此和第三方约束。",
+      "detail": "分析视角：公共决策依赖执行与经济活动，企业经营依赖产权、基础设施和政策环境。\n谈判中的替代选择、信息、组织能力与时间压力会影响结果。\n观察重点：让步与收益是否对等，成本有没有转给未参加谈判的人；还要考虑劳动者、消费者与地方社区的表达渠道。",
+      "example": "企业提出投资条件时，可比较其他地区和其他企业的可行替代方案，而非只接受单方预测。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 企业、市场与经济制度",
+          "url": "https://openstax.org/books/introduction-business-2e/pages/1-3-how-business-and-economics-work"
+        },
+        {
+          "title": "ILO · 社会对话与三方协商",
+          "url": "https://www.ilo.org/topics-and-sectors/social-dialogue-and-tripartism"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-lobbying",
+      "title": "游说与利益表达：信息和影响渠道",
+      "domain": "politics-capital",
+      "parent": "pc-relations",
+      "summary": "专业意见能够改善决策，信息与接近机会也可能不平等。",
+      "detail": "机制：通过咨询、听证、行业组织、研究资助或其他沟通影响公共决策。\n可能好处：提供政策制定者缺少的行业知识。\n可能风险：资源充足的一方获得不成比例的发言机会，资助和利益关系不透明。\n具体渠道是否合法、须公开什么，必须按相应地区与时间核实；沟通本身不是违法证据。",
+      "example": "阅读一份政策研究时，除结论外也看资助者、研究方法、公开回应与不同利益方意见。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OECD · 游说、透明度与政策影响（2024）",
+          "url": "https://www.oecd.org/en/publications/anti-corruption-and-integrity-outlook-2024_968587cd-en/full-report/component-7.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-capture",
+      "title": "政策俘获与寻租：规则偏向谁",
+      "domain": "politics-capital",
+      "parent": "pc-relations",
+      "summary": "公共决策可能被少数利益持续塑形，需要机制证据。",
+      "detail": "工作概念：政策俘获关注决策过程是否持续偏向特定利益；寻租关注通过规则或特权获得收益的行为。\n风险表现：进入壁垒、特殊待遇、选择性执行或缺乏公开竞争。\n不能仅凭“某企业获利”就认定俘获；应核对程序、替代方案、关联安排与长期受益模式。",
+      "example": "若某项准入要求只保留既有企业，却无法说明相应公共目的，就值得进一步核查。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "世界银行 · 2017世界发展报告：治理与法律",
+          "url": "https://www.worldbank.org/en/publication/wdr2017"
+        },
+        {
+          "title": "OECD · 竞争、消费者与创新",
+          "url": "https://www.oecd.org/en/topics/competition.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-revolving-door",
+      "title": "旋转门与利益冲突：身份转换",
+      "domain": "politics-capital",
+      "parent": "pc-relations",
+      "summary": "公私部门人员流动带来专业交流，也可能损害决策独立性。",
+      "detail": "现象：人员在公共职位与相关行业职位之间转换。\n可能好处：交流专业经验。\n可能风险：在任时受未来雇佣影响、利用非公开信息或把公共关系转成私人优势。\n流动本身不能证明违法或腐败；需核实任职时间、职责、披露、回避安排和适用规则。",
+      "example": "将一个人的政策决定时间，与其求职、受聘和回避记录按日期排列，再判断是否存在利益冲突。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OECD · 公职离任与利益冲突",
+          "url": "https://www.oecd.org/en/publications/post-public-employment_9789264056701-en.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-public-checks",
+      "title": "制衡与参与：公众也在关系之中",
+      "domain": "politics-capital",
+      "parent": "pc-relations",
+      "summary": "监督、独立评价和协商能够改变资源与规则的使用方式。",
+      "detail": "可观察机制：信息公开、利益披露、公共审议、独立监督、竞争机制与劳动者参与。\n可能收益：让不同群体表达影响、发现问题并推动纠正。\n限制：制度有名字不等于有效；要核查参与是否真实、信息能否理解、异议是否获得回应以及纠正是否执行。",
+      "example": "一项咨询是否有效，可以看参与群体、公开意见、方案变化和最终理由，而不只看是否开过会。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "ILO · 社会对话与三方协商",
+          "url": "https://www.ilo.org/topics-and-sectors/social-dialogue-and-tripartism"
+        },
+        {
+          "title": "SEP · 共和主义与不受任意支配的自由",
+          "url": "https://plato.stanford.edu/entries/republicanism/"
+        },
+        {
+          "title": "Ostrom（2009）· 超越市场与国家：诺贝尔演讲",
+          "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-daily-life",
+      "title": "怎样影响大众的生活",
+      "domain": "politics-capital",
+      "parent": "politics-capital",
+      "summary": "沿工资、税费、住房、价格、信息与公共成本追踪影响。",
+      "detail": "每个影响都分四步：决策或投资 → 实施机制 → 不同人的处境变化 → 反馈与纠错。\n“公众”不是单一对象。劳动者、消费者、业主、租客和未来世代，可能面对不同甚至相反的结果。\n本分支给出观察框架，不把假想例子当作已经发生的事实。",
+      "example": "一项政策同时降低了某些人的支出、提高了另一些人的负担，应分别说明条件和时间跨度。",
+      "wiki": "",
+      "kind": "框架",
+      "root": false,
+      "sources": [
+        {
+          "title": "IMF · 财政政策与不平等（2017）",
+          "url": "https://www.imf.org/en/Blogs/Articles/2017/10/11/inequality-fiscal-policy-can-make-the-difference"
+        },
+        {
+          "title": "OpenStax · 利益相关者视角",
+          "url": "https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation"
+        }
+      ],
+      "depth": 2
+    },
+    {
+      "id": "pc-work",
+      "title": "工作：就业、工资、工时与议价",
+      "domain": "politics-capital",
+      "parent": "pc-daily-life",
+      "summary": "工作条件同时受到经营决策、劳动规则与协商能力影响。",
+      "detail": "可能好处：投资与组织协作可以创造岗位、技能和更稳定的工作安排。\n可能代价：调整成本、工作强度或不安全条件可能集中由部分劳动者承担。\n观察指标：实际工资与工时、就业稳定性、安全、协商和申诉渠道。不同岗位和供应链环节要分别看。",
+      "example": "假想自动化项目要同时看生产效率、岗位转移、再培训，以及谁承担转型期间的收入损失。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "ILO · 企业与集体协商问答",
+          "url": "https://www.ilo.org/ilo-helpdesk-questions-and-answers-business-and-collective-bargaining"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-public-services",
+      "title": "税费与公共服务：谁付款，谁受益",
+      "domain": "politics-capital",
+      "parent": "pc-daily-life",
+      "summary": "财政工具与支出安排连接教育、医疗及社会保障。",
+      "detail": "可能好处：税收与公共支出可以分担风险、扩大教育医疗机会。\n可能代价：负担和服务可能分配不均，执行不佳也会减少实际效果。\n观察方法：同时考察税费、补助、公共服务质量与获得条件；名义上的税率或预算增幅不能代表每个家庭的实际得失。",
+      "example": "分析教育政策时，不只看拨款额，还要看学生是否能入学、家庭承担多少费用，以及地区差异。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "IMF · 财政政策与不平等（2017）",
+          "url": "https://www.imf.org/en/Blogs/Articles/2017/10/11/inequality-fiscal-policy-can-make-the-difference"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-housing",
+      "title": "住房：供给、土地、融资与可负担性",
+      "domain": "politics-capital",
+      "parent": "pc-daily-life",
+      "summary": "住房结果来自多个环节，不能只归因于一种群体。",
+      "detail": "影响机制：土地使用与规划、基础设施、融资、建设和持有安排共同影响供给与居住成本。\n可能好处：协调投资与供给可以改善住房条件。\n可能代价：政策或投资安排也可能让部分住户负担加重、发生搬迁或承担金融风险。\n需区分租客、首次购房者、既有业主与地方财政的处境。",
+      "example": "某地房价上涨时，分别检查供给、人口、融资与政策变化；不要直接把上涨等同于一个主体的单一操控。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OECD · 住房政策与可负担性",
+          "url": "https://www.oecd.org/en/topics/housing.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-prices",
+      "title": "消费与价格：竞争、质量和选择",
+      "domain": "politics-capital",
+      "parent": "pc-daily-life",
+      "summary": "企业行为与市场规则共同影响消费者能得到什么。",
+      "detail": "可能好处：有效竞争和改进可以带来更多选择、更好质量与较低成本。\n可能代价：竞争受限、信息不透明或转换困难可能削弱消费者议价能力。\n观察问题：新进入者能否竞争，费用是否透明，用户能否退出，价格变化是否对应真实质量变化？",
+      "example": "平台补贴初期价格低，还要继续观察补贴结束后的收费、选择和转换成本。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OECD · 竞争、消费者与创新",
+          "url": "https://www.oecd.org/en/topics/competition.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-information",
+      "title": "信息环境：平台、传播与公共讨论",
+      "domain": "politics-capital",
+      "parent": "pc-daily-life",
+      "summary": "政治传播和商业分发机制会影响哪些信息更容易被看到。",
+      "detail": "影响路径：议题选择、传播投入、平台排序和内容治理共同塑造接触信息的机会。\n可能好处：扩大表达、连接知识与公共讨论。\n可能代价：不透明的影响、虚假内容或表达权受损。\n分析时同时考察透明度、表达自由、申诉机制与信息质量，不把所有观点差异都归为操控。",
+      "example": "遇到一条热门说法，可核对原始出处、资助与传播渠道，再寻找相反证据和完整上下文。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "UNESCO · 数字平台治理指南（2023）",
+          "url": "https://unesdoc.unesco.org/ark:/48223/pf0000387339"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-external-costs",
+      "title": "公共成本：污染、健康与长期责任",
+      "domain": "politics-capital",
+      "parent": "pc-daily-life",
+      "summary": "一项活动的价格未必包含其对旁人的全部成本。",
+      "detail": "机制：生产或消费的部分影响可能落在未参加交易的人身上，例如邻近社区承担污染。\n可能好处：明确责任与改进激励可以降低损害。\n可能代价：不当设计会转嫁成本，或使某些群体承担过大的调整负担。\n要同时观察实际损害、责任分担、改进效果和过渡安排。",
+      "example": "比较假想工厂方案时，除了产出和就业，还要看周边健康、治理成本以及谁能提出申诉。",
+      "wiki": "",
+      "kind": "概念",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 污染的经济学",
+          "url": "https://openstax.org/books/principles-microeconomics-3e/pages/12-1-the-economics-of-pollution"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-psychology",
+      "title": "心理机制：权力、财富与角色压力",
+      "domain": "politics-capital",
+      "parent": "politics-capital",
+      "summary": "研究位置怎样改变注意与行为，同时保留个体差异。",
+      "detail": "范围：关注拥有更多资源与控制能力时，目标、信息反馈和责任条件可能怎样影响判断。\n权力、财富与社会声望需要分开研究；政治家和资本家之间有重叠，也各有不同的岗位和组织压力。\n没有足够证据把整个群体归为一种独特人格。以下研究和视角用于提出问题，不用于遥测具体人物的内心。",
+      "example": "同样的负责人更换职位、约束或反馈渠道后，其行为可能改变；人格标签本身解释不了这种变化。",
+      "wiki": "",
+      "kind": "框架",
+      "root": false,
+      "sources": [
+        {
+          "title": "Keltner 等（2003）· 权力、趋近与抑制：理论综述",
+          "url": "https://greatergood.berkeley.edu/dacherkeltner/docs/keltner.power.psychreview.2003.pdf"
+        },
+        {
+          "title": "DeCelles 等（2012）· 权力、道德认同与自利：研究论文",
+          "url": "https://sites.nd.edu/lapseylab/files/2015/03/DeCelles-et-al-2012-Does-power-corrupt-or-enable.pdf"
+        }
+      ],
+      "depth": 2
+    },
+    {
+      "id": "pc-power-attention",
+      "title": "权力与注意：趋近、奖赏和行动",
+      "domain": "politics-capital",
+      "parent": "pc-psychology",
+      "summary": "一种经典理论讨论控制资源的体验如何影响行为倾向。",
+      "detail": "研究依据：Keltner等2003年的理论综述提出，较高权力可能与更强的趋近、奖赏注意及行动倾向有关，较低权力可能伴随更多威胁注意与行为抑制。\n证据边界：这是带有条件和调节因素的理论框架，不是关于所有政治家或资本家的确定规律，也不等于稳定人格测量。",
+      "example": "观察一个决策者是否更快行动只是线索，还要考虑紧急程度、组织授权与实际风险。",
+      "wiki": "",
+      "kind": "心理研究",
+      "root": false,
+      "sources": [
+        {
+          "title": "Keltner 等（2003）· 权力、趋近与抑制：理论综述",
+          "url": "https://greatergood.berkeley.edu/dacherkeltner/docs/keltner.power.psychreview.2003.pdf"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-perspective",
+      "title": "权力与视角采择：信息盲区",
+      "domain": "politics-capital",
+      "parent": "pc-psychology",
+      "summary": "部分实验发现权力体验可能降低自发考虑他人视角的倾向。",
+      "detail": "研究依据：Galinsky等2006年的实验研究观察到，高权力条件下参与者在若干任务中更容易以自身视角为锚点。\n不能推出：有权或有钱的人一概缺乏共情，或某位人物一定具有这种特征。\n可检验问题：实际决策中，受到影响的人能否提供不同信息？反馈是否进入决策并改变方案？",
+      "example": "替一个没有搬迁补偿经验的决策团队设置住户访谈，可用来检查信息盲区；是否有效仍需观察。",
+      "wiki": "",
+      "kind": "心理研究",
+      "root": false,
+      "sources": [
+        {
+          "title": "Galinsky 等（2006）· 权力与视角采择：实验研究",
+          "url": "https://business.columbia.edu/faculty/research/power-and-perspectives-not-taken"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-moral-identity",
+      "title": "权力与道德认同：结果并非单向",
+      "domain": "politics-capital",
+      "parent": "pc-psychology",
+      "summary": "研究提醒我们关注个人认同与情境的交互。",
+      "detail": "研究依据：DeCelles等2012年在调查与实验中发现，权力体验与自利行为的关系会随道德认同而不同；高权力并非只对应一种行为方向。\n证据边界：样本、任务和测量都有范围限制，不能直接移用于全部社会精英。\n这支持把个人价值、具体激励和可问责条件一起研究，而非用“权力必然腐化”代替分析。",
+      "example": "比较两位负责人时，要核对其选择与约束，不能仅凭职位高低预测谁更自利。",
+      "wiki": "",
+      "kind": "心理研究",
+      "root": false,
+      "sources": [
+        {
+          "title": "DeCelles 等（2012）· 权力、道德认同与自利：研究论文",
+          "url": "https://sites.nd.edu/lapseylab/files/2015/03/DeCelles-et-al-2012-Does-power-corrupt-or-enable.pdf"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-role-feedback",
+      "title": "角色压力与反馈：目标如何被强化",
+      "domain": "politics-capital",
+      "parent": "pc-psychology",
+      "summary": "把心理问题连接到组织激励与日常信息环境。",
+      "detail": "分析视角：政治行动者可能更常面对支持、联盟和公开责任；资本配置者可能更常面对现金流、竞争、受托要求和控制安排。\n这些情境可能影响注意什么、听到什么、如何解释失败；它们不是已证实的群体人格结论。\n可核查线索：考核、决策会议、异议渠道、失败后的调整及资源使用记录。",
+      "example": "若一个团队只奖励短期可见成绩，可以研究这是否挤压长期维护；需要具体组织的证据。",
+      "wiki": "",
+      "kind": "分析视角",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 公共政策、公共利益与权力",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-2-public-policy-public-interest-and-power"
+        },
+        {
+          "title": "OECD · 公司董事会的职责（2023）",
+          "url": "https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en/full-report/component-8.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-individual-differences",
+      "title": "个体差异：身份标签不能替代解释",
+      "domain": "politics-capital",
+      "parent": "pc-psychology",
+      "summary": "财富、职位、声望、经历与人格不是同一个变量。",
+      "detail": "研究顺序：先确认角色、资源、情境和行为，再讨论可能机制；必要时寻找符合研究伦理的直接测量。\n比较时注意进入岗位的选择效应、任职后的变化和不同制度环境。\n不能从一段视频、面相、财富或职业名称诊断人格，也不能把群体平均趋势当作任何个体的必然属性。",
+      "example": "同一个人在家庭、董事会和公共事务中可能处于不同权力关系，不能套用一个固定标签。",
+      "wiki": "",
+      "kind": "证据边界",
+      "root": false,
+      "sources": [
+        {
+          "title": "Keltner 等（2003）· 权力、趋近与抑制：理论综述",
+          "url": "https://greatergood.berkeley.edu/dacherkeltner/docs/keltner.power.psychreview.2003.pdf"
+        },
+        {
+          "title": "DeCelles 等（2012）· 权力、道德认同与自利：研究论文",
+          "url": "https://sites.nd.edu/lapseylab/files/2015/03/DeCelles-et-al-2012-Does-power-corrupt-or-enable.pdf"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-research",
+      "title": "怎样研究人物、关系与社会影响",
+      "domain": "politics-capital",
+      "parent": "politics-capital",
+      "summary": "让观点能够追溯、被反驳，并随着新证据更新。",
+      "detail": "本分支提供比较视角和研究模板，不替你预先决定谁是好人、坏人或事件的唯一原因。\n先限定对象、地区与时间，再整理资源、规则、行动和影响。保留反例与未知，把解释与评价分别写清。",
+      "example": "为一项政策建立“宣布—决策—实施—结果—纠正”的时间线，比只收集支持既有观点的材料更有帮助。",
+      "wiki": "",
+      "kind": "框架",
+      "root": false,
+      "sources": [
+        {
+          "title": "诺贝尔奖委员会（2024）· 制度与繁荣：研究介绍",
+          "url": "https://www.nobelprize.org/uploads/2024/10/popular-economicsciencesprize2024.pdf"
+        },
+        {
+          "title": "Ostrom（2009）· 超越市场与国家：诺贝尔演讲",
+          "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/"
+        }
+      ],
+      "depth": 2
+    },
+    {
+      "id": "pc-theory-lenses",
+      "title": "多种解释框架：制度、市场与权力",
+      "domain": "politics-capital",
+      "parent": "pc-research",
+      "summary": "不同视角能够提出不同问题，结论需要证据比较。",
+      "detail": "制度视角追问规则怎样分配权利与约束；市场视角追问竞争和交换怎样协调资源；权力与分配视角追问谁能设定议题、谁被排除；多中心治理关注政府、市场与社群的组合。\n这些视角可以互补，也可能冲突。使用时写明假设、适用条件与可能的反例，不把模型直接当成现实全貌。",
+      "example": "同一项公共服务，可以比较政府直接提供、竞争供给和社区参与等安排的具体结果。",
+      "wiki": "",
+      "kind": "研究方法",
+      "root": false,
+      "sources": [
+        {
+          "title": "诺贝尔奖委员会（2024）· 制度与繁荣：研究介绍",
+          "url": "https://www.nobelprize.org/uploads/2024/10/popular-economicsciencesprize2024.pdf"
+        },
+        {
+          "title": "SEP · 资本主义的定义与规范性争论",
+          "url": "https://plato.stanford.edu/entries/capitalism/"
+        },
+        {
+          "title": "Ostrom（2009）· 超越市场与国家：诺贝尔演讲",
+          "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-motive-evidence",
+      "title": "研究动机：表述、行动与推断分层",
+      "domain": "politics-capital",
+      "parent": "pc-research",
+      "summary": "真实意图通常不能仅凭结果直接读出。",
+      "detail": "记录三层：\n事实：可核实的原话、决定、资源流向和时间。\n解释：哪些目标假设能说明这些事实，还有哪些替代解释？\n评价：使用什么价值标准评判行为与结果？\n公开目标是其公开表述的证据，不自动证明完整内心动机；受益或关系接近也不自动证明秘密协同行动。",
+      "example": "某企业获得政策收益后，继续核查适用范围、决策理由和其他受益者，而非直接断言存在幕后交易。",
+      "wiki": "",
+      "kind": "研究方法",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 政治的定义与规则",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-1-defining-politics-who-gets-what-when-where-how-and-why"
+        },
+        {
+          "title": "OECD · 游说、透明度与政策影响（2024）",
+          "url": "https://www.oecd.org/en/publications/anti-corruption-and-integrity-outlook-2024_968587cd-en/full-report/component-7.html"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-winners-losers",
+      "title": "收益与代价：分组、期限和反事实",
+      "domain": "politics-capital",
+      "parent": "pc-research",
+      "summary": "判断“对大众好不好”，需要说明对谁、多久以及相比什么。",
+      "detail": "比较表：谁受益、谁承担成本、是否自愿、能否退出、是否有补偿？\n区分短期与长期，以及不同地区、收入、劳动和资产位置。\n提出反事实：若没有该措施，或采取可行替代方案，会怎样？结果变化也可能受其他因素影响。\n不要让总体增长或一个典型个案代替完整分配分析。",
+      "example": "一项产业转型即使总体有收益，也要观察受冲击岗位与地区是否获得实际支持。",
+      "wiki": "",
+      "kind": "研究方法",
+      "root": false,
+      "sources": [
+        {
+          "title": "IMF · 财政政策与不平等（2017）",
+          "url": "https://www.imf.org/en/Blogs/Articles/2017/10/11/inequality-fiscal-policy-can-make-the-difference"
+        },
+        {
+          "title": "ILO · 企业与集体协商问答",
+          "url": "https://www.ilo.org/ilo-helpdesk-questions-and-answers-business-and-collective-bargaining"
+        }
+      ],
+      "depth": 3
+    },
+    {
+      "id": "pc-checklist",
+      "title": "个人观察清单：把大问题落到生活",
+      "domain": "politics-capital",
+      "parent": "pc-research",
+      "summary": "从自己的处境出发，建立有来源、可更新的观察。",
+      "detail": "每次研究可填写：\n1. 具体是谁，能决定什么？\n2. 公开目标是什么，事实来源和日期是什么？\n3. 使用哪些资源和方式，受哪些约束？\n4. 谁受益，谁付出，短期和长期有什么不同？\n5. 有哪些替代解释与相反证据？\n6. 我在工作、住房、消费或信息方面受到什么实际影响？\n7. 下一步怎样核实或修正？\n未能证实的心理动机和关系保持为问题，不写成事实。",
+      "example": "把“他们影响生活”改写为一项能观察的变化，例如实际工时、住房成本或某项服务的获得条件。",
+      "wiki": "",
+      "kind": "研究模板",
+      "root": false,
+      "sources": [
+        {
+          "title": "OpenStax · 政治的定义与规则",
+          "url": "https://openstax.org/books/introduction-political-science/pages/1-1-defining-politics-who-gets-what-when-where-how-and-why"
+        },
+        {
+          "title": "OpenStax · 利益相关者视角",
+          "url": "https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation"
+        }
+      ],
+      "depth": 3
     }
   ],
   "links": [
@@ -2830,6 +3760,450 @@
       "target": "electro",
       "reason": "太阳辐射属于电磁辐射，连接恒星与电磁学",
       "kind": "relation"
+    },
+    {
+      "source": "universe",
+      "target": "politics-capital",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "politics-capital",
+      "target": "pc-politicians",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-political-role",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-political-goals",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-political-means",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-political-benefits-risks",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-political-worldview",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-political-values",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-political-profile",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "politics-capital",
+      "target": "pc-capitalists",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-capitalists",
+      "target": "pc-capital-role",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-capitalists",
+      "target": "pc-capital-goals",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-capitalists",
+      "target": "pc-capital-means",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-capitalists",
+      "target": "pc-capital-benefits-risks",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-capitalists",
+      "target": "pc-capital-worldview",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-capitalists",
+      "target": "pc-capital-values",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-capitalists",
+      "target": "pc-capital-profile",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "politics-capital",
+      "target": "pc-relations",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-relations",
+      "target": "pc-cooperation",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-relations",
+      "target": "pc-bargaining",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-relations",
+      "target": "pc-lobbying",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-relations",
+      "target": "pc-capture",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-relations",
+      "target": "pc-revolving-door",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-relations",
+      "target": "pc-public-checks",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "politics-capital",
+      "target": "pc-daily-life",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-daily-life",
+      "target": "pc-work",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-daily-life",
+      "target": "pc-public-services",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-daily-life",
+      "target": "pc-housing",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-daily-life",
+      "target": "pc-prices",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-daily-life",
+      "target": "pc-information",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-daily-life",
+      "target": "pc-external-costs",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "politics-capital",
+      "target": "pc-psychology",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-psychology",
+      "target": "pc-power-attention",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-psychology",
+      "target": "pc-perspective",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-psychology",
+      "target": "pc-moral-identity",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-psychology",
+      "target": "pc-role-feedback",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-psychology",
+      "target": "pc-individual-differences",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "politics-capital",
+      "target": "pc-research",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-research",
+      "target": "pc-theory-lenses",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-research",
+      "target": "pc-motive-evidence",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-research",
+      "target": "pc-winners-losers",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-research",
+      "target": "pc-checklist",
+      "kind": "hierarchy",
+      "reason": "政治与资本星云中的包含层级"
+    },
+    {
+      "source": "pc-politicians",
+      "target": "pc-capitalists",
+      "kind": "relation",
+      "reason": "两类行动者拥有不同资源，可能合作、谈判或相互制约"
+    },
+    {
+      "source": "pc-political-goals",
+      "target": "pc-capital-goals",
+      "kind": "relation",
+      "reason": "比较公开目标、组织要求、期限与个人利益；不假定目标完全一致"
+    },
+    {
+      "source": "pc-political-means",
+      "target": "pc-capital-means",
+      "kind": "relation",
+      "reason": "公共规则与资本组织能力通过具体机制相互影响"
+    },
+    {
+      "source": "pc-political-worldview",
+      "target": "pc-capital-worldview",
+      "kind": "relation",
+      "reason": "比较对国家、市场、个人与集体关系的不同理解"
+    },
+    {
+      "source": "pc-political-values",
+      "target": "pc-capital-values",
+      "kind": "relation",
+      "reason": "在有代价的实际选择中研究价值排序"
+    },
+    {
+      "source": "pc-relations",
+      "target": "pc-daily-life",
+      "kind": "relation",
+      "reason": "关系通过政策、投资与执行改变具体生活条件"
+    },
+    {
+      "source": "pc-cooperation",
+      "target": "pc-public-checks",
+      "kind": "relation",
+      "reason": "合作安排需要透明的目标、风险分担和纠错机制"
+    },
+    {
+      "source": "pc-bargaining",
+      "target": "pc-work",
+      "kind": "relation",
+      "reason": "劳动者的组织与协商能力会影响工资及条件分配"
+    },
+    {
+      "source": "pc-lobbying",
+      "target": "pc-capture",
+      "kind": "relation",
+      "reason": "信息与接近机会不平等可能增加俘获风险，但不能由沟通直接推出俘获"
+    },
+    {
+      "source": "pc-revolving-door",
+      "target": "pc-motive-evidence",
+      "kind": "relation",
+      "reason": "任职与决策时间线帮助核查利益冲突，不能只凭关系推定动机"
+    },
+    {
+      "source": "pc-capture",
+      "target": "pc-prices",
+      "kind": "relation",
+      "reason": "进入壁垒与特权可能改变竞争和消费者选择"
+    },
+    {
+      "source": "pc-capital-benefits-risks",
+      "target": "pc-external-costs",
+      "kind": "relation",
+      "reason": "经营收益与对旁人的公共成本需要分别核算"
+    },
+    {
+      "source": "pc-political-benefits-risks",
+      "target": "pc-public-services",
+      "kind": "relation",
+      "reason": "公共目标要落实到服务的获得、质量与负担"
+    },
+    {
+      "source": "pc-housing",
+      "target": "pc-winners-losers",
+      "kind": "relation",
+      "reason": "住房政策对租客与业主可能产生不同影响"
+    },
+    {
+      "source": "pc-information",
+      "target": "confirmation",
+      "kind": "relation",
+      "reason": "选择性接触与确认偏误会影响对政治经济事件的理解"
+    },
+    {
+      "source": "pc-information",
+      "target": "herd",
+      "kind": "relation",
+      "reason": "传播与群体认同可影响注意和意见表达"
+    },
+    {
+      "source": "pc-psychology",
+      "target": "mind",
+      "kind": "relation",
+      "reason": "从一般心理研究进入权力情境，保留样本与个体差异边界"
+    },
+    {
+      "source": "pc-power-attention",
+      "target": "attention",
+      "kind": "relation",
+      "reason": "比较权力情境中的注意分配与有限注意资源"
+    },
+    {
+      "source": "pc-perspective",
+      "target": "metacognition",
+      "kind": "relation",
+      "reason": "检查自身视角和信息盲区，需要反思与外部反馈"
+    },
+    {
+      "source": "pc-moral-identity",
+      "target": "ethics",
+      "kind": "relation",
+      "reason": "道德认同的行为研究与规范性伦理评价需要区分"
+    },
+    {
+      "source": "pc-individual-differences",
+      "target": "statistics",
+      "kind": "relation",
+      "reason": "群体研究结果不等于个体预测；注意选择效应和测量范围"
+    },
+    {
+      "source": "pc-theory-lenses",
+      "target": "model",
+      "kind": "relation",
+      "reason": "理论以假设组织现实，应检查适用范围与反例"
+    },
+    {
+      "source": "pc-motive-evidence",
+      "target": "causality",
+      "kind": "relation",
+      "reason": "相关、受益和动机推断都不能替代因果证据"
+    },
+    {
+      "source": "pc-winners-losers",
+      "target": "causality",
+      "kind": "relation",
+      "reason": "评估政策效果需要考虑反事实及其他影响因素"
+    },
+    {
+      "source": "pc-motive-evidence",
+      "target": "epistemology",
+      "kind": "relation",
+      "reason": "把证据、推断和价值判断分开，形成可更新的认识"
+    },
+    {
+      "source": "pc-checklist",
+      "target": "bayes",
+      "kind": "relation",
+      "reason": "新证据可以修正原有判断，无法证明的部分保留不确定性"
+    },
+    {
+      "source": "pc-capital-goals",
+      "target": "risk",
+      "kind": "relation",
+      "reason": "资本目标受风险与期限约束；不等同具体交易建议"
+    },
+    {
+      "source": "pc-capital-role",
+      "target": "market",
+      "kind": "relation",
+      "reason": "资本所有权与企业控制为理解证券市场提供制度背景"
+    },
+    {
+      "source": "pc-public-checks",
+      "target": "virtue",
+      "kind": "relation",
+      "reason": "个人品质与可问责制度是不同但相互作用的分析层次"
+    },
+    {
+      "source": "pc-research",
+      "target": "logic",
+      "kind": "relation",
+      "reason": "检查论证是否从事实合理推出结论"
+    },
+    {
+      "source": "pc-political-profile",
+      "target": "pc-motive-evidence",
+      "kind": "relation",
+      "reason": "具体人物介绍要保留原始材料、日期和未知动机"
+    },
+    {
+      "source": "pc-capital-profile",
+      "target": "pc-motive-evidence",
+      "kind": "relation",
+      "reason": "资产与行动的证据不能由财富或社会关系代替"
     }
   ],
   "routes": [
@@ -2947,6 +4321,58 @@
         "earth",
         "moon"
       ]
+    },
+    {
+      "id": "politics-capital-overview",
+      "title": "政治与资本：从角色走到生活",
+      "description": "分别理解两类行动者，再看关系、分配与个人观察。",
+      "domain": "politics-capital",
+      "nodes": [
+        "politics-capital",
+        "pc-political-role",
+        "pc-political-goals",
+        "pc-capital-role",
+        "pc-capital-goals",
+        "pc-cooperation",
+        "pc-capture",
+        "pc-work",
+        "pc-checklist"
+      ]
+    },
+    {
+      "id": "politics-capital-psychology",
+      "title": "权力与财富：怎样理解心理而不贴标签",
+      "description": "比较角色情境、研究发现、价值排序与证据边界。",
+      "domain": "politics-capital",
+      "nodes": [
+        "pc-psychology",
+        "pc-power-attention",
+        "pc-perspective",
+        "pc-moral-identity",
+        "pc-role-feedback",
+        "pc-political-worldview",
+        "pc-capital-worldview",
+        "pc-political-values",
+        "pc-capital-values",
+        "pc-individual-differences"
+      ]
+    },
+    {
+      "id": "politics-capital-daily-life",
+      "title": "一项决策怎样进入普通人的生活",
+      "description": "沿工资、公共服务、住房、消费与信息，追踪好处和代价。",
+      "domain": "politics-capital",
+      "nodes": [
+        "pc-daily-life",
+        "pc-work",
+        "pc-public-services",
+        "pc-housing",
+        "pc-prices",
+        "pc-information",
+        "pc-external-costs",
+        "pc-winners-losers",
+        "pc-motive-evidence"
+      ]
     }
   ],
   "sources": {
@@ -3004,6 +4430,32 @@
       {
         "title": "OpenStax · University Physics",
         "url": "https://openstax.org/subjects/science"
+      }
+    ],
+    "politics-capital": [
+      {
+        "title": "OpenStax · 政治的定义与规则",
+        "url": "https://openstax.org/books/introduction-political-science/pages/1-1-defining-politics-who-gets-what-when-where-how-and-why"
+      },
+      {
+        "title": "OpenStax · 企业、市场与经济制度",
+        "url": "https://openstax.org/books/introduction-business-2e/pages/1-3-how-business-and-economics-work"
+      },
+      {
+        "title": "世界银行 · 2017世界发展报告：治理与法律",
+        "url": "https://www.worldbank.org/en/publication/wdr2017"
+      },
+      {
+        "title": "OECD · 游说、透明度与政策影响（2024）",
+        "url": "https://www.oecd.org/en/publications/anti-corruption-and-integrity-outlook-2024_968587cd-en/full-report/component-7.html"
+      },
+      {
+        "title": "Keltner 等（2003）· 权力、趋近与抑制：理论综述",
+        "url": "https://greatergood.berkeley.edu/dacherkeltner/docs/keltner.power.psychreview.2003.pdf"
+      },
+      {
+        "title": "SEP · 资本主义的定义与规范性争论",
+        "url": "https://plato.stanford.edu/entries/capitalism/"
       }
     ]
   }

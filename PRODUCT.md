@@ -1,5 +1,7 @@
 # LifeAtlas Reimagined
 
+2026-11-03 content addition: Politics & Capital is the seventh built-in knowledge domain, with six branches for political actors, capital owners, relationships, daily-life effects, psychology and study methods. The 42 new nodes have sources, examples, three routes and cross-domain links. Previous node IDs and personal saved state remain. Group-level psychological theories keep their evidence limits; no fixed personality, unverified individual motives or real-person profiles are asserted. See docs/POLITICS-CAPITAL.md. The existing visual system is unchanged.
+
 <!-- impeccable:product-schema 1 -->
 
 ## Platform
