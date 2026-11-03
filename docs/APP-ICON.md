@@ -33,7 +33,7 @@ node scripts/build-local.mjs
 
 ## Windows 与 favicon 缓存
 
-桌面与开始菜单快捷方式的图标资源指向 `LifeAtlas-Orbit-v2.ico`，启动目标仍为原有 `LifeAtlas.exe`。版本化文件名让 Windows 可以将新图标作为新资源读取。后续换版时同步调整资源文件名及快捷方式引用。无需终止 Explorer 或批量清空系统图标缓存，也不涉及用户资料目录。
+桌面与开始菜单快捷方式使用从 `LifeAtlas-Orbit-v2.ico` 复制的 `LifeAtlas-Shortcut-<内容哈希>.ico`，启动目标为 `LifeAtlas.exe`。安装脚本通过文件句柄解析实际安装路径，让启动目标和图标使用同一物理目录，避免打包宿主重定向 LocalAppData 后，资源管理器读取到另一位置。内容哈希让图标变化时自动获得新的缓存键；保存快捷方式后通知 Windows Shell 更新项目和桌面目录。无需终止 Explorer 或批量清空系统图标缓存，也不涉及用户资料目录。
 
 Web 入口 `app/layout.tsx` 与本地入口生成的 HTML 均使用 `/favicon.svg?v=atlas-orbit-v2`。后续更新时同步调整查询版本，保持两个入口一致。
 
