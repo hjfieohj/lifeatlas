@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="LifeAtlas：极光星云">
+ <defs>
+  <linearGradient id="ground" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#243653"/><stop offset=".54" stop-color="#111c34"/><stop offset="1" stop-color="#101427"/></linearGradient>
+  <radialGradient id="haze" cx=".34" cy=".29" r=".8"><stop stop-color="#547b9970"/><stop offset="1" stop-color="#1a204600"/></radialGradient>
+  <linearGradient id="back" x1="253" y1="724" x2="729" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="#4e57a5"/><stop offset=".42" stop-color="#9783e2"/><stop offset=".78" stop-color="#94dce8"/><stop offset="1" stop-color="#dcfff4"/></linearGradient>
+  <linearGradient id="front" x1="222" y1="661" x2="771" y2="411" gradientUnits="userSpaceOnUse"><stop stop-color="#40a6bd"/><stop offset=".3" stop-color="#6be0d3"/><stop offset=".63" stop-color="#b7eddd"/><stop offset="1" stop-color="#d6d0fa"/></linearGradient>
+  <linearGradient id="fold" x1="485" y1="702" x2="785" y2="367" gradientUnits="userSpaceOnUse"><stop stop-color="#5267af"/><stop offset=".48" stop-color="#a08dd8"/><stop offset="1" stop-color="#e6d7f4"/></linearGradient>
+  <linearGradient id="edge" x1="254" y1="600" x2="646" y2="411" gradientUnits="userSpaceOnUse"><stop stop-color="#8bf3da"/><stop offset="1" stop-color="#f0f9ed"/></linearGradient>
+ </defs>
+ <rect width="1024" height="1024" rx="232" fill="url(#ground)"/>
+ <rect width="1024" height="1024" rx="232" fill="url(#haze)"/>
+ <path d="M249 686C178 605 236 448 388 332c139-106 307-117 383-37 72 76 9 226-134 337-143 112-311 140-388 54Zm98-56c46 37 156 1 244-67 100-77 153-169 112-204-42-37-154-1-247 69-102 78-153 166-109 202Z" fill="url(#back)"/>
+ <path d="M771 295c72 76 9 226-134 337-143 112-311 140-388 54 50 34 155 21 268-42 141-79 235-203 254-349Z" fill="url(#fold)"/>
+ <path d="M771 295c47 128-62 306-246 408-148 83-283 68-311-17-25-75 58-174 174-217-76 56-117 115-91 154 35 51 164 16 282-58 132-82 208-190 192-270Z" fill="url(#front)"/>
+ <path d="M388 469c-76 56-117 115-91 154 35 51 164 16 282-58 38-24 73-51 102-79-29 39-63 70-101 96-115 79-255 126-300 66-35-47 24-130 108-179Z" fill="url(#edge)" opacity=".78"/>
+ <path d="M347 630c-44-36 7-124 109-202 93-70 205-106 247-69-41-59-165-33-271 46-118 89-160 190-85 225Z" fill="#f0eaff" opacity=".25"/>
+ <path d="m772 208 12 29 29 12-29 12-12 29-12-29-29-12 29-12Z" fill="#effaf5"/>
+</svg>

@@ -6,3 +6,4 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const svg=fs.readFileSync(path.join(root,'public/brand/lifeatlas-app-icon.svg'));
 await sharp(svg).resize(1024,1024).png().toFile(path.join(root,'local/lifeatlas-icon.png'));
 fs.copyFileSync(path.join(root,'public/brand/lifeatlas-app-icon.svg'),path.join(root,'public/favicon.svg'));
+fs.copyFileSync(path.join(root,'public/brand/lifeatlas-app-icon.svg'),path.join(root,'public/knowledge-universe/favicon.svg'));

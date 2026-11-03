@@ -27,7 +27,7 @@ try{
  elseif($launcherPath.StartsWith('\\?\')){$launcherPath=$launcherPath.Substring(4)}
  $appDirectory=Split-Path -Parent $launcherPath
 }finally{$launcherStream.Dispose()}
-$sourceIcon=Join-Path $appDirectory 'LifeAtlas-Orbit-v2.ico'
+$sourceIcon=Join-Path $appDirectory 'LifeAtlas-Aurora-v3.ico'
 if(!(Test-Path -LiteralPath $sourceIcon)){throw 'Application icon not found.'}
 $iconHash=(Get-FileHash -LiteralPath $sourceIcon -Algorithm SHA256).Hash.Substring(0,12).ToLowerInvariant()
 $shortcutIcon=Join-Path $appDirectory ('LifeAtlas-Shortcut-'+$iconHash+'.ico')

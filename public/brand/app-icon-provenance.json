@@ -1,17 +1,32 @@
 {
-  "name": "Atlas Orbit",
+  "name": "Aurora Nebula",
   "date": "2026-11-03",
   "source": "public/brand/lifeatlas-app-icon.svg",
-  "authoring": "Original code-authored SVG geometry for LifeAtlas",
-  "palette": {"groundStart":"#263753","groundEnd":"#101827","arch":"#F3F7FC","orbit":"#80DDCD"},
-  "concept": "A soft Atlas arch crossed by one rising orbit, connecting a personal atlas with exploration.",
-  "desktopIcon": "LifeAtlas-Orbit-v2.ico",
-  "sizes": [16,20,24,32,40,48,64,96,128,256],
+  "authoring": "Original code-authored SVG ribbon geometry for LifeAtlas; no generated or sourced bitmap",
+  "palette": {
+    "ground": "#111c34",
+    "mint": "#6be0d3",
+    "pearl": "#b7eddd",
+    "violet": "#a08dd8"
+  },
+  "concept": "One flowing folded aurora orbit, an open center and a single guiding star. User-selected Aurora Nebula direction.",
+  "desktopIcon": "LifeAtlas-Aurora-v3.ico",
+  "sizes": [
+    16,
+    20,
+    24,
+    32,
+    40,
+    48,
+    64,
+    96,
+    128,
+    256
+  ],
   "build": "python scripts/build-local-icon.py",
   "references": [
-    "https://learn.microsoft.com/en-us/windows/apps/design/style/iconography/app-icon-design",
     "https://developer.apple.com/design/human-interface-guidelines/app-icons"
   ],
-  "referenceUse": "Design principles only: one central metaphor, simple forms, small-size recognition. No third-party logo or image is included.",
+  "referenceUse": "Principles only; original vector paths, no third-party logo/font/symbol assets.",
   "paidServices": false
 }

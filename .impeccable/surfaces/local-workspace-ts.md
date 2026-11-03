@@ -2,8 +2,38 @@
 version: 1
 slug: "local-workspace-ts"
 primary_target: "local/workspace.ts"
-related_targets: ["local/application.ts", "local/workspace.css", "local/entry.ts", "local/integrations.mjs", "local/bootstrap.ts", "src/inline-ai.ts", "src/inline-ai.css", "src/ai-context.ts", "src/growth-ai.ts", "src/growth-ai-context.ts", "src/appearance.ts", "src/cosmic-background.ts", "src/main.ts", "public/knowledge-universe/library.js", "public/knowledge-universe/library.css", "public/knowledge-universe/app.js"]
+related_targets: ["local/application.ts", "local/workspace.css", "local/cupertino.css", "public/knowledge-universe/cupertino.css", "local/entry.ts", "local/integrations.mjs", "local/bootstrap.ts", "src/inline-ai.ts", "src/inline-ai.css", "src/ai-context.ts", "src/growth-ai.ts", "src/growth-ai-context.ts", "src/appearance.ts", "src/cosmic-background.ts", "src/main.ts", "public/knowledge-universe/library.js", "public/knowledge-universe/library.css", "public/knowledge-universe/app.js"]
 ---
+
+# LifeAtlas / 本地工作空间 · 0.5 · Open Sky
+
+Mode: Operate. User-authorized code-led visual-system replacement, preserving all current local capabilities and safety boundaries. `docs/DAILY-USE.md`, `docs/LOCAL-WORKSPACE.md` and `PRODUCT.md` remain product authority. `DESIGN.md` and `.impeccable/design.json` now record the implemented Open Sky system together; `.impeccable/surfaces/open-sky-ui.md` preserves the user's selected direction. Earlier records below remain historical.
+
+## Current visual authority · 2026-11-03
+
+THESIS: Let the owner continue real writing, reading and knowledge exploration in a light, fluid personal workspace, with source-attached assistance and preserved drafts.
+
+OWN-WORLD: The user's explicit Apple-style pin supersedes the former reading-room tokens and the unpresented seed 953eaba1 direction. Keep the original outlined LifeAtlas wordmark, Chinese system UI typography, native controls, limited frosted navigation/tools and stable near-opaque white/charcoal content. Day retains blue sky/clouds; night retains particle stars. The deep-space 3D knowledge viewport remains in both skins, surrounded by themed tools, reader and library. The user-selected Aurora Nebula ribbon replaces Atlas Orbit as the application icon. This is a local web implementation informed by Apple principles, not native Apple material or a complete Liquid Glass implementation. No Apple logo, SF font file or SF Symbol asset is copied. Tabler MIT reuse is limited to button alignment; attribution is in `docs/OPEN-SKY-UI.md`.
+
+STORY: Choose a module, continue a draft, save and revisit history. Record search, filters, recycle bin and backup retain their current behavior. Blank source blocks offer “引导我开始”; existing blocks offer “总结与扩展”, with editable outgoing content, visible destination/model and explicit submission. AI results stay beneath their source and never replace authored text. There is no independent AI destination. Readonly cached mail and offline knowledge remain usable without a configured connection. Skin changes preserve work.
+
+FIRST VIEWPORT: The desktop rail floats 16px inside the viewport, is 218px wide and uses a 24px outer corner. Main module headings use 32px type; Today opens at 38px and offsets its smaller starting panel. Ordinary work pairs a continuous list with a separate editor and a 28px gap. Growth keeps a 184px independent topic index and chronology. Settings retains its anchored directory. Mail pairs a cached list and body; the opened row has a distinct theme-specific fill, inset edge and persistent “当前阅读” label. Knowledge keeps its large dark map with a compact toolbar, reader and internally scrolling library dialog.
+
+FORM: `local/entry.ts` imports `local/cupertino.css` last, above the preserved earlier layers. `public/knowledge-universe/cupertino.css` is the corresponding final iframe layer. Blue primary and neutral secondary capsules use 30px corners; fields use 11px corners, navigation/excerpts 12px, reading surfaces 16px and library dialog 20px. The desktop main caps at 1480px; at 1200px the rail/spacing contract, at 1000px it becomes a four-column in-flow header, at 760px work areas stack, and at 480px phone fields use 16px text and actions reach a 44px minimum height. Knowledge adapts at 620px. Native date/select/checkbox/radio/disclosure behavior, visible keyboard focus, reduced motion and supported reduced transparency remain. Existing input/background/reduced-motion pause behavior still applies to dynamics.
+
+## Current evidence and limits · 2026-11-03
+
+Fourteen full-page captures in `.impeccable/review/open-sky` cover desktop dark Today/Growth/Investment/Mail/Knowledge, dark Settings phone and Tasks tablet, desktop light Today/Settings/Library, and light Growth/Investment/Life/Mail phone (1450px / 390px / 900px). The documenter individually opened light Today, dark Investment, light Mail, dark Knowledge and light Library. All fourteen were recaptured after F1; the current light Mail image visibly selects message B with blue fill, an edge and “当前阅读”. Stitched full-page screenshots show the fixed sky ending at the capture viewport. The separate size sheet and native resource comparison verify the icon, not live Windows installation.
+
+Source comparison covered both final Cupertino layers, their entry order, the SVG, provenance JSON, icon raster pipeline and packaging/shortcut names. `DESIGN.md` and its v2 sidecar were regenerated together from actual source values. The supplied active-chat logs `work/open-sky-ui-qa.txt`, `work/open-sky-draft-qa.txt` and `work/open-sky-inline-qa.txt` pass isolated flows, connection/draft guards and inline assistance. The inline suite's inherited screenshot wording does not denote another capture set. The parent reports 95 function tests and successful typecheck/build. All service checks use local simulations and fixture mail; no real-provider calls, owner login or model-quality certification are implied.
+
+The initial finish review requested F1 light-mail selection and F2 stale documentation. F1 was fixed and recaptured; the current design/product/icon records address F2. The follow-up reviewer returned **ship**, with F1 and F2 both resolved; this is a fix-list verdict, not a fresh whole-surface certification. The one supplied detector output has zero primary findings and 57 advisories against the former visual system; it was not rerun. Existing Platform prose schema drift remains reported, without unrelated schema repair. Actual owner installation and release publication require separate installed-file and public-release verification. Earlier scoped “ship” verdicts below are historical and do not certify this replacement. Product, credential, retention, cost and service boundaries remain in the current product/daily-use contracts.
+
+---
+
+# Historical local workspace record · 0.4 and earlier
+
+> The following contracts describe earlier increments. Their no-visual-system-change, old token, standalone-AI, navigation and evidence statements do not override the 0.5 Open Sky authority above.
 
 # LifeAtlas / 本地工作空间 · 0.4
 

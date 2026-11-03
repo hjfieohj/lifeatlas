@@ -8,7 +8,7 @@ import '../src/uiverse-system.css';
 import '../src/investment.css';
 import '../src/optional-modules.css';
 import '../src/cosmic-integration.css';
-export const metadata = { title: 'LifeAtlas · 生活全图', description: '每日简报、邮箱整理与个人成长：持续观察、反思与回看生活中的变化。', icons: { icon: '/favicon.svg?v=atlas-orbit-v2' } };
+export const metadata = { title: 'LifeAtlas · 生活全图', description: '每日简报、邮箱整理与个人成长：持续观察、反思与回看生活中的变化。', icons: { icon: '/favicon.svg?v=atlas-aurora-v3' } };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <html lang="zh-CN"><body>{children}</body></html>;
 }

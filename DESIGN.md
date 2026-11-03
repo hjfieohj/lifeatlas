@@ -1,392 +1,347 @@
 ---
-name: "LifeAtlas"
-description: "LifeAtlas local workspace: deep-space dark and blue-sky light skins, familiar reading geometry"
+name: "LifeAtlas · Open Sky"
+description: "Apple-inspired fluid controls and stable reading surfaces above blue-sky day and particle-star night backgrounds"
 colors:
-  island-paper: "#030713"
-  island-nav: "#101b30"
-  island-surface: "#101b2ef5"
-  island-ink: "#e4edf9"
-  island-muted: "#aebed2"
-  island-line: "#314159"
-  island-wash: "#1b2c45"
-  island-green: "#b3cefa"
-  island-forest: "#abc9f3"
-  island-forest-deep: "#d1e4ff"
-  island-accent-ink: "#142238"
-  island-nav-active-bg: "#263e5e"
-  island-secondary-border: "#536b87"
-  island-focus: "#bedcff"
-  island-rail-active: "#29476b"
-  island-rail-ink: "#e4edf9"
-  island-amber: "#ecd1a1"
-  island-amber-bg: "#3c3124"
-  island-red: "#f1b6b0"
-  island-red-bg: "#3b252c"
-  observatory-paper: "#e5f2fc"
-  observatory-nav: "#f3f9fe"
-  observatory-surface: "#ffffffed"
-  observatory-ink: "#18334d"
-  observatory-muted: "#49657b"
-  observatory-line: "#ccddea"
-  observatory-wash: "#eaf3fa"
-  observatory-green: "#205e8f"
-  observatory-forest: "#205e8f"
-  observatory-forest-deep: "#174b75"
+  island-paper: "#080c14"
+  island-surface: "#20232cf5"
+  island-ink: "#f2f3f7"
+  island-muted: "#b1b5c2"
+  island-line: "#ffffff17"
+  island-wash: "#ffffff09"
+  island-green: "#86b9ff"
+  island-forest: "#0a67d7"
+  island-forest-deep: "#0874ee"
+  island-accent-ink: "#fff"
+  island-rail-active: "#ffffff14"
+  island-secondary-border: "#5b6070"
+  island-focus: "#8dbbff"
+  island-amber: "#f5ce8a"
+  island-amber-bg: "#3d3325"
+  island-red: "#ffaca9"
+  island-red-bg: "#43292d"
+  island-field: "#141720"
+  island-control: "#ffffff10"
+  island-control-hover: "#ffffff1c"
+  island-selected: "#3c404d"
+  island-glass: "#242833d9"
+  island-mail-selection: "#303747"
+  island-mail-selection-edge: "#637898"
+  observatory-paper: "#d8eafb"
+  observatory-surface: "#fffffff7"
+  observatory-ink: "#20232b"
+  observatory-muted: "#555f70"
+  observatory-line: "#18243c18"
+  observatory-wash: "#18243c05"
+  observatory-green: "#0057bb"
+  observatory-forest: "#0064d8"
+  observatory-forest-deep: "#0059c2"
   observatory-accent-ink: "#fff"
-  observatory-nav-active-bg: "#dbeaf7"
-  observatory-secondary-border: "#8da9bd"
-  observatory-focus: "#1c639b"
-  observatory-rail-active: "#d7e9f8"
-  observatory-rail-ink: "#173c5b"
-  observatory-amber: "#795019"
-  observatory-amber-bg: "#f9edda"
-  observatory-red: "#a5363c"
-  observatory-red-bg: "#fbeded"
-  field-ground: "#0b1526"
-  island-rail-ground: "#091224e8"
-  observatory-rail-ground: "#f3f9fef2"
-  knowledge-accent: "#b9deeb"
-  knowledge-ink: "#edf1f5"
-  knowledge-panel: "#141c29f5"
-  knowledge-label-detail: "#c4d2e3"
-  knowledge-label-hover-bg: "#081426c9"
-  knowledge-portal-label-bg: "#07112170"
-  knowledge-label-hover-outline: "#88a9ce60"
-  observatory-field-ground: "#fff"
-  observatory-selected-ink: "#18334d"
-  light-selection-bg: "#c0dff6"
-  light-selection-ink: "#12334b"
-  light-scroll-track: "#e5eff7"
-  light-scroll-thumb: "#91aebf"
-  knowledge-custom-default: "#85cfc6"
-  knowledge-library-ground: "#111e30"
-  knowledge-library-ink: "#e5edf7"
-  knowledge-library-border: "#526b87"
-  knowledge-library-muted: "#b9cadc"
-  knowledge-library-line: "#3c5067"
-  knowledge-library-field: "#091425"
-  knowledge-library-field-ink: "#e7eff8"
-  knowledge-library-field-border: "#70849a"
-  knowledge-library-placeholder: "#a6b7c9"
-  knowledge-library-light: "#f8fcff"
-  knowledge-light-control: "#e4eff8"
-  knowledge-light-summary: "#275e87"
+  observatory-rail-active: "#ffffffbd"
+  observatory-secondary-border: "#a6afbd"
+  observatory-focus: "#0064d8"
+  observatory-amber: "#79501a"
+  observatory-amber-bg: "#fcf0da"
+  observatory-red: "#b32b35"
+  observatory-red-bg: "#fff0f0"
+  observatory-field: "#f3f4f7"
+  observatory-control: "#18243c08"
+  observatory-control-hover: "#18243c10"
+  observatory-selected: "#fff"
+  observatory-glass: "#f3f6fbe6"
+  observatory-mail-selection: "#e3efff"
+  observatory-mail-selection-edge: "#b1cef3"
+  knowledge-island-ground: "#20232cf7"
+  knowledge-island-glass: "#242833ed"
+  knowledge-observatory-glass: "#f3f6fbed"
+  knowledge-map-glass: "#242833e6"
+  knowledge-map-selected: "#464d5d"
 typography:
   headline:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "30px"
-    fontWeight: 600
-    lineHeight: 1.5
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "32px"
+    fontWeight: 650
+    lineHeight: 1.4
     letterSpacing: "-.025em"
-  growth-headline-mobile:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "25px"
-    fontWeight: 600
+  headline-mobile:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "26px"
+    fontWeight: 650
+    lineHeight: 1.5
+  today-headline:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "38px"
+    fontWeight: 650
+    lineHeight: 1.4
+    letterSpacing: "-.03em"
+  title:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "19px"
+    fontWeight: 650
     lineHeight: 1.65
-  topic-title:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "20px"
+  record-title:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "17px"
     fontWeight: 600
-    lineHeight: 1.75
-    letterSpacing: "-.015em"
+    lineHeight: 1.7
   body:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
     fontSize: "14px"
-    lineHeight: 1.65
+    lineHeight: 1.9
   event:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
     fontSize: "16px"
     fontWeight: 500
     lineHeight: 1.95
-  comparison:
-    fontFamily: "AtlasSerif, 'Noto Serif SC', serif"
-    fontSize: "18px"
-    lineHeight: 1.95
   label:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "13px"
-    lineHeight: 1.65
-  editor:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "15px"
-    lineHeight: 1.85
-  knowledge-heading:
-    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
-    fontSize: "24px"
-    fontWeight: 400
-    lineHeight: 1.4
-  knowledge-node-label:
-    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
-    fontSize: "12px"
-    fontWeight: 400
-    lineHeight: 1.5
-  knowledge-domain-label:
-    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
-    fontSize: "15px"
-    fontWeight: 500
-    lineHeight: 1.5
-    letterSpacing: ".06em"
-  knowledge-domain-label-mobile:
-    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
     fontSize: "13px"
     fontWeight: 500
-    lineHeight: 1.5
-    letterSpacing: ".06em"
-  work-subtitle:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
-    fontSize: "17px"
     lineHeight: 1.6
-  supporting-small:
-    fontFamily: "'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
+  supporting:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
     fontSize: "11px"
-  library-heading-mobile:
-    fontFamily: "Atlas, 'Microsoft YaHei', 'PingFang SC', sans-serif"
-    fontSize: "21px"
+  editor:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "14px"
+    lineHeight: 1.65
+  editor-mobile:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "16px"
+    lineHeight: 1.65
+  knowledge-summary:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "16px"
+    lineHeight: 1.85
+  library-title:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif"
+    fontSize: "24px"
+    fontWeight: 650
+    letterSpacing: "-.025em"
 rounded:
-  local-field: "9px"
-  local-chip: "6px"
-  library-field: "8px"
-  library-dialog: "16px"
-  control: "12px"
-  navigation: "9px"
-  filter: "10px"
-  comparison: "12px"
-  sheet: "14px"
-  knowledge-label: "5px"
+  field: "11px"
+  navigation: "12px"
+  sheet: "16px"
+  rail: "24px"
+  dialog: "20px"
+  capsule: "30px"
+  segment: "24px"
 spacing:
-  local-editor: "24px"
-  local-record: "22px 24px"
-  local-mobile: "20px"
-  library-dialog: "28px"
-  control: "10px 16px"
-  sheet: "26px 28px"
-  comparison: "20px"
-  growth-gap: "26px"
-  mobile-sheet: "22px 18px"
-  editor: "30px 32px"
+  control: "10px 18px"
+  field: "11px 12px"
+  list-sheet: "26px 28px"
+  editor: "28px"
+  growth-sheet: "28px 32px"
+  dialog: "28px"
+  mobile-sheet: "22px 20px"
+  work-gap: "28px"
+  mobile-gap: "22px"
 components:
   button-primary-island:
     backgroundColor: "{colors.island-forest}"
     textColor: "{colors.island-accent-ink}"
-    rounded: "{rounded.control}"
+    rounded: "{rounded.capsule}"
     padding: "{spacing.control}"
-    height: "44px"
+    typography: "{typography.label}"
   button-primary-island-hover:
     backgroundColor: "{colors.island-forest-deep}"
   button-primary-observatory:
     backgroundColor: "{colors.observatory-forest}"
     textColor: "{colors.observatory-accent-ink}"
-    rounded: "{rounded.control}"
+    rounded: "{rounded.capsule}"
     padding: "{spacing.control}"
-    height: "44px"
+    typography: "{typography.label}"
   button-primary-observatory-hover:
     backgroundColor: "{colors.observatory-forest-deep}"
   button-subtle:
-    backgroundColor: "{colors.island-surface}"
+    backgroundColor: "{colors.island-control}"
     textColor: "{colors.island-ink}"
-    rounded: "{rounded.control}"
+    rounded: "{rounded.capsule}"
     padding: "{spacing.control}"
+    typography: "{typography.label}"
   input:
-    backgroundColor: "{colors.field-ground}"
+    backgroundColor: "{colors.island-field}"
     textColor: "{colors.island-ink}"
-    rounded: "{rounded.control}"
-    padding: "11px 12px"
+    rounded: "{rounded.field}"
+    padding: "{spacing.field}"
     typography: "{typography.editor}"
   navigation-active:
     backgroundColor: "{colors.island-rail-active}"
     textColor: "{colors.island-ink}"
     rounded: "{rounded.navigation}"
-    padding: "12px"
-  topic-active:
-    backgroundColor: "{colors.island-nav-active-bg}"
-    textColor: "{colors.island-green}"
-    rounded: "{rounded.control}"
-    padding: "13px 11px"
-  status-awaiting:
-    backgroundColor: "{colors.island-amber-bg}"
-    textColor: "{colors.island-amber}"
-    rounded: "5px"
-    padding: "4px 8px"
-  growth-reading-sheet:
+    padding: "10px 13px"
+  status-chip:
+    backgroundColor: "{colors.island-glass}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.capsule}"
+    padding: "8px 13px"
+    typography: "{typography.supporting}"
+  reading-sheet:
     backgroundColor: "{colors.island-surface}"
     textColor: "{colors.island-ink}"
     rounded: "{rounded.sheet}"
-    padding: "{spacing.sheet}"
-  comparison-cool:
-    backgroundColor: "{colors.island-wash}"
-    rounded: "{rounded.comparison}"
-    padding: "{spacing.comparison}"
-  comparison-warm:
-    backgroundColor: "{colors.island-wash}"
-    rounded: "{rounded.comparison}"
-    padding: "{spacing.comparison}"
-  knowledge-node-label:
-    backgroundColor: "transparent"
-    rounded: "{rounded.knowledge-label}"
-    typography: "{typography.knowledge-node-label}"
-  knowledge-domain-label:
-    backgroundColor: "transparent"
-    rounded: "{rounded.knowledge-label}"
-    typography: "{typography.knowledge-domain-label}"
-  knowledge-portal-label:
-    backgroundColor: "{colors.knowledge-portal-label-bg}"
-    rounded: "{rounded.knowledge-label}"
-  knowledge-node-label-hover:
-    backgroundColor: "{colors.knowledge-label-hover-bg}"
-  button-subtle-observatory:
+    padding: "{spacing.list-sheet}"
+  segment-active:
+    backgroundColor: "{colors.island-selected}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.segment}"
+    padding: "8px 16px"
+  inline-ai-trigger:
+    backgroundColor: "{colors.island-control}"
+    textColor: "{colors.island-green}"
+    rounded: "22px"
+    padding: "7px 13px"
+  mail-selected-observatory:
+    backgroundColor: "{colors.observatory-mail-selection}"
+    textColor: "{colors.observatory-ink}"
+    rounded: "10px"
+    padding: "16px 10px"
+  library-dialog:
     backgroundColor: "{colors.observatory-surface}"
     textColor: "{colors.observatory-ink}"
-    rounded: "{rounded.control}"
-    padding: "{spacing.control}"
-  local-input-island:
-    backgroundColor: "{colors.field-ground}"
-    textColor: "{colors.island-ink}"
-    rounded: "{rounded.local-field}"
-    padding: "11px 12px"
-  local-input-observatory:
-    backgroundColor: "{colors.observatory-field-ground}"
-    textColor: "{colors.observatory-ink}"
-    rounded: "{rounded.local-field}"
-    padding: "11px 12px"
-  navigation-active-observatory:
-    backgroundColor: "{colors.observatory-rail-active}"
-    textColor: "{colors.observatory-selected-ink}"
-    rounded: "{rounded.navigation}"
-    padding: "12px"
-  local-record:
-    backgroundColor: "{colors.island-surface}"
-    textColor: "{colors.island-ink}"
-    rounded: "{rounded.control}"
-    padding: "{spacing.local-record}"
-  local-editor:
-    backgroundColor: "{colors.island-surface}"
-    textColor: "{colors.island-ink}"
-    rounded: "{rounded.sheet}"
-    padding: "{spacing.local-editor}"
-  local-chip:
-    backgroundColor: "{colors.island-wash}"
-    textColor: "{colors.island-green}"
-    rounded: "{rounded.local-chip}"
-    padding: "6px 10px"
-  knowledge-library-dialog:
-    backgroundColor: "{colors.knowledge-library-ground}"
-    textColor: "{colors.knowledge-library-ink}"
-    rounded: "{rounded.library-dialog}"
-    padding: "{spacing.library-dialog}"
-  knowledge-library-dialog-observatory:
-    backgroundColor: "{colors.knowledge-library-light}"
-    textColor: "{colors.observatory-ink}"
-    rounded: "{rounded.library-dialog}"
-    padding: "{spacing.library-dialog}"
+    rounded: "{rounded.dialog}"
+    padding: "{spacing.dialog}"
 ---
 
-# Design System: LifeAtlas
+# Design System: LifeAtlas · Open Sky
 
 ## Overview
 
-**Creative North Star: "生活阅览室 × 知识宇宙"**
+**Creative North Star: "Open Sky / 留一点空间"**
 
-LifeAtlas retains its outlined wordmark, app rail, independent topic index, continuous reading geometry and native controls. The current local workspace extends that world with real record forms, an AI question–references–confirmation–result sequence, readonly mail and local knowledge management. The user's November 3 direction explicitly replaces the earlier pair of night palettes with 深空 · 暗色 (Island, default) and 晴空 · 亮色 (Observatory); stored identifiers remain compatible.
+LifeAtlas places the owner's writing, evidence and knowledge in a calm personal workspace. The user explicitly selected Apple-inspired visual hierarchy, fluid capsule controls and restrained translucent navigation on 2026-11-03. This replaces the earlier reading-room token system and the unpresented seed 953eaba1 direction. It describes the implemented local web UI, not native macOS or a complete Liquid Glass implementation.
 
-Dark surrounds calm, near-opaque reading surfaces with locally rendered stars. Light surrounds pale navigation and reading surfaces with locally rendered blue sky and clouds. The knowledge map remains a deep-space volume inside light surroundings so stellar knowledge stays visible. This is a code-led expansion of the pinned direction; no new comp or identity replacement is asserted. October white-sheet/lake concepts and the November 2 two-night-palette description are historical, not current authority.
+Blue sky and clouds remain the light background; particle stars remain the dark background. Text lives on near-opaque white or charcoal reading surfaces, while navigation and tools use limited frosted material. The original outlined Alegreya LifeAtlas wordmark remains the identity anchor; the selected Aurora Nebula ribbon is the application icon. Geometry stays purposeful: a floating rail, continuous record lists, an independent growth index and a real 3D knowledge canvas.
 
 **Key Characteristics:**
+- Sky and stars surround stable reading surfaces.
+- Blue primary capsules and quiet secondary actions carry a clear hierarchy.
+- Chinese system UI type, drawn icons and native form controls stay familiar.
+- Source-attached AI remains beside the owner’s content.
 
-- One locally generated atmospheric background: stars in dark, blue sky/clouds in light.
-- The established LifeAtlas lettering, rail, growth index and continuous reading geometry.
-- Real local lists and editors, explicit written states and honest empty views.
-- Chinese sans host UI, serif growth comparisons and local Space Grotesk inside knowledge.
-- A deep-space 3D knowledge viewport with skin-aware surrounding controls and reading panels.
+This is a scan-mode record of the shipped source layers: `local/cupertino.css` is imported last by `local/entry.ts`; `public/knowledge-universe/cupertino.css` is the corresponding final iframe layer. `PRODUCT.md` owns capability and service boundaries; `.impeccable/surfaces/open-sky-ui.md` owns the selected direction and `.impeccable/surfaces/local-workspace-ts.md` owns its local composition. Prior DESIGN.md values are superseded by this authorized visual-system replacement.
 
 ## Colors
 
-The frontmatter records the shipped local program's final cascade: `local/entry.ts` imports inherited layers through `src/cosmic-integration.css`, then `local/workspace.css`. The latter overrides Observatory to light and supplies local fields/rail. `public/knowledge-universe/library.css`, loaded after the nebula layer, supplies light knowledge chrome, reader and management-dialog overrides. The retained hosted entry's earlier cascade is not the current installed program's palette authority.
+The palette combines blue action color with neutral white/charcoal content and a locally rendered sky. Frontmatter is normative; its keys retain the CSS semantic names, including the historical `green` and `forest` names that now resolve to blue.
 
 ### Primary
 
-Island uses pale blue actions on midnight-blue surfaces; Observatory uses deep blue actions on pale surfaces. Main buttons use each skin's accent-ink, so dark actions have dark lettering and light actions have white lettering. Semantic CSS names `green` and `forest` retain compatibility; their names do not require a green hue. Local active navigation uses ink, including dark-blue ink on the light selected rail fill.
+- **Action Blue** (`island-forest` / `observatory-forest`): primary actions, with their respective `forest-deep` hover values and white `accent-ink` text.
+- **Link Blue** (`island-green` / `observatory-green`): links, navigation icons and inline assistance; it is lighter in the dark skin.
+- **Focus Blue** (`*-focus`): visible keyboard focus, with a broader transparent field halo.
 
 ### Secondary
 
-Knowledge keeps pale cyan and existing domain tints to identify content and relations. The mint custom-nebula default is an editable user-content color, not a third skin. Its map-local dark label/hover colors remain intentional in either skin.
+- **Caution and Removal** (`*-amber`, `*-amber-bg`, `*-red`, `*-red-bg`): written caution/error and destructive states. These communicate state rather than a decorative accent.
 
 ### Neutral
 
-Dark uses midnight ground and near-opaque blue reading panels; light uses blue-white ground, white fields and pale reading panels. Rail ground, muted text, lines and wash are distinct roles. Sky-exposed light introductory/help text, links, timestamps, footer and growth/AI sidebar text use ink where final scoped CSS needs stronger contrast; interior muted hierarchy remains. Knowledge light reader content and hover states also use explicit ink/deep-blue overrides rather than inherited pale dark-theme text. Amber and red are skin-specific written pending/error treatments. Selection and scrollbar colors are scoped light utilities, not new action roles.
+- **Sky Ground** (`*-paper`): fallback behind the locally rendered background; `island` remains the default stored theme.
+- **Reading White / Reading Charcoal** (`*-surface`): the stable document, list and editor ground. Knowledge has a slightly more opaque charcoal ground of its own.
+- **Primary Ink / Supporting Ink** (`*-ink`, `*-muted`): authored text versus explanations and metadata.
+- **Quiet Separator / Wash** (`*-line`, `*-wash`): subtle internal divisions and contextual excerpts.
+- **Field / Control / Selected** (`*-field`, `*-control`, `*-control-hover`, `*-selected`): inputs, secondary actions and segmented selections.
+- **Frosted Rail** (`*-glass`): translucent navigation/tools; the knowledge toolbar uses its scoped glass values.
+- **Current Mail** (`*-mail-selection`, `*-mail-selection-edge`): distinct selected-row fill and inset edge. The persistent “当前阅读” label also identifies the opened message.
 
-**The Textual State Rule.** Every consequential status has a written label; color is an additional cue.
+**The Sky Continuity Rule.** Retain day clouds and night stars around the workspace, and retain the deep-space knowledge viewport in both skins.
+
+The Aurora Nebula icon palette is asset-local, defined in its SVG and provenance record, and does not redefine application theme tokens. The sidecar’s eight-step OKLCH ramps are synthesized panel previews from the source hues; they omit alpha and are not additional runtime theme values.
 
 ## Typography
 
-**Display and body font:** Microsoft YaHei, PingFang SC, system sans. **Comparison font:** self-hosted AtlasSerif, Noto Serif SC, serif. **Knowledge font:** local Space Grotesk under the internal Atlas family name with Chinese OS fallbacks. **Wordmark:** outlined Alegreya lettering, independent of page typography.
+**Display and Body Font:** the frontmatter system UI stack. Windows uses its installed Segoe UI / Microsoft YaHei fallback; no Apple font file is distributed. The user-pinned Apple-style UI makes system headings intentional for this world. The LifeAtlas wordmark is an outlined Alegreya asset, not the page display face.
 
-Local module headings use the headline role; section headings are 20px/1.6, local record subtitles 17px/1.6 and empty-state subtitles 18px. Body inherits 14px/1.65, local prose reads at 1.9, record paragraphs at 1.85 and local textareas at 1.8. Reading text caps at 75ch; introductory copy at 70ch. Metadata is 12px; small navigation/library controls are 11px. The library heading is 24px, reducing to the documented 21px role at 620px. Dates use tabular numerals.
+**Character:** clear Chinese sans headings and native-feeling controls, with moderate weight contrast and generous prose leading. No invented eyebrow or kicker hierarchy is part of the system.
 
-Existing growth typography remains: topic titles, explicit event/reflection hierarchy, serif comparison excerpts, preserved line breaks and native editor fields. Its phone-specific type and reading treatment remain inherited. Projected knowledge labels keep one title centered on the stellar core, with existing 12px node and 15px/13px domain roles. These scoped steps describe actual functions rather than a new general type scale.
+### Hierarchy
+
+- **Headline:** `headline`; module headings. The compact phone form uses `headline-mobile`; Today has the larger `today-headline` role and shrinks to 31px on phones.
+- **Title:** `title`; editor and section headings. Growth topic headings use 23px, shrinking to 21px on phones; the library uses `library-title`, shrinking to 22px.
+- **Record title:** `record-title`; distinguishes a saved record without creating another card.
+- **Body:** `body`; record prose stays within 72ch. Growth event text uses `event`; knowledge summaries use `knowledge-summary`.
+- **Label:** `label`; primary/secondary controls. Supporting metadata uses `supporting`, kept subordinate to content.
+- **Editor:** `editor`; ordinary fields. Phone fields use `editor-mobile` to keep native editing comfortable.
 
 ## Layout
 
-The desktop rail remains 208px; local main content is capped at 1440px with padding 34px 38px 60px. The inherited top-shell transition remains 1050px. Local records place a flexible list beside a 290–360px editor with a 38px gap. AI uses a flexible 26px-padded reading/form section and a 280px history column. Mail uses a 300px list, flexible text reader and 30px gap. Growth preserves its separate topic index and continuous reading sheet. Settings retains the existing two-column arrangement and ordinary sections.
+Desktop navigation floats 16px from the viewport edges, is 218px wide and uses a 24px outer corner. The main workspace begins after a 250px left offset, caps ordinary content at 1480px and uses 48px top/bottom padding. Record lists and editors share an open two-column composition with a 28px gap and a 300–380px editor. Records are divided rows within one reading surface. Today uses a wider list and an offset starting panel; this is a Today composition, not a universal grid.
 
-At 1100px, local main padding becomes 26px 24px 45px, record/editor gap 24px and mail list/gap 250px/20px. At 760px, records, AI and mail stack; ordinary editor asides lead, while AI history follows the analysis. Main padding becomes 24px 18px 120px; editor/reader padding becomes 20px. Two paired local fields remain two columns. At 640px the local navigation uses five columns, 64px minimum items, 11px labels and 10px detail labels, accommodating actual visible destinations rather than the historical six/eight-route formula.
+Growth keeps its own 184px topic index beside the continuous reading surface. Settings pairs main sections with a 230px anchored directory. Mail pairs a 300px cached list with its reader. Knowledge gives the 3D viewport the remaining space and layers the toolbar, reader, controls and internally scrolling library dialog around it.
 
-Knowledge retains its dedicated full-width iframe and compact module toolbar, with inherited 600px desktop minimum and 620px/650px top-shell/phone minima. Selection opens a reader beside the map or a bottom drawer at the iframe's 620px breakpoint. Library management uses a native modal constrained to min(760px, viewport minus 28px), 88dvh maximum height and internal scrolling; padding changes from 28px to 20px at 620px. Long filenames, paths, references and record text wrap. The lower upload section may require scrolling; this is a scoped interaction limitation, not an instruction to invent a new global layout.
+At 1200px the rail narrows to 190px and the content spacing contracts. At 1000px navigation becomes an in-flow, four-column compact header and the workspace left margin disappears. At 760px record, settings and mail work areas stack; record editor asides lead their lists, while Today's start panel follows its content. Growth's topic index becomes a horizontally scrolling strip. At 480px main padding is 14px at the sides, fields grow to the phone editor role and primary controls have a 44px minimum height. Knowledge uses its own 620px compact-toolbar/dialog adaptation. These are observed layout breakpoints, not a device-detection policy.
 
 ## Elevation & Depth
 
-Atmospheric depth comes from the locally drawn sky and volumetric knowledge map; text uses stable reading surfaces. Local editors/start/settings-note surfaces have a low ambient shadow, different in dark and light. The inherited growth sheet shadow remains its own token; dialogs use a stronger overlay/backdrop. The map retains perspective (47°), transparent WebGL rendering, organic XYZ gas, stellar cores, dust and broad semantic bridges. In light mode its viewport has a deliberate deep-space ground while reader, toolbar and management surfaces become light.
+Translucency distinguishes tools from reading, with soft ambient elevation rather than hard card outlines. Navigation uses blur and saturation; documents remain near-opaque. Record rows have no individual elevation. Full shadow, material and motion values live in `.impeccable/design.json`, which extends this frontmatter.
 
-**The Continuous Atmosphere Rule.** Use one body-level atmosphere for the shell; preserve the deliberate dark knowledge viewport in the light skin and skin-aware surrounding reading controls.
+### Shadow Vocabulary
 
-**The Index and Sheet Rule.** The topic index locates; the near-opaque sheet carries reading. Use dividers and disclosures inside the sheet rather than another stack of equal-weight cards.
+- **Rail ambient:** `shadow`; a soft 16px/48px spread of depth in both skins, tinted by its ground.
+- **Reading elevation:** `work-elevation`; a quieter 10px/32px shadow under continuous work areas.
+- **Pressed/selected controls:** primary actions use a small blue ambient shadow; selected segments use a shallow 2px/6px shadow. Current mail selection uses an inset edge rather than elevation.
+- **Library dialog:** a soft 24px/70px shadow with a dimmed, blurred backdrop.
 
-`src/cosmic-background.ts` generates the sky locally using offscreen noise: dark adds drifting stars/twinkle; light renders blue-white cloud color without stars. Rendering caps at 24fps desktop, 20fps below 640px and approximately 1.7 million bitmap pixels. Editing, hidden documents and reduced motion pause animation; switching dynamics off retains a static background. The knowledge renderer has its own approximately 30fps cap and shared motion gates. No image API, external footage or cloud renderer is needed.
+**The Stable Reading Rule.** Use frosted material for navigation and tools; keep authored text and form content on near-opaque reading surfaces.
+
+Control transitions are short (150–160ms), with a restrained pressed scale. Reduced motion removes control transitions and existing background rules pause dynamics during editing, backgrounding and system reduction. Reduced transparency replaces supported frosted shell surfaces with reading ground.
 
 ## Shapes
 
-Existing shared buttons retain 12px corners, active navigation 9px, growth filters 10px and reading sheets 14px. Local fields/status notices use 9px, local status chips 6px, records 12px and editor/AI/mail reading surfaces 14px. The scoped knowledge library modal uses 16px corners, with 8px fields/previews; projected labels retain 5px. These are intentional local roles rather than global replacement values. Custom nebulae continue existing irregular gas/stellar geometry rather than introducing card-shaped objects in the map.
+Capsules define actions and segmented controls. Inputs use the `field` corner, navigation and contextual excerpts use `navigation`, continuous reading sheets use `sheet`, and the library dialog uses `dialog`. Outer rail corners are broader than internal fields. Borders appear where they explain selection, grouping or focus; ordinary record rows use separators rather than their own rounded frames. Preserve native date, select, checkbox, radio and disclosure affordances.
 
 ## Components
 
-### Wordmark and application icon
+### Buttons
 
-The LifeAtlas outlined Alegreya wordmark remains true italic 550 “Life” and roman 500 “Atlas”, matched cap heights, baseline and optical seam. It inherits currentColor; widths remain 156px desktop, 146px top shell and 138px small shell. The home link retains its accessible Chinese name and small-shell subtitle behavior. The original Atlas Orbit app icon remains a packaging asset with its own colors and shape, documented in `docs/APP-ICON.md`; it does not redefine UI tokens. Source and OFL attribution remain in `public/brand/`.
+Soft, precise actions. Primary controls use Action Blue with white text, the `capsule` radius and `control` padding; hover uses the paired deeper blue, and press scales to .97. Main controls have a 42px minimum height on desktop and 44px on phones. Secondary controls use the transparent neutral control layer, with a stronger hover fill. Destructive controls use the red state pair. Disabled controls visibly reduce opacity and retain a written context. Focus remains visible.
 
-### Buttons and fields
+### Chips and segments
 
-Native main actions bind to forest/forest-deep and accent-ink. Subtle actions use surface, ink and secondary border; written disabled/loading states remain visible. Existing Uiverse-derived expanding CTA feedback is 240ms with a 180ms arrow shift; common feedback and switches use 180ms. Shared action targets retain 44px minimum height. Local field fill uses work-field, with a 9px corner and 11px 12px padding; inherited growth controls keep their own 12px geometry. Local keyboard focus is a 2px palette focus outline with 3px offset. Reduced motion suppresses transitions. Pinned source/MIT attribution remain in `docs/UIVERSE-DESIGN.md`.
+The local-saving chip is a small frosted capsule, not a score or decorative badge. Growth tabs sit in a lightly filled capsule track and select a separate neutral segment. Map view controls remain dark over the deep-space canvas in both skins.
 
-### Navigation and reading
+### Cards / Containers
 
-The local workspace exposes Today, Growth, Knowledge, optional Investment and Life, AI Analysis, Mail, Task Records and Settings. Task Records reuses the history route identifier. Optional destination switches remain independent. The wordmark and existing rail/top-shell behavior remain; current local mobile navigation uses the scoped five-column treatment. Records use list + editor composition, AI uses question → editable references → destination confirmation → saved result, and mail uses list + text reading. Empty views explain the next useful action; saved history is not fabricated to fill space.
+Continuous reading areas carry the `sheet` corner and soft work elevation. The list uses `list-sheet` spacing; editors use `editor`; growth uses `growth-sheet`. At phone size, `mobile-sheet` spacing preserves the text column. Avoid a card around each record or every disclosure.
 
-### Knowledge and library management
+### Inputs / Fields
 
-The six built-in domains remain distinct; content counts are not layout tokens. Users can create/rename/delete custom nebulae and upload into an independent/new or existing nebula. File outline/excerpts become real custom hierarchy, not inferred semantic links. The library modal is a native dialog with labelled inputs, close action, explicit extraction/preview and confirmation controls, written status and internal scrolling. Dark/light modal fields/reading text follow their scoped palette; knowledge actions retain the module's established accent. Original-file management belongs in Settings. Static file mode has narrower capabilities than the full local program; product limits are in `docs/LOCAL-WORKSPACE.md`.
+Quiet filled controls with a transparent resting border, the `field` corner and native input semantics. The focus border and halo must remain visible. Textareas resize vertically, and long content wraps. Metadata and connection hints remain written text beside the relevant form.
 
-Existing trackball rotation/roll, pan, zoom, inertial settling, camera fit and map labels remain. Approaching reveals a title at the projected core; selected labels receive priority, local overlap culling does not relocate labels, and the domain selector stays usable. Long knowledge content is read in the reader rather than on gas. Nebula/bridge rendering remains governed by its source and sidecar motion metadata.
+### Navigation
 
-### Appearance and live work
+An inset frosted rail with drawn blue icons, readable Chinese labels, a neutral selected tile and a modest weight change. Hover uses a quiet control fill. Compact navigation has four columns; phone navigation places icon above label. The original LifeAtlas wordmark remains above it. Growth's independent topic index keeps its own selection state.
 
-The selector has exactly two current choices: 深空 · 暗色 and 晴空 · 亮色. The `island` and `observatory` identifiers preserve saved preference compatibility, not historical visual appearance. Settings → 外观与动态 is the only appearance/dynamics location. Local backup, AI/mail configuration and original-file management use ordinary Settings sections and labelled native controls, with explicit connection, persistence and failure messages.
+### Source-attached assistance
 
-**The Live Task Rule.** Changing appearance preserves live input, focus, scroll and the current view by updating the document skin attribute.
+The trigger is a quiet capsule beneath the source, followed by editable question/reference preview, visible destination/model, explicit submission, written pending/error/result and generated-result provenance. Results use a restrained top rule and readable prose rather than a separate dashboard panel. History stays source-scoped; legacy standalone analysis is only history in Settings.
+
+**The Source Stays Rule.** Keep AI guidance, previews and generated results beneath the source they concern; do not introduce a separate AI destination.
+
+### Knowledge and library
+
+Keep the 3D canvas dark, and theme its surrounding tools, reader and library. The library uses a broad softly rounded native dialog with internal scrolling; independent nebula creation, upload/preview and target choice remain distinct sections. Map controls use dark capsules so they stay legible on the canvas.
+
+### Current mail
+
+The opened row combines its theme-specific selected fill, an inset edge and the persistent Chinese “当前阅读” label. Preserve this cue in both themes, alongside the separate readable message body.
 
 ## Do's and Don'ts
 
-### Do
+### Do:
 
-- Do use the active skin's semantic variables and the final local workspace cascade.
-- Do preserve LifeAtlas lettering, established reading geometry, native control semantics and explicit written states.
-- Do use ink for small text exposed directly to the light sky and explicit dark reader text on light knowledge surfaces.
-- Do keep the knowledge viewport deep-space in light mode while its toolbar, reader and library follow the selected skin.
-- Do keep appearance controls in Settings and honor editing, hidden-document and reduced-motion pauses.
-- Do distinguish authored local records, isolated test fixtures, bounded rules and user-requested model output.
+- **Do** retain the outlined LifeAtlas wordmark and the original Aurora Nebula icon as separate identity assets.
+- **Do** use theme tokens for text, controls, focus and selection in both skins.
+- **Do** keep record rows continuous with restrained separators and give the editor its own stable surface.
+- **Do** preserve visible written saving, pending, error and selection states alongside color.
+- **Do** preserve drafts and source-attached assistance when appearance changes.
+- **Do** retain keyboard focus, native fields, reduced-motion and reduced-transparency behavior.
 
-### Don't
+### Don't:
 
-- Don't restore historical lake concepts, a horizontal Observatory desktop shell or the superseded two-dark-palette commitment as current authority.
-- Don't duplicate brand/navigation inside the knowledge frame or remount live work to change appearance.
-- Don't put long reading text directly on an animated background.
-- Don't claim real account success, semantic/vector retrieval, automatic tools, live markets or trading from these surfaces.
-- Don't treat a simulated analysis or protocol test as proof of a real provider or the owner's credentials.
+- **Don't** turn this workspace into a rigid grid of nested dashboard cards.
+- **Don't** place long-form text directly on a blurred sky or starfield.
+- **Don't** add a standalone AI module or overwrite authored text with generated results.
+- **Don't** copy Apple logos, SF font files or SF Symbols, or claim native Apple materials.
+- **Don't** use the icon's mint/violet gradients as a new global control palette.
+- **Don't** claim installation, real-account connectivity or exhaustive interaction coverage from screenshots.

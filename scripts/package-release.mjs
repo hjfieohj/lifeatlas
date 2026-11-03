@@ -25,7 +25,7 @@ function audit(folder){
  walk(folder);return files;
 }
 const manifests={windows:audit(app),knowledge:audit(knowledge),icons:audit(icons)};
-for(const expected of ['LifeAtlas.exe','runtime/node.exe','runtime/server.mjs','runtime/services.mjs','runtime/integrations.mjs','licenses/integrations/INDEX.json','Install-Desktop-Shortcut.cmd','Install-Desktop-Shortcut.ps1','本地功能与连接指南.md','web/index.html','web/assets/app.js','web/knowledge-universe/index.html','web/knowledge-universe/library.js','LifeAtlas-Orbit-v2.ico','licenses/Node-LICENSE.txt'])if(!manifests.windows.includes(expected))throw new Error('Missing release file: '+expected);
+for(const expected of ['LifeAtlas.exe','runtime/node.exe','runtime/server.mjs','runtime/services.mjs','runtime/integrations.mjs','licenses/integrations/INDEX.json','Install-Desktop-Shortcut.cmd','Install-Desktop-Shortcut.ps1','本地功能与连接指南.md','web/index.html','web/assets/app.js','web/knowledge-universe/index.html','web/knowledge-universe/library.js','LifeAtlas-Aurora-v3.ico','licenses/Node-LICENSE.txt'])if(!manifests.windows.includes(expected))throw new Error('Missing release file: '+expected);
 for(const [folder,name]of [[app,'LifeAtlas-Windows-x64.zip'],[knowledge,'Knowledge-Universe-Offline.zip'],[icons,'LifeAtlas-Icons.zip']])execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',path.join(root,'scripts/zip-release.ps1'),'-InputDirectory',folder,'-OutputFile',path.join(out,name)],{cwd:root,stdio:'inherit',windowsHide:true});
 execFileSync('git',['archive','--format=zip','--prefix=LifeAtlas-Source/','-o',path.join(out,'LifeAtlas-Source.zip'),'HEAD'],{cwd:root});
 fs.copyFileSync(path.join(root,'docs/DOWNLOADS.md'),path.join(out,'LifeAtlas-Readme.zh-CN.md'));

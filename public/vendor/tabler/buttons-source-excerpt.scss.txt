@@ -1,0 +1,60 @@
+@use 'sass:list';
+@use 'sass:map';
+
+//
+// Button
+//
+@use '../config' as *;
+
+.btn {
+  --btn-icon-size: #{$input-btn-icon-size};
+  --btn-icon-color: inherit;
+  --btn-bg: var(--bg-surface);
+  --btn-color: var(--body-color);
+  --btn-border-color: #{$btn-border-color};
+  --btn-hover-bg: #{$btn-hover-bg};
+  --btn-hover-border-color: var(--border-active-color);
+  --btn-active-color: #{$active-color};
+  --btn-active-bg: #{$btn-active-bg};
+  --btn-active-border-color: #{$active-border-color};
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: calc((var(--btn-line-height) * 1) + (var(--btn-padding-y) * 2) + (var(--btn-border-width) * 2));
+  min-height: calc((var(--btn-line-height) * 1) + (var(--btn-padding-y) * 2) + (var(--btn-border-width) * 2));
+  white-space: nowrap;
+  box-shadow: var(--btn-box-shadow);
+
+  @include border-radius(var(--btn-border-radius));
+
+  .icon {
+    width: var(--btn-icon-size);
+    min-width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    margin: 0 calc(var(--btn-padding-x) / 2) 0 calc(var(--btn-padding-x) / -4);
+    font-size: var(--btn-icon-size);
+    color: var(--btn-icon-color);
+    vertical-align: bottom;
+  }
+
+  .avatar {
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    margin: 0 calc(var(--btn-padding-x) / 2) 0 calc(var(--btn-padding-x) / -4);
+  }
+
+  .icon-right,
+  .icon-end {
+    margin: 0 calc(var(--btn-padding-x) / -4) 0 calc(var(--btn-padding-x) / 2);
+  }
+
+  .badge {
+    top: auto;
+  }
+
+  .btn-check + &:hover {
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-bg);
+    border-color: var(--btn-hover-border-color);

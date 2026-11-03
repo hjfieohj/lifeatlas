@@ -22,7 +22,7 @@ for(const dir of packages){const pkg=JSON.parse(fs.readFileSync(path.join(dir,'p
 fs.writeFileSync(path.join(integrationLicenses,'INDEX.json'),JSON.stringify(licenseIndex,null,2));
 for(const file of ['server.mjs','database.mjs','launcher.mjs'])if(fs.existsSync(path.join(root,'local',file)))fs.copyFileSync(path.join(root,'local',file),path.join(out,'runtime',file));
 if(fs.existsSync(path.join(root,'local/lifeatlas.ico')))fs.copyFileSync(path.join(root,'local/lifeatlas.ico'),path.join(out,'LifeAtlas.ico'));
-if(fs.existsSync(path.join(root,'local/lifeatlas.ico')))fs.copyFileSync(path.join(root,'local/lifeatlas.ico'),path.join(out,'LifeAtlas-Orbit-v2.ico'));
+if(fs.existsSync(path.join(root,'local/lifeatlas.ico')))fs.copyFileSync(path.join(root,'local/lifeatlas.ico'),path.join(out,'LifeAtlas-Aurora-v3.ico'));
 if(process.platform==='win32')execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',path.join(root,'scripts/build-local-launcher.ps1'),'-OutputDirectory',out],{stdio:'inherit',windowsHide:true});
 fs.copyFileSync(path.join(root,'scripts/install-local-shortcuts.ps1'),path.join(out,'Install-Desktop-Shortcut.ps1'));
 fs.writeFileSync(path.join(out,'Install-Desktop-Shortcut.cmd'),'@echo off\r\npowershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File "%~dp0Install-Desktop-Shortcut.ps1" -ApplicationDirectory "%~dp0."\r\n','ascii');
@@ -31,5 +31,5 @@ fs.writeFileSync(path.join(out,'DAILY-USE.md'),fs.readFileSync(path.join(root,'d
 fs.copyFileSync(path.join(root,'docs/DOWNLOADS.md'),path.join(out,'使用说明.md'));
 fs.copyFileSync(path.join(root,'src/inline-ai.css'),path.join(out,'web/knowledge-universe/inline-ai.css'));
 const knowledge=path.join(out,'web/knowledge-universe/index.html');fs.writeFileSync(knowledge,fs.readFileSync(knowledge,'utf8').replace('<head>','<head>\n<link rel="stylesheet" href="inline-ai.css"><script src="/local-bootstrap.js" defer></script>'));
-fs.writeFileSync(path.join(out,'web/index.html'),'<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LifeAtlas · 本地生活全图</title><link rel="icon" href="/favicon.svg?v=atlas-orbit-v2"><link rel="stylesheet" href="/assets/app.css"><script type="module" src="/assets/app.js"></script></head><body><a class="skip" href="#main">跳到主要内容</a><div id="app"></div></body></html>');
+fs.writeFileSync(path.join(out,'web/index.html'),'<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LifeAtlas · 本地生活全图</title><link rel="icon" href="/favicon.svg?v=atlas-aurora-v3"><link rel="stylesheet" href="/assets/app.css"><script type="module" src="/assets/app.js"></script></head><body><a class="skip" href="#main">跳到主要内容</a><div id="app"></div></body></html>');
 console.log('Built self-contained local application: '+out);

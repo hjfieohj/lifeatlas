@@ -9,6 +9,7 @@ import '../src/optional-modules.css';
 import '../src/cosmic-integration.css';
 import './workspace.css';
 import '../src/inline-ai.css';
+import './cupertino.css';
 import {initializeWorkspace} from './workspace';
 import {mountLocalApplication} from './application';
 import {initializeStorage,download} from './storage';
