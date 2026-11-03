@@ -1,4 +1,4 @@
-export const environmentFields=['personal','strengths','family','school','neighborhood','work','place','society','culture','living','digital','region','governance','power','economy','industry','geopolitics','exposure','supports','constraints','sources'] as const;
+export const environmentFields=['personal','strengths','family','school','neighborhood','work','place','society','culture','living','digital','region','governance','power','country','economy','industry','geopolitics','exposure','supports','constraints','sources'] as const;
 export type EnvironmentField=typeof environmentFields[number];
 export const lifeStages={'':'暂不填写',preschool:'学龄前',primary:'小学阶段',secondary:'中学或中职阶段',higher:'大学或继续学习',work:'在职',transition:'求职或转型',care:'主要承担照护',retired:'退休',other:'其他或多个阶段'};
 export const settlements={'':'暂不填写',rural:'农村',town:'乡镇或县城',city:'城市',other:'其他或流动居住'};
@@ -8,11 +8,11 @@ export type LifeEnvironment={asOf:string;profile?:EnvironmentProfile}&Record<Env
 export const environmentLayers=[
   {id:'personal',title:'个人',description:'阶段、特点、专业与承受能力',fields:['personal','strengths','living','digital']},
   {id:'family',title:'家庭',description:'父母、关系、责任与支持',fields:['family']},
-  {id:'social',title:'身边社会',description:'学校、职场、邻里与同伴',fields:['school','work','neighborhood']},
-  {id:'regional',title:'地域与制度',description:'区县、省市、区域经济与地方治理',fields:['place','region','society','culture','governance','power']},
-  {id:'macro',title:'宏观与外部环境',description:'经济周期、行业传导与地缘风险',fields:['economy','industry','geopolitics']}
+  {id:'social',title:'周围社会',description:'学校、职场、邻里与同伴',fields:['school','work','neighborhood']},
+  {id:'regional',title:'地区文化（民间与政府）',description:'民间生活与文化、政府与公共治理',fields:['place','region','society','culture','governance','power']},
+  {id:'macro',title:'国家与国际',description:'国家政策、经济行业与国际联系',fields:['country','economy','industry','geopolitics']}
 ] as const satisfies ReadonlyArray<{id:string;title:string;description:string;fields:readonly EnvironmentField[]}>;
-export const environmentLabels:Record<EnvironmentField,string>={personal:'个人阶段、需要与特点',strengths:'特长、兴趣与已有能力',family:'父母、家庭与共同生活',school:'学校、老师与学习环境',neighborhood:'邻里、同伴与亲密关系',work:'行业、同事与管理方式',place:'地域、机会与生活条件',society:'主要政策与公共服务',culture:'风俗、文化与人情',living:'经济、健康、时间与生活保障',digital:'网络与信息环境',region:'跨区域联系与区域经济',governance:'地方治理与公开施政',power:'重要经济主体与地方影响力',economy:'宏观经济、就业与生活成本',industry:'经济变化与职业、行业、专业的联系',geopolitics:'地缘、供应链与外部风险',exposure:'外部变化怎样一步步影响到我',supports:'可利用的支持与资源',constraints:'当前的限制与压力',sources:'依据、来源与待核实之处'};
+export const environmentLabels:Record<EnvironmentField,string>={personal:'个人阶段、需要与特点',strengths:'特长、兴趣与已有能力',family:'父母、家庭与共同生活',school:'学校、老师与学习环境',neighborhood:'邻里、同伴与亲密关系',work:'行业、同事与管理方式',place:'地域、机会与生活条件',society:'地方政策与公共服务',culture:'风俗、文化与人情',living:'经济、健康、时间与生活保障',digital:'网络与信息环境',region:'跨区域联系与区域经济',governance:'地方治理与公开施政',power:'重要经济主体与地方影响力',country:'国家制度与公共政策',economy:'宏观经济、就业与生活成本',industry:'经济变化与职业、行业、专业的联系',geopolitics:'国际关系、跨境联系与外部变化',exposure:'外部变化怎样一步步影响到我',supports:'可利用的支持与资源',constraints:'当前的限制与压力',sources:'依据、来源与待核实之处'};
 export const environmentPrompts:Record<EnvironmentField,string>={
   personal:'目前在读几年级、做什么工作或承担哪些角色？自己的习惯、需要和容易受影响的地方是什么？',
   strengths:'喜欢什么、擅长什么？写一个做成过的具体例子，区分自己的兴趣与他人的期待。',
@@ -28,6 +28,7 @@ export const environmentPrompts:Record<EnvironmentField,string>={
   region:'所在地区与华北、长三角、珠三角等区域的产业、交通、人口和资源联系如何？哪些条件实际影响自己的专业或工作？区域只是分析范围。',
   governance:'主要负责人的公开施政重点、具体决策、承诺履行、办事透明度与服务反馈。写明任职时期、地区和来源；依据可观察的做法理解治理，不凭传闻推断人格。',
   power:'哪些大企业、雇主或资源集中者影响当地就业与生活？涉及胁迫、违法或黑恶势力的线索，区分亲历、传闻、公开报道与司法材料，保留来源，不据传闻认定个人或组织。',
+  country:'所在国家的哪些制度、公共政策、教育就业或社会保障安排与自己有关？记录适用范围、生效时间、具体来源和实际影响，区分公开事实与自己的理解。',
   economy:'有何可核实的就业、收入、需求、价格或经济变化？标明时间与来源，区分总体趋势、所在行业和自己的实际处境。',
   industry:'从经济变化到行业订单、岗位、收入和专业机会，影响经过哪些环节？哪些是已有迹象，哪些仍是假设？',
   geopolitics:'经核实、与自己有关的国际关系、交通、供应链或跨境变化。影响是否真的到达自己的工作与生活？不因某个居住地就默认存在某项风险。',

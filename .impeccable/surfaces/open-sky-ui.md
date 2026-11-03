@@ -2,6 +2,12 @@
 
 Mode: Operate. Complete visual-system replacement, code-led. Targets: local/application.ts, local/cupertino.css, local/entry.ts, public/knowledge-universe/cupertino.css, public/brand/lifeatlas-app-icon.svg.
 
+## Adjustable glass extension · 2026-11-04
+
+The user finds the solid modules monotonous and explicitly requests translucent frosted glass across modules, configurable in Settings. This overrides the earlier opaque-content material commitment while keeping Apple-inspired geometry, typography, sky themes, real records and original icons. Surface alpha alone changes; text/controls retain opacity. Two native sliders provide transparency 0–65% and blur 0–40px (default36%/20px), immediate preview, automatic local persistence and glass-only reset. Stored version2 skin/particles remain compatible. Settings must not rebuild/lose a draft or focus when adjusted. The same values reach the knowledge iframe and other open windows; 3D graph and notes stay mounted. Reduced-transparency settings use opaque surfaces without deleting saved choices, with a written explanation. Unsupported backdrop filtering uses readable solid panels. Verify both skins, zero/max/default values, persistence, keyboard sliders, cross-window/frame sync and actual desktop/narrow/mobile rendering. This is an approved material extension, not a new concept round. FINISH from the original contract still applies.
+
+The same active request adds five visible Growth basics: 个人、家庭、周围社会、地区文化（民间与政府）、国家与国际. Show real entry buttons before any topic exists, not hidden inside a post-creation form. First-time selection opens an environment draft; only explicit save creates the owner's named basic-environment topic. Existing selections edit that topic's historical profile. Switching scopes inside an open form preserves all typing. Regional input separates community/culture from government/public governance; the additive country field records national policy with sources. Preserve stored layer IDs, legacy environment JSON, prior revisions and source-attached AI. No automatic profile fabrication, real-world policy claims or paid API request.
+
 ## Direction contract
 
 THESIS: The owner's evolving records and three-dimensional knowledge belong in a light, fluid personal desktop workspace rather than a stack of heavy dashboard cards. Preserve all real functions and source-attached AI.
@@ -16,6 +22,14 @@ FORM: User explicitly pinned Apple style after seed 953eaba1 assigned candidate 
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-## Finish evidence
+## Current finish evidence · 2026-11-04
+
+The November 4 adjustable-glass/basic-environment section above is the current material override; the original November 3 direction below it retains geometry/history rather than reinstating the superseded opaque-content rule. Eleven PNGs in `.impeccable/review/glass` and five in `.impeccable/review/growth-basics` cover both skins at 1450px / 960px / 390px. All sixteen passed the review evidence gate after the dark-controls-mobile recapture. The documenter independently opened glass light-settings-desktop, dark-settings-narrow, light-controls-mobile and dark-controls-mobile; basics basics-dark-desktop/mobile, national-desktop and regional-government-desktop/mobile.
+
+The supplied `work/glass-growth-tests.txt` records 97 passes and the parent reports typecheck/build success. `work/glass-ui-qa.txt` and `work/growth-basics-ui-qa.txt` pass controls/keyboard/bounds/reset/persistence, cross-window/frame sync, input/graph retention, reduction, direct entries/no auto-record, save/reload/history. The v060 draft and inline regression logs pass; the inherited inline screenshot tail is not an extra evidence set. No real-provider calls. One detector run per feature: glass 0 primary/46 advisories against older tokens; basics 0/0, no rerun.
+
+Initial scoped finish verdict **fix** listed F1 stale design/product rules and F2 basic-button fallback. DESIGN.md, its matching v2 sidecar and current product/local/user guidance now address F1 without replacing geometry. The parent added the basic buttons to the near-solid unsupported-filter fallback and preserved hover/selected cues for F2. The final reviewer returned **ship**, with **F1 and F2 resolved**, limited to those scored fixes rather than a renewed whole-surface certification. All sixteen recaptures are valid, with no fix-batch regressions observed. The forced unsupported-filter branch passed normal/hover .97 alpha and distinct selected/hover cues in simulation only. Platform prose schema drift is reported and left unchanged. Installation and GitHub v0.6.0 publication remain separate pending parent work; no finished deployment is claimed here.
+
+## Historical finish evidence · 2026-11-03
 
 Fourteen current captures in `.impeccable/review/open-sky` cover both themes and desktop/phone/tablet. Initial independent full review returned fix for F1 light-mail selection and F2 obsolete documentation. After correction and recapture, the reviewer scored F1/F2 resolved and returned ship at that fix-list scope. DESIGN.md and its v2 sidecar describe the shipped system; icon origin is embedded in the source-rendered PNG and recorded in provenance JSON. 95 tests, typecheck/build and isolated functional/draft/inline-AI checks pass with no real-provider calls. One detector run: 0 primary,57 advisories against the old design system; not rerun. Windows installation and public-release checks are separate from visual review.

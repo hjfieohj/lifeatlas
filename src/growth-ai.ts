@@ -31,7 +31,7 @@ export function mountGrowthAI(panel:HTMLElement,options:{topic:GrowthTopic|null;
    return read(fields);
   };
   const suffix=form.id==='growth-environment-form'?':environment':form.id==='growth-advisor-form'?':guidance':':whole';
-  attach(form,id+suffix,labelText,whole,()=>form.id==='growth-advisor-form'?(form.querySelector<HTMLInputElement>('[name="story"]')?.value||''):fields().filter(el=>el.name!=='title'&&el.tagName!=='SELECT').map(el=>el.value).join('').trim(),form);
+  attach(form,id+suffix,labelText,whole,()=>form.id==='growth-advisor-form'?(form.querySelector<HTMLInputElement>('[name="story"]')?.value||''):fields().filter(el=>!['title','foundationTitle'].includes(el.name)&&el.tagName!=='SELECT').map(el=>el.value).join('').trim(),form);
  }else if(topic){
   const intro=panel.querySelector('.growth-topic-intro');
   if(intro)attach(intro,topic.id+':whole','成长主题与起点',()=>topicAIContext(topic),()=>topic.baseline+topic.direction);

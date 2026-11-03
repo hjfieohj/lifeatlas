@@ -4,8 +4,8 @@ export function mountKnowledge(host:HTMLElement,onEditing:(editing:boolean)=>voi
  const frame=host.querySelector<HTMLIFrameElement>('#knowledge-universe-frame');if(!frame)return()=>{};
  const node=location.hash.split(':')[1];if(node&&/^[a-z0-9-]{1,90}$/.test(node))frame.src='/knowledge-universe/index.html?embedded=1&node='+encodeURIComponent(node);
  const controller=new AbortController();
- function preferences(){let particles=true;try{particles=JSON.parse(localStorage.getItem('lifeatlas-appearance-v1')||'{}').particles!==false;}catch{/* Default motion preference. */}frame?.contentWindow?.postMessage({type:'lifeatlas:sky-preference',particles},location.origin);}
- frame.addEventListener('load',preferences,{signal:controller.signal});document.addEventListener('change',preferences,{signal:controller.signal});
+ function preferences(event?:Event){let appearance:Record<string,unknown>={};try{appearance=JSON.parse(localStorage.getItem('lifeatlas-appearance-v1')||'{}')||{};}catch{/* Default appearance. */}if(event instanceof CustomEvent&&event.type==='lifeatlas:appearance-change')appearance=event.detail;frame?.contentWindow?.postMessage({type:'lifeatlas:sky-preference',particles:appearance.particles!==false,appearance},location.origin);}
+ frame.addEventListener('load',preferences,{signal:controller.signal});document.addEventListener('lifeatlas:appearance-change',preferences,{signal:controller.signal});
  window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==frame.contentWindow)return;if(e.data?.type==='atlas:editing'&&typeof e.data.editing==='boolean')onEditing(e.data.editing);},{signal:controller.signal});
  return()=>{controller.abort();onEditing(false);};
 }

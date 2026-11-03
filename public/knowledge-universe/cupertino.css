@@ -70,3 +70,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','
 @media(prefers-reduced-transparency:reduce){:root :is(.topbar,.mobile-reader){backdrop-filter:none;background:var(--ui-ground)}}
 
 @media(max-width:620px){[data-embedded=true] .topbar{height:122px}[data-embedded=true] .workspace{top:122px}[data-embedded=true] .reader.open{top:122px}[data-embedded=true] .search-wrap{height:40px}[data-embedded=true] .top-actions .button{width:40px;height:40px}:root .embed-tools{min-height:42px}:root .embed-tools :is(button,select){min-height:40px}:root .reader .button{min-height:44px}}
+
+/* Values are shared with the host's saved appearance, including live updates. */
+:root{--panel-rgb:32 38 54;--panel-opacity:.64;--panel-blur:20px;--ui-ground:rgb(var(--panel-rgb) / var(--panel-opacity));--ui-glass:var(--ui-ground)}
+:root[data-skin=observatory]{--panel-rgb:250 253 255;--ui-ground:rgb(var(--panel-rgb) / var(--panel-opacity));--ui-glass:var(--ui-ground)}
+:root :is(.topbar,.reader,.library-dialog,.mobile-reader),:root dialog{background:var(--ui-ground);backdrop-filter:blur(var(--panel-blur)) saturate(1.25);-webkit-backdrop-filter:blur(var(--panel-blur)) saturate(1.25)}
+@supports not (backdrop-filter:blur(1px)){:root :is(.topbar,.reader,.library-dialog,.mobile-reader),:root dialog{background:rgb(var(--panel-rgb) / .97)}}
+@media(forced-colors:active){:root :is(.topbar,.reader,.library-dialog,.mobile-reader),:root dialog{background:Canvas;backdrop-filter:none}}

@@ -225,6 +225,16 @@ test('regional and macro context plus professional position stay independent acr
   const frozen=JSON.parse((await h.repo.moment(owner.userId,m.id))!.context!).environment;assert.equal(frozen.economy,'虚构经济观察');assert.equal(frozen.profile.major,p.major);
   assert.equal((await h.request('topic',{...t,version:2,environmentProfile:{...env,power:'x'.repeat(1501)}})).status,400);
 });
+
+test('national policy is additive and frozen experiences keep earlier national and family context',async()=>{
+  const h=harness(),t=topic(),env=environment({family:'原有家庭记录',country:'当时的国家政策观察，来源待核实'});
+  const saved=await h.request('topic',{...t,environmentProfile:env});assert.equal(saved.status,200);assert.equal(JSON.parse(saved.body.item.environmentProfile).country,env.country);
+  const m=moment(t.id);assert.equal((await h.request('moment',{...m,environment:env})).status,200);
+  const updated=await h.request('topic',{...t,version:1,environmentProfile:{...env,country:'之后修正的观察'}});assert.equal(updated.status,200);
+  assert.equal(JSON.parse(updated.body.item.environmentProfile).family,'原有家庭记录');
+  const frozen=JSON.parse((await h.repo.moment(owner.userId,m.id))!.context!).environment;assert.equal(frozen.country,env.country);
+  const revisions=(await h.request('revisions?id='+t.id+'&kind=topic')).body.items;assert.equal(JSON.parse(JSON.parse(revisions.at(-1).snapshot).environmentProfile).country,env.country);
+});
 test('macro guidance input and v3 report are exported and remain searchable in their original form',async()=>{
   const h=harness(),t=topic();await h.request('topic',t);const input={...blankGuidance(),domain:'economic',story:'虚构：想核实行业变化',change:'虚构订单信号',connection:'行业 → 岗位',evidence:'虚构来源待核实',watchFor:'排班变化'};
   const m=moment(t.id),saved=await h.request('moment',{...m,guidance:{input,selectedPlan:'preferred'}});assert.equal(saved.status,200);

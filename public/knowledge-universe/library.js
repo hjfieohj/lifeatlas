@@ -33,6 +33,8 @@ window.mountAtlasLibrary=atlas=>{
  }catch(error){report('未完成：'+error.message);}finally{busy=false;if(submit)submit.disabled=false;}
  });
  // Reflect the app palette without changing the spatial nebula canvas.
- const theme=()=>{try{document.documentElement.dataset.skin=JSON.parse(localStorage.getItem('lifeatlas-appearance-v1')||'{}').skin||'island';}catch{}};theme();
- window.addEventListener('message',e=>{if(e.source===parent&&e.origin===location.origin&&e.data?.type==='lifeatlas:sky-preference')theme();});
+ const theme=(incoming)=>{let value=incoming;try{value??=JSON.parse(localStorage.getItem('lifeatlas-appearance-v1')||'{}');}catch{value={};}value||={};const bounded=(n,f,max)=>typeof n==='number'&&Number.isFinite(n)?Math.round(Math.min(max,Math.max(0,n))):f;const reduced=value.reduceTransparency===true||matchMedia('(prefers-reduced-transparency: reduce)').matches;document.documentElement.dataset.skin=value.skin==='observatory'?'observatory':'island';document.documentElement.style.setProperty('--panel-opacity',String(reduced?1:1-bounded(value.transparency,36,65)/100));document.documentElement.style.setProperty('--panel-blur',(reduced?0:bounded(value.blur,20,40))+'px');};theme();
+ window.addEventListener('message',e=>{if(e.source===parent&&e.origin===location.origin&&e.data?.type==='lifeatlas:sky-preference')theme(e.data.appearance);});
+ window.addEventListener('storage',e=>{if(e.key==='lifeatlas-appearance-v1')theme();});
+ matchMedia('(prefers-reduced-transparency: reduce)').addEventListener('change',()=>theme());
 };

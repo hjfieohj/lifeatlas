@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-03T15:30:20.173634+00:00",
+  "generatedAt": "2026-11-03T18:08:11.271272+00:00",
   "title": "Design System: LifeAtlas · Open Sky",
   "extensions": {
     "colorMeta": {
@@ -20,17 +20,18 @@
       },
       "island-surface": {
         "role": "neutral",
-        "displayName": "Island Surface",
+        "displayName": "Dark Adjustable Glass",
         "tonalRamp": [
-          "oklch(15.00% 0.01753 270.65)",
-          "oklch(26.43% 0.01753 270.65)",
-          "oklch(37.86% 0.01753 270.65)",
-          "oklch(49.29% 0.01753 270.65)",
-          "oklch(60.71% 0.01753 270.65)",
-          "oklch(72.14% 0.01753 270.65)",
-          "oklch(83.57% 0.01753 270.65)",
-          "oklch(95.00% 0.01753 270.65)"
-        ]
+          "oklch(15.00% 0.03116 268.40)",
+          "oklch(26.43% 0.03116 268.40)",
+          "oklch(37.86% 0.03116 268.40)",
+          "oklch(49.29% 0.03116 268.40)",
+          "oklch(60.71% 0.03116 268.40)",
+          "oklch(72.14% 0.03116 268.40)",
+          "oklch(83.57% 0.03116 268.40)",
+          "oklch(95.00% 0.03116 268.40)"
+        ],
+        "canonical": "rgb(32 38 54 / var(--panel-opacity))"
       },
       "island-ink": {
         "role": "neutral",
@@ -300,17 +301,18 @@
       },
       "island-glass": {
         "role": "neutral",
-        "displayName": "Island Glass",
+        "displayName": "Dark Adjustable Glass",
         "tonalRamp": [
-          "oklch(15.00% 0.02117 269.34)",
-          "oklch(26.43% 0.02117 269.34)",
-          "oklch(37.86% 0.02117 269.34)",
-          "oklch(49.29% 0.02117 269.34)",
-          "oklch(60.71% 0.02117 269.34)",
-          "oklch(72.14% 0.02117 269.34)",
-          "oklch(83.57% 0.02117 269.34)",
-          "oklch(95.00% 0.02117 269.34)"
-        ]
+          "oklch(15.00% 0.03116 268.40)",
+          "oklch(26.43% 0.03116 268.40)",
+          "oklch(37.86% 0.03116 268.40)",
+          "oklch(49.29% 0.03116 268.40)",
+          "oklch(60.71% 0.03116 268.40)",
+          "oklch(72.14% 0.03116 268.40)",
+          "oklch(83.57% 0.03116 268.40)",
+          "oklch(95.00% 0.03116 268.40)"
+        ],
+        "canonical": "rgb(32 38 54 / var(--panel-opacity))"
       },
       "island-mail-selection": {
         "role": "neutral",
@@ -356,17 +358,18 @@
       },
       "observatory-surface": {
         "role": "neutral",
-        "displayName": "Observatory Surface",
+        "displayName": "Light Adjustable Glass",
         "tonalRamp": [
-          "oklch(15.00% 0.00000 89.88)",
-          "oklch(26.43% 0.00000 89.88)",
-          "oklch(37.86% 0.00000 89.88)",
-          "oklch(49.29% 0.00000 89.88)",
-          "oklch(60.71% 0.00000 89.88)",
-          "oklch(72.14% 0.00000 89.88)",
-          "oklch(83.57% 0.00000 89.88)",
-          "oklch(95.00% 0.00000 89.88)"
-        ]
+          "oklch(15.00% 0.00416 236.49)",
+          "oklch(26.43% 0.00416 236.49)",
+          "oklch(37.86% 0.00416 236.49)",
+          "oklch(49.29% 0.00416 236.49)",
+          "oklch(60.71% 0.00416 236.49)",
+          "oklch(72.14% 0.00416 236.49)",
+          "oklch(83.57% 0.00416 236.49)",
+          "oklch(95.00% 0.00416 236.49)"
+        ],
+        "canonical": "rgb(250 253 255 / var(--panel-opacity))"
       },
       "observatory-ink": {
         "role": "neutral",
@@ -636,17 +639,18 @@
       },
       "observatory-glass": {
         "role": "neutral",
-        "displayName": "Observatory Glass",
+        "displayName": "Light Adjustable Glass",
         "tonalRamp": [
-          "oklch(15.00% 0.00740 260.73)",
-          "oklch(26.43% 0.00740 260.73)",
-          "oklch(37.86% 0.00740 260.73)",
-          "oklch(49.29% 0.00740 260.73)",
-          "oklch(60.71% 0.00740 260.73)",
-          "oklch(72.14% 0.00740 260.73)",
-          "oklch(83.57% 0.00740 260.73)",
-          "oklch(95.00% 0.00740 260.73)"
-        ]
+          "oklch(15.00% 0.00416 236.49)",
+          "oklch(26.43% 0.00416 236.49)",
+          "oklch(37.86% 0.00416 236.49)",
+          "oklch(49.29% 0.00416 236.49)",
+          "oklch(60.71% 0.00416 236.49)",
+          "oklch(72.14% 0.00416 236.49)",
+          "oklch(83.57% 0.00416 236.49)",
+          "oklch(95.00% 0.00416 236.49)"
+        ],
+        "canonical": "rgb(250 253 255 / var(--panel-opacity))"
       },
       "observatory-mail-selection": {
         "role": "neutral",
@@ -678,45 +682,48 @@
       },
       "knowledge-island-ground": {
         "role": "neutral",
-        "displayName": "Knowledge Island Ground",
+        "displayName": "Dark Adjustable Glass · Knowledge",
         "tonalRamp": [
-          "oklch(15.00% 0.01753 270.65)",
-          "oklch(26.43% 0.01753 270.65)",
-          "oklch(37.86% 0.01753 270.65)",
-          "oklch(49.29% 0.01753 270.65)",
-          "oklch(60.71% 0.01753 270.65)",
-          "oklch(72.14% 0.01753 270.65)",
-          "oklch(83.57% 0.01753 270.65)",
-          "oklch(95.00% 0.01753 270.65)"
-        ]
+          "oklch(15.00% 0.03116 268.40)",
+          "oklch(26.43% 0.03116 268.40)",
+          "oklch(37.86% 0.03116 268.40)",
+          "oklch(49.29% 0.03116 268.40)",
+          "oklch(60.71% 0.03116 268.40)",
+          "oklch(72.14% 0.03116 268.40)",
+          "oklch(83.57% 0.03116 268.40)",
+          "oklch(95.00% 0.03116 268.40)"
+        ],
+        "canonical": "rgb(32 38 54 / var(--panel-opacity))"
       },
       "knowledge-island-glass": {
         "role": "neutral",
-        "displayName": "Knowledge Island Glass",
+        "displayName": "Dark Adjustable Glass · Knowledge",
         "tonalRamp": [
-          "oklch(15.00% 0.02117 269.34)",
-          "oklch(26.43% 0.02117 269.34)",
-          "oklch(37.86% 0.02117 269.34)",
-          "oklch(49.29% 0.02117 269.34)",
-          "oklch(60.71% 0.02117 269.34)",
-          "oklch(72.14% 0.02117 269.34)",
-          "oklch(83.57% 0.02117 269.34)",
-          "oklch(95.00% 0.02117 269.34)"
-        ]
+          "oklch(15.00% 0.03116 268.40)",
+          "oklch(26.43% 0.03116 268.40)",
+          "oklch(37.86% 0.03116 268.40)",
+          "oklch(49.29% 0.03116 268.40)",
+          "oklch(60.71% 0.03116 268.40)",
+          "oklch(72.14% 0.03116 268.40)",
+          "oklch(83.57% 0.03116 268.40)",
+          "oklch(95.00% 0.03116 268.40)"
+        ],
+        "canonical": "rgb(32 38 54 / var(--panel-opacity))"
       },
       "knowledge-observatory-glass": {
         "role": "neutral",
-        "displayName": "Knowledge Observatory Glass",
+        "displayName": "Light Adjustable Glass · Knowledge",
         "tonalRamp": [
-          "oklch(15.00% 0.00740 260.73)",
-          "oklch(26.43% 0.00740 260.73)",
-          "oklch(37.86% 0.00740 260.73)",
-          "oklch(49.29% 0.00740 260.73)",
-          "oklch(60.71% 0.00740 260.73)",
-          "oklch(72.14% 0.00740 260.73)",
-          "oklch(83.57% 0.00740 260.73)",
-          "oklch(95.00% 0.00740 260.73)"
-        ]
+          "oklch(15.00% 0.00416 236.49)",
+          "oklch(26.43% 0.00416 236.49)",
+          "oklch(37.86% 0.00416 236.49)",
+          "oklch(49.29% 0.00416 236.49)",
+          "oklch(60.71% 0.00416 236.49)",
+          "oklch(72.14% 0.00416 236.49)",
+          "oklch(83.57% 0.00416 236.49)",
+          "oklch(95.00% 0.00416 236.49)"
+        ],
+        "canonical": "rgb(250 253 255 / var(--panel-opacity))"
       },
       "knowledge-map-glass": {
         "role": "neutral",
@@ -836,6 +843,16 @@
         "name": "library-dialog",
         "value": "0 24px 70px #0005",
         "purpose": "Knowledge library dialog."
+      },
+      {
+        "name": "glass-sheen-dark",
+        "value": "inset 0 1px 0 #edf4ff18",
+        "purpose": "Fine source-defined sheen above shared dark glass."
+      },
+      {
+        "name": "glass-sheen-light",
+        "value": "inset 0 1px 0 #ffffffa8",
+        "purpose": "Fine source-defined sheen above shared light glass."
       }
     ],
     "motion": [
@@ -880,6 +897,14 @@
       {
         "name": "phone",
         "value": "480px"
+      },
+      {
+        "name": "basic-environment-three-columns",
+        "value": "1150px"
+      },
+      {
+        "name": "basic-environment-two-columns",
+        "value": "640px"
       }
     ]
   },
@@ -922,15 +947,15 @@
       "refersTo": "status-chip",
       "description": "Written local-save state.",
       "html": "<span class=\"ds-chip\" role=\"status\">本机保存</span>",
-      "css": ".ds-chip{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;display:inline-block;border-radius:30px;padding:8px 13px;background:var(--glass,#242833d9);color:var(--ink,#f2f3f7);font-size:11px;line-height:1.5}"
+      "css": ".ds-chip{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;display:inline-block;border-radius:30px;padding:8px 13px;background:var(--glass,rgb(32 38 54 / var(--panel-opacity,.64)));color:var(--ink,#f2f3f7);font-size:11px;line-height:1.5}"
     },
     {
       "name": "Continuous Reading Surface",
       "kind": "card",
       "refersTo": "reading-sheet",
-      "description": "One stable work area, divided record rows.",
+      "description": "One adjustable frosted work area with fully opaque text and divided record rows.",
       "html": "<section class=\"ds-sheet\"><h2>我的记录</h2><article class=\"ds-record\"><h3>留下一个研究判断</h3><p>保留依据、来源与之后要验证的问题。</p></article><article class=\"ds-record\"><h3>记录一次经历</h3><p>保留当时的环境与理解。</p></article></section>",
-      "css": ".ds-sheet{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;padding:26px 28px;border-radius:16px;background:var(--surface,#20232cf5);color:var(--ink,#f2f3f7);box-shadow:var(--work-elevation,0 10px 32px #00000018)}.ds-sheet h2{font-size:19px;font-weight:650;margin:0 0 20px}.ds-record{padding:23px 0;border-bottom:1px solid var(--line,#ffffff17)}.ds-record:last-child{border-bottom:0}.ds-record h3{font-size:17px;font-weight:600;line-height:1.7;margin:4px 0 12px}.ds-record p{font-size:14px;line-height:1.9;max-width:72ch;margin:0}"
+      "css": ".ds-sheet{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;padding:26px 28px;border-radius:16px;background:var(--surface,rgb(32 38 54 / var(--panel-opacity,.64)));color:var(--ink,#f2f3f7);backdrop-filter:blur(var(--panel-blur,20px)) saturate(1.25);-webkit-backdrop-filter:blur(var(--panel-blur,20px)) saturate(1.25);box-shadow:var(--work-elevation,0 10px 32px #00000018),inset 0 1px 0 var(--glass-sheen,#edf4ff18)}.ds-sheet h2{font-size:19px;font-weight:650;margin:0 0 20px}.ds-record{padding:23px 0;border-bottom:1px solid var(--line,#ffffff17)}.ds-record:last-child{border-bottom:0}.ds-record h3{font-size:17px;font-weight:600;line-height:1.7;margin:4px 0 12px}.ds-record p{font-size:14px;line-height:1.9;max-width:72ch;margin:0}@supports not (backdrop-filter:blur(1px)){.ds-sheet{background:rgb(var(--panel-rgb,32 38 54) / .97)}}@media(prefers-reduced-transparency:reduce){.ds-sheet{background:rgb(var(--panel-rgb,32 38 54) / 1);backdrop-filter:none;-webkit-backdrop-filter:none}}"
     },
     {
       "name": "Segmented View",
@@ -947,13 +972,29 @@
       "description": "Quiet assistance beneath its current source.",
       "html": "<div class=\"ds-ai-row\"><button class=\"ds-ai\">AI · 总结与扩展</button><span>围绕这里的内容继续思考。</span></div>",
       "css": ".ds-ai-row{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px}.ds-ai-row span{font-size:11px;color:var(--muted,#b1b5c2)}.ds-ai{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;min-height:36px;padding:7px 13px;border:0;border-radius:22px;background:var(--control,#ffffff10);color:var(--green,#86b9ff);font-size:12px;transition:background-color 160ms}.ds-ai:hover{background:var(--control-hover,#ffffff1c)}.ds-ai:active{transform:scale(.97)}.ds-ai:focus-visible{outline:2px solid var(--focus,#8dbbff);outline-offset:4px}"
+    },
+    {
+      "name": "Glass Transparency Range",
+      "kind": "input",
+      "refersTo": "glass-slider",
+      "description": "Native keyboard-operable range with a visible value and endpoints; the app previews and autosaves on input. This panel snippet shows its default state.",
+      "html": "<label class=\"ds-glass\"><span>透明度<output for=\"ds-transparency\">36%</output></span><input id=\"ds-transparency\" type=\"range\" min=\"0\" max=\"65\" step=\"1\" value=\"36\" aria-valuetext=\"36% 透明\"><small><span>实心</span><span>更通透</span></small></label>",
+      "css": ".ds-glass{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;display:grid;gap:4px;margin:24px 0 26px;font-size:13px;color:var(--ink,#f2f3f7)}.ds-glass>span,.ds-glass small{display:flex;justify-content:space-between;gap:20px}.ds-glass output{font-weight:600;font-variant-numeric:tabular-nums;color:var(--green,#86b9ff)}.ds-glass input{width:100%;height:44px;min-height:44px;padding:0;border:0;background:transparent;accent-color:var(--forest,#0a67d7);cursor:ew-resize}.ds-glass input:focus-visible{outline:2px solid var(--focus,#8dbbff);outline-offset:0;border-radius:8px}.ds-glass small{font-size:11px;color:var(--muted,#b1b5c2);line-height:1.6}"
+    },
+    {
+      "name": "Basic Environment Navigation",
+      "kind": "nav",
+      "refersTo": "environment-entry",
+      "description": "Five direct entry buttons visible before a topic exists; selection opens its group while preserving the open form. Explicit saving creates the first topic.",
+      "html": "<nav class=\"ds-basics\" aria-label=\"基本环境模块\"><button type=\"button\" aria-pressed=\"true\"><span>个人</span><small>阶段、特点、专业与承受能力</small></button><button type=\"button\" aria-pressed=\"false\"><span>家庭</span><small>父母、关系、责任与支持</small></button><button type=\"button\" aria-pressed=\"false\"><span>周围社会</span><small>学校、职场、邻里与同伴</small></button><button type=\"button\" aria-pressed=\"false\"><span>地区文化（民间与政府）</span><small>民间生活与文化、政府与公共治理</small></button><button type=\"button\" aria-pressed=\"false\"><span>国家与国际</span><small>国家政策、经济行业与国际联系</small></button></nav>",
+      "css": ".ds-basics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.ds-basics button{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif;background:var(--surface,rgb(32 38 54 / var(--panel-opacity,.64)));backdrop-filter:blur(var(--panel-blur,20px)) saturate(1.25);color:var(--ink,#f2f3f7);border:0;border-radius:12px;padding:16px;text-align:left;min-height:94px;box-shadow:inset 0 1px 0 var(--glass-sheen,#edf4ff18);transition:background-color 160ms}.ds-basics button span{display:block;font-size:13px;font-weight:600;line-height:1.75}.ds-basics button small{display:block;font-size:11px;font-weight:400;line-height:1.8;color:var(--muted,#b1b5c2);margin-top:6px}.ds-basics button:hover{background:var(--control-hover,#ffffff1c)}.ds-basics button[aria-pressed=true]{background:var(--mail-selection,#303747);color:var(--green,#86b9ff);box-shadow:inset 0 0 0 1px var(--mail-selection-edge,#637898)}.ds-basics button:focus-visible{outline:2px solid var(--focus,#8dbbff);outline-offset:4px}@media(max-width:1150px){.ds-basics{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:640px){.ds-basics{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ds-basics button{padding:13px 14px;min-height:88px}.ds-basics button:last-child{grid-column:1/-1}}@supports not (backdrop-filter:blur(1px)){.ds-basics button,.ds-basics button:hover{background:rgb(var(--panel-rgb,32 38 54) / .97)}.ds-basics button:hover{color:var(--green,#86b9ff)}.ds-basics button[aria-pressed=true]{background:var(--mail-selection,#303747)}}@media(prefers-reduced-transparency:reduce){.ds-basics button{background:rgb(var(--panel-rgb,32 38 54) / 1);backdrop-filter:none}.ds-basics button[aria-pressed=true]{background:var(--mail-selection,#303747)}}@media(prefers-reduced-motion:reduce){.ds-basics button{transition:none}}"
     }
   ],
   "narrative": {
     "northStar": "Open Sky / 留一点空间",
-    "overview": "LifeAtlas places the owner's writing, evidence and knowledge in a calm personal workspace. The user explicitly selected Apple-inspired visual hierarchy, fluid capsule controls and restrained translucent navigation on 2026-11-03. This replaces the earlier reading-room token system and the unpresented seed 953eaba1 direction. It describes the implemented local web UI, not native macOS or a complete Liquid Glass implementation.\n\nBlue sky and clouds remain the light background; particle stars remain the dark background. Text lives on near-opaque white or charcoal reading surfaces, while navigation and tools use limited frosted material. The original outlined Alegreya LifeAtlas wordmark remains the identity anchor; the selected Aurora Nebula ribbon is the application icon. Geometry stays purposeful: a floating rail, continuous record lists, an independent growth index and a real 3D knowledge canvas.",
+    "overview": "LifeAtlas places the owner's writing, evidence and knowledge in a calm personal workspace. The user explicitly selected Apple-inspired visual hierarchy and fluid capsule controls on 2026-11-03, then adjustable frosted material across modules on 2026-11-04. This preserves the Open Sky geometry while superseding its earlier near-opaque-content-only rule. The earlier reading-room token system and unpresented seed 953eaba1 direction remain superseded. This describes the implemented local web UI, not native macOS or a complete Liquid Glass implementation.\n\nBlue sky and clouds remain the light background; particle stars remain the dark background. Navigation, module work surfaces and knowledge readers use adjustable white or charcoal glass; text stays fully opaque and native fields retain their filled grounds. The original outlined Alegreya LifeAtlas wordmark remains the identity anchor; the selected Aurora Nebula ribbon is the application icon. Geometry stays purposeful: a floating rail, continuous record lists, an independent growth index and a real 3D knowledge canvas.",
     "keyCharacteristics": [
-      "Sky and stars surround stable reading surfaces.",
+      "Sky and stars remain visible through adjustable frosted work surfaces.",
       "Blue primary capsules and quiet secondary actions carry a clear hierarchy.",
       "Chinese system UI type, drawn icons and native form controls stay familiar.",
       "Source-attached AI remains beside the owner’s content."
@@ -965,8 +1006,8 @@
         "section": "colors"
       },
       {
-        "name": "The Stable Reading Rule",
-        "body": "Use frosted material for navigation and tools; keep authored text and form content on near-opaque reading surfaces.",
+        "name": "The Surface-Only Glass Rule",
+        "body": "Adjust panel alpha and blur; keep text fully opaque, filled native fields legible, and written focus, selection and saving states visible.",
         "section": "elevation"
       },
       {
@@ -978,14 +1019,16 @@
     "dos": [
       "Do retain the outlined LifeAtlas wordmark and the original Aurora Nebula icon as separate identity assets.",
       "Do use theme tokens for text, controls, focus and selection in both skins.",
-      "Do keep record rows continuous with restrained separators and give the editor its own stable surface.",
+      "Do keep record rows continuous with restrained separators and give the editor a readable glass surface.",
       "Do preserve visible written saving, pending, error and selection states alongside color.",
       "Do preserve drafts and source-attached assistance when appearance changes.",
-      "Do retain keyboard focus, native fields, reduced-motion and reduced-transparency behavior."
+      "Do retain keyboard focus, native fields, reduced-motion and reduced-transparency behavior.",
+      "Do expose glass values, bounds, reset and the active reduction/fallback explanation in Settings.",
+      "Do keep all five basic-environment choices visible before the first topic."
     ],
     "donts": [
       "Don't turn this workspace into a rigid grid of nested dashboard cards.",
-      "Don't place long-form text directly on a blurred sky or starfield.",
+      "Don't apply opacity to whole content containers or fade text and native fields with their glass surface.",
       "Don't add a standalone AI module or overwrite authored text with generated results.",
       "Don't copy Apple logos, SF font files or SF Symbols, or claim native Apple materials.",
       "Don't use the icon's mint/violet gradients as a new global control palette.",

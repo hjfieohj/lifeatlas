@@ -1,9 +1,9 @@
 ---
 name: "LifeAtlas · Open Sky"
-description: "Apple-inspired fluid controls and stable reading surfaces above blue-sky day and particle-star night backgrounds"
+description: "Apple-inspired fluid controls and adjustable frosted work surfaces above blue-sky day and particle-star night backgrounds"
 colors:
   island-paper: "#080c14"
-  island-surface: "#20232cf5"
+  island-surface: "rgb(32 38 54 / var(--panel-opacity))"
   island-ink: "#f2f3f7"
   island-muted: "#b1b5c2"
   island-line: "#ffffff17"
@@ -23,11 +23,11 @@ colors:
   island-control: "#ffffff10"
   island-control-hover: "#ffffff1c"
   island-selected: "#3c404d"
-  island-glass: "#242833d9"
+  island-glass: "rgb(32 38 54 / var(--panel-opacity))"
   island-mail-selection: "#303747"
   island-mail-selection-edge: "#637898"
   observatory-paper: "#d8eafb"
-  observatory-surface: "#fffffff7"
+  observatory-surface: "rgb(250 253 255 / var(--panel-opacity))"
   observatory-ink: "#20232b"
   observatory-muted: "#555f70"
   observatory-line: "#18243c18"
@@ -47,12 +47,12 @@ colors:
   observatory-control: "#18243c08"
   observatory-control-hover: "#18243c10"
   observatory-selected: "#fff"
-  observatory-glass: "#f3f6fbe6"
+  observatory-glass: "rgb(250 253 255 / var(--panel-opacity))"
   observatory-mail-selection: "#e3efff"
   observatory-mail-selection-edge: "#b1cef3"
-  knowledge-island-ground: "#20232cf7"
-  knowledge-island-glass: "#242833ed"
-  knowledge-observatory-glass: "#f3f6fbed"
+  knowledge-island-ground: "rgb(32 38 54 / var(--panel-opacity))"
+  knowledge-island-glass: "rgb(32 38 54 / var(--panel-opacity))"
+  knowledge-observatory-glass: "rgb(250 253 255 / var(--panel-opacity))"
   knowledge-map-glass: "#242833e6"
   knowledge-map-selected: "#464d5d"
 typography:
@@ -200,6 +200,17 @@ components:
     textColor: "{colors.observatory-ink}"
     rounded: "{rounded.dialog}"
     padding: "{spacing.dialog}"
+  environment-entry:
+    backgroundColor: "{colors.island-surface}"
+    textColor: "{colors.island-ink}"
+    rounded: "{rounded.navigation}"
+    padding: "16px"
+  environment-entry-selected:
+    backgroundColor: "{colors.island-mail-selection}"
+    textColor: "{colors.island-green}"
+  glass-slider:
+    textColor: "{colors.island-ink}"
+    height: "44px"
 ---
 
 # Design System: LifeAtlas · Open Sky
@@ -208,17 +219,17 @@ components:
 
 **Creative North Star: "Open Sky / 留一点空间"**
 
-LifeAtlas places the owner's writing, evidence and knowledge in a calm personal workspace. The user explicitly selected Apple-inspired visual hierarchy, fluid capsule controls and restrained translucent navigation on 2026-11-03. This replaces the earlier reading-room token system and the unpresented seed 953eaba1 direction. It describes the implemented local web UI, not native macOS or a complete Liquid Glass implementation.
+LifeAtlas places the owner's writing, evidence and knowledge in a calm personal workspace. The user explicitly selected Apple-inspired visual hierarchy and fluid capsule controls on 2026-11-03, then adjustable frosted material across modules on 2026-11-04. This preserves the Open Sky geometry while superseding its earlier near-opaque-content-only rule. The earlier reading-room token system and unpresented seed 953eaba1 direction remain superseded. This describes the implemented local web UI, not native macOS or a complete Liquid Glass implementation.
 
-Blue sky and clouds remain the light background; particle stars remain the dark background. Text lives on near-opaque white or charcoal reading surfaces, while navigation and tools use limited frosted material. The original outlined Alegreya LifeAtlas wordmark remains the identity anchor; the selected Aurora Nebula ribbon is the application icon. Geometry stays purposeful: a floating rail, continuous record lists, an independent growth index and a real 3D knowledge canvas.
+Blue sky and clouds remain the light background; particle stars remain the dark background. Navigation, module work surfaces and knowledge readers use adjustable white or charcoal glass; text stays fully opaque and native fields retain their filled grounds. The original outlined Alegreya LifeAtlas wordmark remains the identity anchor; the selected Aurora Nebula ribbon is the application icon. Geometry stays purposeful: a floating rail, continuous record lists, an independent growth index and a real 3D knowledge canvas.
 
 **Key Characteristics:**
-- Sky and stars surround stable reading surfaces.
+- Sky and stars remain visible through adjustable frosted work surfaces.
 - Blue primary capsules and quiet secondary actions carry a clear hierarchy.
 - Chinese system UI type, drawn icons and native form controls stay familiar.
 - Source-attached AI remains beside the owner’s content.
 
-This is a scan-mode record of the shipped source layers: `local/cupertino.css` is imported last by `local/entry.ts`; `public/knowledge-universe/cupertino.css` is the corresponding final iframe layer. `PRODUCT.md` owns capability and service boundaries; `.impeccable/surfaces/open-sky-ui.md` owns the selected direction and `.impeccable/surfaces/local-workspace-ts.md` owns its local composition. Prior DESIGN.md values are superseded by this authorized visual-system replacement.
+This is a scan-mode record of the implemented source layers: `local/cupertino.css` is imported last by `local/entry.ts`; `public/knowledge-universe/cupertino.css` is the corresponding final iframe layer. `PRODUCT.md` owns capability and service boundaries; `.impeccable/surfaces/open-sky-ui.md` owns the selected direction and `.impeccable/surfaces/local-workspace-ts.md` owns its local composition. The 2026-11-04 material extension updates the reused tokens and rules without replacing the established layout or identity.
 
 ## Colors
 
@@ -237,16 +248,16 @@ The palette combines blue action color with neutral white/charcoal content and a
 ### Neutral
 
 - **Sky Ground** (`*-paper`): fallback behind the locally rendered background; `island` remains the default stored theme.
-- **Reading White / Reading Charcoal** (`*-surface`): the stable document, list and editor ground. Knowledge has a slightly more opaque charcoal ground of its own.
+- **Glass White / Glass Charcoal** (`*-surface`): adjustable document, list and editor grounds shared with knowledge readers. The final CSS resolves `--surface` / `--glass` and iframe `--ui-ground` / `--ui-glass` through `rgb(var(--panel-rgb) / var(--panel-opacity))`; the frontmatter spells out each skin's source RGB while retaining dynamic alpha.
 - **Primary Ink / Supporting Ink** (`*-ink`, `*-muted`): authored text versus explanations and metadata.
 - **Quiet Separator / Wash** (`*-line`, `*-wash`): subtle internal divisions and contextual excerpts.
 - **Field / Control / Selected** (`*-field`, `*-control`, `*-control-hover`, `*-selected`): inputs, secondary actions and segmented selections.
-- **Frosted Rail** (`*-glass`): translucent navigation/tools; the knowledge toolbar uses its scoped glass values.
+- **Frosted Rail** (`*-glass`): navigation/tools share the work-surface alpha; the dark controls directly over the 3D map retain their scoped map colors.
 - **Current Mail** (`*-mail-selection`, `*-mail-selection-edge`): distinct selected-row fill and inset edge. The persistent “当前阅读” label also identifies the opened message.
 
 **The Sky Continuity Rule.** Retain day clouds and night stars around the workspace, and retain the deep-space knowledge viewport in both skins.
 
-The Aurora Nebula icon palette is asset-local, defined in its SVG and provenance record, and does not redefine application theme tokens. The sidecar’s eight-step OKLCH ramps are synthesized panel previews from the source hues; they omit alpha and are not additional runtime theme values.
+`--panel-opacity` defaults to .64 and is set to `1 - transparency / 100`; it is not a fixed alpha token. Transparency 0–65% therefore gives alpha 1–.35. `--panel-blur` defaults to 20px and ranges from 0–40px. Source defaults and bounds live in `src/appearance.ts`; the same stored version-2 appearance and existing key retain skin/particles. The Aurora Nebula icon palette remains asset-local. The sidecar’s eight-step OKLCH ramps are synthesized hue previews without alpha, not runtime theme values.
 
 ## Typography
 
@@ -267,13 +278,13 @@ The Aurora Nebula icon palette is asset-local, defined in its SVG and provenance
 
 Desktop navigation floats 16px from the viewport edges, is 218px wide and uses a 24px outer corner. The main workspace begins after a 250px left offset, caps ordinary content at 1480px and uses 48px top/bottom padding. Record lists and editors share an open two-column composition with a 28px gap and a 300–380px editor. Records are divided rows within one reading surface. Today uses a wider list and an offset starting panel; this is a Today composition, not a universal grid.
 
-Growth keeps its own 184px topic index beside the continuous reading surface. Settings pairs main sections with a 230px anchored directory. Mail pairs a 300px cached list with its reader. Knowledge gives the 3D viewport the remaining space and layers the toolbar, reader, controls and internally scrolling library dialog around it.
+Growth keeps its own 184px topic index beside the continuous reading surface. Five basic-environment entry buttons precede the topic work area, including the empty state; they use five columns, three at 1150px, then two at 640px with the last choice spanning both. These are navigation choices, not a card wrapper for every record. Settings pairs main sections with a 230px anchored directory. Mail pairs a 300px cached list with its reader. Knowledge gives the 3D viewport the remaining space and layers the toolbar, reader, controls and internally scrolling library dialog around it.
 
 At 1200px the rail narrows to 190px and the content spacing contracts. At 1000px navigation becomes an in-flow, four-column compact header and the workspace left margin disappears. At 760px record, settings and mail work areas stack; record editor asides lead their lists, while Today's start panel follows its content. Growth's topic index becomes a horizontally scrolling strip. At 480px main padding is 14px at the sides, fields grow to the phone editor role and primary controls have a 44px minimum height. Knowledge uses its own 620px compact-toolbar/dialog adaptation. These are observed layout breakpoints, not a device-detection policy.
 
 ## Elevation & Depth
 
-Translucency distinguishes tools from reading, with soft ambient elevation rather than hard card outlines. Navigation uses blur and saturation; documents remain near-opaque. Record rows have no individual elevation. Full shadow, material and motion values live in `.impeccable/design.json`, which extends this frontmatter.
+Adjustable glass unifies navigation, module panels and knowledge readers, with soft ambient elevation and a fine inset sheen rather than hard card outlines. The final surface layer uses the shared blur and saturation (1.25); record rows have no individual elevation. Full shadow, material and motion values live in `.impeccable/design.json`, which extends this frontmatter.
 
 ### Shadow Vocabulary
 
@@ -282,9 +293,9 @@ Translucency distinguishes tools from reading, with soft ambient elevation rathe
 - **Pressed/selected controls:** primary actions use a small blue ambient shadow; selected segments use a shallow 2px/6px shadow. Current mail selection uses an inset edge rather than elevation.
 - **Library dialog:** a soft 24px/70px shadow with a dimmed, blurred backdrop.
 
-**The Stable Reading Rule.** Use frosted material for navigation and tools; keep authored text and form content on near-opaque reading surfaces.
+**The Surface-Only Glass Rule.** Adjust panel alpha and blur; keep text fully opaque, filled native fields legible, and written focus, selection and saving states visible.
 
-Control transitions are short (150–160ms), with a restrained pressed scale. Reduced motion removes control transitions and existing background rules pause dynamics during editing, backgrounding and system reduction. Reduced transparency replaces supported frosted shell surfaces with reading ground.
+Control transitions are short (150–160ms), with a restrained pressed scale. Reduced motion removes control transitions and existing background rules pause dynamics during editing, backgrounding and system reduction. Reduced transparency forces alpha 1 and blur 0 across shared surfaces, preserves stored glass choices and explains the override. Unsupported backdrop filtering uses the source .97-alpha solid-looking fallback, including basic-environment buttons; hover ink and selected fill/edge remain distinct. Forced colors use system grounds where declared.
 
 ## Shapes
 
@@ -302,7 +313,7 @@ The local-saving chip is a small frosted capsule, not a score or decorative badg
 
 ### Cards / Containers
 
-Continuous reading areas carry the `sheet` corner and soft work elevation. The list uses `list-sheet` spacing; editors use `editor`; growth uses `growth-sheet`. At phone size, `mobile-sheet` spacing preserves the text column. Avoid a card around each record or every disclosure.
+Continuous reading areas carry adjustable glass, the `sheet` corner and soft work elevation. The list uses `list-sheet` spacing; editors use `editor`; growth uses `growth-sheet`. An editor nested directly in a Growth reading surface stays transparent to avoid doubled glass. At phone size, `mobile-sheet` spacing preserves the text column. Avoid a card around each record or every disclosure.
 
 ### Inputs / Fields
 
@@ -311,6 +322,14 @@ Quiet filled controls with a transparent resting border, the `field` corner and 
 ### Navigation
 
 An inset frosted rail with drawn blue icons, readable Chinese labels, a neutral selected tile and a modest weight change. Hover uses a quiet control fill. Compact navigation has four columns; phone navigation places icon above label. The original LifeAtlas wordmark remains above it. Growth's independent topic index keeps its own selection state.
+
+### Glass settings
+
+Settings → 外观与动态 → 玻璃质感 uses two native ranges with visible values, endpoint labels and keyboard focus. Changes preview immediately and save locally without remounting forms or the knowledge graph. “恢复默认” resets transparency/blur only, preserving skin and dynamics. Cross-window and knowledge-frame updates preserve current input, graph and notes. Keep the written reduced-transparency and unsupported-filter explanations.
+
+### Basic environment navigation
+
+The five buttons are 个人、家庭、周围社会、地区文化（民间与政府）、国家与国际. Each opens and focuses its actual environment group with a selected state, before a topic exists as well as within a topic. Changing groups in an open form preserves its inputs. Regional form content has 民间生活与文化 and 政府与公共治理 subheadings. Country/policy prompts keep source and applicable-time context beside the input. Explicit saving and per-topic history belong to PRODUCT.md; the visual pattern must not imply automatic saving of a new environment topic.
 
 ### Source-attached assistance
 
@@ -332,15 +351,17 @@ The opened row combines its theme-specific selected fill, an inset edge and the 
 
 - **Do** retain the outlined LifeAtlas wordmark and the original Aurora Nebula icon as separate identity assets.
 - **Do** use theme tokens for text, controls, focus and selection in both skins.
-- **Do** keep record rows continuous with restrained separators and give the editor its own stable surface.
+- **Do** keep record rows continuous with restrained separators and give the editor a readable glass surface.
 - **Do** preserve visible written saving, pending, error and selection states alongside color.
 - **Do** preserve drafts and source-attached assistance when appearance changes.
 - **Do** retain keyboard focus, native fields, reduced-motion and reduced-transparency behavior.
+- **Do** expose glass values, bounds, reset and the active reduction/fallback explanation in Settings.
+- **Do** keep all five basic-environment choices visible before the first topic.
 
 ### Don't:
 
 - **Don't** turn this workspace into a rigid grid of nested dashboard cards.
-- **Don't** place long-form text directly on a blurred sky or starfield.
+- **Don't** apply opacity to whole content containers or fade text and native fields with their glass surface.
 - **Don't** add a standalone AI module or overwrite authored text with generated results.
 - **Don't** copy Apple logos, SF font files or SF Symbols, or claim native Apple materials.
 - **Don't** use the icon's mint/violet gradients as a new global control palette.

@@ -303,3 +303,63 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','
 
 #app.local-workspace [hidden]{display:none!important}
 @media(max-width:480px){#app.local-workspace .text-button{min-height:44px}}
+
+/* User-controlled glass: alpha affects only the surface, never text or controls. */
+:root,:root[data-skin=island]{--panel-rgb:32 38 54;--panel-opacity:.64;--panel-blur:20px;--glass-sheen:#edf4ff18;--surface:rgb(var(--panel-rgb) / var(--panel-opacity));--glass:var(--surface)}
+:root[data-skin=observatory]{--panel-rgb:250 253 255;--glass-sheen:#ffffffa8;--surface:rgb(var(--panel-rgb) / var(--panel-opacity));--glass:var(--surface)}
+#app.local-workspace>.sidebar,
+#app.local-workspace :is(.work-split>section,.work-editor,.work-start,.work-settings-note,.work-mail-reader,.work-mail-layout>section,.work-mail-toolbar,.settings-section),
+#app.local-workspace #growth-panel .growth-content{
+ background:var(--surface);backdrop-filter:blur(var(--panel-blur)) saturate(1.25);-webkit-backdrop-filter:blur(var(--panel-blur)) saturate(1.25);
+ box-shadow:var(--work-elevation),inset 0 1px 0 var(--glass-sheen);
+}
+#app.local-workspace>.sidebar{box-shadow:var(--shadow),inset 0 1px 0 var(--glass-sheen)}
+#app.local-workspace #growth-panel .growth-content>.growth-editor{background:transparent;backdrop-filter:none;box-shadow:none}
+#app.local-workspace #knowledge-universe-frame{backdrop-filter:blur(var(--panel-blur)) saturate(1.25)}
+#app.local-workspace .glass-controls{margin:28px 0 24px;padding-top:24px;border-top:1px solid var(--line)}
+#app.local-workspace .glass-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 4px}
+#app.local-workspace .glass-heading h3{font-size:17px;font-weight:600;margin:0}
+#app.local-workspace .glass-heading .text-button{flex-shrink:0}
+#app.local-workspace .glass-controls>p{font-size:12px;line-height:1.85;margin:0 0 24px;color:var(--muted)}
+#app.local-workspace label.glass-slider{display:grid;gap:4px;margin:24px 0 26px;font-size:13px;cursor:pointer}
+#app.local-workspace .glass-slider>span{display:flex;align-items:center;justify-content:space-between;gap:20px}
+#app.local-workspace .glass-slider output{font-size:13px;font-weight:600;color:var(--green);font-variant-numeric:tabular-nums}
+#app.local-workspace .glass-slider>input[type=range]{width:100%;height:44px;min-height:44px;padding:0;border:0;border-radius:0;background:transparent;accent-color:var(--forest);cursor:ew-resize;box-shadow:none}
+#app.local-workspace .glass-slider>input[type=range]:focus-visible{outline:2px solid var(--focus);outline-offset:0;border-radius:8px}
+#app.local-workspace .glass-slider small{display:flex;justify-content:space-between;font-size:11px;font-weight:400;color:var(--muted);line-height:1.6}
+#app.local-workspace .glass-controls>p.growth-help{margin:0;font-size:11px}
+#app.local-workspace .glass-support-note{display:none}
+#app.local-workspace .appearance-section .appearance-controls{display:flex;justify-content:flex-start;align-items:center;gap:10px 24px}
+#app.local-workspace .appearance-section :is(.skin-control,.particle-control){display:inline-flex;align-items:center;gap:10px;width:auto;flex:none;margin:0;min-height:44px}
+#app.local-workspace .glass-slider>input[type=range]{appearance:none;-webkit-appearance:none}
+#app.local-workspace .glass-slider>input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(to right,var(--forest) 0,var(--forest) var(--range-progress),var(--secondary-border) var(--range-progress),var(--secondary-border) 100%)}
+#app.local-workspace .glass-slider>input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:18px;height:18px;margin-top:-7px;border:0;border-radius:50%;background:var(--green);box-shadow:0 2px 6px #00000020}
+#app.local-workspace .glass-slider>input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:var(--secondary-border)}
+#app.local-workspace .glass-slider>input[type=range]::-moz-range-progress{height:4px;border-radius:4px;background:var(--forest)}
+#app.local-workspace .glass-slider>input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:var(--green)}
+
+@media(forced-colors:active){#app.local-workspace>.sidebar,#app.local-workspace :is(.work-split>section,.work-editor,.work-start,.work-settings-note,.work-mail-reader,.work-mail-layout>section,.work-mail-toolbar,.settings-section),#app.local-workspace #growth-panel .growth-content{background:Canvas;backdrop-filter:none;box-shadow:none}#app.local-workspace .glass-slider>input[type=range]{appearance:auto;-webkit-appearance:auto}}
+
+/* Five real environment entry points remain visible before any topic exists. */
+#app.local-workspace .growth-foundation{margin:0 0 28px}
+#app.local-workspace .growth-foundation-heading{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+#app.local-workspace .growth-foundation h2{font-size:17px;font-weight:600;margin:0}
+#app.local-workspace .growth-foundation-heading p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}
+#app.local-workspace .growth-foundation nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+#app.local-workspace .growth-foundation nav button{background:var(--surface);backdrop-filter:blur(var(--panel-blur)) saturate(1.25);color:var(--ink);border:0;border-radius:12px;padding:16px;text-align:left;min-height:94px;box-shadow:inset 0 1px 0 var(--glass-sheen);transition:background-color 160ms}
+#app.local-workspace .growth-foundation nav button span{display:block;font-size:13px;font-weight:600;line-height:1.75}
+#app.local-workspace .growth-foundation nav button small{display:block;font-size:11px;font-weight:400;line-height:1.8;color:var(--muted);margin-top:6px}
+#app.local-workspace .growth-foundation nav button:hover{background:var(--control-hover)}
+#app.local-workspace .growth-foundation nav button[aria-pressed=true]{background:var(--mail-selection);color:var(--green);box-shadow:inset 0 0 0 1px var(--mail-selection-edge)}
+#app.local-workspace #growth-panel .growth-env-subsection{padding-top:22px;margin-top:24px;border-top:1px solid var(--line)}
+#app.local-workspace #growth-panel .growth-env-subsection h4{font-size:16px;font-weight:600;margin:0 0 18px}
+#app.local-workspace #growth-panel .growth-environment-group{scroll-margin-top:24px}
+@media(max-width:1150px){#app.local-workspace .growth-foundation nav{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){#app.local-workspace .growth-foundation{margin-bottom:24px}#app.local-workspace .growth-foundation-heading{gap:6px}#app.local-workspace .growth-foundation nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#app.local-workspace .growth-foundation nav button{padding:13px 14px;min-height:88px}#app.local-workspace .growth-foundation nav button:last-child{grid-column:1/-1}}
+
+@supports not (backdrop-filter:blur(1px)){
+ #app.local-workspace>.sidebar,#app.local-workspace :is(.work-split>section,.work-editor,.work-start,.work-settings-note,.work-mail-reader,.work-mail-layout>section,.work-mail-toolbar,.settings-section),#app.local-workspace #growth-panel .growth-content,#app.local-workspace .growth-foundation nav :is(button,button:hover){background:rgb(var(--panel-rgb) / .97)}
+ #app.local-workspace .glass-support-note{display:block;margin-top:12px}
+ #app.local-workspace .growth-foundation nav button:hover{color:var(--green)}
+ #app.local-workspace .growth-foundation nav button[aria-pressed=true]{background:var(--mail-selection)}
+}
